@@ -1,5 +1,69 @@
+\input{template/requirements.tex}
 \section{Requisiti}
 \subsection{Introduzione}
+Sono stati definiti dei requisiti codificati in base all’ambito di competenza e ad un numero seriale per
+tenerne meglio traccia, inoltre nelle tabelle sottostanti sono fornite di descrizione e classificazione di ciascun
+requisito. Il codice di ciascuno requisito `e formato da:
+\begin{itemize}
+    \item \textbf{R} : Sta per requisito e serve a definire il dominio del codice rendendo subito intuibile che si tratti di
+    un requisito;
+    \item Lettera di tipologia:
+    \begin{itemize}
+        \item \textbf{F}: Funzionale;
+        \item \textbf{Q}: Di qualita`;
+        \item \textbf{D}: Di vincolo;
+        \item \textbf{P}: Prestazionale;
+    \end{itemize}
+\end{itemize}
 \subsection{Requisiti funzionali}
+\requirementsTable{
+    RF1 & L’utente deve poter visualizzare i dataset proposti & Obbligatorio & UC1 \tabularnewline
+    RF1.1 & L’utente deve poter visualizzare i dettagli dataset selezionato & Obbligatorio & UC1.1 UC1.1.1 UC1.1.2 UC1.1.3 \tabularnewline
+    RF1.2 & L’utente deve poter caricare il dataset selezionato & Obbligatorio & UC1.2 \tabularnewline
+
+    RF2 & L’utente deve poter visualizzare i dati del dataset selezionato in forma tabellare & Obbligatorio & UC2 \tabularnewline
+    
+    RF3 & L’utente deve poter visualizzare i dati del dataset selezionato in forma di grafico tridimensionale a barre verticali & Obbligatorio & UC3 \tabularnewline
+    
+    RF4 & L’utente deve poter visualizzare gli assi del grafico tridimensionale  & Obbligatorio & UC4 \tabularnewline
+    RF4.1 & L’utente deve poter visualizzare l`asse globale X del grafico tridimensionale  & Obbligatorio & UC4.1 \tabularnewline
+    RF4.2 & L’utente deve poter visualizzare l`asse globale Y del grafico tridimensionale  & Obbligatorio & UC4.2 \tabularnewline
+    RF4.3 & L’utente deve poter visualizzare l`asse globale Z del grafico tridimensionale  & Obbligatorio & UC4.3 \tabularnewline
+    
+    RF5 & L’utente deve poter visualizzare la legenda del grafico tridimensionale  & Obbligatorio & UC5 \tabularnewline
+ 
+    RF6 & L’utente deve poter effettuare un`azione di pan nell` ambiente, spostando la telecamera sugli assi locali Y e X & Obbligatorio & UC6 \tabularnewline
+    
+    RF7 & L’utente deve poter ruotare la telecamera a suo piacimento per visualizzare meglio il grafico tridimensionale & Obbligatorio & UC7 \tabularnewline
+    RF7.1 & L’utente deve poter ruotare la telecamera attorno all`asse globale X & Obbligatorio & UC7.1 \tabularnewline
+    RF7.2 & L’utente deve poter ruotare la telecamera attorno all`asse globale Y & Obbligatorio & UC7.2 \tabularnewline
+    
+    RF8 & L’utente deve poter muovere la telecamera all`interno dell` ambiente & Obbligatorio & UC8 \tabularnewline
+    RF8.1 & L’utente deve poter muovere la telecamera sull`asse globale X & Obbligatorio & UC8.1 \tabularnewline
+    RF8.2 & L’utente deve poter muovere la telecamera sull`asse globale Y & Obbligatorio & UC8.2 \tabularnewline
+    RF8.3 & L’utente deve poter muovere la telecamera sull`asse globale Z & Obbligatorio & UC8.3 \tabularnewline
+    
+    RF9 & L’utente deve poter riposizionare la telecamera alla sua posizione iniziale & Obbligatorio & UC9 \tabularnewline
+    
+    RF10 & L’utente deve poter visualizzare i valori del dataset selezionando le barre opportune verticali del grafico tridimensionale & Obbligatorio & UC10 \tabularnewline
+    
+    RF11 & L’utente deve poter selezionare elementi rappresentanti i dati del dataset & Obbligatorio & UC11 \tabularnewline
+    RF11.1 & L’utente deve poter selezionare le barre verticali del grafico tridimensionale & Obbligatorio & UC11.1 \tabularnewline
+    RF11.1.1 & L’utente selezionando una barra verticale del grafico tridimensionale fa si che la corrispondente cella della tabella venga evidenziata & Obbligatorio & UC11.1.1 \tabularnewline
+    RF11.2 & L’utente deve poter selezionare le celle della tabella & Obbligatorio & UC11.2 \tabularnewline
+    RF11.2.1 & L’utente deve poter selezionare una cella della tabella fa si che la corrispondente barra del grafico tridimensionale venga evidenziata  & Obbligatorio & UC11.2.1 \tabularnewline
+    RF11.2.2 & L’utente deve poter selezionare una cella della tabella fa si che la telecamera cambi posizione mettendo in primo piano la corrispondente barra del grafico tridimensionale & Obbligatorio & UC11.2.2 \tabularnewline
+
+    RF12 & Il Sistema modifica la trasparenza delle barre del grafico & Obbligatorio & UC12 \tabularnewline
+    RF12.1 & L’utente deve poter selezionare una barra la mette in evidenza andando a rendere piu` trasparenti quelle che hanno un valore maggiore o minore& Obbligatorio & UC12.1 \tabularnewline
+    RF12.2 & L’utente deve poter sceglere un numero "X" che verra` utilizzato per rendere piu` trasparenti le barre, i quali valori non rientrano tra i primi o ultimi X & Obbligatorio & UC12.2 \tabularnewline
+    RF12.3 & L’utente deve poter sceglere se rendere piu` trasparenti le barre con valori superiori o inferiori rispetto al valor medio globale & Obbligatorio & UC12.3 \tabularnewline
+    
+    RF13 & L’utente deve poter sceglere visualizzare il piano parallelo alla base che rappresenta il valor medio globale & Obbligatorio & UC13 \tabularnewline
+
+    RF14 & L’utente riceve un errore se il caricamento di un dataset fallisce & Obbligatorio & UC14 \tabularnewline
+}
 \subsection{Requisiti qualitativi}
-\subsection{Requisiti di dominio}
+\subsection{Requisiti di vincolo}
+\subsection{Requisiti prestazionali}
+\subsection{Tracciamento requisiti}
