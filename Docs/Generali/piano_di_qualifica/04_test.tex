@@ -15,5 +15,66 @@ I test si classificano in:
 \end{itemize}
 Per ciascun test, vengono forniti un codice identificativo, una descrizione, e
 lo stato del test. 
-Come specificato nel documento Norme di progetto, vengono
-utilizzate le seguenti abbreviazioni per identificare lo stato dei test:
+Come specificato nel documento \textit{Norme di progetto}, vengono utilizzate le seguenti 
+abbreviazioni per identificare lo stato dei test:
+\begin{itemize}
+    \item \textbf{NI}: Non Implementato;
+    \item \textbf{S}: Superato;
+    \item \textbf{NS}: Non Superato.
+\end{itemize}
+
+\input{template/test_table.tex}
+\subsection{Test di unità}
+\testTable{
+    TU1 & - & NI\tabularnewline
+}
+\subsection{Test di integrazione}
+\testTable{
+    TI1 & - & NI\tabularnewline
+}
+\subsection{Test di sistema}
+\testTable{
+    TS1 & Verifica che l'utente possa visualizzare la lista dei dataset disponibili & NI\tabularnewline
+    TS2 & Verifica che l'utente possa visualizzare i dettagli di un dataset & NI\tabularnewline
+    TS3 & Verifica che l'utente possa visualizzare il nome del dataset & NI\tabularnewline
+    TS4 & Verifica che l'utente possa visualizzare la descrizione del contenuto del dataset & NI\tabularnewline
+    TS5 & Verifica che l'utente possa visualizzare la dimensione del dataset & NI\tabularnewline
+    TS6 & Verifica che l'utente possa caricare nel sistema un dataset nella lista & NI\tabularnewline
+    TS7 & Verifica che l'utente possa visualizzare i dati in forma tabellare & NI\tabularnewline
+    TS8 & Verifica che l'utente possa visualizzare i dati in forma di grafico a barre 3D verticali & NI\tabularnewline
+    TS9 & Verifica che l'utente possa visualizzare gli assi del grafico & NI\tabularnewline
+    TS10 & Verifica che l'utente possa visualizzare l'asse X con i valori appropriati & NI\tabularnewline
+    TS11 & Verifica che l'utente possa visualizzare l'asse Y con i valori appropriati & NI\tabularnewline
+    TS12 & Verifica che l'utente possa visualizzare l'asse Z con i valori appropriati & NI\tabularnewline
+    TS13 & Verifica che l'utente possa spostare la visualizzazione del grafico 
+    lungo il piano XY senza modificare l'orientamento della telecamera & NI\tabularnewline
+    TS14 & Verifica che l'utente possa ruotare la visualizzazione del grafico 
+    modificando l'orientamento della telecamera & NI\tabularnewline
+    TS15 & Verifica che l'utente possa ruotare la visualizzazione del grafico attorno all'asse X & NI\tabularnewline
+    TS16 & Verifica che l'utente possa ruotare la visualizzazione del grafico attorno all'asse Y & NI\tabularnewline
+    TS17 & Verifica che l'utente possa ripristinare la posizione e l'angolazione alla configurazione 
+    iniziale, annullando qualsiasi modifica apportata dall'utente & NI\tabularnewline
+    TS18 & Verifica che l'utente possa visualizzare l'altezza e le etichette di una barra & NI\tabularnewline
+    TS19 & Verifica che l'utente possa rendere trasparenti le barre che soddisfano certe condizioni & NI\tabularnewline
+    TS20 & Verifica che l'utente possa rendere trasparenti le barre
+    con altezza superiore a una determinata barra & NI\tabularnewline
+    TS21 & Verifica che l'utente possa rendere trasparenti le barre
+    con altezza inferiore a una determinata barra & NI\tabularnewline
+    TS22 & Verifica che l'utente possa visualizzare in primo piano 
+    la barra relativa una cella della tabella & NI\tabularnewline
+    TS23 & Verifica che l'utente possa rendere trasparenti tutte 
+    le barre, eccetto le N barre più alte & NI\tabularnewline
+    TS24 & Verifica che l'utente possa rendere trasparenti tutte
+     le barre, eccetto le N barre più basse & NI\tabularnewline
+    TS25 & Verifica che l'utente possa rendere trasparenti le barre 
+    con altezza superiore al valore medio globale & NI\tabularnewline
+    TS26 & Verifica che l'utente possa rendere trasparenti le barre 
+    con altezza inferiore al valore medio globale & NI\tabularnewline
+    TS27 & Verifica che l'utente possa visualizzare il piano parallelo alla 
+    base che rappresenta il valore medio globale & NI\tabularnewline
+}
+
+\subsection{Test di accettazione}
+\testTable{
+    TA1 & - & NI\tabularnewline
+}
