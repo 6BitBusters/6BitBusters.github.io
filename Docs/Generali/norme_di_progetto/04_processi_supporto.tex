@@ -73,7 +73,7 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
         \end{itemize}
         \paragraph{Stile del testo}
         \begin{itemize}
-            \item \textbf{Grassetto}: utilizzato per i titoli delle sezioni, per i sottotitoli e per i paragrafi, parole tecniche o termini specifici che necessitano di evidenza nel contesto;
+            \item \textbf{Grassetto}: utilizzato per i titoli delle sezioni, per i sottotitoli, per i paragrafi e per parole tecniche o termini specifici che necessitano di evidenza nel contesto;
             \item \textbf{Corsivo}: utilizzato quando vengono scritti nomi di documenti, nome del gruppo o indirizzo email del gruppo.
         \end{itemize}
         \paragraph{Link}
@@ -84,6 +84,13 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
         \paragraph{Terminologia inglese}    
         Tutti i termini in lingua inglese saranno riportati al singolare, in quanto questa scelta risulta più coerente con l'uso comune e l'assonanza nella lingua italiana. Ad esempio, termini come "file" o "commit" verranno sempre utilizzati nella loro forma singolare, anche quando si riferiscono a concetti plurali, per evitare ambiguità o traduzioni non naturali.\\
         Per quanto riguarda il genere (maschile o femminile), verrà specificato all'interno del \textit{glossario}, così da uniformare l'interpretazione e garantire chiarezza, specialmente nei casi in cui il termine inglese non abbia un corrispettivo diretto o il genere non sia immediatamente evidente. Questa scelta mira a favorire una lettura fluida e una comprensione condivisa del testo.
+        \paragraph{Acronimi} 
+        Tutti gli acronimi seguiranno queste regole:
+        \begin{itemize}
+            \item L'acronimo deve essere scritto in maiuscolo;
+            \item L'articolo davanti a un acronimo deve concordare in genere e numero con il termine principale che l'acronimo rappresenta. Nel caso di acronimi derivati da termini stranieri, la concordanza va basata sul significato tradotto o percepito in italiano. Questo garantisce una corretta integrazione dell'acronimo nella struttura grammaticale della lingua;
+            \item Ogni acronimo deve essere inserito nel glossario, accompagnato da una spiegazione dettagliata del suo significato, per garantire chiarezza e comprensione.
+        \end{itemize}
         \subsubsection{Strumenti per la stesura}
         Per la stesura dei documenti verrà usato il linguaggio Latex, un linguaggio di marcatura per la preparazione di testi, basato sul programma di
         composizione tipografica TEX, tutta la documentazione prodotta è contenuta nella cartella 'Docs'. I documenti seguono una struttura comune:
@@ -143,7 +150,7 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
             \item \textbf{Processi primari}: definizione dei processi primari, nel nostro caso:
             \begin{itemize}
                 \item Fornitura: definizione e regole di fornitura e rapporto con il proponente;
-                \item Sviluppo: definizione e regole di sviluppo, per quanto riguarda analisi dei requisiti, progettazione e codifica.
+                \item Sviluppo: definizione e regole di sviluppo per quanto riguarda l'analisi dei requisiti, la progettazione e la codifica.
             \end{itemize}
             \item \textbf{Processi organizzativi}: costituisce la definizione dei processi per quanto riguarda l'organizzazione del gruppo, in termini di:
             \begin{itemize}
@@ -223,14 +230,14 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
 
             \item \textit{\textbf{Piano di qualifica}}: il documento \textit{piano di qualifica} descrive i principi guida e le attività messe in atto dal team per assicurare che i processi adottati e prodotti sviluppati durante lo svolgimento del progetto siano di alta qualità per quanto riguarda le misure di efficienza ed efficacia.\\
             In questo documento verranno presentati i risultati delle analisi quantitative condotte per valutare le performance del team, evidenziando eventuali criticità e azioni correttive intraprese.
-            \\La struttura del documento segue la struttura generale, per quanto riguarda il corpo, è composto da queste sezioni:
+            \\La struttura del documento segue la struttura generale. Per quanto riguarda il corpo, è composto da queste sezioni:
             \begin{itemize}
                 \item \textbf{Introduzione}: breve introduzione che descrive cosa aspettarsi dal contenuto del documento, riporta lo scopo del documento, lo scopo del prodotto, i riferimenti normativi e informativi;
                 \item \textbf{Qualità di processo}: viene indicato lo standard adottato per la valutazione dei processi e quello per garantire un miglioramento continuo.\\
                                                     Seguono poi quattro sezioni:
                                                     \begin{itemize}
                                                         \item \textbf{Processi primari}: riporta una descrizione dei processi di fornitura e di sviluppo, e specifica le metriche per l'accertamento della qualità;
-                                                        \item \textbf{Processi di supporto}: riporta una descrizione dei processi di documentazione, accertamento della qualità e verifica, e specifica le metriche; 
+                                                        \item \textbf{Processi di supporto}: riporta una descrizione dei processi di documentazione, accertamento della qualità e verifica, specificando per ogni processo le metriche utilizzate; 
                                                         \item \textbf{Processi organizzativi}: riporta una descrizione del processo di gestione di progetto e specifica le metriche da adottare per garantirne la qualità;
                                                         \item \textbf{Metriche}: contiene una tabella con le metriche adottate per la valutazione della qualità di processo, riportandone:
                                                         \begin{itemize}
@@ -294,7 +301,7 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
         \subsubsection{Descrizione}
         La verifica verrà fatta in maniera efficace adottando questi metodi:
         \begin{itemize}
-            \item \textbf{Analisi statica}: non richiede esecuzione dell'oggetto di verifica, quindi applicabile a documentazione e codice, usata per accertare conformità e regole nonchè assenza di difetti, adotteremo i due seguenti metodi di lettura:
+            \item \textbf{Analisi statica}: non richiede esecuzione dell'oggetto di verifica, quindi applicabile a documentazione e codice, usata per accertare conformità e regole nonché assenza di difetti, adotteremo i due seguenti metodi di lettura:
              \begin{itemize}
                 \item \textbf{Walkthrough}: processo in cui il team esamina documenti o codice, in modo strutturato ma informale. L'obiettivo è identificare errori, migliorare la qualità e favorire la comprensione;
                 \item \textbf{Inspection}: processo di revisione più formale, in cui i veroficatori controllano documenti o codice per trovare errori e migliorare la qualità eseguendo una lettura mirata dell'oggetto di verifica. Segue regole precise e prevede momenti organizzati, come pianificazione, definizione lista di controllo, lettura e correzione dei difetti.
@@ -316,7 +323,7 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
         \subsubsection{Verifica\textsubscript{g} del codice}
         Il processo di verifica del codice si attua principalmente attraverso lo sviluppo e l'esecuzione di test, che permettono di eseguire un'analisi dinamica del software, ossia un'analisi che si concentra sul comportamento del programma durante l'esecuzione. I test vengono progettati per garantire che il codice funzioni correttamente in vari scenari e che rispetti i requisiti prefissati. I principali tipi di test utilizzati in questo processo sono:
         \begin{itemize}
-            \item \textbf{Test di unità}: verificano il corretto funzionamento delle singole unità o funzioni del codice, testando piccoli blocchi di logica isolati. Questi test sono fondamentali per individuare errori precoci e garantire che ogni componente funzioni come previsto, vengono scritti dal programmatore che implementa il modulo;
+            \item \textbf{Test di unità}: verificano il corretto funzionamento delle singole unità o funzioni del codice, testando piccoli blocchi di logica isolati. Questi test sono fondamentali per individuare errori precoci e garantire che ogni componente funzioni come previsto. Vengono scritti dal programmatore che implementa il modulo;
             \item \textbf{Test di integrazione}: verificano che i vari moduli o componenti del sistema interagiscano correttamente tra loro. Questi test sono particolarmente utili per identificare problemi che si verificano quando le diverse parti del sistema vengono messe insieme;
             \item \textbf{Test di regressione}: vengono eseguiti per verificare che le modifiche recenti al codice non abbiano introdotto nuovi errori o causato il malfunzionamento di funzionalità precedentemente funzionanti. Questi test sono essenziali per mantenere l'integrità del software durante lo sviluppo continuo;
             \item \textbf{Test di sistema}: testano il comportamento complessivo dell'applicazione in un ambiente che simula il più possibile l'ambiente di produzione. Questi test verificano che l'intero sistema funzioni come previsto sotto condizioni realistiche e che tutte le componenti siano correttamente integrate.
