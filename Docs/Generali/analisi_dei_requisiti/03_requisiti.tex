@@ -11,52 +11,59 @@ requisito.
 Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Progetto}
 \subsection{Requisiti funzionali}
 \requirementsTable{
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i dataset proposti   & UC1 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i dettagli dataset selezionato   & UC1.1\par UC1.1.1\par UC1.1.2\par UC1.1.3\par \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter caricare il dataset selezionato   & UC1.2 \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i dataset proposti   & \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i dettagli dataset selezionato   & \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter caricare il dataset selezionato   &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente riceve un errore se il caricamento di un dataset fallisce   & \tabularnewline
 
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i dati del dataset selezionato in forma tabellare   & UC2 \tabularnewline
-    RF3.\arabic{R}\stepcounter{R} & Le barre de grafico 3D devono avere una colorazione appropriata che rendano i valori più veloci da comprendere   & UC2 \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i dati del dataset selezionato in forma tabellare   & \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare le proprietà del dato tramite le intestazioni della tabella   & \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare il valore del dato in una cella della tabella   & \tabularnewline
     
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i dati del dataset selezionato in forma di grafico tridimensionale a barre verticali   & UC3 \tabularnewline
-    
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare gli assi del grafico tridimensionale    & UC4 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare l`asse globale X del grafico tridimensionale    & UC4.1 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare l`asse globale Y del grafico tridimensionale    & UC4.2 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare l`asse globale Z del grafico tridimensionale    & UC4.3 \tabularnewline
-    
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare la legenda del grafico tridimensionale    & UC5 \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i dati del dataset selezionato in forma di grafico tridimensionale a barre verticali   & \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare gli assi del grafico tridimensionale    & \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare l`asse globale X del grafico tridimensionale    &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare l`asse globale Y del grafico tridimensionale    & \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare l`asse globale Z del grafico tridimensionale    & \tabularnewline
+    RF3.\arabic{R}\stepcounter{R} & Le barre de grafico 3D devono avere una colorazione appropriata che rendano i valori più veloci da comprendere   & \tabularnewline
  
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter effettuare un`azione di pan nell` ambiente, spostando la telecamera sugli assi locali Y e X   & UC6 \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera in prima persona all`interno dell` ambiente &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera sul asse globale X   &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera sul asse globale Y   &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera sul asse globale Z   &  \tabularnewline
     
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter ruotare la telecamera a suo piacimento per visualizzare meglio il grafico tridimensionale   & UC7 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter ruotare la telecamera attorno all`asse globale X   & UC7.1 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter ruotare la telecamera attorno all`asse globale Y   & UC7.2 \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter effettuare un`azione di camera panning all`interno dell` ambiente   &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera orizzontalmente spostandola sull'asse locale X  &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera orizzontalmente spostandola sull'asse locale Y  &  \tabularnewline
     
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera all`interno dell` ambiente   & UC8 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera sull`asse globale X   & UC8.1 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera sull`asse globale Y   & UC8.2 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera sull`asse globale Z   & UC8.3 \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter ruotare la telecamera all`interno dell` ambiente   &\tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter ruotare la telecamera attorno all`asse globale X   & \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter ruotare la telecamera attorno all`asse globale Y   & \tabularnewline
     
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter riposizionare la telecamera alla sua posizione iniziale   & UC9 \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter riposizionare la telecamera alla sua posizione iniziale   & \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter eseguire un'azione di zoom indipendentemente dalla posizione della telecamera   & \tabularnewline
     
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i valori del dataset selezionando le barre opportune verticali del grafico tridimensionale   & UC10 \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i valori di dettaglio di una singola barra del grafico 3D  &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare il valore numerico che una singola barra del grafico 3D rappresenta &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare le etichette relative al dato che una singola barra del grafico 3D rappresenta &  \tabularnewline
     
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter selezionare elementi rappresentanti i dati del dataset   & UC11 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter selezionare le barre verticali del grafico tridimensionale   & UC11.1 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente selezionando una barra verticale del grafico tridimensionale fa si che la corrispondente cella della tabella venga evidenziata   & UC11.1.1 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter selezionare le celle della tabella   & UC11.2 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter selezionare una cella della tabella, così facendo la corrispondente barra del grafico tridimensionale venga evidenziata    & UC11.2.1 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter selezionare una cella della tabella, così facendo la telecamera cambi posizione mettendo in primo piano la corrispondente barra del grafico tridimensionale   & UC11.2.2 \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L'utente deve poter occludere alla vista delle barre   &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L'utente deve poter occludere alla vista delle barre con un valore superiore rispetto a quella selezionata  &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L'utente deve poter occludere alla vista delle barre con un valore inferiore rispetto a quella selezionata  &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L'utente deve poter tornare allo stato iniziale del grafico, senza quindi barre occultate  &  \tabularnewline
+    
+    RF1.\arabic{R}\stepcounter{R} & L'utente può eseguire un filtraggio sui valori e corrispettive barre  &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L'utente può eseguire un filtraggio sulla grandezza dei valori  &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L'utente può scegliere se visualizzare soltanto le barre che rappresentano i top X valori  &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L'utente può scegliere se visualizzare soltanto le barre che rappresentano i bottom X valori  &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L'utente può eseguire un filtraggio sul valor medio globale &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L'utente può scegliere se visualizzare soltanto le barre che rappresentano valori numerici superiori al valor medio globale  &  \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L'utente può scegliere se visualizzare soltanto le barre che rappresentano valori numerici inferiori al valor medio globale  &  \tabularnewline
 
-    RF1.\arabic{R}\stepcounter{R} & Il sistema modifica la trasparenza delle barre del grafico secondo azioni dell'utente   & UC12 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter selezionare una barra la mette in evidenza andando a rendere piu` trasparenti quelle che hanno un valore maggiore o minore  & UC12.1 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter scegliere un numero "X" che verrà utilizzato per rendere piu` trasparenti le barre, i quali valori non rientrano tra i primi o ultimi X   & UC12.2 \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter scegliere se rendere piu` trasparenti le barre con valori superiori o inferiori rispetto al valor medio globale   & UC12.3 \tabularnewline
+    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter scegliere di visualizzare un piano parallelo alla base che rappresenti il valor medio globale  &  \tabularnewline
+
+    RF2.\arabic{R}\stepcounter{R} & L’utente deve poter di scegliere visualizzare il piano parallelo alla base che rappresenta il valor medio di un singolo elemento dell'asse   &  \tabularnewline
     
-    RF2.\arabic{R}\stepcounter{R} & L’utente deve poter di scegliere visualizzare il piano parallelo alla base che rappresenta il valor medio di un singolo elemento dell'asse   & UC13 \tabularnewline
-    
-    RF1.\arabic{R}\stepcounter{R} & L’utente riceve un errore se il caricamento di un dataset fallisce   & UC14 \tabularnewline
     }
 \setcounter{R}{1}
 \subsection{Requisiti qualitativi}
@@ -112,81 +119,81 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
                         RP2.4\par
                         RP1.5\par
                         \tabularnewline
-    UC1         & RF1.1 \tabularnewline
-    UC1.1       & RF1.2 \tabularnewline
-    UC1.1.1     & RF1.2 \tabularnewline
-    UC1.1.2     & RF1.2 \tabularnewline
-    UC1.1.3     & RF1.2 \tabularnewline
-    UC1.2       & RF1.3 \tabularnewline
-    UC2         & RF1.4\tabularnewline
-    UC2         & RF3.5\tabularnewline
-    UC3         & RF1.6 \tabularnewline
-    UC4         & RF1.7 \tabularnewline
-    UC4.1       & RF1.8    \tabularnewline
-    UC4.2       & RF1.9 \tabularnewline
-    UC4.3       & RF1.10 \tabularnewline
-    UC5         & RF1.11 \tabularnewline
-    UC6         & RF1.12 \tabularnewline
-    UC7         & RF1.13 \tabularnewline
-    UC7.1       & RF1.14 \tabularnewline
-    UC7.2       & RF1.15 \tabularnewline
-    UC8         & RF1.16 \tabularnewline
-    UC8.1       & RF1.17 \tabularnewline
-    UC8.2       & RF1.18 \tabularnewline
-    UC8.3       & RF1.19 \tabularnewline
-    UC9         & RF1.20 \tabularnewline
-    UC10        & RF1.21 \tabularnewline
-    UC11        & RF1.22 \tabularnewline
-    UC11.1      & RF1.23    \tabularnewline
-    UC11.1.1    & RF1.24  \tabularnewline
-    UC11.2      & RF1.25    \tabularnewline
-    UC11.2.1    & RF1.26  \tabularnewline
-    UC11.2.2    & RF1.27  \tabularnewline
-    UC12        & RF1.28 \tabularnewline
-    UC12.1      & RF1.29    \tabularnewline
-    UC12.2      & RF1.30    \tabularnewline
-    UC12.3      & RF1.31   \tabularnewline
-    UC13        & RF2.32 \tabularnewline
-    UC14        & RF1.33 \tabularnewline
+    UC1         & RF \tabularnewline
+    UC1.1       & RF \tabularnewline
+    UC1.1.1     & RF \tabularnewline
+    UC1.1.2     & RF \tabularnewline
+    UC1.1.3     & RF \tabularnewline
+    UC1.2       & RF \tabularnewline
+    UC2         & RF\tabularnewline
+    UC2         & RF\tabularnewline
+    UC3         & RF \tabularnewline
+    UC4         & RF \tabularnewline
+    UC4.1       & RF    \tabularnewline
+    UC4.2       & RF \tabularnewline
+    UC4.3       & RF \tabularnewline
+    UC5         & RF \tabularnewline
+    UC6         & RF \tabularnewline
+    UC7         & RF \tabularnewline
+    UC7.1       & RF \tabularnewline
+    UC7.2       & RF \tabularnewline
+    UC8         & RF \tabularnewline
+    UC8.1       & RF \tabularnewline
+    UC8.2       & RF \tabularnewline
+    UC8.3       & RF \tabularnewline
+    UC9         & RF \tabularnewline
+    UC10        & RF \tabularnewline
+    UC11        & RF \tabularnewline
+    UC11.1      & RF    \tabularnewline
+    UC11.1.1    & RF  \tabularnewline
+    UC11.2      & RF    \tabularnewline
+    UC11.2.1    & RF  \tabularnewline
+    UC11.2.2    & RF  \tabularnewline
+    UC12        & RF \tabularnewline
+    UC12.1      & RF    \tabularnewline
+    UC12.2      & RF    \tabularnewline
+    UC12.3      & RF   \tabularnewline
+    UC13        & RF \tabularnewline
+    UC14        & RF \tabularnewline
     }
 
     \newpage
 \subsubsection{Requisiti - Casi d'uso}
 \ReqToUCTable{
 
-    RF1.1& UC1 \tabularnewline 
-    RF1.2 & UC1.1\par UC1.1.1\par UC1.1.2\par UC1.1.3\tabularnewline
-    RF1.3 & UC1.2 \tabularnewline
-    RF1.4 & UC2 \tabularnewline
-    RF3.5 & UC2 \tabularnewline
-    RF1.6 & UC3 \tabularnewline
-    RF1.7 & UC4 \tabularnewline
-    RF1.8 & UC4.1 \tabularnewline
-    RF1.9 & UC4.2 \tabularnewline
-    RF1.10 & UC4.3 \tabularnewline
-    RF1.11& UC5 \tabularnewline
-    RF1.12& UC6 \tabularnewline
-    RF1.13& UC7 \tabularnewline
-    RF1.14 & UC7.1 \tabularnewline
-    RF1.15 & UC7.2 \tabularnewline
-    RF1.16& UC8 \tabularnewline
-    RF1.17 & UC8.1 \tabularnewline
-    RF1.18 & UC8.2 \tabularnewline
-    RF1.19 & UC8.3 \tabularnewline
-    RF1.20& UC9 \tabularnewline
-    RF1.21 & UC10 \tabularnewline
-    RF1.22 & UC11 \tabularnewline
-    RF1.23 & UC11.1 \tabularnewline
-    RF1.24 & UC11.1.1 \tabularnewline
-    RF1.25 & UC11.2 \tabularnewline
-    RF1.26 & UC11.2.1 \tabularnewline
-    RF1.27 & UC11.2.2 \tabularnewline
-    RF1.28 & UC12 \tabularnewline
-    RF1.29 & UC12.1 \tabularnewline
-    RF1.30 & UC12.2 \tabularnewline
-    RF1.31 & UC12.3 \tabularnewline
-    RF2.32 & UC13 \tabularnewline
-    RF1.33 & UC14 \tabularnewline
+    RF& UC1 \tabularnewline 
+    RF & UC1.1\par UC1.1.1\par UC1.1.2\par UC1.1.3\tabularnewline
+    RF & UC1.2 \tabularnewline
+    RF & UC2 \tabularnewline
+    RF & UC2 \tabularnewline
+    RF & UC3 \tabularnewline
+    RF & UC4 \tabularnewline
+    RF & UC4.1 \tabularnewline
+    RF & UC4.2 \tabularnewline
+    RF & UC4.3 \tabularnewline
+    RF & UC5 \tabularnewline
+    RF & UC6 \tabularnewline
+    RF & UC7 \tabularnewline
+    RF & UC7.1 \tabularnewline
+    RF & UC7.2 \tabularnewline
+    RF & UC8 \tabularnewline
+    RF & UC8.1 \tabularnewline
+    RF & UC8.2 \tabularnewline
+    RF & UC8.3 \tabularnewline
+    RF & UC9 \tabularnewline
+    RF & UC10 \tabularnewline
+    RF & UC11 \tabularnewline
+    RF & UC11.1 \tabularnewline
+    RF & UC11.1.1 \tabularnewline
+    RF & UC11.2 \tabularnewline
+    RF & UC11.2.1 \tabularnewline
+    RF & UC11.2.2 \tabularnewline
+    RF & UC12 \tabularnewline
+    RF & UC12.1 \tabularnewline
+    RF & UC12.2 \tabularnewline
+    RF & UC12.3 \tabularnewline
+    RF & UC13 \tabularnewline
+    RF & UC14 \tabularnewline
 
     RQ1.1 & Decisione interna\tabularnewline
     RQ1.2& Decisione interna\tabularnewline
@@ -213,12 +220,12 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
 
 \subsubsection{Riepilogo requisiti}
 \requirementsSummaryTable{
-    Funzionale & 32 & 1 & 1 & 34 \tabularnewline
+    Funzionale & 39 & 1 & 1 & 41 \tabularnewline
     Di qualità & 5 & 1 & 0 & 6 \tabularnewline
     Di vincolo & 7 & 0 & 0 & 7 \tabularnewline
     Prestazionali & 4 & 1 & 0 & 5 \tabularnewline
     \bottomrule
-    \textbf{Totale requisiti} & 48 & 3 & 1 & 52
+    \textbf{Totale requisiti} & 55 & 3 & 1 & 59
     
 }
 
