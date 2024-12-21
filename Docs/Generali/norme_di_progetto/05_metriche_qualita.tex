@@ -180,7 +180,7 @@ Per eseguire il calcolo:
 Indice percentuale per tenere conto delle metriche soddisfatte. Una
 metrica si dice soddisfatta se raggiunge almeno il valore accettabile imposto sul \textit{Piano di Qualifica}.
 \begin{itemize}
-    \item \textbf{Formula}: $MS = (1 - \frac{MS}{TM})*100$
+    \item \textbf{Formula}: $MS = \frac{MS}{TM}*100$
     \item \textbf{Valore accettabile}:$\geq80\%$
     \item \textbf{Valore ottimale}:$100\%$
 \end{itemize}  
@@ -198,7 +198,7 @@ Percentuale che indica quanta porzione di codice sorgente è stata eseguita tram
 \end{itemize} 
 
 \MPC{Statement Coverage (SC)}{SC} 
-Percentuale che indica le linee di codice che sono state eseguite tramite test.
+Percentuale che indica quante istruzioni del codice che sono state eseguite tramite test.
 \begin{itemize}
     \item \textbf{Formula}: $SC = \frac{ES}{TS}*100$
     \item \textbf{Valore accettabile}: $\geq80\%$
@@ -211,7 +211,7 @@ Per eseguire il calcolo:
 \end{itemize}
 
 \MPC{Branch Coverage (BC)}{BC} 
-Percentuale che indica i rami di decisione nel codice del che sono stati eseguiti tramite test.
+Percentuale che indica i rami di decisione nel codice che sono stati eseguiti tramite test.
 \begin{itemize}
     \item \textbf{Formula}: $BC = \frac{EB}{TB}*100$
     \item \textbf{Valore accettabile}: $\geq80\%$
