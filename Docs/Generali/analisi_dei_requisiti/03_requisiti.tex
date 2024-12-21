@@ -1,5 +1,97 @@
-\newcounter{R}
-\stepcounter{R}
+\newcounter{RF1}
+\newcounter{RF2}
+\newcounter{RF3}
+\newcounter{RV1}
+\newcounter{RV2}
+\newcounter{RV3}
+\newcounter{RP1}
+\newcounter{RP2}
+\newcounter{RP3}
+\newcounter{RQ1}
+\newcounter{RQ2}
+\newcounter{RQ3}
+
+\newcounter{RF}
+\newcounter{RV}
+\newcounter{RP}
+\newcounter{RQ}
+
+\newcounter{M}
+\newcounter{D}
+\newcounter{O}
+
+\newcommand{\RFM}{
+    \stepcounter{M}
+    \stepcounter{RF}
+    \stepcounter{RF1}
+    RF1.\arabic{RF}
+}
+\newcommand{\RFD}{
+    \stepcounter{D}
+    \stepcounter{RF}
+    \stepcounter{RF2}
+    RF2.\arabic{RF}
+}
+\newcommand{\RFO}{
+    \stepcounter{O}
+    \stepcounter{RF}
+    \stepcounter{RF3}
+    RF3.\arabic{RF}
+}
+\newcommand{\RVM}{
+    \stepcounter{M}
+    \stepcounter{RV}
+    \stepcounter{RV1}
+    RV1.\arabic{RV}
+}
+\newcommand{\RVD}{
+    \stepcounter{D}
+    \stepcounter{RV}
+    \stepcounter{RV2}
+    RV2.\arabic{RV}
+}
+\newcommand{\RVO}{
+    \stepcounter{O}
+    \stepcounter{RV}
+    \stepcounter{RV3}
+    RV3.\arabic{RV}
+}
+\newcommand{\RPM}{
+    \stepcounter{M}
+    \stepcounter{RP}
+    \stepcounter{RP1}
+    RP1.\arabic{RP}
+}
+\newcommand{\RPD}{
+    \stepcounter{D}
+    \stepcounter{RP}
+    \stepcounter{RP2}
+    RP2.\arabic{RP}
+}
+\newcommand{\RPO}{
+    \stepcounter{O}
+    \stepcounter{RP}
+    \stepcounter{RP3}
+    RP3.\arabic{RP}
+}
+\newcommand{\RQM}{
+    \stepcounter{M}
+    \stepcounter{RQ}
+    \stepcounter{RQ1}
+    RQ1.\arabic{RQ}
+}
+\newcommand{\RQD}{
+    \stepcounter{D}
+    \stepcounter{RQ}
+    \stepcounter{RQ2}
+    RQ2.\arabic{RQ}
+}
+\newcommand{\RQO}{
+    \stepcounter{O}
+    \stepcounter{RQ}
+    \stepcounter{RQ3}
+    RQ3.\arabic{RQ}
+}
 
 
 \input{template/requirements.tex}
@@ -11,91 +103,115 @@ requisito.
 Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Progetto}
 \subsection{Requisiti funzionali}
 \requirementsTable{
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i dataset proposti   & \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i dettagli dataset selezionato   & \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter caricare il dataset selezionato   &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente riceve un errore se il caricamento di un dataset fallisce   & \tabularnewline
+    % VISUALIZZAZIONE DATASET
+    \RFM & L’utente deve poter visualizzare i dataset  & \tabularnewline
+    \RFM & L’utente deve poter visualizzare le informazioni primarie dei dataset  & \tabularnewline
+    \RFM & L’utente deve poter visualizzare i dettagli dei dataset   & \tabularnewline
 
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i dati del dataset selezionato in forma tabellare   & \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare le proprietà del dato tramite le intestazioni della tabella   & \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare il valore del dato in una cella della tabella   & \tabularnewline
+    % CARICAMENTO DATASET
+    \RFM & L’utente deve poter caricare il dataset &  \tabularnewline
+    \RFM & L’utente riceve un errore se il caricamento di un dataset fallisce & \tabularnewline
+
+    % VISUALIZZAZIONE DEI DATI IN TABELLA
+    \RFM & L’utente deve poter visualizzare i dati del dataset selezionato in forma tabellare   & \tabularnewline
+    \RFM & L’utente deve poter visualizzare le proprietà del dato tramite le intestazioni della tabella   & \tabularnewline
+    \RFM & L’utente deve poter visualizzare il valore del dato in una cella della tabella   & \tabularnewline
     
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i dati del dataset selezionato in forma di grafico tridimensionale a barre verticali   & \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare gli assi del grafico tridimensionale    & \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare l`asse globale X del grafico tridimensionale    &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare l`asse globale Y del grafico tridimensionale    & \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare l`asse globale Z del grafico tridimensionale    & \tabularnewline
-    RF3.\arabic{R}\stepcounter{R} & Le barre de grafico 3D devono avere una colorazione appropriata che rendano i valori più veloci da comprendere   & \tabularnewline
+    % VISUALIZZAZIONE DEI DATI SUL GRAFICO
+    \RFM & L’utente deve poter visualizzare i dati del dataset selezionato in forma di grafico tridimensionale a barre verticali   & \tabularnewline
+    \RFM & L’utente deve poter visualizzare gli assi del grafico tridimensionale    & \tabularnewline
+    \RFM & L’utente deve poter visualizzare l`asse globale X del grafico tridimensionale    &  \tabularnewline
+    \RFM & L’utente deve poter visualizzare l`asse globale Y del grafico tridimensionale    & \tabularnewline
+    \RFM & L’utente deve poter visualizzare l`asse globale Z del grafico tridimensionale    & \tabularnewline
+    \RFM & L’utente deve poter visualizzare i valori delle barre del grafico tridimensionale nel dettaglio    & \tabularnewline
+    %%%%%%%%%%%%%%%\RFO & Le barre de grafico 3D devono avere una colorazione appropriata che rendano i valori più veloci da comprendere   & \tabularnewline
  
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera in prima persona all`interno dell` ambiente &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera sul asse globale X   &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera sul asse globale Y   &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera sul asse globale Z   &  \tabularnewline
+    % TELECAMERA
+    \RFO & L’utente deve poter muovere la telecamera in prima persona all`interno dell` ambiente &  \tabularnewline
+    \RFO & L’utente deve poter muovere la telecamera sul asse globale X   &  \tabularnewline
+    \RFO & L’utente deve poter muovere la telecamera sul asse globale Y   &  \tabularnewline
+    \RFO & L’utente deve poter muovere la telecamera sul asse globale Z   &  \tabularnewline
     
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter effettuare un`azione di camera panning all`interno dell` ambiente   &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera orizzontalmente spostandola sull'asse locale X  &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter muovere la telecamera orizzontalmente spostandola sull'asse locale Y  &  \tabularnewline
+    % TELECAMERA
+    \RFM & L’utente deve poter effettuare un`azione di camera panning all`interno dell` ambiente   &  \tabularnewline
+    \RFM & L’utente deve poter muovere la telecamera orizzontalmente spostandola sull'asse locale X  &  \tabularnewline
+    \RFM & L’utente deve poter muovere la telecamera orizzontalmente spostandola sull'asse locale Y  &  \tabularnewline
     
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter ruotare la telecamera all`interno dell` ambiente   &\tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter ruotare la telecamera attorno all`asse globale X   & \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter ruotare la telecamera attorno all`asse globale Y   & \tabularnewline
+    % TELECAMERA
+    \RFM & L’utente deve poter eseguire un'azione di zoom indipendentemente dalla posizione della telecamera   & \tabularnewline
     
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter riposizionare la telecamera alla sua posizione iniziale   & \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter eseguire un'azione di zoom indipendentemente dalla posizione della telecamera   & \tabularnewline
-    
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare i valori di dettaglio di una singola barra del grafico 3D  &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare il valore numerico che una singola barra del grafico 3D rappresenta &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter visualizzare le etichette relative al dato che una singola barra del grafico 3D rappresenta &  \tabularnewline
-    
-    RF1.\arabic{R}\stepcounter{R} & L'utente deve poter occludere alla vista delle barre   &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L'utente deve poter occludere alla vista delle barre con un valore superiore rispetto a quella selezionata  &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L'utente deve poter occludere alla vista delle barre con un valore inferiore rispetto a quella selezionata  &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L'utente deve poter tornare allo stato iniziale del grafico, senza quindi barre occultate  &  \tabularnewline
-    
-    RF1.\arabic{R}\stepcounter{R} & L'utente può eseguire un filtraggio sui valori e corrispettive barre  &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L'utente può eseguire un filtraggio sulla grandezza dei valori  &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L'utente può scegliere se visualizzare soltanto le barre che rappresentano i top X valori  &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L'utente può scegliere se visualizzare soltanto le barre che rappresentano i bottom X valori  &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L'utente può eseguire un filtraggio sul valor medio globale &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L'utente può scegliere se visualizzare soltanto le barre che rappresentano valori numerici superiori al valor medio globale  &  \tabularnewline
-    RF1.\arabic{R}\stepcounter{R} & L'utente può scegliere se visualizzare soltanto le barre che rappresentano valori numerici inferiori al valor medio globale  &  \tabularnewline
+    % TELECAMERA
+    \RFM & L’utente deve poter ruotare la telecamera all`interno dell` ambiente   &\tabularnewline
+    \RFM & L’utente deve poter ruotare la telecamera attorno all`asse globale X   & \tabularnewline
+    \RFM & L’utente deve poter ruotare la telecamera attorno all`asse globale Y   & \tabularnewline
 
-    RF1.\arabic{R}\stepcounter{R} & L’utente deve poter scegliere di visualizzare un piano parallelo alla base che rappresenti il valor medio globale  &  \tabularnewline
-
-    RF2.\arabic{R}\stepcounter{R} & L’utente deve poter di scegliere visualizzare il piano parallelo alla base che rappresenta il valor medio di un singolo elemento dell'asse   &  \tabularnewline
+    % TELECAMERA
+    \RFM & L’utente deve poter riposizionare la telecamera alla sua posizione iniziale   & \tabularnewline
     
+    % \RFM & L’utente deve poter visualizzare i valori di dettaglio di una singola barra del grafico 3D  &  \tabularnewline
+    % \RFM & L’utente deve poter visualizzare il valore numerico che una singola barra del grafico 3D rappresenta &  \tabularnewline
+    % \RFM & L’utente deve poter visualizzare le etichette relative al dato che una singola barra del grafico 3D rappresenta &  \tabularnewline
+    
+    % \RFM & L'utente deve poter occludere alla vista delle barre   &  \tabularnewline
+    % \RFM & L'utente deve poter occludere alla vista delle barre con un valore superiore rispetto a quella selezionata  &  \tabularnewline
+    % \RFM & L'utente deve poter occludere alla vista delle barre con un valore inferiore rispetto a quella selezionata  &  \tabularnewline
+    % \RFM & L'utente deve poter tornare allo stato iniziale del grafico, senza quindi barre occultate  &  \tabularnewline
+    
+    % FILTRAGGIO VALORI
+    \RFM & L'utente può eseguire un filtraggio sui valori e corrispettive barre  &  \tabularnewline
+
+    \RFM & L'utente può eseguire un filtraggio su un numero arbitrario (N) di barre &  \tabularnewline
+    \RFM & L'utente può eseguire un filtraggio sulle N barre più alte &  \tabularnewline
+    \RFM & L'utente può eseguire un filtraggio sulle le N barre più basse &  \tabularnewline
+
+    \RFM & L'utente può eseguire un filtraggio sul valor medio globale &  \tabularnewline
+    \RFM & L'utente può eseguire un filtraggio sulle barre superiori al valor medio globale &  \tabularnewline
+    \RFM & L'utente può eseguire un filtraggio sulle barre inferiori al valor medio globale &  \tabularnewline
+
+    \RFM & L'utente può eseguire un filtraggio su una determinata barra &  \tabularnewline
+    \RFM & L'utente può eseguire un filtraggio sulle barre superiori ad una determinata barra &  \tabularnewline
+    \RFM & L'utente può eseguire un filtraggio sulle barre inferiore ad una determinata barra &  \tabularnewline
+
+    \RFM & L'utente deve poter visualizzare una barra in primo piano &  \tabularnewline
+
+    \RFM & L'utente deve poter ripristinare lo stato del grafico rispetto ai precedenti valori applicati &  \tabularnewline
+
+    % VISUALIZZAZIONE VALOR MEDIO
+    \RFM & L’utente deve poter di visualizzare un piano parallelo alla base che rappresenti il valor medio globale  &  \tabularnewline
+    \RFD & L’utente deve poter visualizzare il piano parallelo alla base che rappresenta il valor medio di un singolo elemento dell'asse   &  \tabularnewline
+
     }
-\setcounter{R}{1}
+
 \subsection{Requisiti qualitativi}
     
 \requirementsTable{
-    RQ1.\arabic{R}\stepcounter{R} & Il software deve essere sviluppato seguendo le metriche e il modello di qualità descritti nel documento \textit{Norme di Progetto}   & Decisione interna \tabularnewline
-    RQ1.\arabic{R}\stepcounter{R} & Il software deve essere sviluppato pubblicando il codice sorgente sul repository Github dedicato   & Decisione interna \tabularnewline
-    RQ1.\arabic{R}\stepcounter{R} & Il software deve essere sviluppato in modo tale da supportare grandi volumi di dati   & Capitolato \tabularnewline
-    RQ1.\arabic{R}\stepcounter{R} & L'architettura del software deve permettere con agilità di poter aggiungere nuove funzionalità e possibilità di iterazione con il grafico    & Capitolato \tabularnewline
-    RQ1.\arabic{R}\stepcounter{R} & La suite di test deve essere robusta per garantire ciò specificato in RQ4   & Capitolato \tabularnewline
-    RQ2.\arabic{R}\stepcounter{R} & Il software deve essere testato attraverso test di tipo e2e   & Capitolato \tabularnewline  
+    \RQM & Il software deve essere sviluppato seguendo le metriche e il modello di qualità descritti nel documento \textit{Norme di Progetto}   & Decisione interna \tabularnewline
+    \RQM & Il software deve essere sviluppato pubblicando il codice sorgente sul repository Github dedicato   & Decisione interna \tabularnewline
+    \RQM & Il software deve essere sviluppato in modo tale da supportare grandi volumi di dati   & Capitolato \tabularnewline
+    \RQM & L'architettura del software deve permettere con agilità di poter aggiungere nuove funzionalità e possibilità di iterazione con il grafico    & Capitolato \tabularnewline
+    \RQM & La suite di test deve essere robusta per garantire ciò specificato in RQ4   & Capitolato \tabularnewline
+    \RQD & Il software deve essere testato attraverso test di tipo e2e   & Capitolato \tabularnewline  
 }
-\setcounter{R}{1}  
+ 
 \subsection{Requisiti di vincolo}
 \requirementsTable{
-    RV1.\arabic{R}\stepcounter{R} & Il software deve essere sviluppato utilizzando Typescript come linguaggio di programmazione primario   & Decisione interna \tabularnewline
-    RV1.\arabic{R}\stepcounter{R} & Il software deve essere sviluppato utilizzando la libreria React per la creazione di un interfaccia visiva sempice   & Decisione interna \tabularnewline
-    RV1.\arabic{R}\stepcounter{R} & Il software deve essere sviluppato utilizzando la libreria Three.js   & Decisione interna \tabularnewline
-    RV1.\arabic{R}\stepcounter{R} & Il software deve essere compatibile dalla versione 131 del browser Chrome  & Decisione interna \tabularnewline
-    RV1.\arabic{R}\stepcounter{R} & Il software deve essere compatibile dalla versione 133 del browser Firefox  & Decisione interna \tabularnewline
-    RV1.\arabic{R}\stepcounter{R} & Il software deve essere compatibile dalla versione 115 del browser Opera  & Decisione interna \tabularnewline
-    RV1.\arabic{R}\stepcounter{R} & Il software deve essere compatibile dalla versione 131 del browser Microsoft Edge  & Decisione interna \tabularnewline
+    \RVM & Il software deve essere sviluppato utilizzando Typescript come linguaggio di programmazione primario   & Decisione interna \tabularnewline
+    \RVM & Il software deve essere sviluppato utilizzando la libreria React per la creazione di un interfaccia visiva sempice   & Decisione interna \tabularnewline
+    \RVM & Il software deve essere sviluppato utilizzando la libreria Three.js   & Decisione interna \tabularnewline
+    \RVM & Il software deve essere compatibile dalla versione 131 del browser Chrome  & Decisione interna \tabularnewline
+    \RVM & Il software deve essere compatibile dalla versione 133 del browser Firefox  & Decisione interna \tabularnewline
+    \RVM & Il software deve essere compatibile dalla versione 115 del browser Opera  & Decisione interna \tabularnewline
+    \RVM & Il software deve essere compatibile dalla versione 131 del browser Microsoft Edge  & Decisione interna \tabularnewline
 }
 \newpage
-\setcounter{R}{1}
+
 \subsection{Requisiti prestazionali}
 \requirementsTable{
-    RP1.\arabic{R}\stepcounter{R} & Il software quando carica un dataset di dimensioni 100x100 non deve avere un tempo di caricamento superiore a 2 secondi & Decisione interna \tabularnewline
-    RP1.\arabic{R}\stepcounter{R} & Il software quando carica un dataset di dimensioni 500x500 non deve avere un tempo di caricamento superiore a 5 secondi & Decisione interna \tabularnewline
-    RP1.\arabic{R}\stepcounter{R} & Il software quando carica un dataset di dimensioni 1000x1000 non deve avere un tempo di caricamento superiore a 8 secondi & Decisione interna \tabularnewline
-    RP2.\arabic{R}\stepcounter{R} & Il software quando carica un dataset di dimensioni maggiori di 1000x1000 non deve avere un tempo di caricamento superiore a 15 secondi & Decisione interna \tabularnewline
-    RP1.\arabic{R}\stepcounter{R} & Il software non deve avere un tempo di risposta superiore a 5 secondi & Decisione interna \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni 100x100 non deve avere un tempo di caricamento superiore a 2 secondi & Decisione interna \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni 500x500 non deve avere un tempo di caricamento superiore a 5 secondi & Decisione interna \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni 1000x1000 non deve avere un tempo di caricamento superiore a 8 secondi & Decisione interna \tabularnewline
+    \RPD & Il software quando carica un dataset di dimensioni maggiori di 1000x1000 non deve avere un tempo di caricamento superiore a 15 secondi & Decisione interna \tabularnewline
+    \RPM & Il software non deve avere un tempo di risposta superiore a 5 secondi & Decisione interna \tabularnewline
 }
 
 
@@ -125,11 +241,11 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
     UC1.1.2     & RF \tabularnewline
     UC1.1.3     & RF \tabularnewline
     UC1.2       & RF \tabularnewline
-    UC2         & RF\tabularnewline
-    UC2         & RF\tabularnewline
+    UC2         & RF \tabularnewline
+    UC2         & RF \tabularnewline
     UC3         & RF \tabularnewline
     UC4         & RF \tabularnewline
-    UC4.1       & RF    \tabularnewline
+    UC4.1       & RF \tabularnewline
     UC4.2       & RF \tabularnewline
     UC4.3       & RF \tabularnewline
     UC5         & RF \tabularnewline
@@ -144,15 +260,15 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
     UC9         & RF \tabularnewline
     UC10        & RF \tabularnewline
     UC11        & RF \tabularnewline
-    UC11.1      & RF    \tabularnewline
-    UC11.1.1    & RF  \tabularnewline
-    UC11.2      & RF    \tabularnewline
-    UC11.2.1    & RF  \tabularnewline
-    UC11.2.2    & RF  \tabularnewline
+    UC11.1      & RF \tabularnewline
+    UC11.1.1    & RF \tabularnewline
+    UC11.2      & RF \tabularnewline
+    UC11.2.1    & RF \tabularnewline
+    UC11.2.2    & RF \tabularnewline
     UC12        & RF \tabularnewline
-    UC12.1      & RF    \tabularnewline
-    UC12.2      & RF    \tabularnewline
-    UC12.3      & RF   \tabularnewline
+    UC12.1      & RF \tabularnewline
+    UC12.2      & RF \tabularnewline
+    UC12.3      & RF \tabularnewline
     UC13        & RF \tabularnewline
     UC14        & RF \tabularnewline
     }
@@ -161,7 +277,7 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
 \subsubsection{Requisiti - Casi d'uso}
 \ReqToUCTable{
 
-    RF& UC1 \tabularnewline 
+    RF & UC1 \tabularnewline 
     RF & UC1.1\par UC1.1.1\par UC1.1.2\par UC1.1.3\tabularnewline
     RF & UC1.2 \tabularnewline
     RF & UC2 \tabularnewline
@@ -196,7 +312,7 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
     RF & UC14 \tabularnewline
 
     RQ1.1 & Decisione interna\tabularnewline
-    RQ1.2& Decisione interna\tabularnewline
+    RQ1.2 & Decisione interna\tabularnewline
     RQ1.3 & Capitolato\tabularnewline
     RQ1.4 & Capitolato\tabularnewline
     RQ1.5 & Capitolato\tabularnewline
@@ -218,14 +334,22 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
 
 }
 
+\newcounter{T}
+
+\addtocounter{T}{\value{M}}
+\addtocounter{T}{\value{D}}
+\addtocounter{T}{\value{O}}
+
+
+
 \subsubsection{Riepilogo requisiti}
 \requirementsSummaryTable{
-    Funzionale & 39 & 1 & 1 & 41 \tabularnewline
-    Di qualità & 5 & 1 & 0 & 6 \tabularnewline
-    Di vincolo & 7 & 0 & 0 & 7 \tabularnewline
-    Prestazionali & 4 & 1 & 0 & 5 \tabularnewline
+    Funzionale & \arabic{RF1} & \arabic{RF2} & \arabic{RF3} & \arabic{RF} \tabularnewline
+    Di qualità & \arabic{RQ1} & \arabic{RQ2} & \arabic{RQ3} & \arabic{RQ} \tabularnewline
+    Di vincolo & \arabic{RV1} & \arabic{RV2} & \arabic{RV3} & \arabic{RV} \tabularnewline
+    Prestazionali & \arabic{RP1} & \arabic{RP2} & \arabic{RP3} & \arabic{RP} \tabularnewline
     \bottomrule
-    \textbf{Totale requisiti} & 55 & 3 & 1 & 59
+    \textbf{Totale requisiti} & \arabic{M} & \arabic{D} & \arabic{O} & \arabic{T}
     
 }
 
