@@ -92,7 +92,7 @@ Infatti non ci dovremo occupare di installazione e manutenzione, ci fermeremo al
          Il codice identificativo di ciascun requisito è strutturato come segue:
         \textbf{
         \[
-        R[\text{Tipologia}].[ \text{Importanza}].[ \text{Codice}]
+        R[\text{Tipologia}].[ \text{Codice}]
         \]
         }
         
@@ -105,16 +105,14 @@ Infatti non ci dovremo occupare di installazione e manutenzione, ci fermeremo al
                     \item \textbf{V:} requisito di vincolo (vincoli sui servizi offerti dal sistema);
                     \item \textbf{P:} requisito prestazionale (vincoli sulle prestazioni da soddisfare).
                 \end{itemize}
-                
-            \item \textbf{Importanza:}
-                \begin{itemize}
-                    \item \textbf{1:} requisito obbligatorio;
-                    \item \textbf{2:} requisito desiderabile ma non obbligatorio;
-                    \item \textbf{3:} requisito opzionale.
-                \end{itemize}
             \item \textbf{Codice:} 
-                \par Indica l'identificativo del requisito univoco in base alla tipologia.
-            
+                \par Indica l'identificativo del requisito univoco in base alla tipologia, il codice identificativo deve essere lo stesso del caso d'uso da cui il requisito ne deriva.            
+        \end{itemize}
+        \textbf{Importanza}: il livello di importanza sarà assegnato nella tabella relativa ai requisiti all'interno del documento \textit{Analisi dei Requisiti}, comprendendo due categorie:
+        \begin{itemize}
+            \item \textbf{Obbligatorio}: requisito obbligatorio per il soddisfacimento del progetto;
+            \item \textbf{Desiderabile}: requisito non strettamente necessario, ma che se soddisfatto darebbe al prodotto un valore aggiunto riconoscibile;
+            \item \textbf{Opzionale}: requisito preso in carico dopo il compimento di tutti i requisiti obbligatori.
         \end{itemize}
         
         \subsubsection{Progettazione}
