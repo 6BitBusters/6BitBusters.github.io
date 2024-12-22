@@ -73,8 +73,23 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
         \end{itemize}
         \paragraph{Stile del testo}
         \begin{itemize}
-            \item \textbf{Grassetto}: utilizzato per i titoli delle sezioni, per i sottotitoli e per i paragrafi, oltre alle parole ritenute particolarmente significative;
+            \item \textbf{Grassetto}: utilizzato per i titoli delle sezioni, per i sottotitoli, per i paragrafi e per parole tecniche o termini specifici che necessitano di evidenza nel contesto;
             \item \textbf{Corsivo}: utilizzato quando vengono scritti nomi di documenti, nome del gruppo o indirizzo email del gruppo.
+        \end{itemize}
+        \paragraph{Link}
+        All'interno dei documenti i link saranno strutturati in questo modo:
+        \begin{itemize}
+            \item Breve descrizione della destinazione del link: \textbackslash url\{indirizzo\_del\_link\}.
+        \end{itemize}
+        \paragraph{Terminologia inglese}    
+        Tutti i termini in lingua inglese saranno riportati al singolare, in quanto questa scelta risulta più coerente con l'uso comune e l'assonanza nella lingua italiana. Ad esempio, termini come "file" o "commit" verranno sempre utilizzati nella loro forma singolare, anche quando si riferiscono a concetti plurali, per evitare ambiguità o traduzioni non naturali.\\
+        Per quanto riguarda il genere (maschile o femminile), verrà specificato all'interno del \textit{glossario}, così da uniformare l'interpretazione e garantire chiarezza, specialmente nei casi in cui il termine inglese non abbia un corrispettivo diretto o il genere non sia immediatamente evidente. Questa scelta mira a favorire una lettura fluida e una comprensione condivisa del testo.
+        \paragraph{Acronimi} 
+        Tutti gli acronimi seguiranno queste regole:
+        \begin{itemize}
+            \item L'acronimo deve essere scritto in maiuscolo;
+            \item L'articolo davanti a un acronimo deve concordare in genere e numero con il termine principale che l'acronimo rappresenta. Nel caso di acronimi derivati da termini stranieri, la concordanza va basata sul significato tradotto o percepito in italiano. Questo garantisce una corretta integrazione dell'acronimo nella struttura grammaticale della lingua;
+            \item Ogni acronimo deve essere inserito nel glossario, accompagnato da una spiegazione dettagliata del suo significato, per garantire chiarezza e comprensione.
         \end{itemize}
         \subsubsection{Strumenti per la stesura}
         Per la stesura dei documenti verrà usato il linguaggio Latex, un linguaggio di marcatura per la preparazione di testi, basato sul programma di
@@ -131,7 +146,12 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
         Il documento offre una panoramica completa di tutti i capitolati, potendoli valutare minuziosamente prima di esprimere una valutazione.
         \item \textit{\textbf{Norme di progetto}}: documento interno che contiene le norme applicate dai membri del gruppo durante il ciclo di vita del prodotto, rispetta la struttura generale della documentazione, il corpo di questo documento è composto da:
         \begin{itemize}
-            \item \textbf{Introduzione}: contiene una breve descrizione dello scopo del documento e del contesto in cui viene applicato.
+            \item \textbf{Introduzione}: contiene una breve descrizione dello scopo del documento e del contesto in cui viene applicato;    
+            \item \textbf{Processi primari}: definizione dei processi primari, nel nostro caso:
+            \begin{itemize}
+                \item Fornitura: definizione e regole di fornitura e rapporto con il proponente;
+                \item Sviluppo: definizione e regole di sviluppo per quanto riguarda l'analisi dei requisiti, la progettazione e la codifica.
+            \end{itemize}
             \item \textbf{Processi organizzativi}: costituisce la definizione dei processi per quanto riguarda l'organizzazione del gruppo, in termini di:
             \begin{itemize}
                 \item Pianificazione: viene definito il metodo di lavoro, i ruoli che verranno assegnati e le responsabilità che da essi ne derivano;
@@ -140,18 +160,18 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
                 \item Gestione di infrastrutture: descrizione delle infrastrutture utilizzate per lo sviluppo del progetto, affinchè venga garantita affidabilità e sicurezza;
                 \item Gestione dei dubbi o conflitti.
             \end{itemize}
-            \item \textbf{Processi primari}: definizione dei processi primari, nel nostro caso:
-            \begin{itemize}
-                \item Fornitura: definizione e regole di fornitura e rapporto con il proponente;
-                \item Sviluppo: definizione e regole di sviluppo, per quanto riguarda analisi dei requisiti, progettazione e codifica.
-            \end{itemize}
+
             \item \textbf{Processi di supporto}: definizione dei processi di supporto, nel nostro caso:
             \begin{itemize}
                 \item Documentazione: descrive le regole e la struttura dei documenti, il ciclo di vita e le convenzioni da utilizzare durante la stesura. Vengono descritti i documenti presenti nel repository.
                 \item Gestione della configurazione: descrive come gestire il versionamento dei documenti.
                 \item Accertamento della qualità: descrive come vengono verificati i documenti;
                 \item Validazione: comprende le regole e la definizione di validazione.
-            \end{itemize} 
+            \end{itemize}
+            \item \textbf{Standard di qualità ISO/IEC 9126}: descrizione dello standard da cui il gruppo estrarrà le norme per la misurazione della qualità del software;
+            \item \textbf{Standard di qualità ISO/IEC 12207:1995}: descrizione dello standard scelto per garantire la qualità dei processi relativi al ciclo di vita del software;
+            \item \textbf{Metriche}: sezione del documento in cui verranno riportate e descritte tutte le metriche adottate per la valutazione qualitativa dei processi e dei prodotti, verrà spiegato in dettaglio il significato di ogni metrica e il modo in cui le valutazioni verranno calcolate, spiegando i procedimenti.
+             
         \end{itemize}
         \end{itemize}
         \subsubsection{Documentazione esterna}
@@ -188,16 +208,77 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
             Il \textit{piano di progetto} ha inoltre la funzione di descrivere il modello di sviluppo adottato, e di monitorarlo tramite la suddivisione in periodi, per analizzare il lavoro svolto e poter apportare miglioramenti con il passare del tempo.
             \\La struttura del documento segue la struttura generale, per quanto riguarda il corpo, è composto da queste sezioni:
             \begin{itemize}
-                \item \textbf{Introduzione}: breve introduzione che descrive cosa aspettarsi dal contenuto del documento;
-                \item \textbf{Analisi dei rischi}: sezione che riassume i rischi a cui il gruppo si espone a seguito dell'aggiudicazione del capitolato;
-                \item \textbf{Modello di sviluppo}: sezione che descrive il modello di sviluppo adottato dal gruppo;
-                \item \textbf{Pianificazione}: sezione che descrive lo svolgimento delle attività periodo per periodo;
+                \item \textbf{Introduzione}: breve introduzione che descrive cosa aspettarsi dal contenuto del documento, sezione composta da:
+                \begin{itemize}
+                    \item Scopo del documento;
+                    \item Scopo del prodotto;
+                    \item Riferimenti normativi e informativi.
+                \end{itemize}
+                \item \textbf{Analisi dei rischi}: sezione che riassume i rischi a cui il gruppo si espone a seguito dell'aggiudicazione del capitolato, suddivisi in:
+                \begin{itemize}
+                    \item Rischi riguardanti i requisiti;
+                    \item Rischi tecnologici;
+                    \item Rischi organizzativi;
+                    \item Rischi personali.
+                \end{itemize}
+                \item \textbf{Modello di sviluppo}: sezione che descrive il modello di sviluppo adottato dal gruppo, che si basa su un approccio agile. Viene fornita una descrizione completa del modello, illustrandone i principi fondamentali, le metodologie applicate e le motivazioni che hanno portato alla scelta di questo approccio;
+                \item \textbf{Pianificazione}: sezione che descrive lo svolgimento delle attività suddiviso per periodi, fornendo un riassunto degli obiettivi previsti per ciascuno Sprint. Verranno indicati i risultati che il gruppo intende raggiungere e sarà incluso un diagramma di Gantt per visualizzare la pianificazione delle tempistiche e il progresso delle attività;
                 \item \textbf{Preventivo}: sezione in cui viene pianificata in dettaglio la suddivisione dei ruoli con le corrispondenti ore di lavoro, per fornire un preventivo rispetto al periodo a cui ci si sta accingendo;
-                \item \textbf{Consuntivo}: sezione che riporta i dati raccolti al termine del periodo, per compararli con la previsione presente nella sezione di preventivo;
+                \item \textbf{Consuntivo}: sezione che presenta i dati raccolti al termine di ciascun periodo, confrontandoli con le previsioni indicate nella sezione di preventivo. Verranno riportate le ore effettive di lavoro svolte e il relativo costo, accompagnati da un resoconto dettagliato che confronta le stime iniziali con i valori effettivi. Questo confronto permette di valutare eventuali scostamenti e di analizzarne le cause;
                 \item \textbf{Attualizzazione dei rischi}: sezione dove vengono riportati i rischi che si sono verificati durante lo svolgimento del progetto e le relative misure di mitigazione attuate.
+            \end{itemize}
+
+            \item \textit{\textbf{Piano di qualifica}}: il documento \textit{piano di qualifica} descrive i principi guida e le attività messe in atto dal team per assicurare che i processi adottati e prodotti sviluppati durante lo svolgimento del progetto siano di alta qualità per quanto riguarda le misure di efficienza ed efficacia.\\
+            In questo documento verranno presentati i risultati delle analisi quantitative condotte per valutare le performance del team, evidenziando eventuali criticità e azioni correttive intraprese.
+            \\La struttura del documento segue la struttura generale. Per quanto riguarda il corpo, è composto da queste sezioni:
+            \begin{itemize}
+                \item \textbf{Introduzione}: breve introduzione che descrive cosa aspettarsi dal contenuto del documento, riporta lo scopo del documento, lo scopo del prodotto, i riferimenti normativi e informativi;
+                \item \textbf{Qualità di processo}: viene indicato lo standard adottato per la valutazione dei processi e quello per garantire un miglioramento continuo.\\
+                                                    Seguono poi quattro sezioni:
+                                                    \begin{itemize}
+                                                        \item \textbf{Processi primari}: riporta una descrizione dei processi di fornitura e di sviluppo, e specifica le metriche per l'accertamento della qualità;
+                                                        \item \textbf{Processi di supporto}: riporta una descrizione dei processi di documentazione, accertamento della qualità e verifica, specificando per ogni processo le metriche utilizzate; 
+                                                        \item \textbf{Processi organizzativi}: riporta una descrizione del processo di gestione di progetto e specifica le metriche da adottare per garantirne la qualità;
+                                                        \item \textbf{Metriche}: contiene una tabella con le metriche adottate per la valutazione della qualità di processo, riportandone:
+                                                        \begin{itemize}
+                                                            \item \textbf{Codice identificativo}: costituito da MPC[N], dove N rappresenta il numero della metrica di riferimento;
+                                                            \item \textbf{Nome}: nome della metrica;
+                                                            \item \textbf{Valore accettabile}: valore minimo accettabile per la metrica;
+                                                            \item \textbf{Valore ottimale}: valore ottimo per la metrica.
+                                                        \end{itemize}
+                                                    \end{itemize}
+                                                    \item \textbf{Qualità di prodotto}: viene indicato lo standard di riferimento adottato dal team per garantire la qualità del software e della documentazione prodotta.
+                                                    \begin{itemize}
+                                                        \item \textbf{Documenti}: riporta una descrizione dei parametri su cui si basa la valutazione della documentazione prodotta, ovvero comprensibilità e correttezza, e si riportano le metriche di riferimento;
+                                                        \item \textbf{Software}: fornisce una descrizione degli obiettivi prefissati dal team per garantire la qualità nella produzione del software, focalizzandosi sui seguenti aspetti:
+                                                        \begin{itemize}
+                                                            \item Funzionalità;
+                                                            \item Affidabilità;
+                                                            \item Usabilità;
+                                                            \item Efficienza;
+                                                            \item Manutenibilità;
+                                                            \item Portabilità.
+                                                        \end{itemize}
+                                                        Fornendone una descrizione e riportando le metriche di riferimento.
+                                                        \item \textbf{Metriche}: contiene una tabella con le metriche adottate per la valutazione della qualità di prodotto, riportandone:
+                                                        \begin{itemize}
+                                                            \item \textbf{Codice identificativo}: costituito da MPD[N], dove N rappresenta il numero della metrica di riferimento;
+                                                            \item \textbf{Nome}: nome della metrica;
+                                                            \item \textbf{Valore accettabile}: valore minimo accettabile per la metrica;
+                                                            \item \textbf{Valore ottimale}: valore ottimo per la metrica.
+                                                        \end{itemize}
+                                                    \end{itemize}
             \end{itemize}
             \item \textit{\textbf{Glossario}}: documento che contiene il significato dei termini chiave utilizzati nel progetto (indicati con il pedice 'g'), organizzati in ordine alfabetico, utile per garantire una comprensione comune fornendo spiegazioni concise e precise.
             \\La struttura del \textit{glossario} è composta da sezioni caratterizzate dalle lettere dell'alfabeto in ordine alfabetico, contenenti le parole che hanno come iniziale quella lettera.
+        \end{itemize}
+
+        \subsubsection{Metriche}
+        Per perseguire la qualità nel processo riguardo la documentazione si è deciso di adottare le seguenti metriche:
+        \begin{itemize}
+                \item \nameref{M:DOCC};
+                \item \nameref{M:GI};
+                \item \nameref{M:GE};
         \end{itemize}
 
     \subsection{Gestione delle configurazione}
@@ -215,11 +296,31 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
         \end{itemize}
 
     \subsection{Accertamento della qualità}
+    \subsubsection{Scopo}
+    Lo scopo del processo di accertamento della qualità è di verificare che non siano stati commessi errori nello svolgimento delle attività prefissate, e di garantire il rispetto dei requisiti di qualità descritti nel \textit{piano di qualifica}.
+    \subsubsection{Descrizione}
+    Il processo di accertamento della qualità viene applicato costantemente sia durante la stesura della documentazione, che durante lo sviluppo del software, il team si impegna a svolgere ogni attività perseguendo gli obiettivi qualitativi discussi e concordati per il soddisfacimento delle metriche adottate e riportate nel \textit{piano di qualifica}.    
+
+        \subsubsection{Metriche}
+        Per perseguire la qualità nel processo di accertamento di qualità si è deciso di adottare le seguenti metriche:
+        \begin{itemize}
+                \item \nameref{M:MM};
+        \end{itemize}
     \subsection{Verifica\textsubscript{g}}
         \subsubsection{Scopo}
         Lo scopo del processo di verifica\textsubscript{g} è quello di accertare che non siano stati commessi errori nello svolgimento
         delle attività prefissate. Questo processo viene applicato costantemente sia durante la stesura
         della documentazione, che durante lo sviluppo del software.
+        \subsubsection{Descrizione}
+        La verifica verrà fatta in maniera efficace adottando questi metodi:
+        \begin{itemize}
+            \item \textbf{Analisi statica}: non richiede esecuzione dell'oggetto di verifica, quindi applicabile a documentazione e codice, usata per accertare conformità e regole nonché assenza di difetti, adotteremo i due seguenti metodi di lettura:
+             \begin{itemize}
+                \item \textbf{Walkthrough}: processo in cui il team esamina documenti o codice, in modo strutturato ma informale. L'obiettivo è identificare errori, migliorare la qualità e favorire la comprensione;
+                \item \textbf{Inspection}: processo di revisione più formale, in cui i veroficatori controllano documenti o codice per trovare errori e migliorare la qualità eseguendo una lettura mirata dell'oggetto di verifica. Segue regole precise e prevede momenti organizzati, come pianificazione, definizione lista di controllo, lettura e correzione dei difetti.
+             \end{itemize}
+             \item \textbf{Analisi dinamica}: richiede esecuzione dell'oggetto di verifica, quindi applicabile solo al codice, usata per accertare che il codice sia corretto, non introduca errori nel sistema e soddisfi i requisiti preposti.
+        \end{itemize}
         \subsubsection{Verifica\textsubscript{g} della documentazione}
         Al momento della necessità di modificare o aggiungere qualcosa a una sezione di un documento, si procederà in questo modo:
         \begin{enumerate}
@@ -233,7 +334,42 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
         \end{enumerate}
 
         \subsubsection{Verifica\textsubscript{g} del codice}
-    
+        Il processo di verifica del codice si attua principalmente attraverso lo sviluppo e l'esecuzione di test, che permettono di eseguire un'analisi dinamica del software, ossia un'analisi che si concentra sul comportamento del programma durante l'esecuzione. I test vengono progettati per garantire che il codice funzioni correttamente in vari scenari e che rispetti i requisiti prefissati. I principali tipi di test utilizzati in questo processo sono:
+        \begin{itemize}
+            \item \textbf{Test di unità}: verificano il corretto funzionamento delle singole unità o funzioni del codice, testando piccoli blocchi di logica isolati. Questi test sono fondamentali per individuare errori precoci e garantire che ogni componente funzioni come previsto. Vengono scritti dal programmatore che implementa il modulo;
+            \item \textbf{Test di integrazione}: verificano che i vari moduli o componenti del sistema interagiscano correttamente tra loro. Questi test sono particolarmente utili per identificare problemi che si verificano quando le diverse parti del sistema vengono messe insieme;
+            \item \textbf{Test di regressione}: vengono eseguiti per verificare che le modifiche recenti al codice non abbiano introdotto nuovi errori o causato il malfunzionamento di funzionalità precedentemente funzionanti. Questi test sono essenziali per mantenere l'integrità del software durante lo sviluppo continuo;
+            \item \textbf{Test di sistema}: testano il comportamento complessivo dell'applicazione in un ambiente che simula il più possibile l'ambiente di produzione. Questi test verificano che l'intero sistema funzioni come previsto sotto condizioni realistiche e che tutte le componenti siano correttamente integrate.
+        \end{itemize}   
+        I test vengono identificati attraverso un codice con questa struttura:
+        \textbf{
+            \[
+            T[\text{Tipo}][ \text{N}]
+            \]
+            }
+        \\Dove N è il codice del test ed è un valore univoco e il tipo può essere:
+        \begin{itemize}
+            \item \textbf{U}: test di unità;
+            \item \textbf{I}: test di integrazione;
+            \item \textbf{R}: test di regressione;
+            \item \textbf{S}: test di sistema.  
+        \end{itemize}
+
+        \paragraph{Metriche}
+        Per perseguire la qualità nel processo di verifica di qualità si è deciso di adottare le seguenti metriche:
+        \begin{itemize}
+                \item \nameref{M:COC};
+                \item \nameref{M:SC};
+                \item \nameref{M:BC};
+                \item \nameref{M:PTC};
+                \item \nameref{M:LT};
+                \item \nameref{M:ART};
+                \item \nameref{M:CYC};
+                \item \nameref{M:PPM};
+                \item \nameref{M:LPM};
+                \item \nameref{M:LPF};
+                \item \nameref{M:CD};
+        \end{itemize}
     \subsection{Validazione}
         \subsubsection{Scopo}
         Per la documentazione la validazione corrisponde alla pubblicazione del documento nel branch\textsubscript{g} main.\\
