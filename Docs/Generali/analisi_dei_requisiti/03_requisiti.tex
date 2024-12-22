@@ -104,81 +104,69 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
 \subsection{Requisiti funzionali}
 \requirementsTable{
     % VISUALIZZAZIONE DATASET
-    \RFM & L’utente deve poter visualizzare i dataset  & \tabularnewline
-    \RFM & L’utente deve poter visualizzare le informazioni primarie dei dataset  & \tabularnewline
-    \RFM & L’utente deve poter visualizzare i dettagli dei dataset   & \tabularnewline
+    \RFM & L’utente deve poter visualizzare i dataset  & UC1 \tabularnewline
+    \RFM & L’utente deve poter visualizzare le informazioni primarie dei dataset  & UC1.1\par UC1.1.1\par UC1.1.2 \tabularnewline
+    \RFM & L’utente deve poter visualizzare i dettagli dei dataset   & UC2\par UC2.1 \tabularnewline
 
     % CARICAMENTO DATASET
-    \RFM & L’utente deve poter caricare il dataset &  \tabularnewline
-    \RFM & L’utente riceve un errore se il caricamento di un dataset fallisce & \tabularnewline
+    \RFM & L’utente deve poter caricare il dataset &  UC3\tabularnewline
+    \RFM & L’utente riceve un errore se il caricamento di un dataset fallisce & UC4\tabularnewline
 
     % VISUALIZZAZIONE DEI DATI IN TABELLA
-    \RFM & L’utente deve poter visualizzare i dati del dataset selezionato in forma tabellare   & \tabularnewline
-    \RFM & L’utente deve poter visualizzare le proprietà del dato tramite le intestazioni della tabella   & \tabularnewline
-    \RFM & L’utente deve poter visualizzare il valore del dato in una cella della tabella   & \tabularnewline
+    \RFM & L’utente deve poter visualizzare i dati del dataset selezionato in forma tabellare   & UC5\tabularnewline
+    \RFM & L’utente deve poter visualizzare le intestazioni  della tabella   & UC5.1 \tabularnewline
+    \RFM & L’utente deve poter visualizzare il valore del dato in una cella della tabella   & UC5.2 \tabularnewline
     
     % VISUALIZZAZIONE DEI DATI SUL GRAFICO
-    \RFM & L’utente deve poter visualizzare i dati del dataset selezionato in forma di grafico tridimensionale a barre verticali   & \tabularnewline
-    \RFM & L’utente deve poter visualizzare gli assi del grafico tridimensionale    & \tabularnewline
-    \RFM & L’utente deve poter visualizzare l`asse globale X del grafico tridimensionale    &  \tabularnewline
-    \RFM & L’utente deve poter visualizzare l`asse globale Y del grafico tridimensionale    & \tabularnewline
-    \RFM & L’utente deve poter visualizzare l`asse globale Z del grafico tridimensionale    & \tabularnewline
-    \RFM & L’utente deve poter visualizzare i valori delle barre del grafico tridimensionale nel dettaglio    & \tabularnewline
-    %%%%%%%%%%%%%%%\RFO & Le barre de grafico 3D devono avere una colorazione appropriata che rendano i valori più veloci da comprendere   & \tabularnewline
- 
-    % TELECAMERA
-    \RFO & L’utente deve poter muovere la telecamera in prima persona all`interno dell` ambiente &  \tabularnewline
-    \RFO & L’utente deve poter muovere la telecamera sul asse globale X   &  \tabularnewline
-    \RFO & L’utente deve poter muovere la telecamera sul asse globale Y   &  \tabularnewline
-    \RFO & L’utente deve poter muovere la telecamera sul asse globale Z   &  \tabularnewline
-    
-    % TELECAMERA
-    \RFM & L’utente deve poter effettuare un`azione di camera panning all`interno dell` ambiente   &  \tabularnewline
-    \RFM & L’utente deve poter muovere la telecamera orizzontalmente spostandola sull'asse locale X  &  \tabularnewline
-    \RFM & L’utente deve poter muovere la telecamera orizzontalmente spostandola sull'asse locale Y  &  \tabularnewline
-    
-    % TELECAMERA
-    \RFM & L’utente deve poter eseguire un'azione di zoom indipendentemente dalla posizione della telecamera   & \tabularnewline
-    
-    % TELECAMERA
-    \RFM & L’utente deve poter ruotare la telecamera all`interno dell` ambiente   &\tabularnewline
-    \RFM & L’utente deve poter ruotare la telecamera attorno all`asse globale X   & \tabularnewline
-    \RFM & L’utente deve poter ruotare la telecamera attorno all`asse globale Y   & \tabularnewline
+    \RFM & L’utente deve poter visualizzare i dati del dataset selezionato in forma di grafico tridimensionale a barre verticali   &  UC6\tabularnewline
+    \RFM & L’utente deve poter visualizzare gli assi del grafico tridimensionale    &  UC6.1\tabularnewline
+    \RFM & L’utente deve poter visualizzare l`asse globale X del grafico tridimensionale    & UC6.1.1 \tabularnewline
+    \RFM & L’utente deve poter visualizzare l`asse globale Y del grafico tridimensionale    & UC6.1.2 \tabularnewline
+    \RFM & L’utente deve poter visualizzare l`asse globale Z del grafico tridimensionale    & UC6.1.3 \tabularnewline
 
+    
     % TELECAMERA
-    \RFM & L’utente deve poter riposizionare la telecamera alla sua posizione iniziale   & \tabularnewline
+    \RFM & L’utente deve poter effettuare un`azione di camera panning all`interno dell` ambiente   &  UC7\tabularnewline
+    \RFM & L’utente deve poter muovere la telecamera orizzontalmente  &  UC7.1\tabularnewline
+    \RFM & L’utente deve poter muovere la telecamera verticalmente  &  UC7.2\tabularnewline
     
-    % \RFM & L’utente deve poter visualizzare i valori di dettaglio di una singola barra del grafico 3D  &  \tabularnewline
-    % \RFM & L’utente deve poter visualizzare il valore numerico che una singola barra del grafico 3D rappresenta &  \tabularnewline
-    % \RFM & L’utente deve poter visualizzare le etichette relative al dato che una singola barra del grafico 3D rappresenta &  \tabularnewline
+    % TELECAMERA
+    \RFM & L’utente deve poter eseguire un'azione di zoom indipendentemente dalla posizione della telecamera   & UC8\tabularnewline
     
-    % \RFM & L'utente deve poter occludere alla vista delle barre   &  \tabularnewline
-    % \RFM & L'utente deve poter occludere alla vista delle barre con un valore superiore rispetto a quella selezionata  &  \tabularnewline
-    % \RFM & L'utente deve poter occludere alla vista delle barre con un valore inferiore rispetto a quella selezionata  &  \tabularnewline
-    % \RFM & L'utente deve poter tornare allo stato iniziale del grafico, senza quindi barre occultate  &  \tabularnewline
+    % TELECAMERA
+    \RFM & L’utente deve poter ruotare il grafico all`interno dell` ambiente   &UC9\tabularnewline
+    \RFM & L’utente deve poter ruotare il grafico attorno all`asse globale X   & UC9.1\tabularnewline
+    \RFM & L’utente deve poter ruotare la telecamera attorno all`asse globale Y   & UC9.2 \tabularnewline
+    \RFM & L’utente deve poter ruotare la telecamera attorno all`asse globale Z   & UC9.3\tabularnewline
     
+    % TELECAMERA
+    \RFM & L’utente deve poter riposizionare la telecamera alla sua posizione iniziale   & UC10\tabularnewline
+    
+    % GRAFICO
+    \RFM & L’utente deve poter visualizzare i valori delle barre del grafico tridimensionale nel dettaglio    & UC11\tabularnewline
+
     % FILTRAGGIO VALORI
-    \RFM & L'utente può eseguire un filtraggio sui valori e corrispettive barre  &  \tabularnewline
+    \RFM & L'utente può eseguire un filtraggio sui valori e corrispettive barre  & UC12 \tabularnewline
+    
+    \RFM & L'utente può eseguire un filtraggio su un numero arbitrario (N) di barre & UC12.1 \tabularnewline
+    \RFM & L'utente può eseguire un filtraggio sulle N barre più alte &  UC12.1.1\tabularnewline
+    \RFM & L'utente può eseguire un filtraggio sulle le N barre più basse &  UC12.1.2\tabularnewline
 
-    \RFM & L'utente può eseguire un filtraggio su un numero arbitrario (N) di barre &  \tabularnewline
-    \RFM & L'utente può eseguire un filtraggio sulle N barre più alte &  \tabularnewline
-    \RFM & L'utente può eseguire un filtraggio sulle le N barre più basse &  \tabularnewline
+    \RFM & L'utente può eseguire un filtraggio sul valor medio globale &  UC12.2\tabularnewline
+    \RFM & L'utente può eseguire un filtraggio sulle barre superiori al valor medio globale & UC12.2.1 \tabularnewline
+    \RFM & L'utente può eseguire un filtraggio sulle barre inferiori al valor medio globale & UC12.2.2 \tabularnewline
 
-    \RFM & L'utente può eseguire un filtraggio sul valor medio globale &  \tabularnewline
-    \RFM & L'utente può eseguire un filtraggio sulle barre superiori al valor medio globale &  \tabularnewline
-    \RFM & L'utente può eseguire un filtraggio sulle barre inferiori al valor medio globale &  \tabularnewline
+    \RFM & L'utente può eseguire un filtraggio su una determinata barra &  UC13\tabularnewline
+    \RFM & L'utente può eseguire un filtraggio sulle barre superiori ad una determinata barra & UC13.1 \tabularnewline
+    \RFM & L'utente può eseguire un filtraggio sulle barre inferiore ad una determinata barra &  UC13.2\tabularnewline
 
-    \RFM & L'utente può eseguire un filtraggio su una determinata barra &  \tabularnewline
-    \RFM & L'utente può eseguire un filtraggio sulle barre superiori ad una determinata barra &  \tabularnewline
-    \RFM & L'utente può eseguire un filtraggio sulle barre inferiore ad una determinata barra &  \tabularnewline
+    \RFM & L'utente deve poter visualizzare una barra in primo piano &  UC14\tabularnewline
 
-    \RFM & L'utente deve poter visualizzare una barra in primo piano &  \tabularnewline
-
-    \RFM & L'utente deve poter ripristinare lo stato del grafico rispetto ai precedenti valori applicati &  \tabularnewline
+    \RFM & L'utente deve poter ripristinare lo stato del grafico rispetto ai precedenti valori applicati & UC15 \tabularnewline
 
     % VISUALIZZAZIONE VALOR MEDIO
-    \RFM & L’utente deve poter di visualizzare un piano parallelo alla base che rappresenti il valor medio globale  &  \tabularnewline
-    \RFD & L’utente deve poter visualizzare il piano parallelo alla base che rappresenta il valor medio di un singolo elemento dell'asse   &  \tabularnewline
+    \RFM & L’utente deve poter di visualizzare un piano parallelo alla base che rappresenti il valor medio globale  &  UC16\tabularnewline
+    \RFD & L’utente deve poter visualizzare il piano parallelo alla base che rappresenta il valor medio di un singolo elemento dell'asse   &  UC17\tabularnewline
 
     }
 
@@ -192,7 +180,7 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
     \RQM & La suite di test deve essere robusta per garantire ciò specificato in RQ4   & Capitolato \tabularnewline
     \RQD & Il software deve essere testato attraverso test di tipo e2e   & Capitolato \tabularnewline  
 }
- 
+ \pagebreak
 \subsection{Requisiti di vincolo}
 \requirementsTable{
     \RVM & Il software deve essere sviluppato utilizzando Typescript come linguaggio di programmazione primario   & Decisione interna \tabularnewline
@@ -202,7 +190,8 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
     \RVM & Il software deve essere compatibile dalla versione 133 del browser Firefox  & Decisione interna \tabularnewline
     \RVM & Il software deve essere compatibile dalla versione 115 del browser Opera  & Decisione interna \tabularnewline
     \RVM & Il software deve essere compatibile dalla versione 131 del browser Microsoft Edge  & Decisione interna \tabularnewline
-}
+    \RVO & Le barre de grafico 3D devono avere una colorazione appropriata che rendano i valori più veloci da comprendere  & Capitolato \tabularnewline
+    }
 \newpage
 
 \subsection{Requisiti prestazionali}
@@ -219,7 +208,7 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
 
 \subsubsection{Fonte - Requisiti}
 \SrcToReqTable{
-    Capitolato & RQ1.3\par RQ1.4\par RQ1.5\par RQ2.6\tabularnewline
+    Capitolato & RQ1.3\par RQ1.4\par RQ1.5\par RQ2.6\par RV3.8 \tabularnewline
     Decisione interna & RQ1.1\par
                         RQ1.2\par 
                         RV1.1\par 
@@ -235,81 +224,88 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
                         RP2.4\par
                         RP1.5\par
                         \tabularnewline
-    UC1         & RF \tabularnewline
-    UC1.1       & RF \tabularnewline
-    UC1.1.1     & RF \tabularnewline
-    UC1.1.2     & RF \tabularnewline
-    UC1.1.3     & RF \tabularnewline
-    UC1.2       & RF \tabularnewline
-    UC2         & RF \tabularnewline
-    UC2         & RF \tabularnewline
-    UC3         & RF \tabularnewline
-    UC4         & RF \tabularnewline
-    UC4.1       & RF \tabularnewline
-    UC4.2       & RF \tabularnewline
-    UC4.3       & RF \tabularnewline
-    UC5         & RF \tabularnewline
-    UC6         & RF \tabularnewline
-    UC7         & RF \tabularnewline
-    UC7.1       & RF \tabularnewline
-    UC7.2       & RF \tabularnewline
-    UC8         & RF \tabularnewline
-    UC8.1       & RF \tabularnewline
-    UC8.2       & RF \tabularnewline
-    UC8.3       & RF \tabularnewline
-    UC9         & RF \tabularnewline
-    UC10        & RF \tabularnewline
-    UC11        & RF \tabularnewline
-    UC11.1      & RF \tabularnewline
-    UC11.1.1    & RF \tabularnewline
-    UC11.2      & RF \tabularnewline
-    UC11.2.1    & RF \tabularnewline
-    UC11.2.2    & RF \tabularnewline
-    UC12        & RF \tabularnewline
-    UC12.1      & RF \tabularnewline
-    UC12.2      & RF \tabularnewline
-    UC12.3      & RF \tabularnewline
-    UC13        & RF \tabularnewline
-    UC14        & RF \tabularnewline
+    UC1    & RF1.1 \tabularnewline
+    UC1.1    & RF1.2 \tabularnewline
+    UC1.1.1    & RF1.2 \tabularnewline
+    UC1.1.2    & RF1.2 \tabularnewline
+    UC2    & RF1.3 \tabularnewline
+    UC2.1    & RF1.3 \tabularnewline
+    UC3    & RF1.4 \tabularnewline
+    UC4   & RF1.5 \tabularnewline
+    UC5    & RF1.6 \tabularnewline
+    UC5.1    & RF1.7 \tabularnewline
+    UC5.2    & RF1.8 \tabularnewline
+    UC6    & RF1.9 \tabularnewline
+    UC6.1    & RF1.10 \tabularnewline
+    UC6.1.1    & RF1.11 \tabularnewline
+    UC6.1.2    & RF1.12 \tabularnewline
+    UC6.1.3    & RF1.13 \tabularnewline
+    UC7    & RF1.14 \tabularnewline
+    UC7.1    & RF1.15 \tabularnewline
+    UC7.2    & RF1.16 \tabularnewline
+    UC8    & RF1.17 \tabularnewline
+    UC9    & RF1.18 \tabularnewline
+    UC9.1    & RF1.19 \tabularnewline
+    UC9.2    & RF1.20 \tabularnewline
+    UC9.3    & RF1.21 \tabularnewline
+    UC10    & RF1.22 \tabularnewline
+    UC11    & RF1.23 \tabularnewline
+    UC12    & RF1.24 \tabularnewline
+    UC12.1    & RF1.25 \tabularnewline
+    UC12.1.1    & RF1.26 \tabularnewline
+    UC12.1.2    & RF1.27 \tabularnewline
+    UC12.2    & RF1.28 \tabularnewline
+    UC12.2.1    & RF1.29 \tabularnewline
+    UC12.2.2    & RF1.30 \tabularnewline
+    UC13    & RF1.31 \tabularnewline
+    UC13.1    & RF1.32 \tabularnewline
+    UC13.2    & RF2.33 \tabularnewline
+    UC14    & RF2.34 \tabularnewline
+    UC15    & RF2.35 \tabularnewline
+    UC16   & RF2.36 \tabularnewline
+    UC17    & RF2.37 \tabularnewline
     }
 
-    \newpage
 \subsubsection{Requisiti - Casi d'uso}
 \ReqToUCTable{
 
-    RF & UC1 \tabularnewline 
-    RF & UC1.1\par UC1.1.1\par UC1.1.2\par UC1.1.3\tabularnewline
-    RF & UC1.2 \tabularnewline
-    RF & UC2 \tabularnewline
-    RF & UC2 \tabularnewline
-    RF & UC3 \tabularnewline
-    RF & UC4 \tabularnewline
-    RF & UC4.1 \tabularnewline
-    RF & UC4.2 \tabularnewline
-    RF & UC4.3 \tabularnewline
-    RF & UC5 \tabularnewline
-    RF & UC6 \tabularnewline
-    RF & UC7 \tabularnewline
-    RF & UC7.1 \tabularnewline
-    RF & UC7.2 \tabularnewline
-    RF & UC8 \tabularnewline
-    RF & UC8.1 \tabularnewline
-    RF & UC8.2 \tabularnewline
-    RF & UC8.3 \tabularnewline
-    RF & UC9 \tabularnewline
-    RF & UC10 \tabularnewline
-    RF & UC11 \tabularnewline
-    RF & UC11.1 \tabularnewline
-    RF & UC11.1.1 \tabularnewline
-    RF & UC11.2 \tabularnewline
-    RF & UC11.2.1 \tabularnewline
-    RF & UC11.2.2 \tabularnewline
-    RF & UC12 \tabularnewline
-    RF & UC12.1 \tabularnewline
-    RF & UC12.2 \tabularnewline
-    RF & UC12.3 \tabularnewline
-    RF & UC13 \tabularnewline
-    RF & UC14 \tabularnewline
+    RF1.1 & UC1 \tabularnewline
+    RF1.2 & UC1.1\par UC1.1.1\par UC1.1.2\tabularnewline
+    RF1.3 & UC2 \par UC2\par UC2.1 \tabularnewline
+    RF1.4 & UC3 \tabularnewline
+    RF1.5 & UC4 \tabularnewline
+    RF1.6 & UC5 \tabularnewline
+    RF1.7 & UC5.1 \tabularnewline
+    RF1.8 & UC5.2 \tabularnewline
+    RF1.9 & UC6 \tabularnewline
+    RF1.10 & UC6.1 \tabularnewline
+    RF1.11 & UC6.1.1 \tabularnewline
+    RF1.12 & UC6.1.2 \tabularnewline
+    RF1.13 & UC6.1.3 \tabularnewline
+    RF1.14 & UC7 \tabularnewline
+    RF1.15 & UC7.1 \tabularnewline
+    RF1.16 & UC7.2 \tabularnewline
+    RF1.17 & UC8 \tabularnewline
+    RF1.18 & UC9 \tabularnewline
+    RF1.19 & UC9.1 \tabularnewline
+    RF1.20 & UC9.2 \tabularnewline
+    RF1.21 & UC9.3 \tabularnewline
+    RF1.22 & UC10 \tabularnewline
+    RF1.23 & UC11 \tabularnewline
+    RF1.24 & UC12 \tabularnewline
+    RF1.25 & UC12.1 \tabularnewline
+    RF1.26 & UC12.1.1 \tabularnewline
+    RF1.27 & UC12.1.2 \tabularnewline
+    RF1.28 & UC12.2 \tabularnewline
+    RF1.29 & UC12.2.1 \tabularnewline
+    RF1.30 & UC12.2.2 \tabularnewline
+    RF1.31 & UC13 \tabularnewline
+    RF1.32 & UC13.1 \tabularnewline
+    RF2.33 & UC13.2 \tabularnewline
+    RF2.34 & UC14 \tabularnewline
+    RF2.35 & UC15 \tabularnewline
+    RF2.36 & UC16 \tabularnewline
+    RF2.37 & UC17 \tabularnewline
 
     RQ1.1 & Decisione interna\tabularnewline
     RQ1.2 & Decisione interna\tabularnewline
@@ -325,6 +321,7 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
     RV1.5 & Decisione interna\tabularnewline
     RV1.6 & Decisione interna\tabularnewline
     RV1.7 & Decisione interna\tabularnewline
+    RV3.7 & Capitolato\tabularnewline
 
     RP1.1 & Decisione interna\tabularnewline
     RP1.2 & Decisione interna\tabularnewline
