@@ -7,10 +7,10 @@
 }
 
 \newcommand{\UseCase}[1]{%
-    \stepcounter{UC}
+    \refstepcounter{UC}
     \resetCounter{SUC}
     \resetCounter{SSUC}
-    \subsection{UC\arabic{UC} - #1}
+    \subsection{UC\arabic{UC} - #1}\label{UC:\arabic{UC}}
 }
 
 \newcommand{\SubUseCase}[1]{%
@@ -30,27 +30,23 @@
 % \SubUseCase => rappresenta il primo sotto livello dello use case principale (UC1.1,UC2.1,UC3.3)
 % \SubSubUseCase => rappresenta il secondo sotto livello dello lo use case principale (UC1.1.1,UC2.1.2,UC3.3.1)
 
-\newcommand{\UCdsc}[6]{
+\newcommand{\UCdsc}[5]{
     \begin{itemize}
         \item \textbf{Attore primario:}
-        \item #1
+         #1
         \item \textbf{Descrizione:} 
-        \item #2
+         #2
         \item \textbf{Precondizioni:}
-        \item #3
+         #3
         \item \textbf{Postcondizioni:}
-        \item #4
+        #4
         \item \textbf{Scenario principale:} 
-        \item #5
-        % \ifx#6\empty
-        % \else
-        %   \item \textbf{Estensioni:} #6
-        % \fi
+         #5
     \end{itemize}
 }
 
 
-
+\GetTitleStringSetup{expand}
 \section{Casi d'uso}
 % \subsection{Attore}
 % Poiché per lo svolgimento del progetto non è necessario gestire permessi differenti per l'accesso alle funzionalità, l'attore che interagisce con il nostro software è unico, denominato "Utente".\\
@@ -60,7 +56,7 @@
     \begin{figure}[h!]
         \centering
         \includegraphics[scale=0.55]{template/images/UC1.png}
-        \caption{UC\arabic{UC} - Visualizza lista dataset}
+        \caption{\nameref*{UC:\arabic{UC}}}
     \end{figure}
     \UCdsc
     { % ATTORE
@@ -185,8 +181,8 @@
 \UseCase{Visualizza dettaglio dataset}
     \begin{figure}[h!]
         \centering
-        \includegraphics[scale=0.55]{template/images/UC2.png}
-        \caption{UC\arabic{UC} - Visualizza dettaglio dataset}
+        \includegraphics[scale=0.6]{template/images/UC2.png}
+        \caption{\nameref*{UC:\arabic{UC}}}
     \end{figure}
     \UCdsc
     { % ATTORE
@@ -250,8 +246,8 @@
 \UseCase{Carica dataset}
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.7]{template/images/UC3.png}
-    \caption{UC\arabic{UC} - Visualizzazione dati in forma tabellare}
+    \includegraphics[scale=0.6]{template/images/UC3.png}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
     \UCdsc
     { % ATTORE
@@ -281,12 +277,12 @@
         \begin{itemize}
             \item L'utente seleziona un dataset tra quelli proposti nella lista;
         \end{itemize}
-    }
-    { % ESTENSIONE
-        \begin{itemize}
+        % ESTENSIONE
+        \item \textbf{Estensione:} \begin{itemize}
             \item UC4 - Visualizza errore nel caricamento.
         \end{itemize}
     }
+
 
 \newpage
 
@@ -328,7 +324,7 @@
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.7]{template/images/UC5.png}
-    \caption{UC\arabic{UC} - Visualizzazione dati in forma tabellare}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
     { % ATTORE
@@ -420,8 +416,8 @@
 \UseCase{Visualizza dataset tramite grafico 3D}
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.7]{template/images/UC6.png}
-    \caption{UC\arabic{UC} - Visualizzazione dati in forma di grafico a istogramma 3D verticale}
+    \includegraphics[scale=0.5]{template/images/UC6.png}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
     { % ATTORE
@@ -571,8 +567,8 @@
 \UseCase{Camera Panning}
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.7]{template/images/UC7.png}
-    \caption{UC\arabic{UC} - Visualizzazione dati in forma di grafico a istogramma 3D verticale}
+    \includegraphics[scale=0.65]{template/images/UC7.png}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
     { % ATTORE
@@ -665,7 +661,7 @@
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.7]{template/images/UC8.png}
-    \caption{UC\arabic{UC} - Rotazione camera}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
 { % ATTORE
@@ -698,8 +694,8 @@
 \UseCase{Ruota grafico}
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.7]{template/images/UC9.png}
-    \caption{UC\arabic{UC} - Rotazione camera}
+    \includegraphics[scale=0.65]{template/images/UC9.png}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
 { % ATTORE
@@ -819,7 +815,7 @@
 \UseCase{Riposiziona telecamera alla posizione d'origine}
 \begin{figure}[h!]\centering
     \includegraphics[scale=0.7]{template/images/UC10.png}
-    \caption{UC\arabic{UC} - Riposizionamento iniziale}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
 { % ATTORE
@@ -851,7 +847,7 @@
 \UseCase{Visualizza dettagli di una barra del grafico 3D}
 \begin{figure}[h!]\centering
     \includegraphics[scale=0.7]{template/images/UC11.png}
-    \caption{UC\arabic{UC} - Visualizzazione dei valori di una barra del grafico}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
 { % ATTORE
@@ -941,8 +937,8 @@
 
 \UseCase{Filtra barre}
 \begin{figure}[h!]\centering
-    \includegraphics[scale=0.7]{template/images/UC12.png}
-    \caption{UC\arabic{UC} - Visualizzazione dei valori di una barra del grafico}
+    \includegraphics[scale=0.6]{template/images/UC12.png}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
 { % ATTORE
@@ -970,12 +966,18 @@
     \begin{itemize}
         \item L'utente interagisce con il sistema selezionando un filtro e impostando delle regole specifiche. 
     \end{itemize}
+    % GENERALIZZAZIONI
+    \item \textbf{Generalizzazioni:} \begin{itemize}
+        \item UC12.1 - Filtra su numero N di barre.
+        \item UC12.2 - Filtra su valor medio globale.
+        \item UC13 - Filtra su data barra.
+    \end{itemize}
 }
 
 \SubUseCase{Filtra su numero N di barre}
 \begin{figure}[h!]\centering
     \includegraphics[scale=0.7]{template/images/UC12.1.png}
-    \caption{UC\arabic{UC} - Visualizzazione dei valori di una barra del grafico}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
 { % ATTORE
@@ -1003,8 +1005,14 @@
     \begin{itemize}
         \item L'utente interagisce con il sistema selezionando il filtro per tenere visibili solo le prime N barre più alte o basse.
     \end{itemize}
+        % GENERALIZZAZIONI
+        \item \textbf{Generalizzazioni:} \begin{itemize}
+            \item UC12.1.1 - Filtra N barre più alte.
+            \item UC12.1.2 - Filtra N barre più basse.
+        \end{itemize}
 }
-% \UseCase{Filtra N barra più alte}
+
+\SubSubUseCase{Filtra N barra più alte}
 \UCdsc
 { % ATTORE
     \begin{itemize}
@@ -1032,7 +1040,6 @@
         \item L'utente interagisce con il sistema selezionando il filtro per tenere visibili solo le prime N barre più alte.
     \end{itemize}
 }
-
 
 \SubSubUseCase{Filtra N barra più basse}
 \UCdsc
@@ -1066,8 +1073,8 @@
 
 \SubUseCase{Filtra su valor medio globale}
 \begin{figure}[h!]\centering
-    \includegraphics[scale=0.7]{template/images/UC12.2.png}
-    \caption{UC\arabic{UC} - Visualizzazione dei valori di una barra del grafico}
+    \includegraphics[scale=0.65]{template/images/UC12.2.png}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
 { % ATTORE
@@ -1094,7 +1101,13 @@
     \begin{itemize}
         \item L'utente interagisce con il sistema selezionando il filtro per tenere visibili solo le barre più alte o più basse rispetto al valor medio globale.
     \end{itemize}
+        % GENERALIZZAZIONI
+        \item \textbf{Generalizzazioni:} \begin{itemize}
+            \item UC12.2.1 - Filtra barre superiori al valor medio globale.
+            \item UC12.2.2 - Filtra barre inferiori al valor medio globale.
+        \end{itemize}
 }
+
 \SubSubUseCase{Filtra barre superiori al valor medio globale}
 \UCdsc
 { % ATTORE
@@ -1123,6 +1136,7 @@
         \item L'utente interagisce con il sistema selezionando il filtro per tenere visibili le barre che hanno un valore superiore al valor medio globale.
     \end{itemize}
 }
+
 \SubSubUseCase{Filtra barre inferiori al valor medio globale}
 \UCdsc
 { % ATTORE
@@ -1156,7 +1170,7 @@
 \UseCase{Filtra su una data barra}
 \begin{figure}[h!]\centering
     \includegraphics[scale=0.7]{template/images/UC13.png}
-    \caption{UC\arabic{UC} - Modifica trasparenza barra del grafico}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
 { % ATTORE
@@ -1183,7 +1197,13 @@
     \begin{itemize}
         \item L'utente seleziona un valore del dataset che corrisponde ad una barra sul grafico 3D.
     \end{itemize}
+     % GENERALIZZAZIONI
+     \item \textbf{Generalizzazioni:} \begin{itemize}
+        \item UC13.1 - Filtra barre superiori a una data barra.
+        \item UC13.2 - Filtra barre inferiori a una data barra.
+    \end{itemize}
 }
+
 \SubUseCase{Filtra barre superiori a una data barra}
 \UCdsc
 { % ATTORE
@@ -1212,6 +1232,7 @@
         \item L'utente interagisce con il sistema selezionando il filtro per tenere visibili le barre che hanno un valore superiore rispetto al valore di una determinata barra.
     \end{itemize}
 }
+
 \SubUseCase{Filtra barre inferiori a una data barra}
 \UCdsc
 { % ATTORE
@@ -1244,7 +1265,7 @@
 \UseCase{Visualizza barra in primo piano}
 \begin{figure}[h!]\centering
     \includegraphics[scale=0.7]{template/images/UC14.png}
-    \caption{UC\arabic{UC} - Modifica trasparenza barra del grafico}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
 { % ATTORE
@@ -1279,17 +1300,18 @@
 \UseCase{Ripristina stato del grafico}
 \begin{figure}[h!]\centering
     \includegraphics[scale=0.7]{template/images/UC15.png}
-    \caption{UC\arabic{UC} - Visualizzazione di un piano parallelo alla base}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
 { % ATTORE
     \begin{itemize}
         \item Utente in ambiente 3D.
     \end{itemize}
-}
-{ % DESCRIZIONE
+    }
+    { % DESCRIZIONE
     \begin{itemize}
         \item Consiste nel togliere il filtro applicato al grafico e far tornare le barre al loro stile originale.
+    \end{itemize}
 }
 { % PRECONDIZIONI
     \begin{itemize}
@@ -1313,7 +1335,7 @@
 \UseCase{Visualizza piano valor medio globale}
 \begin{figure}[h!]\centering
     \includegraphics[scale=0.7]{template/images/UC16.png}
-    \caption{UC\arabic{UC} - Visualizzazione di un piano parallelo alla base}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
 { % ATTORE
@@ -1345,7 +1367,7 @@
 \UseCase{Visualizza piano valor medio di un singolo elemento}
 \begin{figure}[h!]\centering
     \includegraphics[scale=0.7]{template/images/UC17.png}
-    \caption{UC\arabic{UC} - Visualizzazione di un piano parallelo alla base}
+    \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
 { % ATTORE
