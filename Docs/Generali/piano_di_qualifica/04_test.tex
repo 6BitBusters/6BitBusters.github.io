@@ -35,45 +35,59 @@ abbreviazioni per identificare lo stato dei test:
 \subsection{Test di sistema}
 \testTable{
     TS1 & Verifica che l'utente possa visualizzare la lista dei dataset disponibili & NI\tabularnewline
-    TS2 & Verifica che l'utente possa visualizzare i dettagli di un dataset & NI\tabularnewline
+    TS2 & Verifica che l'utente possa visualizzare le informazioni primarie di un dataset & NI\tabularnewline
     TS3 & Verifica che l'utente possa visualizzare il nome del dataset & NI\tabularnewline
-    TS4 & Verifica che l'utente possa visualizzare la descrizione del contenuto del dataset & NI\tabularnewline
-    TS5 & Verifica che l'utente possa visualizzare la dimensione del dataset & NI\tabularnewline
-    TS6 & Verifica che l'utente possa caricare nel sistema un dataset nella lista & NI\tabularnewline
-    TS7 & Verifica che l'utente possa visualizzare i dati in forma tabellare & NI\tabularnewline
-    TS8 & Verifica che l'utente possa visualizzare i dati in forma di grafico a barre 3D verticali & NI\tabularnewline
-    TS9 & Verifica che l'utente possa visualizzare gli assi del grafico & NI\tabularnewline
-    TS10 & Verifica che l'utente possa visualizzare l'asse X con i valori appropriati & NI\tabularnewline
-    TS11 & Verifica che l'utente possa visualizzare l'asse Y con i valori appropriati & NI\tabularnewline
-    TS12 & Verifica che l'utente possa visualizzare l'asse Z con i valori appropriati & NI\tabularnewline
-    TS13 & Verifica che l'utente possa spostare la visualizzazione del grafico 
-    lungo il piano XY senza modificare l'orientamento della telecamera & NI\tabularnewline
-    TS14 & Verifica che l'utente possa ruotare la visualizzazione del grafico 
-    modificando l'orientamento della telecamera & NI\tabularnewline
-    TS15 & Verifica che l'utente possa ruotare la visualizzazione del grafico attorno all'asse X & NI\tabularnewline
-    TS16 & Verifica che l'utente possa ruotare la visualizzazione del grafico attorno all'asse Y & NI\tabularnewline
-    TS17 & Verifica che l'utente possa ripristinare la posizione e l'angolazione alla configurazione 
-    iniziale, annullando qualsiasi modifica apportata dall'utente & NI\tabularnewline
-    TS18 & Verifica che l'utente possa visualizzare l'altezza e le etichette di una barra & NI\tabularnewline
-    TS19 & Verifica che l'utente possa rendere trasparenti le barre che soddisfano certe condizioni & NI\tabularnewline
-    TS20 & Verifica che l'utente possa rendere trasparenti le barre
-    con altezza superiore a una determinata barra & NI\tabularnewline
-    TS21 & Verifica che l'utente possa rendere trasparenti le barre
-    con altezza inferiore a una determinata barra & NI\tabularnewline
-    TS22 & Verifica che l'utente possa visualizzare in primo piano 
-    la barra relativa una cella della tabella & NI\tabularnewline
-    TS23 & Verifica che l'utente possa rendere trasparenti tutte 
-    le barre, eccetto le N barre più alte & NI\tabularnewline
-    TS24 & Verifica che l'utente possa rendere trasparenti tutte
-     le barre, eccetto le N barre più basse & NI\tabularnewline
-    TS25 & Verifica che l'utente possa rendere trasparenti le barre 
-    con altezza superiore al valore medio globale & NI\tabularnewline
-    TS26 & Verifica che l'utente possa rendere trasparenti le barre 
-    con altezza inferiore al valore medio globale & NI\tabularnewline
-    TS27 & Verifica che l'utente possa visualizzare il piano parallelo alla 
-    base che rappresenta il valore medio globale & NI\tabularnewline
+    TS4 & Verifica che l'utente possa visualizzare la dimensione del dataset & NI\tabularnewline
+    TS5 & Verifica che l'utente possa visualizzare i dettagli di un dataset & NI\tabularnewline
+    TS6 & Verifica che l'utente possa visualizzare la descrizione del contenuto del dataset & NI\tabularnewline
+    TS7 & Verifica che l'utente possa caricare nel sistema un dataset nella lista & NI\tabularnewline
+    TS8 & Verifica che, in caso di fallito caricamento del dataset, 
+        venga visualizzato un messaggio di errore & NI\tabularnewline
+    TS9 & Verifica che l'utente possa visualizzare il dataset in forma tabellare & NI\tabularnewline
+    TS10 & Verifica che l'utente possa visualizzare le intestazioni della tabella & NI\tabularnewline
+    TS11 & Verifica che l'utente possa visualizzare i dati della tabella & NI\tabularnewline
+    TS12 & Verifica che l'utente possa visualizzare il dataset in 
+        forma di grafico 3D a barre verticali & NI\tabularnewline
+    TS13 & Verifica che l'utente possa visualizzare gli assi del grafico & NI\tabularnewline
+    TS14 & Verifica che l'utente possa visualizzare l'asse X con i valori appropriati & NI\tabularnewline
+    TS15 & Verifica che l'utente possa visualizzare l'asse Y con i valori appropriati & NI\tabularnewline
+    TS16 & Verifica che l'utente possa visualizzare l'asse Z con i valori appropriati & NI\tabularnewline
+    TS17 & Verifica che l'utente possa spostare la visualizzazione del grafico 
+        lungo una linea retta senza modificare l'angolazione della telecamera & NI\tabularnewline
+    TS18 & Verifica che l'utente possa spostare orizzontalmente la visualizzazione del grafico & NI\tabularnewline
+    TS19 & Verifica che l'utente possa spostare verticalmente la visualizzazione del grafico & NI\tabularnewline
+    TS20 & Verifica che l'utente possa compiere azioni di zoom & NI\tabularnewline
+    TS21 & Verifica che l'utente possa ruotare il grafico 
+        modificando l'angolazione della telecamera & NI\tabularnewline
+    TS22 & Verifica che l'utente possa ruotare il grafico attorno all'asse X & NI\tabularnewline
+    TS23 & Verifica che l'utente possa ruotare il grafico attorno all'asse Y & NI\tabularnewline
+    TS24 & Verifica che l'utente possa ruotare il grafico attorno all'asse Z & NI\tabularnewline
+    TS25 & Verifica che l'utente possa riposizionare la telecamera alla posizione d'origine & NI\tabularnewline
+    TS26 & Verifica che l'utente possa visualizzare i dettagli di una barra del grafico & NI\tabularnewline
+    TS27 & Verifica che l'utente possa visualizzare l'altezza della barra & NI\tabularnewline
+    TS28 & Verifica che l'utente possa visualizzare le etichette della barra & NI\tabularnewline
+    TS29 & Verifica che l'utente possa filtrare le barre che soddisfano certe condizioni & NI\tabularnewline
+    TS30 & Verifica che l'utente possa filtrare su un numero N di barre & NI\tabularnewline
+    TS31 & Verifica che l'utente possa filtrare le N barre più alte & NI\tabularnewline
+    TS32 & Verifica che l'utente possa filtrare le N barre più basse & NI\tabularnewline
+    TS33 & Verifica che l'utente possa filtrare sul valor medio globale & NI\tabularnewline
+    TS34 & Verifica che l'utente possa filtrare le barre con altezza 
+        superiore al valor medio globale & NI\tabularnewline
+    TS35 & Verifica che l'utente possa filtrare le barre con altezza 
+        inferiore al valor medio globale & NI\tabularnewline
+    TS36 & Verifica che l'utente possa filtrare su una determinata barra & NI\tabularnewline
+    TS37 & Verifica che l'utente possa filtrare le barre con altezza 
+        superiore a una determinata barra & NI\tabularnewline
+    TS38 & Verifica che l'utente possa filtrare le barre con altezza 
+        inferiore a una determinata barra & NI\tabularnewline
+    TS39 & Verifica che l'utente possa visualizzare una determinata barra in primo piano & NI\tabularnewline
+    TS40 & Verifica che l'utente possa visualizzare la barra in primo piano & NI\tabularnewline
+    TS41 & Verifica che l'utente possa rimuovere il filtro applicato al grafico & NI\tabularnewline
+    TS42 & Verifica che l'utente possa visualizzare il piano parallelo alla 
+        base del grafico che rappresenta il valor medio globale & NI\tabularnewline
+    TS43 & Verifica che l'utente possa visualizzare il piano parallelo alla
+        base del grafico che rappresenta il valor medio di un singolo elemento dell'asse & NI\tabularnewline
 }
-
 \subsection{Test di accettazione}
 \testTable{
     TA1 & - & NI\tabularnewline
