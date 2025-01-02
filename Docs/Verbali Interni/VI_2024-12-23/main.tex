@@ -1,0 +1,39 @@
+\documentclass[a4paper]{article}
+\usepackage[normalem]{ulem}
+\usepackage{graphicx}
+\usepackage[font=small,labelfont=bf]{caption}
+
+% impostazioni generali
+\input{template/package.tex}
+
+% dati relativi alla prima pagina
+\makeindex
+\begin{document}
+\counterwithin{table}{section}
+
+% Prima pagina
+\input{titlepage.tex}
+
+% Diario delle modifiche
+\input{template/changelog.tex}
+\input{config/changelog_input.tex}
+\pagebreak
+
+% Indice
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+}
+\pagebreak
+
+% Contenuto
+\include{content.tex}
+\pagebreak
+
+% insert here other content (\include)
+\input{template/tracking.tex}
+\input{config/tracking_input.tex}
+
+\end{document}
+
+
