@@ -1,0 +1,123 @@
+% Insert content here
+\section{Informazioni generali}
+    \subsection{Dettagli sull'incontro}
+        \begin{itemize}
+            \item \textbf{Luogo}: Discord
+            \item \textbf{Data}: 05-12-2024
+            \item \textbf{Ora di inizio}: 17:30
+            \item \textbf{Ora di fine}: 19:30
+            \item \textbf{Partecipanti}:
+                \begin{itemize}
+                    \item Bergamin Elia
+                    \item Chilese Elena
+                    \item Diviesti Filippo
+                    \item Djossa Edgar
+                    \item Pincin Matteo
+                    \item Soranzo Andrea
+                \end{itemize}
+        \end{itemize}
+
+\section{Motivo della riunione}
+    In questo incontro abbiamo discusso gli obiettivi raggiunti nel secondo sprint\textsubscript{g},
+    e quelli che avevamo pianificato, ma che non abbiamo raggiunto. 
+    Abbiamo valutato e cercato di migliorare il wow\textsubscript{g}, in particolare
+    nell'ambito della stesura dei documenti. 
+    Abbiamo vagliato e scelto le tecnologie da adottare per lo sviluppo del PoC, 
+    tra le alternative proposte.
+    Abbiamo assegnato i ruoli e pianificato le attività per il terzo sprint.
+
+\section{Resoconto}
+    \subsection{Retrospettiva}
+        \subsubsection{Piano di qualifica}
+            Avevamo pianificato di redigere le sezioni Qualità di processo e Qualità di prodotto 
+            del \textit{Piano di qualifica}, ma abbiamo constatato che, anche in seguito alle
+            lezioni tenute dal prof. Vardanega, ci mancavano degli elementi per poter completare
+            la stesura. Nello specifico, ci siamo informati maggiormente sulle cosiddette
+            "Metriche di progetto", a carattere prevalentemente economico, e sulle metriche
+            che riguardano il prodotto software.
+            Abbiamo quindi deciso di redigere tali sezioni nel prossimo sprint.
+        \subsubsection{Stesura documenti}
+            Abbiamo osservato che, a causa delle diverse consuetudini di ciascun membro del team 
+            nella stesura di documenti, si sono verificate delle incoerenze stilistiche e grammaticali nei nostri
+            documenti. Abbiamo quindi deciso che la sezione delle \textit{Norme di progetto} che 
+            riguarda la documentazione dovrà essere sostanzialmente ampliata per disciplinare 
+            nel dettaglio questo processo. Inoltre, per assicurare concordanza di genere per i 
+            termini stranieri, andremo ad aggiungere nel \textit{Glossario}, per ogni vocabolo
+            straniero, un'indicazione sulla sua morfologia, ovvero se è un sostantivo,
+            un aggettivo o un verbo, e nel caso di un sostantivo, se è maschile o femminile.
+            
+    \subsection{Tecnologie}
+        Le tecnologie alternative proposte nel capitolato di progetto erano:
+        \begin{itemize}
+            \item D3.js o Three.js per la creazione di grafici 3D interattivi;
+            \item Angular o React come framework di sviluppo.       
+        \end{itemize}
+        A seguito dello studio individuale da parte di alcuni membri del gruppo,
+        è emerso che Three.js fornisce degli elementi che favoriscono in particolar
+        modo la creazione di ambienti 3D, grazie all'utilizzo di WebGL, 
+        anche se trascura in gran parte il concetto di dataset. 
+        Al contrario, D3.js è una libreria maggiormente orientata
+        alla visualizzazione di dati dinamici, che però trascura la terza dimensione,
+        in quanto è basata sostanzialmente su SVG, HTML5 e CSS. 
+        Considerato che il focus del progetto ricade sulla visualizzazione 3D dei 
+        dati tramite grafici navigabili e interattivi, e non è richiesto di modificare
+        tali dati, il gruppo ha scelto Three.js come libreria principale per la creazione 
+        della grafica 3D.\\
+        Per quanto riguarda la scelta del framework, è emerso che Angular è un framework
+        completo e strutturato, con varie funzionalità integrate che riducono la necessità di dipendenze esterne;
+        è dunque utilizzato prevalentemente per lo sviluppo di progetti grandi e complessi. 
+        Viceversa, React è una libreria per la costruzione di interfacce utente, 
+        che lascia maggiore libertà nella scelta delle librerie per le altre funzionalità,
+        come, ad esempio, il routing; quindi è preferibile per progetti piccoli o medi, con esigenze specifiche.
+        Inoltre, React si integra facilmente con Three.js, grazie alle 
+        librerie React Three Fiber e Drei, che forniscono dei componenti che ben si 
+        prestano alle esigenze del nostro progetto.
+        Quindi, considerato che il progetto non è di grandi dimensioni, in particolare per quanto 
+        riguarda la logica sottostante, e considerata la scelta di Three.js, il gruppo ha 
+        optato per l'utilizzo di React.        
+    \subsection{Assegnazione ruoli}
+        Abbiamo assegnato i ruoli secondo il criterio di rotazione stabilito inizialmente,
+        senza aggiungere o togliere nessun ruolo rispetto allo sprint precedente.
+        \begin{itemize}
+            \item \textbf{Responsabile}: Diviesti Filippo
+            \item \textbf{Analisti}: Bergamin Elia, Soranzo Andrea
+            \item \textbf{Amministratore}: Pincin Matteo
+            \item \textbf{Verificatori}: Chilese Elena, Djossa Edgar
+        \end{itemize}
+    
+
+\section{Prossimi obiettivi}
+        \subsection{Norme di progetto}
+            \begin{itemize}
+                \item Aggiornamento convenzioni
+                \item Aggiornamento nome requisiti
+                \item Accertamento della qualità
+                \item Aggiornamento verifica 
+                \item Aggiornamento validazione
+            \end{itemize}
+        \subsection{Piano di progetto}
+            \begin{itemize}
+                \item Consuntivo sprint 2
+                \item Pianificazione e preventivo sprint 3
+            \end{itemize}
+        \subsection{Piano di qualifica}
+            \begin{itemize}
+                \item Qualità di processo
+                \item Qualità di prodotto
+                \item Testing
+            \end{itemize}
+        \subsection{Analisi dei requisiti}
+            \begin{itemize}
+                \item Requisiti funzionali
+                \item Requisiti di qualità
+                \item Requisiti di vincolo*
+                \item Requisiti prestazionali* 
+            \end{itemize}   
+            \begin{small}*Consultare il proponente\textsubscript{g}.
+            \end{small} 
+        \subsection{Glossario}
+            \begin{itemize}
+                \item Inserimento nuovi vocaboli
+                \item Morfologia dei vocaboli stranieri
+            \end{itemize}
+        

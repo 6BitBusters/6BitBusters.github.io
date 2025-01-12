@@ -1,7 +1,7 @@
 name: Miglioramento codice
 description: Proponi un miglioramento da andare ad applicare al codice
 title: '[Codice caso d`uso] - [nome_caso]'
-labels: ["enhancement","P1","code"]
+labels: ["enhancement","code"]
 projects: '6BitBusters/1'
 
 body:
