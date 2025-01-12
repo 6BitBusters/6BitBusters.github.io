@@ -1,7 +1,7 @@
 name: Segnala bug nel codice
 description: Segnala un bug nel codice
 title: '[Codice caso d`uso] - [nome_caso]'
-labels: ["bug", "P1"]
+labels: ["bug"]
 projects: '6BitBusters/1' # 6BitBusters/1
 
 

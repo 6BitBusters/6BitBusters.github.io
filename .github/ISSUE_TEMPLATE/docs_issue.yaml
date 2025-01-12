@@ -1,7 +1,7 @@
 name: Correzione documentazione
 description: Segnala un` errore documentazione 
 title: '[Nome del doc] - [sezione da modificare]'
-labels: ["documentation","P1"]
+labels: ["documentation","correction"]
 projects: '6BitBusters/1'
 
 body:
