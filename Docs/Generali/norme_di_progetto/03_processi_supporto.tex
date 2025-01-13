@@ -281,7 +281,7 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
                 \item \nameref{M:GE};
         \end{itemize}
 
-    \subsection{Gestione delle configurazione}
+    \subsection{Gestione della configurazione}
         \subsubsection{Scopo}
         La gestione della configurazione è un processo che mira a gestire e controllare i cambiamenti apportati
         a un prodotto software o a un sistema durante il suo ciclo di vita. La gestione della configurazione per
@@ -294,6 +294,166 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
             \item \textbf{Y}: la sezione aggiunta o modificata di un documento è stata verificata;
             \item \textbf{X}: è stata corretta velocemente qualche incoerenza o errore minore.
         \end{itemize}
+        \subsubsection{Repository}
+        Il repository si può trovare all'indirizzo \textbf{\url{https://6bitbusters.github.io}} ed è pubblico.
+        I collaboratori sono i componenti del gruppo \textit{6BitBusters} che utilizzano il proprio account GitHub
+        personale per collaborare al progetto.
+        La struttura del repository è formata in questo modo:
+            \begin{itemize}
+                \item \textbf{ .github}: cartella che contiene i file sorgenti delle GitHub Action e template per le issue;
+                \item \textbf{3Dataviz}: cartella che contiene i file sorgente del prodotto;
+                \item \textbf{Docs}: cartella che contiene la documentazione, si divide ulteriormente in:
+                    \begin{itemize}
+                        \item \textbf{Candidatura}: cartella che contiene i documenti da presentare per la candidatura;
+                        \item \textbf{Generali}: cartella che contiene tutta la documentazione esterna e interna tranne i verbali;
+                        \item \textbf{Verbali esterni}: cartella contenente i verbali esterni, che riportano gli incontri con i proponenti;
+                        \item \textbf{Verbali interni}: cartella contenente i verbali interni, relativi agli incontri tra membri del gruppo.
+                    \end{itemize}
+                \item \textbf{website}: cartella che contiene i file sorgente del sito web che successivamente verrà pubblicato utilizzando GitHub Pages.
+            \end{itemize}
+        Infine il repository è dotato di sistema di auto-build per la documentazione grazie a GitHub Actions. Nello specifico sono stati scritti due tipi di Action
+        \begin{itemize}
+            \item Per il push sul branch "main" che ha il compito di compilare tutta la documentazione creata fino a quel momento e di \textbf{creare la page};
+            \item Per un test di compilazione solamente della parte aggiunta nel branch derivato, questo test deve essere \textbf{passato con successo} in modo da sbloccare l'azione di merge.
+        \end{itemize}
+        Per maggiori informazioni riguardanti i branch seguire le regole descritte nella sezione \nameref{inf:branch}
+
+        \subsubsection{Branching}\label{inf:branch}
+        I branch si dividono in:
+        \begin{itemize}
+            \item \textbf{Branches protetti}: 
+            \begin{itemize}
+                \item \textbf{main}: branch principale che contiene la documentazione e codice approvato del responsabile, non che la parte che viene mostrata sulla page;
+                \item \textbf{docs/NOME-DOCUMENTO}: sono più branch che contengono solamente le versioni di documenti verificate;\\
+                Il nome di questi branch deve essere:
+                \begin{center}
+                    \textbf{\textit{docs/[NOME-DOCUMENTO]}}
+                \end{center}
+                dove:
+                \begin{itemize}
+                    \item \textbf{NOME-DOCUMENTO}: indica il nome del documento in questione.
+                \end{itemize}
+            \end{itemize}
+            \item \textbf{Branches derivati}: sono branch utilizzati per aggiungere modifiche e aggiornare un documento o una parte di codice che poi dovrà essere verificata
+            attraverso una pull request verso il branch da cui esso è stato derivato;\\
+            I nomi di questi branch, per quanto riguarda la documentazione, si suddividono in 2 casi:
+            \begin{itemize}
+                \item \textbf{Per Glossario}:
+                \begin{center}
+                    \textbf{\textit{docs/glossario-[COGNOME-ASSEGNATARIO]}}
+                \end{center}
+                \item \textbf{Per tutto il resto della documentazione}:
+                \begin{center}
+                    \textbf{\textit{docs/[NOME-DOCUMENTO]-[ID-ISSUE]}}
+                \end{center}
+            \end{itemize}
+            dove:
+    
+            \begin{itemize}
+                \item \textbf{NOME-DOCUMENTO}: indica il nome del documento sul quale si sta lavorando;
+                \item \textbf{ID-ISSUE}: indica il numero identificativo associato alla issue relativa alla modifica del documento;
+                \item \textbf{COGNOME-ASSEGNATARIO}: indica il cognome del membro che ha redatto il documento.
+            \end{itemize}
+            Nel caso un componente volesse richiedere una pull request ma il branch di destinazione fosse più aggiornato di quello di partenza o derivato, il branch protection
+            impone che avvenga un merge dal branch di destinazione a quello di partenza in modo tale da applicare le modifiche delle versioni già approvate, al documento, che ne contiene
+            altre e che di conseguenza deve passare ad una versione successiva.
+            \item \textbf{Branch di hotfix}: sono branch dedicati all'hotfix e quindi a correzioni minime, sia per la documentazione che per il codice. Valgono le stesse regole dei
+            branch protetti, quindi le modifiche devono essere sempre verificate e in caso approvate.
+            Il nome per questi branch deve essere:
+            \begin{center}
+                \textbf{\textit{hotfix/[NOME-DOCUMENTO]}}
+            \end{center}
+            dove:
+
+            \begin{itemize}
+                \item \textbf{NOME-DOCUMENTO}: indica il nome del documento che viene modificato.
+            \end{itemize}
+        \end{itemize}
+
+        In ogni branch secondario il lavoro può essere svolto da un solo componente del gruppo, specificatamente colui che ha preso in carico l'issue alla cui risoluzione quel branch è dedicato.
+         
+        Una volta che la issue viene risolta il componente deve richiedere una pull request
+        verso il branch da cui esso è stato derivato.
+        Notare che se il branch di destinazione è:
+        \begin{itemize}
+            \item \textbf{main} $\rightarrow$ il documento deve essere approvato;
+            \item \textbf{docs/NOME-DOCUMENTO} $\rightarrow$ il documento deve essere verificato e successivamente viene eliminato il branch derivato.
+        \end{itemize}
+
+        Di seguito si riporta un semplice ma esaustivo esempio di workflow tramite immagine:
+        \begin{center}
+            \includegraphics[scale = 0.33]{template/images/workflow.png}
+        \end{center}
+
+        \subsubsection{Commits}\label{inf:comm}
+        È preferibile che ogni commit abbia una singola responsabilità per cambiamento.
+        I commits non possono essere effettuati direttamente sui branch protetti ma per contribuire con delle aggiunte o
+        modifiche sarà necessario aprire una pull request, motivo per il quale abbiamo introdotto dei branch derivati.
+        I messaggi di commit dovranno seguire la seguenti strutture sintattiche:
+        \begin{center}
+            \textbf{add: [COSA]\\
+            change: [COSA]\\
+            restructure: [COSA]}
+        \end{center}
+        dove: 
+        \begin{itemize}
+            \item \textbf{add}: viene utilizzato quando si va ad aggiungere una nuova sezione/sottosezione ad un documento;
+            \item \textbf{change}: viene utilizzato quando si va a modificare una o più sezioni/sottosezioni di un documento;
+            \item \textbf{restructure}: indica una ristrutturazione del branch main per quanto riguarda l'organizzazione delle cartelle e/o la modifica di action o template di issue;
+            \item \textbf{COSA}: breve descrizione di cosa di è aggiunto e/o fatto.
+        \end{itemize}
+
+        Notare però che dopo l'approvazione di una pull request tutti i commit
+        relativi verranno raggruppati in un unico commit, il cui titolo deve rispettare la struttura sintattica descritta in
+        seguito.
+        \begin{center}
+            \textbf{Update: [NOME-DOCUMENTO]-[VERSIONE]}
+        \end{center}
+        dove:
+
+        \begin{itemize}
+            \item \textbf{NOME-DOCUMENTO}: indica il nome del documento nel quale sono state verificate le modifiche;
+            \item \textbf{VERSIONE}: indica il numero di versione aggiornata.
+        \end{itemize}
+        Per quanto riguarda il commento facoltativo, si lascia quello di default proposto da GitHub, 
+        ovvero un elenco puntato di tutti i commit che verranno raggruppati.\\
+        
+
+        Per aggiornare direttamente il main si è deciso di disabilitare temporaneamente
+        il protection, eseguire un commit con delle modifiche, con la struttura sintattica elencata sopra, e in fine attivare nuovamente il protection.
+        Questa soluzione è stata adottata perché il team ritiene sia più veloce e semplice apportare modifiche a template e action in questo modo
+        rispetto che alla creazione di un branch e ad un successivo pull request, inoltre il branch main una volta ultimate le automazioni non verrà più modificato se non dai merge
+        scatenati dalle pull request.
+
+        \subsubsection{Pull request}\label{inf:pr}
+        Per effettuare un merge su un branch protetto si deve aprire, da GitHub, una pull request. Questa
+        permette di verificare il lavoro svolto prima di integrarlo con un branch protetto ed eseguire un veloce test di compilazione della sezione aggiunta.
+        Alla creazione di una pull request bisogna associare:
+        \begin{itemize}
+            \item \textbf{Title}: [NOME-DOCUMENTO]-[ID-ISSUE];
+            \item \textbf{Verificatori in carica}: coloro che hanno il compito di trovare eventuali errori o mancanze e fornire un feedback
+            riguardante il contenuto direttamente su GitHub attraverso un commento, sulla stessa pull request.
+            Non sarà possibile effettuare il merge finché tutti i commenti di revisione non saranno stati risolti
+            con, al termine, l'approvazione di almeno uno dei verificatori e il test di build non dia esito positivo;
+            \item \textbf{Descrizione}: contiene una lista riassuntiva di cio' che è stato fatto includendo le issue completate, e quindi da chiudere,
+            con la sintassi
+            \begin{center}
+                \textbf{\textit{close ID-ISSUE}}
+            \end{center}
+            in modo tale che vengano tutte chiuse in automatico quando la pull request verrà accettata;
+            \item \textbf{Gli assegnatari}: coloro che hanno anche il compito di apportare le modifiche necessarie al documento;
+            \item \textbf{Label}: riassume di che natura è la pull request.
+        \end{itemize}
+        dove:
+
+        \begin{itemize}
+            \item \textbf{NOME-DOCUMENTO}: indica il nome del documento sul quale si sta lavorando e richiedendo l'approvazione;
+            \item \textbf{ID-ISSUE}: indica il numero identificativo associato alla issue relativa alla modifica del documento.
+        \end{itemize}
+
+        Per una descrizione più dettagliata delle issue si faccia riferimento a \nameref{inf:its}
+
+        Per i commit relativi alle pull request seguire le regole descritte nella sezione \nameref{inf:pr}
 
     \subsection{Accertamento della qualità}
     \subsubsection{Scopo}
