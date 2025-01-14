@@ -92,7 +92,7 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
             \item Ogni acronimo deve essere inserito nel glossario, accompagnato da una spiegazione dettagliata del suo significato, per garantire chiarezza e comprensione.
         \end{itemize}
         \subsubsection{Strumenti per la stesura}
-        Per la stesura dei documenti verrà usato il linguaggio Latex, un linguaggio di marcatura per la preparazione di testi, basato sul programma di
+        Per la stesura dei documenti verrà usato il linguaggio LaTeX, un linguaggio di marcatura per la preparazione di testi, basato sul programma di
         composizione tipografica TEX, tutta la documentazione prodotta è contenuta nella cartella 'Docs'. I documenti seguono una struttura comune:
         \begin{itemize}
             \item Cartella 'config' contenente il file 'changelog\_input' che permette di compilare i campi della tabella di registrazione delle modifiche;
@@ -466,7 +466,31 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
         \begin{itemize}
                 \item \nameref{M:MM};
         \end{itemize}
-    \subsection{Verifica\textsubscript{g}}
+    \subsection{Automazione}
+    \subsubsection{Scopo}
+    Lo scopo dell'automazione è garantire una maggiore efficienza e ridurre il rischio di errori umani. 
+    Tuttavia, il costo necessario per rendere automatiche alcune attività potrebbe essere superiore 
+    al beneficio ottenuto. È quindi fondamentale scegliere attentamente quali processi automatizzare.
+    \subsubsection{Descrizione}
+    L'automazione dei processi di verifica e di compilazione della documentazione avviene tramite GitHub Actions,
+    che permette di eseguire script personalizzati in risposta a eventi specifici che si verificano nel repository.
+    In particolare, sono state scritte tre diverse Action:
+    \begin{itemize}
+        \item \texttt{build.yml}: si scatena a seguito di un push sul main; ha il compito di compilare 
+        tutta la documentazione creata fino a quel momento e di creare la pagina web tramite Pages;
+        \item \texttt{pr\_build\_check.yml}: si scatena quando viene effettuata una pull request verso il main o verso
+        un branch di documentazione, ovvero del tipo docs/[NOME-DOCUMENTO]. Serve per verificare che
+        i sorgenti LaTeX compilino correttamente e che sia stato modificato uno e un solo documento;
+        \item \texttt{pr\_gulpease\_check.yml}: si scatena quando viene effettuata una pull request verso il main o verso
+        un branch di documentazione, ovvero del tipo docs/[NOME-DOCUMENTO]. Essa verifica che 
+        l'indice Gulpease del documento, espresso come media degli indici delle sezioni, sia maggiore o uguale a 50.
+    \end{itemize}
+    Al fine di garantire la qualità dei documenti prodotti, è necessario che le Action \texttt{pr\_build\_check.yml}
+    e \texttt{pr\_gulpease\_check.yml} abbiano esito positivo. A tale scopo, è stato configurato il repository in modo
+    che non sia possibile effettuare il merge di una pull request se non sono soddisfatti entrambi i controlli.
+    Inoltre, per accelerare il processo di verifica, è fortemente raccomandato eseguire localmente gli script di test,
+    in modo da individuare e correggere eventuali errori prima di effettuare la pull request. 
+    \subsection{Verifica}
         \subsubsection{Scopo}
         Lo scopo del processo di verifica\textsubscript{g} è quello di accertare che non siano stati commessi errori nello svolgimento
         delle attività prefissate. Questo processo viene applicato costantemente sia durante la stesura
