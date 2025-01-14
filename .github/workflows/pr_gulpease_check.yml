@@ -1,0 +1,45 @@
+name: Gulpease Index
+on:
+  pull_request:
+    branches: 
+      - main
+      - 'docs/**'
+jobs:
+  test-gulpease:
+    if: ${{ github.head_ref != 'main' }}
+    runs-on: ubuntu-latest
+    outputs:
+      idx: ${{ steps.value.outputs.idx }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Find modified LaTeX files
+        id: find
+        run: |
+          git remote set-branches --add origin main
+          git fetch
+          changed_files=$(git diff --name-only origin/$GITHUB_BASE_REF | grep '.tex$') || true
+          changed_document=$(echo "$changed_files" | cut -d/ -f1-3 | uniq) 
+          echo "$changed_files"
+          echo "$changed_document"
+          echo "doc=$changed_document" >> $GITHUB_OUTPUT
+      - name : Calulate Gulpease index
+        id: value
+        run: |
+          if [ -n "${{ steps.find.outputs.doc }}" ]; then
+            value=$(python3 .github/gulpease.py "${{ steps.find.outputs.doc }}")
+            echo "idx=$value" >> "$GITHUB_OUTPUT"
+          fi
+  comment:
+    runs-on: ubuntu-latest
+    needs: test-gulpease
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "Indice di Gulpease medio per questo documento è: **${{ needs.test-gulpease.outputs.idx }}**"
+            })

@@ -13,6 +13,21 @@ body:
       placeholder: Nome di verbale interno o esterno
     validations:
       required: false
+  - type: dropdown
+    id: role
+    attributes:
+      label: Indica il ruolo
+      description: Chi dovrebbe eseguire questo To-Do?
+      options:
+        - Responsabile
+        - Amministratore
+        - Analista
+        - Progettista
+        - Programmatore
+        - Verificatore
+      default: 0
+    validations:
+      required: true
   - type: textarea
     id: list
     attributes:
