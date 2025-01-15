@@ -935,7 +935,7 @@
     \end{itemize}
 }
 
-\UseCase{Filtra barre}
+\UseCase{Zoom della vista}
 \begin{figure}[h!]\centering
     \includegraphics[scale=0.6]{template/images/UC12.png}
     \caption{\nameref*{UC:\arabic{UC}}}
@@ -948,226 +948,29 @@
 }
 { % DESCRIZIONE
     \begin{itemize}
-        \item Il filtraggio delle barre consiste nel rendere meno visibili o totalmente trasparenti le barre al di fuori del filtro selezionato dall'utente.
-                Sarà l'utente a decidere quale filtro applicare.
+        \item Lo zoom consente all'utente di interagire con l'ambiente effettuando spostamenti lungo l'asse della profondità.
     \end{itemize}
 }
 { % PRECONDIZIONI
     \begin{itemize}
-        \item Il grafico è visibile;
+        \item L'azione di zoom deve essere valida. Un'azione di zoom è valida se non va al di fuori un'area predefinita dal sistema;
+        \item La telecamera si trova in una posizione arbitraria nello spazio.
     \end{itemize}
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item E' stato selezionato il tipo di filtro da applicare.
+        \item La telecamera si trova in una posizione diversa da quella iniziale in termini di profondità.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente interagisce con il sistema selezionando un filtro e impostando delle regole specifiche. 
+        \item L'utente interagisce con il sistema per compiere un'azione zoom;
     \end{itemize}
-    % GENERALIZZAZIONI
-    \item \textbf{Generalizzazioni:} \begin{itemize}
-        \item UC12.1 - Filtra su numero N di barre.
-        \item UC12.2 - Filtra su valor medio globale.
-        \item UC13 - Filtra su data barra.
-    \end{itemize}
-}
-
-\SubUseCase{Filtra su numero N di barre}
-\begin{figure}[h!]\centering
-    \includegraphics[scale=0.7]{template/images/UC12.1.png}
-    \caption{\nameref*{UC:\arabic{UC}}}
-\end{figure}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item Il filtraggio su numero N consiste nel tenere visibili solo le barre che rientrano tra le prime N con i valori più alti o bassi. 
-                N è il numero massimo di barre da tenere in considerazione.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile;
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item E' stato selezionato il filtro per tenere visibili solo le prime N barre più alte o basse.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente interagisce con il sistema selezionando il filtro per tenere visibili solo le prime N barre più alte o basse.
-    \end{itemize}
-        % GENERALIZZAZIONI
-        \item \textbf{Generalizzazioni:} \begin{itemize}
-            \item UC12.1.1 - Filtra N barre più alte.
-            \item UC12.1.2 - Filtra N barre più basse.
-        \end{itemize}
-}
-
-\SubSubUseCase{Filtra N barra più alte}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item L'utente decide di tenere visibili solo le N barre più alte.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile;
-        \item L'utente ha scelto il filtro su numero N di barre.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item Le barre che non rientrano nelle prime N più alte vengono opacizzate.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente interagisce con il sistema selezionando il filtro per tenere visibili solo le prime N barre più alte.
-    \end{itemize}
-}
-
-\SubSubUseCase{Filtra N barra più basse}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item L'utente decide di tenere visibili solo le N barre più basse.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile;
-        \item L'utente ha scelto il filtro su numero N di barre.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item Le barre che non rientrano nelle prime N più basse vengono opacizzate.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente interagisce con il sistema selezionando il filtro per tenere visibili solo le prime N barre più basse.
-    \end{itemize}
-}
+} 
 
 
-\SubUseCase{Filtra su valor medio globale}
-\begin{figure}[h!]\centering
-    \includegraphics[scale=0.65]{template/images/UC12.2.png}
-    \caption{\nameref*{UC:\arabic{UC}}}
-\end{figure}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item Il filtraggio su valor medio globale consiste nel tenere visibili le barre più alte o più basse rispetto al valor medio globale.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile;
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item E' stato selezionato il filtro sul valor medio.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente interagisce con il sistema selezionando il filtro per tenere visibili solo le barre più alte o più basse rispetto al valor medio globale.
-    \end{itemize}
-        % GENERALIZZAZIONI
-        \item \textbf{Generalizzazioni:} \begin{itemize}
-            \item UC12.2.1 - Filtra barre superiori al valor medio globale.
-            \item UC12.2.2 - Filtra barre inferiori al valor medio globale.
-        \end{itemize}
-}
 
-\SubSubUseCase{Filtra barre superiori al valor medio globale}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item L'utente decide di tenere visibili barre con un valore superiore al valor medio globale.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile;
-        \item L'utente ha scelto il filtro su valor medio.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item Le barre inferiori al valor medio globale vengono opacizzate.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente interagisce con il sistema selezionando il filtro per tenere visibili le barre che hanno un valore superiore al valor medio globale.
-    \end{itemize}
-}
-
-\SubSubUseCase{Filtra barre inferiori al valor medio globale}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item L'utente decide di tenere visibili barre con un valore inferiore al valor medio globale.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile;
-        \item L'utente ha scelto il filtro su valor medio.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item Le barre superiori al valor medio globale vengono opacizzate.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente interagisce con il sistema selezionando il filtro per tenere visibili le barre che hanno un valore inferiore al valor medio globale.
-    \end{itemize}
-}
-
-
-\UseCase{Filtra su una data barra}
+\UseCase{Riposiziona telecamera alla posizione d’origine}
 \begin{figure}[h!]\centering
     \includegraphics[scale=0.7]{template/images/UC13.png}
     \caption{\nameref*{UC:\arabic{UC}}}
@@ -1180,89 +983,28 @@
 }
 { % DESCRIZIONE
     \begin{itemize}
-        \item Il filtraggio su una data barra consiste nel tenere visibili solo le altre barre che hanno un valore superiore o inferiore rispetto ad una barra scelta dall'utente.
+        \item Prevede il riposizionamento della telecamera al suo punto iniziale, la sua posizione alla creazione dell'ambiente 3D.
     \end{itemize}
 }
 { % PRECONDIZIONI
     \begin{itemize}
-        \item Il grafico è visibile;
+        \item La telecamera si trova in una posizione arbitraria nello spazio.
     \end{itemize}
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item E' stato selezionato il filtro per tenere visibili solo le barre con un valore superiore o inferiore rispetto ad una barra scelta dall'utente.
+        \item La telecamera si trova nella posizione predefinita iniziale.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente seleziona un valore del dataset che corrisponde ad una barra sul grafico 3D.
+        \item L'utente seleziona il comando per riposizionare la telecamera;
     \end{itemize}
-     % GENERALIZZAZIONI
-     \item \textbf{Generalizzazioni:} \begin{itemize}
-        \item UC13.1 - Filtra barre superiori a una data barra.
-        \item UC13.2 - Filtra barre inferiori a una data barra.
-    \end{itemize}
-}
+} 
 
-\SubUseCase{Filtra barre superiori a una data barra}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item L'utente decide di tenere visibili solo le barre con valori superiori ad una determinata barra.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile;
-        \item L'utente ha scelto il filtro su una data barra;
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item Le barre inferiori rispetto al valore di una determinata barra vengono opacizzate.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente interagisce con il sistema selezionando il filtro per tenere visibili le barre che hanno un valore superiore rispetto al valore di una determinata barra.
-    \end{itemize}
-}
 
-\SubUseCase{Filtra barre inferiori a una data barra}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item L'utente decide di tenere visibili solo le barre con valori inferiori ad una determinata barra.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile;
-        \item L'utente ha scelto il filtro su una data barra;
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item Le barre superiori rispetto al valore di una determinata barra vengono opacizzate.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente interagisce con il sistema selezionando il filtro per tenere visibili le barre che hanno un valore inferiori rispetto al valore di una determinata barra.
-    \end{itemize}
-}
 
-\UseCase{Visualizza barra in primo piano}
+\UseCase{Vista di una barra in primo piano}
 \begin{figure}[h!]\centering
     \includegraphics[scale=0.7]{template/images/UC14.png}
     \caption{\nameref*{UC:\arabic{UC}}}
@@ -1281,13 +1023,13 @@
 { % PRECONDIZIONI
     \begin{itemize}
         \item Il grafico è visibile;
-        \item La telecamera è in una posizione arbitraria;
-        \item \item L'utente seleziona un valore del dataset.
+        \item La telecamera si trova in una posizione arbitraria;
+        \item L'utente ha selezionato un valore del dataset associato a una barra.
     \end{itemize}
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item La telecamera si trova in una posizione diversa da quella di partenza.
+        \item La telecamera è stata riposizionata per mettere in primo piano la barra selezionata.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
@@ -1297,7 +1039,7 @@
 }
 
 
-\UseCase{Ripristina stato del grafico}
+\UseCase{Visualizza dettagli di una barra del grafico 3D}
 \begin{figure}[h!]\centering
     \includegraphics[scale=0.7]{template/images/UC15.png}
     \caption{\nameref*{UC:\arabic{UC}}}
@@ -1307,10 +1049,100 @@
     \begin{itemize}
         \item Utente in ambiente 3D.
     \end{itemize}
-    }
-    { % DESCRIZIONE
+}
+{ % DESCRIZIONE
     \begin{itemize}
-        \item Consiste nel togliere il filtro applicato al grafico e far tornare le barre al loro stile originale.
+        \item L'utente può visualizzare i dettagli di una barra del grafico come il suo valore e le etichette a lei associate.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item Il grafico è visibile.
+        \item La barra è visibile.
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item I dettagli della barra sono visibili.
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L'utente interagisce con la barra tramite hover o selezione; 
+    \end{itemize}
+}
+
+\SubUseCase{Visualizza valore}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item Visualizzazione del valore della barra.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item I dettagli della barra sono visibili.
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item Il valore della barra è visibile.
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item Nessuna azione richiesta. 
+    \end{itemize}
+}
+
+\SubUseCase{Visualizza etichette}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item Visualizzazione delle etichette associate alla barra.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item I dettagli della barra sono visibili.
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item Le etichette della barra sono visibili.
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item Nessuna azione richiesta. 
+    \end{itemize}
+}
+
+\UseCase{Filtra rispetto a un numero N di valori}
+\begin{figure}[h!]\centering
+    \includegraphics[scale=0.6]{template/images/UC16.png}
+    \caption{\nameref*{UC:\arabic{UC}}}
+\end{figure}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item Questo filtro consente all'utente di visualizzare solo le barre che corrispondono ai primi N valori più alti o più bassi. 
+        N rappresenta il numero massimo di valori da considerare.
     \end{itemize}
 }
 { % PRECONDIZIONI
@@ -1320,15 +1152,321 @@
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item I filtri vengono rimossi;
-        \item Le barre del grafico tornano allo stile originale.
+        \item È stato applicato il filtro per visualizzare solo le prime N barre più alte o più basse.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente seleziona l'opzione di ripristino stato del grafico.
+        \item L'utente inserisce un numero N.
+        \item L'utente seleziona il filtro.
+        \item Il sistema aggiorna la visualizzazione del grafico, mostrando solo le barre che rientrano tra le prime N più alte o più basse.
+    \end{itemize}
+        % GENERALIZZAZIONI
+        \item \textbf{Generalizzazioni:} \begin{itemize}
+            \item UC16.1 - Filtra N valori più alti.
+            \item UC16.2 - Filtra N valori più bassi.
+        \end{itemize}
+}
+
+\SubUseCase{Filtra N valori più alti}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
     \end{itemize}
 }
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item L'utente decide di evidenziare i N valori più alti, rendendo visibili le barre corrispondenti.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item Il grafico è visibile;
+        \item L'utente ha scelto il filtro rispetto a numero N di valori.
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item Le barre che non rientrano nelle prime N più alte diventano meno opache (più trasparenti).
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L'utente seleziona l'opzione per visualizzare le N barre più alte.
+    \end{itemize}
+}
+
+\SubUseCase{Filtra N valori più bassi}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item L'utente decide di evidenziare i N valori più bassi, rendendo visibili le barre corrispondenti.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item Il grafico è visibile;
+        \item L'utente ha scelto il filtro su numero N di valori.
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item Le barre che non rientrano nelle prime N più basse diventano meno opache (più trasparenti).
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L'utente seleziona l'opzione per visualizzare le N barre più basse.
+    \end{itemize}
+}
+
+\UseCase{Filtra rispetto a un valore}
+\begin{figure}[H]\centering
+    \includegraphics[scale=0.7]{template/images/UC17.png}
+    \caption{\nameref*{UC:\arabic{UC}}}
+\end{figure}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item Questo filtro consente all'utente di visualizzare solo le barre che hanno un valore superiore, inferiore o uguale rispetto a un valore scelto dall’utente. 
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item Il grafico è visibile;
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item È stato applicato il filtro per visualizzare solo le barre con un valore superiore, inferiore o uguali
+        rispetto a un valore scelta dall’utente.
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L’utente seleziona un valore.
+        \item Il sistema aggiorna la visualizzazione del grafico, evidenziando le barre che rientrano nella condizione scelta.
+    \end{itemize}
+  % GENERALIZZAZIONI
+        \item \textbf{Generalizzazioni:} \begin{itemize}
+            \item UC17.1 - Filtra valori inferiori o uguali rispetto a un valore;
+            \item UC17.2 - Filtra valori superiori rispetto a un valore.
+        \end{itemize}
+    
+}
+
+
+\SubUseCase{Filtra valori inferiori o uguali rispetto a un valore}
+\begin{figure}[H]\centering
+    \includegraphics[scale=0.7]{template/images/UC17.1.png}
+    \caption{\nameref*{UC:\arabic{UC}}}
+\end{figure}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item L'utente decide di evidenziare i valori inferiori o uguali rispetto a un valore, rendendo visibili le barre corrispondenti a questo criterio.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item Il grafico è visibile;
+        \item L'utente ha scelto il filtro rispetto a un valore;
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item Le barre con valori che non soddisfano il criterio di essere inferiori o uguali diventano meno opache(più trasparenti).
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L'utente seleziona l'opzione per visualizzare le barre inferiori o uguali.
+    \end{itemize}
+    % GENERALIZZAZIONI
+    \item \textbf{Generalizzazioni:} \begin{itemize}
+        \item UC17.1.1 - Filtra valori inferiori o uguali rispetto a un valore del grafico;
+        \item UC17.2.2 - Filtra valori inferiori o uguali rispetto al valor medio globale.
+    \end{itemize}
+}
+
+
+
+\SubSubUseCase{Filtra valori inferiori o uguali rispetto a un valore del grafico}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item L'utente decide di evidenziare i valori inferiori o uguali rispetto a un valore del grafico, rendendo visibili le barre corrispondenti a questo criterio.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item Il grafico è visibile;
+        \item L'utente ha scelto il filtro di valori inferiori o uguali;
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item Le barre con valori che non soddisfano il criterio di essere inferiori o uguali rispetto a un valore del grafico selezionato diventano meno opache(più trasparenti).
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L'utente seleziona l'opzione per visualizzare le barre inferiori o uguali rispetto a un valore del grafico.
+    \end{itemize}
+}
+
+
+\SubSubUseCase{Filtra valori inferiori o uguali rispetto al valor medio globale}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item L'utente decide di evidenziare i valori inferiori o uguali rispetto al valor medio globale, rendendo visibili le barre corrispondenti a questo criterio.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item Il grafico è visibile;
+        \item L'utente ha scelto il filtro di valori inferiori o uguali;
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item Le barre con valori che non soddisfano il criterio di essere inferiori o uguali rispetto al valor medio globale diventano meno opache(più trasparenti).
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L'utente seleziona l'opzione per visualizzare le barre inferiori o uguali rispetto al valor medio globale.
+    \end{itemize}
+}
+
+
+
+
+\SubUseCase{Filtra valori superiori rispetto a un valore}
+\begin{figure}[H]\centering
+    \includegraphics[scale=0.7]{template/images/UC17.2.png}
+    \caption{\nameref*{UC:\arabic{UC}}}
+\end{figure}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item L'utente decide di evidenziare i valori superiori rispetto a un valore, rendendo visibili le barre corrispondenti a questo criterio.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item Il grafico è visibile;
+        \item L'utente ha scelto il filtro rispetto a un valore;
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item Le barre dei valori che non rientrano in questa condizione diventano meno opache(più trasparenti).
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L'utente seleziona l'opzione per visualizzare le barre superiori.
+    \end{itemize}
+    % GENERALIZZAZIONI
+    \item \textbf{Generalizzazioni:} \begin{itemize}
+        \item UC17.1.1 - Filtra valori superiori rispetto a un valore del grafico;
+        \item UC17.2.2 - Filtra valori superiori rispetto al valor medio globale.
+    \end{itemize}
+}
+
+
+\SubSubUseCase{Filtra valori superiori rispetto a un valore del grafico}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item L'utente decide di evidenziare i valori superiori rispetto a un valore del grafico, rendendo visibili le barre corrispondenti a questo criterio.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item Il grafico è visibile;
+        \item L'utente ha scelto il filtro di valori superiori;
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item Le barre con valori che non soddisfano il criterio di essere superiori rispetto a un valore del grafico selezionato diventano meno opache(più trasparenti).
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L'utente seleziona l'opzione per visualizzare le barre superiori rispetto a un valore del grafico.
+    \end{itemize}
+}
+
+
+\SubSubUseCase{Filtra valori superiori rispetto al valor medio globale}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item L'utente decide di evidenziare i valori superiori rispetto al valor medio globale, rendendo visibili le barre corrispondenti a questo criterio.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item Il grafico è visibile;
+        \item L'utente ha scelto il filtro di valori superiori;
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item Le barre con valori che non soddisfano il criterio di essere superiori rispetto al valor medio globale diventano meno opache(più trasparenti).
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L'utente seleziona l'opzione per visualizzare le barre superiori rispetto al valor medio globale.
+    \end{itemize}
+}
+
 
 
 
