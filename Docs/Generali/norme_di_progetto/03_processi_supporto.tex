@@ -385,9 +385,9 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
             \includegraphics[scale = 0.33]{template/images/workflow.png}
         \end{center}
 
-        \subsubsection{Commits}\label{inf:comm}
+        \subsubsection{Commit}\label{inf:comm}
         È preferibile che ogni commit abbia una singola responsabilità per cambiamento.
-        I commits non possono essere effettuati direttamente sui branch protetti ma per contribuire con delle aggiunte o
+        I commit non possono essere effettuati direttamente sui branch protetti ma per contribuire con delle aggiunte o
         modifiche sarà necessario aprire una pull request, motivo per il quale abbiamo introdotto dei branch derivati.
         I messaggi di commit dovranno seguire la seguenti strutture sintattiche:
         \begin{center}
@@ -454,7 +454,48 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
         Per una descrizione più dettagliata delle issue si faccia riferimento a \nameref{inf:its}
 
         Per i commit relativi alle pull request seguire le regole descritte nella sezione \nameref{inf:pr}
-
+  
+    \subsection{Automazione}
+    \subsubsection{Scopo}
+    Lo scopo dell'automazione è garantire una maggiore efficienza e ridurre il rischio di errori umani. 
+    Tuttavia, il costo necessario per rendere automatiche alcune attività potrebbe essere superiore 
+    al beneficio ottenuto. È quindi fondamentale scegliere attentamente quali processi automatizzare.
+    \subsubsection{Automazioni realizzate}
+    L'automazione dei processi di verifica e di compilazione della documentazione avviene tramite GitHub Actions,
+    che permette di eseguire script personalizzati in risposta a eventi specifici che si verificano nel repository.
+    In particolare, sono state scritte tre diverse Action:
+    \begin{itemize}
+        \item \texttt{build.yml}: si scatena a seguito di un push sul main; ha il compito di compilare 
+        tutta la documentazione creata fino a quel momento e di creare la relativa pagina web tramite Pages;
+        \item \texttt{pr\_build\_check.yml}: si scatena quando viene effettuata una pull request verso il main o verso
+        un branch di documentazione, ovvero del tipo docs/[NOME-DOCUMENTO]. Serve per verificare che
+        i sorgenti LaTeX compilino correttamente e che sia stato modificato uno e un solo documento;
+        \item \texttt{pr\_gulpease\_check.yml}: si scatena quando viene effettuata una pull request verso il main o verso
+        un branch di documentazione, ovvero del tipo docs/[NOME-DOCUMENTO]. Essa verifica che 
+        l'indice Gulpease del documento, espresso come media degli indici delle sezioni, sia maggiore o uguale a 50.
+    \end{itemize}
+    Per garantire la qualità dei documenti prodotti, è necessario che le Action \texttt{pr\_build\_check.yml}
+    e \\\texttt{pr\_gulpease\_check.yml} diano esito positivo. A tale scopo, è stato configurato il repository in modo
+    che non sia possibile effettuare il merge di una pull request se non sono soddisfatti entrambi i controlli.
+    Inoltre, per accelerare il processo di verifica, è fortemente raccomandato eseguire localmente gli script di test,
+    in modo da individuare e correggere eventuali errori prima di effettuare la pull request.
+    \subsubsection{Aggiungere un'Action}
+    Per aggiungere un'Action, è necessario seguire i seguenti passaggi:
+    \begin{itemize}
+        \item Creare un file in linguaggio YAML nella cartella \texttt{.github/workflows} del repository,
+        in cui si specificano i dettagli dell'Action. In particolare, è necessario definirne:
+        \begin{itemize}
+            \item Nome;
+            \item Evento che la scatena;
+            \item Job da eseguire;
+            \item Azioni da compiere all'interno di ciascun job.
+        \end{itemize}
+        \item Se necessario al funzionamento dell'automazione, produrre uno o più script e inserirli nella cartella \texttt{.github}.
+        Il linguaggio utilizzato per scrivere tali script è python, scelto per la sua comprensibilità e facilità di utilizzo;
+        \item Disabilitare temporaneamente il protection del main;
+        \item Effettuare un commit con le modifiche apportate (vedi \nameref{inf:comm});
+        \item Riabilitare il protection del main.
+    \end{itemize}
     \subsection{Accertamento della qualità}
     \subsubsection{Scopo}
     Lo scopo del processo di accertamento della qualità è di verificare che non siano stati commessi errori nello svolgimento delle attività prefissate, e di garantire il rispetto dei requisiti di qualità descritti nel \textit{piano di qualifica}.
@@ -466,30 +507,6 @@ I processi di supporto contribuiscono a rendere i processi primari più efficien
         \begin{itemize}
                 \item \nameref{M:MM};
         \end{itemize}
-    \subsection{Automazione}
-    \subsubsection{Scopo}
-    Lo scopo dell'automazione è garantire una maggiore efficienza e ridurre il rischio di errori umani. 
-    Tuttavia, il costo necessario per rendere automatiche alcune attività potrebbe essere superiore 
-    al beneficio ottenuto. È quindi fondamentale scegliere attentamente quali processi automatizzare.
-    \subsubsection{Descrizione}
-    L'automazione dei processi di verifica e di compilazione della documentazione avviene tramite GitHub Actions,
-    che permette di eseguire script personalizzati in risposta a eventi specifici che si verificano nel repository.
-    In particolare, sono state scritte tre diverse Action:
-    \begin{itemize}
-        \item \texttt{build.yml}: si scatena a seguito di un push sul main; ha il compito di compilare 
-        tutta la documentazione creata fino a quel momento e di creare la pagina web tramite Pages;
-        \item \texttt{pr\_build\_check.yml}: si scatena quando viene effettuata una pull request verso il main o verso
-        un branch di documentazione, ovvero del tipo docs/[NOME-DOCUMENTO]. Serve per verificare che
-        i sorgenti LaTeX compilino correttamente e che sia stato modificato uno e un solo documento;
-        \item \texttt{pr\_gulpease\_check.yml}: si scatena quando viene effettuata una pull request verso il main o verso
-        un branch di documentazione, ovvero del tipo docs/[NOME-DOCUMENTO]. Essa verifica che 
-        l'indice Gulpease del documento, espresso come media degli indici delle sezioni, sia maggiore o uguale a 50.
-    \end{itemize}
-    Al fine di garantire la qualità dei documenti prodotti, è necessario che le Action \texttt{pr\_build\_check.yml}
-    e \texttt{pr\_gulpease\_check.yml} abbiano esito positivo. A tale scopo, è stato configurato il repository in modo
-    che non sia possibile effettuare il merge di una pull request se non sono soddisfatti entrambi i controlli.
-    Inoltre, per accelerare il processo di verifica, è fortemente raccomandato eseguire localmente gli script di test,
-    in modo da individuare e correggere eventuali errori prima di effettuare la pull request. 
     \subsection{Verifica}
         \subsubsection{Scopo}
         Lo scopo del processo di verifica\textsubscript{g} è quello di accertare che non siano stati commessi errori nello svolgimento
