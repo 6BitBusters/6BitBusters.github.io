@@ -15,6 +15,7 @@
 
 \newcommand{\SubUseCase}[1]{%
     \stepcounter{SUC}
+    \resetCounter{SSUC}
     \subsubsection{UC\arabic{UC}.\arabic{SUC} - #1}
 }
 
@@ -52,889 +53,13 @@
 % Poiché per lo svolgimento del progetto non è necessario gestire permessi differenti per l'accesso alle funzionalità, l'attore che interagisce con il nostro software è unico, denominato "Utente".\\
 % \textbf{Utente:} soggetto che utilizza la web application, sfruttandone le funzionalità.
 
-\UseCase{Visualizza lista dataset}
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[scale=0.55]{template/images/UC1.png}
-        \caption{\nameref*{UC:\arabic{UC}}}
-    \end{figure}
-    \UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in homepage.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item All'avvio del sistema l'utente visualizza la completa lista dei dataset proposti.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item L'utente ha accesso all'applicazione.
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item L'utente vede la lista dei dataset disponibili.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item L'utente avvia il sistema;
-            \item I dataset disponibili vengono presentati tramite un elenco;
-        \end{itemize}
-    }
 
-
-    \newpage
-
-    \SubUseCase{Visualizza singolo dataset}
-    \UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in homepage.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item Visualizzazione dei singoli dataset di cui la lista è composta.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item La lista dei dataset è visibile.
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item La lista dei dataset è visibile;
-            \item Il dataset è visibile nella lista dei dataset.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item Nessuna azione richiesta;
-        \end{itemize}
-    }
-
-    \SubSubUseCase{Visualizza nome dataset}
-    \UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in homepage.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item Visualizzazione del nome del dataset. Quest'ultimo è considerato come un identificativo che permette di distinguere i diversi dataset.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item Il dataset è presente della lista dei dataset.
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item Il dataset è presente della lista dei dataset;
-            \item Il nome del dataset è visibile.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item Nessuna azione richiesta;
-        \end{itemize}
-    }
-
-
-    \SubSubUseCase{Visualizza dimensione dataset}
-    \UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in homepage.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item Visualizzazione della dimensione del dataset.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item Il dataset è presente della lista dei dataset.
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item Il dataset è presente della lista dei dataset;
-            \item La dimensione del dataset è visibile.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item Nessuna azione richiesta;
-        \end{itemize}
-    }
-
-
-\UseCase{Visualizza dettaglio dataset}
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[scale=0.6]{template/images/UC2.png}
-        \caption{\nameref*{UC:\arabic{UC}}}
-    \end{figure}
-    \UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in homepage.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item  L'utente può visualizzare i dettagli di un dataset.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item Il dataset deve essere un dataset proposto.
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item I dettagli del dataset sono visibili.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item L'utente espande la vista del singolo dataset;
-        \end{itemize}
-    }
-    
-
-    \SubUseCase{Visualizza descrizione dataset}
-    \UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in homepage.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item   Visualizzazione della descrizione del dataset.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item I dettagli del dataset sono visibili.
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item I dettagli del dataset sono visibili.
-            \item La descrizione del dataset è visibile.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item Nessuna azione richiesta;
-        \end{itemize}
-    }
-
-
-
-\UseCase{Carica dataset}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[scale=0.6]{template/images/UC3.png}
-    \caption{\nameref*{UC:\arabic{UC}}}
-\end{figure}
-    \UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in homepage.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item  L'utente decide il dataset che vuole visualizzare andando quindi a caricare tutti i dati e valori nel sistema.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item L'utente vede la lista dei dataset disponibili.
-            \item L'utente ha selezionato un dataset.
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item L'utente ha selezionato un dataset.
-            \item Il dataset viene caricato nel sistema.
-            \item L'utente entra nell'ambiente 3D
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item L'utente seleziona un dataset tra quelli proposti nella lista;
-        \end{itemize}
-        % ESTENSIONE
-        \item \textbf{Estensione:} \begin{itemize}
-            \item UC4 - Visualizza errore nel caricamento.
-        \end{itemize}
-    }
-
-
-\newpage
-
-\UseCase{Visualizza errore nel caricamento}
-    \UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in homepage.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item  Visualizzazione di un messaggio informativo "oggetto non modificabile". Il caricamento potrebbe fallire perchè il dataset selezionato potrebbe essere
-                    non disponibile in quel momento.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item L'utente vede la lista dei dataset disponibili;
-            \item L'utente ha selezionato un dataset;
-            \item Il dataset selezionato non è disponibile.
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item Il dataset non viene caricato nel sistema.
-            \item L'utente torna alla vista della lista di dataset.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item L'utente seleziona un dataset tra quelli proposti nella lista;
-        \end{itemize}
-    }
-
-
-
-\UseCase{Visualizza dataset in forma tabellare}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[scale=0.7]{template/images/UC5.png}
-    \caption{\nameref*{UC:\arabic{UC}}}
-\end{figure}
-\UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in ambiente 3D.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item Visualizzazione del dataset caricato in forma tabellare.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item L'utente ha selezionato un dataset;
-            \item Il caricamento del dataset è andato a buonfine;
-            \item L'utente è all'interno dell'ambiente 3D.
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item La tabella contenente i dati del dataset è visibile con i rispettivi valori.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item L'utente seleziona un dataset;
-            \item L'applicazione elabora i dati.
-        \end{itemize}
-    }
-
-
-\SubUseCase{Visualizza intestazioni}
-\UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in ambiente 3D.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item Visualizzazione delle intestazioni della tabella contenente i tutti i valori del dataset selezionato.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item La tabella è visibile;
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item Le intestazioni della tabella sono visibili.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item Nessuna azione richiesta;
-        \end{itemize}
-    }
-
-\SubUseCase{Visualizza dati}
-\UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in ambiente 3D.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item Visualizzazione di tutti i valori, del dataset selezionato, contenuti nella tabella.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item La tabella è visibile;
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item I valori del dataset selezionato vengono visualizzati nella tabella.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item Nessuna azione richiesta;
-        \end{itemize}
-    }
-
-\UseCase{Visualizza dataset tramite grafico 3D}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[scale=0.5]{template/images/UC6.png}
-    \caption{\nameref*{UC:\arabic{UC}}}
-\end{figure}
-\UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in ambiente 3D.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item Visualizzazione del dataset caricato sotto forma di grafico 3D a barre verticale.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item L'utente ha selezionato un dataset;
-            \item Il caricamento del dataset è andato a buonfine;
-            \item L'utente è all'interno dell'ambiente 3D.
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item Il grafico 3D è visibile.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item L'utente seleziona un dataset;
-            \item L'applicazione elabora i dati.
-        \end{itemize}
-    }
+% UC1 - UC11
 
 
 
 
-\SubUseCase{Visualizza assi}
-\UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in ambiente 3D.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item Visualizzazione degli asse X, Y e Z del grafico 3D.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item Il grafico 3D è visibile;
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item Gli assi del grafico 3D sono visibili.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item Nessuna azione richiesta;
-        \end{itemize}
-    }
-
-\SubSubUseCase{Visualizza asse X}
-\UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in ambiente 3D.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item Visualizzazione degli asse X del grafico 3D con le sue eventuali etichette.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item Il grafico 3D è visibile;
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item L'asse X del grafico 3D è visibile.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item Nessuna azione richiesta;
-        \end{itemize}
-    }
-
-\SubSubUseCase{Visualizza asse X}
-\UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in ambiente 3D.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item Visualizzazione degli asse Y del grafico 3D con le sue eventuali etichette.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item Il grafico 3D è visibile;
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item L'asse Y del grafico 3D è visibile.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item Nessuna azione richiesta;
-        \end{itemize}
-    }
-
-\SubSubUseCase{Visualizza asse Z}
-\UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in ambiente 3D.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item Visualizzazione degli asse Z del grafico 3D con le sue eventuali etichette.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item Il grafico 3D è visibile;
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item L'asse Z del grafico 3D è visibile.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item Nessuna azione richiesta;
-        \end{itemize}
-    }
-
-\UseCase{Camera Panning}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[scale=0.65]{template/images/UC7.png}
-    \caption{\nameref*{UC:\arabic{UC}}}
-\end{figure}
-\UCdsc
-    { % ATTORE
-        \begin{itemize}
-            \item Utente in ambiente 3D.
-        \end{itemize}
-    }
-    { % DESCRIZIONE
-        \begin{itemize}
-            \item Compiere movimenti di pan significa che, l'utente può interagire con l'ambiente compiendo degli spostamenti lungo una linea retta mantenendo la stessa angolazione.
-        \end{itemize}
-    }
-    { % PRECONDIZIONI
-        \begin{itemize}
-            \item Le azioni di movimento devono essere valide. Un'azione di movimento è valida se non va al di fuori di un'area predefinita dal sistema;
-            \item La telecamera si trova in una posizione arbitraria nello spazio.
-        \end{itemize}
-    }
-    { % POSTCONDIZIONI
-        \begin{itemize}
-            \item La telecamera si trova in una posizione diversa da quella iniziale.
-        \end{itemize}
-    }
-    { % SCENARIO PRIMARIO
-        \begin{itemize}
-            \item L'utente interagisce con il sistema per compiere un'azione di movimento di spostamento orizzontale e/o verticale;
-        \end{itemize}
-    }
-
-\SubUseCase{Spostamento orizzontale}
-    \UCdsc
-        { % ATTORE
-            \begin{itemize}
-                \item Utente in ambiente 3D.
-            \end{itemize}
-        }
-        { % DESCRIZIONE
-            \begin{itemize}
-                \item Compiere movimenti di pan significa che, l'utente può interagire con l'ambiente compiendo degli spostamenti orizzontali indipendentemente dalla sua angolazione.
-            \end{itemize}
-        }
-        { % PRECONDIZIONI
-            \begin{itemize}
-                \item Le azioni di movimento devono essere valide. Un'azione di movimento è valida se non va oltre il margine destro o sinistro di un'area predefinita dal sistema;
-                \item La telecamera si trova in una posizione arbitraria nello spazio.
-            \end{itemize}
-        }
-        { % POSTCONDIZIONI
-            \begin{itemize}
-                \item La telecamera si trova in una posizione diversa da quella iniziale.
-            \end{itemize}
-        }
-        { % SCENARIO PRIMARIO
-            \begin{itemize}
-                \item L'utente interagisce con il sistema per compiere un'azione di movimento di spostamento orizzontale;
-            \end{itemize}
-        }
-
-\SubUseCase{Spostamento orizzontale}
-    \UCdsc
-        { % ATTORE
-            \begin{itemize}
-                \item Utente in ambiente 3D.
-            \end{itemize}
-        }
-        { % DESCRIZIONE
-            \begin{itemize}
-                \item Compiere movimenti di pan significa che, l'utente può interagire con l'ambiente compiendo degli spostamenti verticali indipendentemente dalla sua angolazione.
-            \end{itemize}
-        }
-        { % PRECONDIZIONI
-            \begin{itemize}
-                \item Le azioni di movimento devono essere valide. Un'azione di movimento è valida se non va al di sotto o al di sopra di un'area predefinita dal sistema;
-                \item La telecamera si trova in una posizione arbitraria nello spazio.
-            \end{itemize}
-        }
-        { % POSTCONDIZIONI
-            \begin{itemize}
-                \item La telecamera si trova in una posizione diversa da quella iniziale.
-            \end{itemize}
-        }
-        { % SCENARIO PRIMARIO
-            \begin{itemize}
-                \item L'utente interagisce con il sistema per compiere un'azione di movimento di spostamento verticale;
-            \end{itemize}
-        }
-
-
-\UseCase{Zoom della vista}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[scale=0.7]{template/images/UC8.png}
-    \caption{\nameref*{UC:\arabic{UC}}}
-\end{figure}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item Compiere movimenti di zoom significa che, l'utente può interagire con l'ambiente compiendo degli spostamenti in profondità.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item L'azione di zoom deve essere valida. Un'azione di zoom è valida se non va al di fuori un'area predefinita dal sistema;
-        \item La telecamera si trova in una posizione arbitraria nello spazio.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item La telecamera si trova in una posizione diversa da quella iniziale in termini di profondità.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente interagisce con il sistema per compiere un'azione zoom;
-    \end{itemize}
-}
-
-\UseCase{Ruota grafico}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[scale=0.65]{template/images/UC9.png}
-    \caption{\nameref*{UC:\arabic{UC}}}
-\end{figure}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item Compiere un'azione di rotazione del grafico permette all'utente di visualizzare meglio o con una angolazione che preferisce il grafico stesso.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile;
-        \item Il grafico ha una rotazione arbitraria.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item Il grafico ha una rotazione diversa rispetto a quella iniziale.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente interagisce con il sistema per compiere di rotazione del grafico.
-    \end{itemize}
-}
-
-\SubUseCase{Ruota grafico attorno asse X}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item L'attore compie un'azione di rotazione del grafico attorno l'asse X.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile;
-        \item Il grafico ha una rotazione arbitraria.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item Il grafico ha una rotazione diversa rispetto a quella iniziale.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente interagisce con il sistema per compiere di rotazione del grafico attorno all'asse X.
-    \end{itemize}
-}
-
-\SubUseCase{Ruota grafico attorno asse Y}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item L'attore compie un'azione di rotazione del grafico attorno l'asse Y.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile;
-        \item Il grafico ha una rotazione arbitraria.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item Il grafico ha una rotazione diversa rispetto a quella iniziale.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente interagisce con il sistema per compiere di rotazione del grafico attorno all'asse Y.
-    \end{itemize}
-}
-
-\SubUseCase{Ruota grafico attorno asse Z}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item L'attore compie un'azione di rotazione del grafico attorno l'asse Z.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile;
-        \item Il grafico ha una rotazione arbitraria.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item Il grafico ha una rotazione diversa rispetto a quella iniziale.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente interagisce con il sistema per compiere di rotazione del grafico attorno all'asse Z.
-    \end{itemize}
-}
-    
-\UseCase{Riposiziona telecamera alla posizione d'origine}
-\begin{figure}[h!]\centering
-    \includegraphics[scale=0.7]{template/images/UC10.png}
-    \caption{\nameref*{UC:\arabic{UC}}}
-\end{figure}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item Prevede il riposizionamento della telecamera al suo punto iniziale, la sua posizione alla creazione dell'ambiente 3D.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item La telecamera si trova in una posizione arbitraria nello spazio.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item La telecamera si trova nella posizione predefinita iniziale.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente seleziona il comando per riposizionare la telecamera;
-    \end{itemize}
-}
-
-\UseCase{Visualizza dettagli di una barra del grafico 3D}
-\begin{figure}[h!]\centering
-    \includegraphics[scale=0.7]{template/images/UC11.png}
-    \caption{\nameref*{UC:\arabic{UC}}}
-\end{figure}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item L'utente può visualizzare i dettagli di una barra del grafico come il suo valore e le etichette a lei associate.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile.
-        \item La barra è visibile.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item I dettagli della barra sono visibili.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente seleziona un valore del dataset. 
-    \end{itemize}
-}
-
-\SubUseCase{Visualizza valore}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item Visualizzazione del valore della barra.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item I dettagli della barra sono visibili.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item I dettagli della barra sono visibili.
-        \item Il valore della barra è visibile.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item Nessuna azione richiesta. 
-    \end{itemize}
-}
-
-\SubUseCase{Visualizza etichette}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item Visualizzazione delle etichette associate alla barra.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item I dettagli della barra sono visibili.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item I dettagli della barra sono visibili.
-        \item Le etichette della barra sono visibili.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item Nessuna azione richiesta. 
-    \end{itemize}
-}
-
+%UC12 - UC19
 \UseCase{Zoom della vista}
 \begin{figure}[h!]\centering
     \includegraphics[scale=0.6]{template/images/UC12.png}
@@ -964,7 +89,7 @@
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente interagisce con il sistema per compiere un'azione zoom;
+        \item L'utente interagisce con il sistema per compiere un'azione zoom.
     \end{itemize}
 } 
 
@@ -998,7 +123,7 @@
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente seleziona il comando per riposizionare la telecamera;
+        \item L'utente seleziona il comando per riposizionare la telecamera.
     \end{itemize}
 } 
 
@@ -1057,7 +182,7 @@
 }
 { % PRECONDIZIONI
     \begin{itemize}
-        \item Il grafico è visibile.
+        \item Il grafico è visibile;
         \item La barra è visibile.
     \end{itemize}
 }
@@ -1068,7 +193,7 @@
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente interagisce con la barra tramite hover o selezione; 
+        \item L'utente interagisce con la barra tramite hover o selezione.
     \end{itemize}
 }
 
@@ -1128,7 +253,7 @@
     \end{itemize}
 }
 
-\UseCase{Filtra rispetto a un numero N di valori}
+\UseCase{Filtra un numero N di valori}
 \begin{figure}[h!]\centering
     \includegraphics[scale=0.6]{template/images/UC16.png}
     \caption{\nameref*{UC:\arabic{UC}}}
@@ -1157,13 +282,13 @@
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente inserisce un numero N.
-        \item L'utente seleziona il filtro.
+        \item L'utente inserisce un numero N;
+        \item L'utente seleziona il filtro;
         \item Il sistema aggiorna la visualizzazione del grafico, mostrando solo le barre che rientrano tra le prime N più alte o più basse.
     \end{itemize}
         % GENERALIZZAZIONI
         \item \textbf{Generalizzazioni:} \begin{itemize}
-            \item UC16.1 - Filtra N valori più alti.
+            \item UC16.1 - Filtra N valori più alti;
             \item UC16.2 - Filtra N valori più bassi.
         \end{itemize}
 }
@@ -1244,30 +369,30 @@
 }
 { % PRECONDIZIONI
     \begin{itemize}
-        \item Il grafico è visibile;
+        \item Il grafico è visibile.
     \end{itemize}
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item È stato applicato il filtro per visualizzare solo le barre con un valore superiore, inferiore o uguali
+        \item È stato applicato il filtro per visualizzare solo le barre con un valore superiore, inferiore o uguali;
         rispetto a un valore scelta dall’utente.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L’utente seleziona un valore.
+        \item L’utente seleziona un valore;
         \item Il sistema aggiorna la visualizzazione del grafico, evidenziando le barre che rientrano nella condizione scelta.
     \end{itemize}
   % GENERALIZZAZIONI
         \item \textbf{Generalizzazioni:} \begin{itemize}
-            \item UC17.1 - Filtra valori inferiori o uguali rispetto a un valore;
-            \item UC17.2 - Filtra valori superiori rispetto a un valore.
+            \item UC17.1 - Filtra valori inferiori (o uguali) rispetto a un valore;
+            \item UC17.2 - Filtra valori superiori (o uguali) rispetto a un valore.
         \end{itemize}
     
 }
 
 
-\SubUseCase{Filtra valori inferiori o uguali rispetto a un valore}
+\SubUseCase{Filtra valori inferiori (o uguali) rispetto a un valore}
 \begin{figure}[H]\centering
     \includegraphics[scale=0.7]{template/images/UC17.1.png}
     \caption{\nameref*{UC:\arabic{UC}}}
@@ -1280,34 +405,34 @@
 }
 { % DESCRIZIONE
     \begin{itemize}
-        \item L'utente decide di evidenziare i valori inferiori o uguali rispetto a un valore, rendendo visibili le barre corrispondenti a questo criterio.
+        \item L'utente decide di evidenziare i valori inferiori (o uguali) rispetto a un valore, rendendo visibili le barre corrispondenti a questo criterio.
     \end{itemize}
 }
 { % PRECONDIZIONI
     \begin{itemize}
         \item Il grafico è visibile;
-        \item L'utente ha scelto il filtro rispetto a un valore;
+        \item L'utente ha scelto il filtro rispetto a un valore.
     \end{itemize}
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item Le barre con valori che non soddisfano il criterio di essere inferiori o uguali diventano meno opache(più trasparenti).
+        \item Le barre con valori che non soddisfano il criterio di essere inferiori (o uguali) diventano meno opache(più trasparenti).
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente seleziona l'opzione per visualizzare le barre inferiori o uguali.
+        \item L'utente seleziona l'opzione per visualizzare le barre inferiori (o uguali).
     \end{itemize}
     % GENERALIZZAZIONI
     \item \textbf{Generalizzazioni:} \begin{itemize}
-        \item UC17.1.1 - Filtra valori inferiori o uguali rispetto a un valore del grafico;
-        \item UC17.2.2 - Filtra valori inferiori o uguali rispetto al valor medio globale.
+        \item UC17.1.1 - Filtra valori inferiori (o uguali) rispetto a un valore del grafico;
+        \item UC17.2.2 - Filtra valori inferiori (o uguali) rispetto al valor medio globale.
     \end{itemize}
 }
 
 
 
-\SubSubUseCase{Filtra valori inferiori o uguali rispetto a un valore del grafico}
+\SubSubUseCase{Filtra valori inferiori (o uguali) rispetto a un valore del grafico}
 \UCdsc
 { % ATTORE
     \begin{itemize}
@@ -1316,28 +441,28 @@
 }
 { % DESCRIZIONE
     \begin{itemize}
-        \item L'utente decide di evidenziare i valori inferiori o uguali rispetto a un valore del grafico, rendendo visibili le barre corrispondenti a questo criterio.
+        \item L'utente decide di evidenziare i valori inferiori (o uguali) rispetto a un valore del grafico, rendendo visibili le barre corrispondenti a questo criterio.
     \end{itemize}
 }
 { % PRECONDIZIONI
     \begin{itemize}
         \item Il grafico è visibile;
-        \item L'utente ha scelto il filtro di valori inferiori o uguali;
+        \item L'utente ha scelto il filtro di valori inferiori (o uguali).
     \end{itemize}
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item Le barre con valori che non soddisfano il criterio di essere inferiori o uguali rispetto a un valore del grafico selezionato diventano meno opache(più trasparenti).
+        \item Le barre con valori che non soddisfano il criterio di essere inferiori (o uguali) rispetto a un valore del grafico selezionato diventano meno opache(più trasparenti).
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente seleziona l'opzione per visualizzare le barre inferiori o uguali rispetto a un valore del grafico.
+        \item L'utente seleziona l'opzione per visualizzare le barre inferiori (o uguali) rispetto a un valore del grafico.
     \end{itemize}
 }
 
 
-\SubSubUseCase{Filtra valori inferiori o uguali rispetto al valor medio globale}
+\SubSubUseCase{Filtra valori inferiori (o uguali) rispetto al valor medio globale}
 \UCdsc
 { % ATTORE
     \begin{itemize}
@@ -1346,32 +471,32 @@
 }
 { % DESCRIZIONE
     \begin{itemize}
-        \item L'utente decide di evidenziare i valori inferiori o uguali rispetto al valor medio globale, rendendo visibili le barre corrispondenti a questo criterio.
+        \item L'utente decide di evidenziare i valori inferiori (o uguali) rispetto al valor medio globale, rendendo visibili le barre corrispondenti a questo criterio.
     \end{itemize}
 }
 { % PRECONDIZIONI
     \begin{itemize}
         \item Il grafico è visibile;
-        \item L'utente ha scelto il filtro di valori inferiori o uguali;
+        \item L'utente ha scelto il filtro di valori inferiori (o uguali).
     \end{itemize}
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item Le barre con valori che non soddisfano il criterio di essere inferiori o uguali rispetto al valor medio globale diventano meno opache(più trasparenti).
+        \item Le barre con valori che non soddisfano il criterio di essere inferiori (o uguali) rispetto al valor medio globale diventano meno opache(più trasparenti).
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente seleziona l'opzione per visualizzare le barre inferiori o uguali rispetto al valor medio globale.
+        \item L'utente seleziona l'opzione per visualizzare le barre inferiori (o uguali) rispetto al valor medio globale.
     \end{itemize}
 }
 
 
 
 
-\SubUseCase{Filtra valori superiori rispetto a un valore}
+\SubUseCase{Filtra valori superiori (o uguali) rispetto a un valore}
 \begin{figure}[H]\centering
-    \includegraphics[scale=0.7]{template/images/UC17.2.png}
+    \includegraphics[scale=0.6]{template/images/UC17.2.png}
     \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
@@ -1382,13 +507,13 @@
 }
 { % DESCRIZIONE
     \begin{itemize}
-        \item L'utente decide di evidenziare i valori superiori rispetto a un valore, rendendo visibili le barre corrispondenti a questo criterio.
+        \item L'utente decide di evidenziare i valori superiori (o uguali) rispetto a un valore, rendendo visibili le barre corrispondenti a questo criterio.
     \end{itemize}
 }
 { % PRECONDIZIONI
     \begin{itemize}
         \item Il grafico è visibile;
-        \item L'utente ha scelto il filtro rispetto a un valore;
+        \item L'utente ha scelto il filtro rispetto a un valore.
     \end{itemize}
 }
 { % POSTCONDIZIONI
@@ -1398,17 +523,17 @@
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente seleziona l'opzione per visualizzare le barre superiori.
+        \item L'utente seleziona l'opzione per visualizzare le barre superiori (o uguali).
     \end{itemize}
     % GENERALIZZAZIONI
     \item \textbf{Generalizzazioni:} \begin{itemize}
-        \item UC17.1.1 - Filtra valori superiori rispetto a un valore del grafico;
-        \item UC17.2.2 - Filtra valori superiori rispetto al valor medio globale.
+        \item UC17.1.1 - Filtra valori superiori (o uguali) rispetto a un valore del grafico;
+        \item UC17.2.2 - Filtra valori superiori (o uguali) rispetto al valor medio globale.
     \end{itemize}
 }
 
 
-\SubSubUseCase{Filtra valori superiori rispetto a un valore del grafico}
+\SubSubUseCase{Filtra valori superiori (o uguali) rispetto a un valore del grafico}
 \UCdsc
 { % ATTORE
     \begin{itemize}
@@ -1417,28 +542,28 @@
 }
 { % DESCRIZIONE
     \begin{itemize}
-        \item L'utente decide di evidenziare i valori superiori rispetto a un valore del grafico, rendendo visibili le barre corrispondenti a questo criterio.
+        \item L'utente decide di evidenziare i valori superiori (o uguali) rispetto a un valore del grafico, rendendo visibili le barre corrispondenti a questo criterio.
     \end{itemize}
 }
 { % PRECONDIZIONI
     \begin{itemize}
         \item Il grafico è visibile;
-        \item L'utente ha scelto il filtro di valori superiori;
+        \item L'utente ha scelto il filtro di valori superiori (o uguali).
     \end{itemize}
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item Le barre con valori che non soddisfano il criterio di essere superiori rispetto a un valore del grafico selezionato diventano meno opache(più trasparenti).
+        \item Le barre con valori che non soddisfano il criterio di essere superiori (o uguali) rispetto a un valore del grafico selezionato diventano meno opache(più trasparenti).
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente seleziona l'opzione per visualizzare le barre superiori rispetto a un valore del grafico.
+        \item L'utente seleziona l'opzione per visualizzare le barre superiori (o uguali) rispetto a un valore del grafico.
     \end{itemize}
 }
 
 
-\SubSubUseCase{Filtra valori superiori rispetto al valor medio globale}
+\SubSubUseCase{Filtra valori superiori (o uguali) rispetto al valor medio globale}
 \UCdsc
 { % ATTORE
     \begin{itemize}
@@ -1447,32 +572,63 @@
 }
 { % DESCRIZIONE
     \begin{itemize}
-        \item L'utente decide di evidenziare i valori superiori rispetto al valor medio globale, rendendo visibili le barre corrispondenti a questo criterio.
+        \item L'utente decide di evidenziare i valori superiori (o uguali) rispetto al valor medio globale, rendendo visibili le barre corrispondenti a questo criterio.
     \end{itemize}
 }
 { % PRECONDIZIONI
     \begin{itemize}
         \item Il grafico è visibile;
-        \item L'utente ha scelto il filtro di valori superiori;
+        \item L'utente ha scelto il filtro di valori superiori (o uguali).
     \end{itemize}
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item Le barre con valori che non soddisfano il criterio di essere superiori rispetto al valor medio globale diventano meno opache(più trasparenti).
+        \item Le barre con valori che non soddisfano il criterio di essere superiori (o uguali) rispetto al valor medio globale diventano meno opache(più trasparenti).
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente seleziona l'opzione per visualizzare le barre superiori rispetto al valor medio globale.
+        \item L'utente seleziona l'opzione per visualizzare le barre superiori (o uguali) rispetto al valor medio globale.
     \end{itemize}
 }
 
 
 
 
-\UseCase{Visualizza piano valor medio globale}
+\UseCase{Inserimento di un valore}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item Questo caso d'uso consente all'utente di inserire un valore numerico positivo che sarà utilizzato per applicare un filtro sui dati visualizzati nel grafico 3D. L'utente può inserire un valore per determinare il numero di barre da visualizzare, ad esempio per filtrare i N valori più alti o più bassi del grafico, in base al tipo di filtro selezionato.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item Il grafico è visibile;
+        \item L'utente ha selezionato il filtraggio di un numero N di valori.
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item Il valore desiderato è stato inserito nel campo corrispondente.
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L'utente inserisce un valore valido nel campo corrispondente.
+    \end{itemize}
+}
+
+
+
+\UseCase{Visualizza piano del valor medio}
 \begin{figure}[h!]\centering
-    \includegraphics[scale=0.7]{template/images/UC16.png}
+    \includegraphics[scale=0.7]{template/images/UC19.png}
     \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
@@ -1483,12 +639,41 @@
 }
 { % DESCRIZIONE
     \begin{itemize}
-        \item Un piano, parallelo alla base, viene inserito nel grafico 3D per evidenziare il valor medio globale.
+        \item Generazione di un piano parallelo alla base inserito nel grafico 3D per evidenziare un valor medio.
     \end{itemize}
 }
 { % PRECONDIZIONI
     \begin{itemize}
-        \item Il grafico è visibile;
+        \item Il grafico è visibile.
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item Il piano che rappresenta il valor medio è visibile.
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L'utente seleziona l'opzione per visualizzare il valor medio.
+    \end{itemize}
+}
+
+
+\SubUseCase{Visualizza piano del valor medio globale}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item Un piano, parallelo alla base, viene inserito nel grafico 3D per evidenziare il valor medio globale dei dati.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item Il grafico è visibile.
     \end{itemize}
 }
 { % POSTCONDIZIONI
@@ -1498,15 +683,12 @@
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente seleziona l'opzione per visualizzare il valor medio.
+        \item L'utente seleziona l'opzione per visualizzare il valor medio;
+        \item L'utente seleziona l'opzione del valor medio globale.
     \end{itemize}
 }
 
-\UseCase{Visualizza piano valor medio di un singolo elemento}
-\begin{figure}[h!]\centering
-    \includegraphics[scale=0.7]{template/images/UC17.png}
-    \caption{\nameref*{UC:\arabic{UC}}}
-\end{figure}
+\SubUseCase{Visualizza piano valor medio di un singolo elemento}
 \UCdsc
 { % ATTORE
     \begin{itemize}
@@ -1515,12 +697,12 @@
 }
 { % DESCRIZIONE
     \begin{itemize}
-        \item Un piano, parallelo alla base, viene inserito nel grafico 3D per evidenziare il valor medio di un singolo elemento tra quelli nel dataset.
+        \item Un piano, parallelo alla base, viene inserito nel grafico 3D per evidenziare il valor medio di un singolo elemento tra quelli nel dataset, cioè il valor medio rispetto a un unico asse di etichetta.
     \end{itemize}
 }
 { % PRECONDIZIONI
     \begin{itemize}
-        \item Il grafico è visibile;
+        \item Il grafico è visibile.
     \end{itemize}
 }
 { % POSTCONDIZIONI
@@ -1530,8 +712,8 @@
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente seleziona l'opzione per visualizzare il valor medio.
-        \item L'utente seleziona l'elemento su quale andare a calcolare il valor medio.
+        \item L'utente seleziona l'opzione per visualizzare il valor medio;
+        \item L'utente seleziona l'etichetta su quale genererare il valor medio.
     \end{itemize}
 }
 
