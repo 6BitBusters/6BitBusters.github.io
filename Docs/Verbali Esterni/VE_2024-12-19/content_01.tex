@@ -26,13 +26,13 @@
 
 \section{Resoconto della Riunione}
 \subsection{Dettagli dei Dataset}
-Per permettere all'utente di scegliere un dataset da una lista, abbiamo chiesto al proponente se i dettagli dovessero essere visibili direttamente nella lista o accessibili in altro modo.
+Per permettere all'utente di scegliere un dataset da una lista, abbiamo chiesto al proponente se i dettagli dovessero essere visibili direttamente nella lista o accessibili in altro modo. \\
 Il proponente ha suggerito di mostrare i dettagli principali direttamente nella lista per migliorare l'usabilità. 
 I dettagli più specifici, invece, potrebbero essere visualizzati solo su richiesta, tramite un'opzione di espansione della casella del dataset. 
 Questa sezione espandibile potrebbe essere gestita con un bottone per espanderla e ridurla.
 
 \subsection{Legenda e Colore delle Barre}
-Abbiamo chiesto al proponente se fosse necessario includere una legenda per chiarire gli elementi del grafico, come i valori degli assi, l'altezza delle barre e il colore delle barre.
+Abbiamo chiesto al proponente se fosse necessario includere una legenda per chiarire gli elementi del grafico, come i valori degli assi, l'altezza delle barre e il colore delle barre.\\
 Secondo il proponente, il grafico è già autoesplicativo grazie alle etichette sugli assi, quindi una legenda non è necessaria.
 Per quanto riguarda i colori delle barre, si è discusso del fatto che, essendo un requisito opzionale, non è obbligatorio definire una colorazione specifica. 
 Tuttavia, se si decidesse di implementarla, i colori dovrebbero aiutare l'utente a comprendere meglio il grafico. 
@@ -40,7 +40,7 @@ Ad esempio, i colori potrebbero variare in base all'altezza delle barre.
 Il proponente ha mostrato un esempio di Excel in cui i colori cambiano in base ai valori: il minimo è rappresentato dal rosso, e il colore diventa progressivamente più chiaro fino al massimo, indicato dal verde.
 
 \subsection{Funzione Hover sopra le Barre}
-Abbiamo chiesto se, passando il puntatore del mouse sopra una barra (funzione hover), si debba mostrare solo il valore numerico o anche le etichette degli assi X e Y.
+Abbiamo chiesto se, passando il puntatore del mouse sopra una barra (funzione hover), si debba mostrare solo il valore numerico o anche le etichette degli assi X e Y.\\
 Per migliorare la chiarezza, è stato suggerito di mostrare sia il valore numerico sia le etichette degli assi.
 
 \subsection{Funzione di Filtraggio}
@@ -59,7 +59,7 @@ La visualizzazione del piano relativo al valore medio globale, invece, è indipe
 Ci è stato suggerito di implementare una checkbox che permetta all'utente di decidere se visualizzare o meno il piano.
 
 \subsection{Test E2E}
-Anche se i test E2E (End-to-End) sono un requisito opzionale, abbiamo chiesto chiarimenti su cosa siano e come implementarli, dato che il gruppo non ne aveva familiarità.
+Anche se i test E2E (End-to-End) sono un requisito opzionale, abbiamo chiesto chiarimenti su cosa siano e come implementarli, dato che il gruppo non ne aveva familiarità.\\
 Ci è stato spiegato che i test E2E sono utili per verificare il corretto funzionamento dell’applicazione dal punto di vista dell’utente finale. 
 Questo tipo di test controlla le interazioni dell’utente e assicura che le funzionalità siano implementate correttamente.
 Il proponente ha suggerito strumenti come Selenium, Cypress e Playwright per automatizzare i test. 
@@ -67,14 +67,14 @@ Questi strumenti registrano una sequenza di azioni e le ripetono, verificando ch
 Un esempio pratico potrebbe essere il controllo della lista dei dataset, dove è necessario verificare che gli elementi siano visibili e che i dettagli vengano mostrati correttamente al clic.
 
 \subsection{Requisiti Prestazionali e Compatibilità con i Browser}
-Abbiamo chiesto informazioni sui requisiti prestazionali, come il tempo di caricamento della pagina, e sulla retrocompatibilità con le diverse versioni dei browser.
+Abbiamo chiesto informazioni sui requisiti prestazionali, come il tempo di caricamento della pagina, e sulla retrocompatibilità con le diverse versioni dei browser.\\
 Per quanto riguarda le prestazioni, non sono stati indicati parametri precisi. 
 Tuttavia, è stato suggerito di considerare l’esperienza dell’utente e chiedersi: "Quanto tempo sarei disposto ad aspettare per caricare questo dataset?". 
 Si è deciso di basare il tempo di caricamento sulla dimensione del dataset, mantenendolo ragionevole e nell’ordine di grandezza dei secondi.
 Per la compatibilità con i browser, è sufficiente garantire il funzionamento dell’applicazione sull’ultima versione dei browser più comuni.
 
 \subsection{Suddivisione del Lavoro per il PoC}
-Abbiamo chiesto al proponente consigli su come suddividere il lavoro per lo sviluppo del PoC.
+Abbiamo chiesto al proponente consigli su come suddividere il lavoro per lo sviluppo del PoC. \\
 Ci è stato spiegato che, a differenza dell’MVP, che richiede una chiara separazione tra backend, frontend e gestione del dataset, il PoC può essere sviluppato in parallelo. 
 Questo approccio permette di testare singolarmente le tecnologie necessarie per il progetto.
 È stato consigliato di concentrarsi sugli aspetti più complessi e sui punti critici che potrebbero creare difficoltà durante lo sviluppo del prodotto finale. 
