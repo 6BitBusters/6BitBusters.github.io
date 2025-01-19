@@ -14,13 +14,16 @@ all'approvazione\textsubscript{g} e quindi alla pubblicazione del documento.
       \item \textbf{Creazione}: viene creato un nuovo branch\textsubscript{g}, che prende il nome del documento stesso
             (vedi \nameref{inf:branch}) e in cui viene caricato il template. Dal momento della creazione, in questo
             branch\textsubscript{g} ci saranno solamente le versioni verificate del documento;
-      \item \textbf{Stesura}: per la stesura verrà creato un sotto-branch\textsubscript{g}, caratterizzato dal numero della issue che richiede la stesura, in seguito si procede con la stesura delle sezioni necessarie, tracciando i cambiamenti nel registro delle modifiche e aggiornando la versione;
-      \item \textbf{Verifica\textsubscript{g}}: prima di considerarsi completata, ogni modifica al documento deve essere verificata da un verificatore in carica, tramite una pull request\textsubscript{g} viene messo in esame quanto aggiunto al documento rispetto alla versione precedente, si presentano due casi:
+      \item \textbf{Stesura}: per la stesura viene creato un branch\textsubscript{g} di lavoro, derivato dal branch del documento, nel quale si aggiungono o modificano le
+            sezioni necessarie, tracciando i cambiamenti nel registro delle modifiche e aggiornando la versione;
+      \item \textbf{Verifica\textsubscript{g}}: prima di considerarsi completata, ogni modifica al documento deve essere verificata da un verificatore in carica.
+            Tramite una pull request\textsubscript{g}, viene messo in esame quanto aggiunto al documento rispetto alla versione precedente. Si presentano due casi:
             \begin{itemize}
                   \item \textbf{Pull request\textsubscript{g} accettata}: il verificatore non trova errori e considera il lavoro 'verificato', quindi accetta la pull request\textsubscript{g} e fa il merge dal branch\textsubscript{g} di lavoro al branch\textsubscript{g} del documento, chiudendo la issue assegnata e il branch di lavoro;
                   \item \textbf{Pull request\textsubscript{g} rifiutata}: il verificatore non considera la stesura adeguata e segnalare errori ed eventuali correzioni, la pull request\textsubscript{g} resta aperta e si continua a lavorare nel sotto-branch\textsubscript{g};
             \end{itemize}
-      \item \textbf{Approvazione\textsubscript{g}}: Una volta che tutte le sezioni sono state verificate, e il documento è pronto per essere pubblicato, si procede con l'approvazione\textsubscript{g}, effettuata dal responsabile, utilizziamo questa procedura:
+      \item \textbf{Approvazione\textsubscript{g}}: Una volta che tutte le sezioni sono state verificate, e il documento è pronto per essere pubblicato,
+            si procede con l'approvazione\textsubscript{g}, effettuata dal responsabile. La procedura è la seguente:
             \begin{itemize}
                   \item Il verificatore che ha verificato l'ultima sezione completata apre una pull
                         request\textsubscript{g} per fare il merge dal branch\textsubscript{g} del
@@ -33,8 +36,8 @@ all'approvazione\textsubscript{g} e quindi alla pubblicazione del documento.
                   \item Nel caso di un verbale esterno, il responsabile genera il file '.pdf' e lo
                         invia al soggetto esterno con cui si è svolto l'incontro. Questi restituisce il
                         documento firmato, che verrà caricato nel repository;
-                  \item Infine, accetta la pull request e fa il merge dal branch\textsubscript{g} del
-                        documento al main.
+                  \item Infine, il responsabile accetta la pull request e fa il merge dal
+                        branch\textsubscript{g} del documento al main.
                   \item Una Action di GitHub\textsubscript{g} si occupa di compilare il documento e di
                         renderlo disponibile pubblicamente in formato '.pdf'.
             \end{itemize}
@@ -55,7 +58,7 @@ caratteristiche:
                               \item Versione;
                               \item Stato: in redazione oppure approvato;
                               \item Uso: interno o esterno;
-                              \item Approvazione\textsubscript{g}: indica il nome dell'elemento del gruppo che ha
+                              \item Approvazione\textsubscript{g}: indica il nome del membro del gruppo che ha
                                     approvato il documento;
                               \item Redazione: indica il nome o i nomi di chi si è occupato della stesura;
                               \item Verifica\textsubscript{g}: indica il nome del verificatore o dei verificatori;
@@ -64,13 +67,13 @@ caratteristiche:
                         \end{itemize}
                   \item Descrizione: una breve descrizione di cosa contiene il documento;
             \end{itemize}
-      \item \textbf{Registro delle modifiche}: contiene la tabella dove verranno registrati i cambiamenti e le versioni che un documento attraversa prima di giungere alla versione finale, include le seguenti colonne:
+      \item \textbf{Registro delle modifiche}: contiene la tabella dove vengono registrati i cambiamenti e le versioni
+            che un documento attraversa prima di giungere alla versione finale. Include le seguenti colonne:
             \begin{itemize}
                   \item Versione;
                   \item Data;
                   \item Autore;
-                  \item Descrizione: una descrizione riassuntiva di ciò che è stato aggiunto o
-                        modificato;
+                  \item Descrizione;
                   \item Verificatore.
             \end{itemize}
       \item \textbf{Indice}: elenco ordinato dei titoli dei capitoli, per facilitare la navigazione;
@@ -79,13 +82,13 @@ caratteristiche:
 % + tutte le convenzioni
 \subsubsection{Convenzioni}
 Al fine di ottenere una stesura della documentazione omogenea, e quindi più
-professionale, verranno seguite queste convenzioni:
+professionale, vengono adottate le seguenti convenzioni.
 \paragraph{Date}
 Per garantire un ordinamento in ordine cronologico in fase di pubblicazione,
-dal più recente al meno recente, verrà utilizzato il formato
-\textbf{yyyy-mm-dd} nel caso la data debba essere indicata nel nome del
-documento (vale per verbali interni/esterni), per indicare una data all'interno
-del documento, verrà utilizzato il formato \textbf{dd-mm-yyyy}.
+dal più recente al meno recente, viene utilizzato il formato
+\textbf{yyyy-mm-dd} se la data deve essere indicata nel nome del documento
+(vale per verbali interni/esterni); per indicare una data all'interno del
+documento, invece, viene utilizzato il formato \textbf{dd-mm-yyyy}.
 \paragraph{Nomi di persona}
 All'interno dei documenti i nomi di persona saranno rappresentati da cognome e
 nome.
@@ -99,8 +102,10 @@ Gli elenchi puntati saranno gestiti in questo modo:
 \end{itemize}
 \paragraph{Stile del testo}
 \begin{itemize}
-      \item \textbf{Grassetto}: utilizzato per i titoli delle sezioni, per i sottotitoli, per i paragrafi e per parole tecniche o termini specifici che necessitano di evidenza nel contesto;
-      \item \textbf{Corsivo}: utilizzato quando vengono scritti nomi di documenti, nome del gruppo o indirizzo email del gruppo.
+      \item \textbf{Grassetto}: utilizzato per i titoli delle sezioni, delle sottosezioni e dei paragrafi,
+            e per termini specifici che necessitano di evidenza nel contesto;
+      \item \textbf{Corsivo}: utilizzato quando vengono scritti nomi di documenti,
+            nome del gruppo o indirizzo email del gruppo.
 \end{itemize}
 \paragraph{Link}
 All'interno dei documenti i link saranno strutturati in questo modo:
@@ -133,10 +138,11 @@ Tutti gli acronimi seguiranno queste regole:
             comprensione.
 \end{itemize}
 \subsubsection{Strumenti per la stesura}
-Per la stesura dei documenti verrà usato il linguaggio LaTeX, un linguaggio di
-marcatura per la preparazione di testi, basato sul programma di composizione
-tipografica TEX, tutta la documentazione prodotta è contenuta nella cartella
-'Docs'. I documenti seguono una struttura comune:
+Per la stesura dei documenti viene usato il linguaggio LaTeX, un linguaggio di
+marcatura per la preparazione di testi. È fortemente consigliato l'uso di Visual 
+Studio Code, un IDE che supporta numerose estensioni, tra cui LaTeX Workshop, per 
+la compilazione di sorgenti '.tex' e l'anteprima del documento in formato '.pdf'. 
+I documenti seguono una struttura comune:
 \begin{itemize}
       \item Cartella 'config' contenente il file 'changelog\_input' che permette di
             compilare i campi della tabella di registrazione delle modifiche;
@@ -147,17 +153,18 @@ tipografica TEX, tutta la documentazione prodotta è contenuta nella cartella
                   \item File 'package': configura pacchetti e comandi per personalizzare
                         l'impaginazione, le tabelle, le intestazioni, la numerazione e la formattazione
                         di testo, inclusi glossari e codici;
-                  \item Cartella 'Images' contenente le immagini inserite nel documento.
+                  \item Cartella 'images' contenente le immagini inserite nel documento.
             \end{itemize}
       \item File 'main' include i file e i pacchetti necessari a comporre il file;
       \item File 'titlepage' contenente il template della pagina di intestazione.
 \end{itemize}
-Oltre a questi files, verrà creato un file per ogni sezione, per garantire maggiore ordine all'organizzazione del documento, e facilitare la suddivisione dei compiti.
+Oltre a questi file, viene creato un file per ogni sezione, per garantire maggiore ordine all'organizzazione 
+del documento e facilitare la suddivisione dei compiti.
 \subsubsection{Documentazione interna}
 La documentazione interna è composta da tutti i documenti che contengono
-informazioni utili per il gruppo, ma saranno comunque resi pubblici all'interno
-del repository, e nella schermata creata tramite GitHub
-Pages\textsubscript{g}.\\ La documentazione interna è composta da:
+informazioni utili per il gruppo. Tali documenti saranno comunque resi pubblici all'interno
+del repository, e nella pagina web creata tramite GitHub Pages\textsubscript{g}.\\ 
+La documentazione interna è composta da:
 \begin{itemize}
       \item \textit{\textbf{Verbali Interni}}: hanno lo scopo di riportare ciò che viene detto e discusso durante la riunione interna, ossia tra i soli membri del gruppo,
             rispetta la struttura generale dei documenti e le convenzioni, il nome del file deve avere la forma 'VI\_yyyy-mm-dd', per garantire l'ordinamento.
