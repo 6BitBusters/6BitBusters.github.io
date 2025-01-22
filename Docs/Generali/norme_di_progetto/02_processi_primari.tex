@@ -1,9 +1,8 @@
 \section{Processi Primari}
-I processi primari saranno presenti durante l'intero ciclo di vita del
+I processi primari sono presenti durante l'intero ciclo di vita del
 prodotto. Poiché il progetto assegnato è da considerarsi didattico, i processi
 primari non saranno considerati nella loro totalità ma solamente un
-sottoinsieme.\\ Infatti non ci dovremo occupare di installazione e
-manutenzione.
+sottoinsieme: non ci occuperemo di installazione e manutenzione.
 
 \subsection{Fornitura}
 \subsubsection{Descrizione}
@@ -12,7 +11,7 @@ instaurare e mantenere una collaborazione proficua e costruttiva con il
 proponente, \textit{Sanmarco Informatica S.p.A.}
 
 \subsubsection{Scopo}
-Il processo di fornitura, nei processi primari, si occupa di gestire le
+Il processo di fornitura si occupa di gestire le
 relazioni con il cliente o committente, assicurando che i requisiti del
 progetto siano compresi, rispettati e soddisfatti.
 
@@ -35,11 +34,11 @@ aspetti:
     \item Dettaglio sui requisiti funzionali e non funzionali che il prodotto dovrà
           soddisfare;
     \item Assegnazione delle priorità alle funzionalità;
-    \item Valutazione di proposte alternative;
+    \item Valutazione di proposte alternative.
 \end{itemize}
 
 \subsubsection{Metriche}
-Per perseguire la qualità nel processo di fornitura si è deciso di adottare le
+Per perseguire la qualità nel processo di fornitura, si è deciso di adottare le
 seguenti metriche:
 \begin{itemize}
     \item \nameref{M:PV};
@@ -49,7 +48,7 @@ seguenti metriche:
     \item \nameref{M:ETC};
     \item \nameref{M:CV};
     \item \nameref{M:SV};
-    \item \nameref{M:BV};
+    \item \nameref{M:BV}.
 \end{itemize}
 
 \subsection{Sviluppo}
@@ -57,12 +56,12 @@ seguenti metriche:
 Lo sviluppo rappresenta uno degli elementi centrali nella produzione di un
 software. Il suo scopo è quello di trasformare i requisiti raccolti in un
 prodotto software che soddisfi le aspettative del proponente. Mira a garantire
-una realizzazione progressiva delle funzionalità richieste e a mantenere uno
-standard di qualità e di manutenibilità elevate attraverso test di verifica e
-di validazione.
+una realizzazione progressiva delle funzionalità richieste e a mantenere 
+standard di qualità e di manutenibilità elevati attraverso test di verifica e
+validazione.
 
 \subsubsection{Descrizione}
-Il processo di sviluppo è composto da tre principali attività che sono:
+Il processo di sviluppo è composto da tre principali attività:
 \begin{itemize}
     \item Analisi dei requisiti;
     \item Progettazione;
@@ -79,19 +78,19 @@ attività ha la funzione di:
           soddisfatti dal software;
     \item Facilitare la successiva fase di progettazione;
     \item Facilitare il tracciamento dei requisiti;
-    \item Offrire un riferimento chiaro per i verificatori durante le fasi di test e di
+    \item Offrire un riferimento chiaro per i verificatori durante le fasi di test e
           validazione.
 \end{itemize}
 
 Questo processo si concretizza nel documento \textit{Analisi dei requisiti},
-che contiene tutti i requisiti e i casi d'uso. Tale documento deve contenere:
+che contiene tutti i requisiti e i casi d'uso. Tale documento deve includere:
 \begin{itemize}
     \item Introduzione;
     \item Casi d'uso;
     \item Requisiti.
 \end{itemize}
-\subsubsubsection{Casi d'uso}
-Definiscono uno scenario in cui uno o più attori interagiscono con il sistema. Ogni caso d'uso è
+\subsubsubsection{Casi d'uso}\label{inf:UC}
+I casi d'uso definiscono uno scenario in cui uno o più attori interagiscono con il sistema. Ogni caso d'uso è
 identificato nel modo seguente:
 \textbf{
 \[
@@ -101,7 +100,7 @@ identificato nel modo seguente:
 Ogni caso d'uso, oltre all'identificativo, deve contenere:
 \begin{itemize}
     \item \textbf{Diagramma UML}: rappresentazione grafica del caso d'uso. Non è necessario un diagramma per ogni caso d'uso,
-          ma è richiesto che ogni caso d'uso sia rappresentato in almeno un diagramma;
+          ma ogni caso d'uso deve essere rappresentato in almeno un diagramma;
     \item \textbf{Attore primario}: entità esterna al sistema che interagisce con esso per raggiungere un obiettivo;
     \item \textbf{Descrizione}: breve descrizione della funzionalità;
     \item \textbf{Precondizioni}: condizioni che devono essere verificate affinché la funzionalità sia disponibile;
@@ -109,7 +108,7 @@ Ogni caso d'uso, oltre all'identificativo, deve contenere:
     \item \textbf{Scenario principale}: sequenza di interazioni tra l'attore primario e il sistema;
     \item \textbf{Estensione}: eventuale scenario alternativo, in cui le postcondizioni possono non essere verificate.
 \end{itemize}
-\subsubsubsection{Requisiti} 
+\subsubsubsection{Requisiti}\label{inf:reqs}
 I requisiti rappresentano specifiche dettagliate che definiscono funzionalità, prestazioni e vincoli che il
 software deve soddisfare. Questi requisiti servono da riferimento per lo sviluppo, il testing e la valutazione,
 garantendo che il prodotto risponda alle necessità degli utenti e agli obiettivi prefissati.\\
@@ -120,7 +119,7 @@ Ciascun caso d'uso è identificato come segue:
 \]
 }
 
-con:
+dove:
 \begin{itemize}
     \item \textbf{Tipologia:}
           \begin{itemize}
@@ -130,7 +129,7 @@ con:
               \item \textbf{P:} requisito prestazionale.
           \end{itemize}
     \item \textbf{Codice:}
-          \par Indica l'identificativo del requisito univoco in base alla tipologia. Un
+          \par Indica l'identificativo del requisito, univoco per la tipologia. Un
           requisito funzionale deve avere come codice il numero del caso d'uso da cui
           deriva.
 \end{itemize}
@@ -139,53 +138,51 @@ Ogni requisito, oltre all'identificativo, deve contenere:
     \item \textbf{Descrizione}: descrizione chiara e completa del requisito;
     \item \textbf{Importanza}:
           \begin{itemize}
-              \item \textbf{Obbligatorio}: requisito irrinunciabile per qualcuno degli stakeholder;
-              \item \textbf{Desiderabile}: requisito non strettamente necessario, ma che se soddisfatto darebbe al prodotto un valore aggiunto riconoscibile;
+              \item \textbf{Obbligatorio}: requisito irrinunciabile per uno o più stakeholder;
+              \item \textbf{Desiderabile}: requisito non strettamente necessario, ma che, se soddisfatto, darebbe al prodotto un valore aggiunto riconoscibile;
               \item \textbf{Opzionale}: requisito preso in carico dopo il compimento di tutti i requisiti obbligatori.
           \end{itemize}
     \item \textbf{Fonte}: indica la fonte da cui è stato ricavato il requisito.
 \end{itemize}
 \subsubsection{Progettazione}
-L'attività di progettazione è assegnata al ruolo \textit{progettista} sotto le
-linee guida indicate nell'\textit{Analisi dei requisiti}. L'obiettivo finale è
-la definizione di un'architettura di sistema capace di soddisfare i requisiti
+L'attività di progettazione è assegnata al progettista sotto le linee guida
+indicate nell'\textit{Analisi dei requisiti}. L'obiettivo finale è la
+definizione di un'architettura di sistema capace di soddisfare i requisiti
 dell'analisi, attraverso la creazione iniziale di un Proof of Concept (PoC) per
-la Requirements and Technology Baseline e, successivamente, realizzando una
-descrizione più dettagliata per la Product Baseline. \\La progettazione è
-formata da due parti:
+la Requirements and Technology Baseline e, successivamente, la realizzazione di una
+specifica dettagliata per la Product Baseline. \\
+La progettazione si compone di due parti:
 \begin{itemize}
-    \item \textbf{Progettazione logica}: motiva e giustifica le scelte adottate per la realizzazione del prodotto, dimostrandone l’adeguatezza nel PoC.
-          \\Contiene:
-          \renewcommand{\labelitemii}{-}
+    \item \textbf{Progettazione logica}: motiva e giustifica le scelte adottate per la realizzazione del prodotto, 
+    dimostrandone l'adeguatezza nel PoC. Comprende:
           \begin{itemize}
               \item Framework, librerie e tecnologie utilizzate;
               \item Proof of Concept;
               \item Diagrammi UML.
           \end{itemize}
-    \item \textbf{Progettazione di dettaglio}: descrive la struttura architetturale del prodotto in linea con quanto stabilito nella progettazione logica.\\
-          Contiene:
-          \renewcommand{\labelitemii}{-}
+    \item \textbf{Progettazione di dettaglio}: descrive la struttura architetturale del prodotto in linea con quanto 
+    stabilito nella progettazione logica. Comprende:
           \begin{itemize}
               \item Diagrammi delle classi;
               \item Tracciamento delle classi;
-              \item Unit test per ogni componente.
+              \item Test di unità per ogni componente.
           \end{itemize}
 \end{itemize}
 
 \subsubsection{Codifica}
-L'attività di codifica è assegnata al ruolo di \textit{programmatore}. Lo scopo
-della codifica è quello di implementare le specifiche individuate, seguendo
-quanto descritto nel diagramma delle classi, al fine di realizzare un prodotto
-utilizzabile. \\La codifica dovrà rispettare delle norme ben definite per
-garantire la leggibilità e la manutenibilità del codice.
+L'attività di codifica è assegnata al programmatore. Lo scopo della codifica è
+implementare le specifiche individuate, seguendo quanto descritto nel
+diagramma delle classi, al fine di realizzare un prodotto utilizzabile. \\
+La codifica dovrà rispettare delle norme ben definite per garantire la leggibilità
+e la manutenibilità del codice.
 
 \subsubsection{Metriche}
-Per perseguire la qualità nel processo di sviluppo si è deciso di adottare le
+Per perseguire la qualità nel processo di sviluppo, si è deciso di adottare le
 seguenti metriche:
 \begin{itemize}
     \item \nameref{M:RSI};
     \item \nameref{M:MR};
     \item \nameref{M:DR};
-    \item \nameref{M:OR};
+    \item \nameref{M:OR}.
 \end{itemize}
 
