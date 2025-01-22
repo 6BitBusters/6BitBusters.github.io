@@ -16,7 +16,7 @@
 \newcommand{\SubUseCase}[1]{%
     \stepcounter{SUC}
     \resetCounter{SSUC}
-    \subsubsection{UC\arabic{UC}.\arabic{SUC} - #1}
+    \subsubsection{UC\arabic{UC}.\arabic{SUC} - #1}\label{UC:\arabic{UC}.\arabic{SUC}}
 }
 
 \newcommand{\SubSubUseCase}[1]{%
@@ -750,7 +750,7 @@
 }
 { % PRECONDIZIONI
     \begin{itemize}
-        \item L'azione di zoom deve essere valida. Un'azione di zoom è valida se non va al di fuori un'area predefinita dal sistema;
+        \item L'azione di zoom deve essere valida. Un'azione di zoom è valida se non va al di fuori di un'area predefinita dal sistema;
         \item La telecamera si trova in una posizione arbitraria nello spazio.
     \end{itemize}
 }
@@ -761,14 +761,14 @@
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente interagisce con il sistema per compiere un'azione zoom.
+        \item L'utente interagisce con il sistema per compiere un'azione di zoom.
     \end{itemize}
 } 
 
 
 
 \UseCase{Riposiziona telecamera alla posizione d’origine}
-\begin{figure}[h!]\centering
+\begin{figure}[H]\centering
     \includegraphics[scale=0.7]{template/images/UC13.png}
     \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
@@ -837,7 +837,7 @@
 
 
 \UseCase{Visualizza dettagli di una barra del grafico 3D}
-\begin{figure}[h!]\centering
+\begin{figure}[H]\centering
     \includegraphics[scale=0.7]{template/images/UC15.png}
     \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
@@ -974,18 +974,18 @@
 }
 { % DESCRIZIONE
     \begin{itemize}
-        \item L'utente decide di evidenziare i N valori più alti, rendendo visibili le barre corrispondenti.
+        \item L'utente decide di evidenziare gli N valori più alti, rendendo visibili le barre corrispondenti.
     \end{itemize}
 }
 { % PRECONDIZIONI
     \begin{itemize}
         \item Il grafico è visibile;
-        \item L'utente ha scelto il filtro rispetto a numero N di valori.
+        \item L'utente ha scelto il filtro rispetto a un numero N di valori.
     \end{itemize}
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item Le barre che non rientrano nelle prime N più alte diventano meno opache (più trasparenti).
+        \item Le barre che non rientrano nelle prime N più alte diventano più trasparenti.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
@@ -1003,18 +1003,18 @@
 }
 { % DESCRIZIONE
     \begin{itemize}
-        \item L'utente decide di evidenziare i N valori più bassi, rendendo visibili le barre corrispondenti.
+        \item L'utente decide di evidenziare gli N valori più bassi, rendendo visibili le barre corrispondenti.
     \end{itemize}
 }
 { % PRECONDIZIONI
     \begin{itemize}
         \item Il grafico è visibile;
-        \item L'utente ha scelto il filtro su numero N di valori.
+        \item L'utente ha scelto il filtro su un numero N di valori.
     \end{itemize}
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item Le barre che non rientrano nelle prime N più basse diventano meno opache (più trasparenti).
+        \item Le barre che non rientrano nelle prime N più basse diventano più trasparenti.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
@@ -1022,6 +1022,36 @@
         \item L'utente seleziona l'opzione per visualizzare le N barre più basse.
     \end{itemize}
 }
+
+\SubUseCase{Inserimento di un valore}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item Questo caso d'uso consente all'utente di inserire un valore numerico positivo che sarà utilizzato per applicare un filtro sui dati visualizzati nel grafico 3D. L'utente può inserire un valore per determinare il numero di barre da visualizzare, ad esempio per filtrare gli N valori più alti o più bassi del grafico, in base al tipo di filtro selezionato.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item Il grafico è visibile;
+        \item L'utente ha selezionato il filtraggio di un numero N di valori.
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item Il valore desiderato è stato inserito nel campo corrispondente.
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L'utente inserisce un valore valido nel campo corrispondente.
+    \end{itemize}
+}
+
 
 \UseCase{Filtra rispetto a un valore}
 \begin{figure}[H]\centering
@@ -1046,8 +1076,7 @@
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item È stato applicato il filtro per visualizzare solo le barre con un valore superiore, inferiore o uguali;
-        rispetto a un valore scelta dall’utente.
+        \item È stato applicato il filtro per visualizzare solo le barre con un valore superiore, inferiore o uguale rispetto a un valore scelto dall’utente.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
@@ -1067,7 +1096,7 @@
 \SubUseCase{Filtra valori inferiori (o uguali) rispetto a un valore}
 \begin{figure}[H]\centering
     \includegraphics[scale=0.7]{template/images/UC17.1.png}
-    \caption{\nameref*{UC:\arabic{UC}}}
+    \caption{\nameref*{UC:\arabic{UC}.\arabic{SUC}}}
 \end{figure}
 \UCdsc
 { % ATTORE
@@ -1088,7 +1117,7 @@
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item Le barre con valori che non soddisfano il criterio di essere inferiori (o uguali) diventano meno opache(più trasparenti).
+        \item Le barre con valori che non soddisfano il criterio di essere inferiori (o uguali) diventano più trasparenti.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
@@ -1124,7 +1153,7 @@
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item Le barre con valori che non soddisfano il criterio di essere inferiori (o uguali) rispetto a un valore del grafico selezionato diventano meno opache(più trasparenti).
+        \item Le barre con valori che non soddisfano il criterio di essere inferiori (o uguali) rispetto a un valore del grafico selezionato diventano più trasparenti.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
@@ -1154,7 +1183,7 @@
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item Le barre con valori che non soddisfano il criterio di essere inferiori (o uguali) rispetto al valor medio globale diventano meno opache(più trasparenti).
+        \item Le barre con valori che non soddisfano il criterio di essere inferiori (o uguali) rispetto al valor medio globale diventano più trasparenti.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
@@ -1169,7 +1198,7 @@
 \SubUseCase{Filtra valori superiori (o uguali) rispetto a un valore}
 \begin{figure}[H]\centering
     \includegraphics[scale=0.6]{template/images/UC17.2.png}
-    \caption{\nameref*{UC:\arabic{UC}}}
+    \caption{\nameref*{UC:\arabic{UC}.\arabic{SUC}}}
 \end{figure}
 \UCdsc
 { % ATTORE
@@ -1190,7 +1219,7 @@
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item Le barre dei valori che non rientrano in questa condizione diventano meno opache(più trasparenti).
+        \item Le barre dei valori che non rientrano in questa condizione diventano più trasparenti.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
@@ -1225,7 +1254,7 @@
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item Le barre con valori che non soddisfano il criterio di essere superiori (o uguali) rispetto a un valore del grafico selezionato diventano meno opache(più trasparenti).
+        \item Le barre con valori che non soddisfano il criterio di essere superiori (o uguali) rispetto a un valore del grafico selezionato diventano più trasparenti.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
@@ -1255,7 +1284,7 @@
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item Le barre con valori che non soddisfano il criterio di essere superiori (o uguali) rispetto al valor medio globale diventano meno opache(più trasparenti).
+        \item Le barre con valori che non soddisfano il criterio di essere superiori (o uguali) rispetto al valor medio globale diventano più trasparenti.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
@@ -1265,9 +1294,11 @@
 }
 
 
-
-
-\UseCase{Inserimento di un valore}
+\UseCase{Reset dei filtri}
+\begin{figure}[H]\centering
+    \includegraphics[scale=0.7]{template/images/UC18.png}
+    \caption{\nameref*{UC:\arabic{UC}}}
+\end{figure}
 \UCdsc
 { % ATTORE
     \begin{itemize}
@@ -1276,30 +1307,31 @@
 }
 { % DESCRIZIONE
     \begin{itemize}
-        \item Questo caso d'uso consente all'utente di inserire un valore numerico positivo che sarà utilizzato per applicare un filtro sui dati visualizzati nel grafico 3D. L'utente può inserire un valore per determinare il numero di barre da visualizzare, ad esempio per filtrare i N valori più alti o più bassi del grafico, in base al tipo di filtro selezionato.
+        \item L'utente può reimpostare tutti i filtri applicati al grafico, riportando la visualizzazione allo stato iniziale, con tutte le barre visibili senza alcun filtro attivo.
     \end{itemize}
 }
 { % PRECONDIZIONI
     \begin{itemize}
         \item Il grafico è visibile;
-        \item L'utente ha selezionato il filtraggio di un numero N di valori.
+        \item Almeno un filtro è stato applicato alla visualizzazione.
     \end{itemize}
 }
 { % POSTCONDIZIONI
     \begin{itemize}
-        \item Il valore desiderato è stato inserito nel campo corrispondente.
+        \item Tutti i filtri applicati sono rimossi;
+        \item Il grafico ritorna al suo stato iniziale.
     \end{itemize}
 }
 { % SCENARIO PRIMARIO
     \begin{itemize}
-        \item L'utente inserisce un valore valido nel campo corrispondente.
+        \item L'utente seleziona l'opzione di reset dei filtri;
+        \item Il sistema rimuove tutti i filtri applicati.
     \end{itemize}
 }
 
 
-
 \UseCase{Visualizza piano del valor medio}
-\begin{figure}[h!]\centering
+\begin{figure}[H]\centering
     \includegraphics[scale=0.7]{template/images/UC19.png}
     \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
@@ -1311,7 +1343,7 @@
 }
 { % DESCRIZIONE
     \begin{itemize}
-        \item Generazione di un piano parallelo alla base inserito nel grafico 3D per evidenziare un valor medio.
+        \item Generazione di un piano parallelo alla base inserito nel grafico 3D per evidenziare il valor medio.
     \end{itemize}
 }
 { % PRECONDIZIONI
@@ -1388,6 +1420,10 @@
         \item L'utente seleziona l'etichetta su quale genererare il valor medio.
     \end{itemize}
 }
+
+
+
+
 
 
 

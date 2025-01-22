@@ -133,9 +133,42 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
     \RFM & L’utente deve poter ruotare il grafico attorno all`asse globale X   & Obbligatorio & UC9\tabularnewline
     \RFM & L’utente deve poter ruotare il grafico attorno all`asse globale Y  & Obbligatorio  & UC10\tabularnewline
     \RFM & L’utente deve poter ruotare il grafico attorno all`asse globale Z   & Obbligatorio & UC11\tabularnewline
+    
+    %ZOOM
+    \RFM & L’utente deve poter eseguire un’azione di zoom indipendentemente dalla posizione della telecamera & Obbligatorio & UC12\tabularnewline
+
+    %RIPOSIONNAMENTO
+    \RFM & L’utente deve poter riposizionare la telecamera alla sua posizione iniziale  & Obbligatorio  & UC13\tabularnewline
+
+    %VISUALIZZAZIONE PRIMO PIANO
+    \RFM & L’utente deve poter visualizzare una singola barra del grafico in primo piano  & Obbligatorio & UC14\tabularnewline
+
+    %VISUALIZZAZIONE DETTAGLI
+    \RFM & L’utente deve poter visualizzare i dettagli di una barra del grafico  & Obbligatorio & UC15\par UC15.1\par UC15.2\tabularnewline
+
+    %FILTRI
+    \RFM & L’utente deve poter filtrare un numero N di valori  & Obbligatorio & UC16\tabularnewline
+    \RFM & L’utente può filtrare un numero N dei valori più alti & Obbligatorio & UC16.1\tabularnewline
+    \RFM & L’utente può filtrare un numero N dei valori più bassi & Obbligatorio & UC16.2\tabularnewline
+    \RFM & L’utente deve poter inserire un valore per effetuare un filtraggio & Obbligatorio & UC16.3\tabularnewline
+    \RFM & L’utente deve poter eseguire un filtraggio rispetto a un valore & Obbligatorio & UC17\tabularnewline
+    \RFM & L’utente può filtrare i valori inferiori o uguali rispetto a un valore & Obbligatorio & UC17.1\tabularnewline
+    \RFM & L’utente può filtrare i valori superiori o uguali rispetto a un valore & Obbligatorio & UC17.2\tabularnewline
+    \RFM & L’utente può filtrare i valori inferiori o uguali rispetto a un valore del grafico oppure al valor medio globale & Obbligatorio & UC17.1.1\par UC17.1.2\tabularnewline
+    \RFM & L’utente può filtrare i valori superiori o uguali rispetto a un valore del grafico oppure al valor medio globale & Obbligatorio & UC17.2.1\par UC17.2.2\tabularnewline
+
+    %RESET
+    \RFM & L’utente deve poter ripristinare lo stato del grafico
+    rispetto ai precedenti filtri applicati   & Obbligatorio & UC18\tabularnewline
+
+    %VALOR MEDIO
+    \RFM & L’utente deve poter di visualizzare un piano parallelo alla base che rappresenti un valor medio  & Obbligatorio & UC19\tabularnewline
+    \RFM & L’utente deve poter di visualizzare un piano parallelo alla base che rappresenti il valor medio globale & Obbligatorio & UC19.1\tabularnewline
+    \RFD & L’utente deve poter di visualizzare un piano parallelo alla base che rappresenti il valor medio di un singolo elemento  & Desiderabile & UC19.2\tabularnewline
 
     }
 
+   
 \subsection{Requisiti qualitativi}
     
 \requirementsTable{
@@ -211,6 +244,28 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
     UC9    & RF16 \tabularnewline
     UC10    & RF17 \tabularnewline
     UC11   & RF18 \tabularnewline
+    UC12    & RF19 \tabularnewline
+    UC13    & RF20 \tabularnewline
+    UC14   & RF21 \tabularnewline
+    UC15    & RF22 \tabularnewline
+    UC15.1    & R22 \tabularnewline
+    UC15.2    & RF22 \tabularnewline
+    UC16    & RF23 \tabularnewline
+    UC16.1    & RF24 \tabularnewline
+    UC16.2    & RF25 \tabularnewline
+    UC16.3    & RF26 \tabularnewline
+    UC17    & RF27 \tabularnewline
+    UC17.1    & RF28 \tabularnewline
+    UC17.1.1    & RF30 \tabularnewline
+    UC17.1.2    & RF30 \tabularnewline
+    UC17.2    & RF29 \tabularnewline
+    UC17.2.1    & RF31 \tabularnewline
+    UC17.2.2    & RF31 \tabularnewline
+    UC18   & RF32 \tabularnewline
+    UC19    & RF33 \tabularnewline
+    UC19.1    & RF34 \tabularnewline
+    UC19.2    & RF35 \tabularnewline
+
     }
 
 \subsubsection{Requisiti - Casi d'uso}
@@ -218,7 +273,7 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
 
     RF1 & UC1 \tabularnewline
     RF2 & UC1.1\par UC1.1.1\par UC1.1.2\tabularnewline
-    RF3 & UC2 \par UC2\par UC2.1 \tabularnewline
+    RF3 & UC2\par UC2.1 \tabularnewline
     RF4 & UC3 \tabularnewline
     RF5 & UC4 \tabularnewline
     RF6 & UC5 \tabularnewline
@@ -234,6 +289,23 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
     RF16 & UC9 \tabularnewline
     RF17 & UC10 \tabularnewline
     RF18 & UC11\tabularnewline
+    RF19 & UC12 \tabularnewline
+    RF20 & UC13 \tabularnewline
+    RF21 & UC14 \tabularnewline
+    RF22 & UC15\par UC15.1\par UC15.2 \tabularnewline
+    RF23 & UC16 \tabularnewline
+    RF24 & UC16.1 \tabularnewline
+    RF25 & UC16.2 \tabularnewline
+    RF26 & UC16.3 \tabularnewline
+    RF27 & UC17 \tabularnewline
+    RF28 & UC17.1 \tabularnewline
+    RF29 & UC17.2 \tabularnewline
+    RF30 & UC17.1.1\par UC17.1.2 \tabularnewline
+    RF31 & UC17.2.1\par UC17.2.2 \tabularnewline
+    RF32 & UC18 \tabularnewline
+    RF33 & UC19 \tabularnewline
+    RF34 & UC19.1\tabularnewline
+    RF35 & UC19.2\tabularnewline
 
     RQ1 & Decisione interna\tabularnewline
     RQ2 & Decisione interna\tabularnewline
