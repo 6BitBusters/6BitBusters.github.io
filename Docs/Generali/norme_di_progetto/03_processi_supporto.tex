@@ -19,7 +19,7 @@ all'approvazione\textsubscript{g} e quindi alla pubblicazione del documento.
       \item \textbf{Verifica\textsubscript{g}}: prima di considerarsi completata, ogni modifica al documento deve essere verificata da un verificatore in carica.
             Tramite una pull request\textsubscript{g}, viene messo in esame quanto aggiunto al documento rispetto alla versione precedente. Si presentano due casi:
             \begin{itemize}
-                  \item \textbf{Pull request\textsubscript{g} accettata}: il verificatore non trova errori e considera il lavoro 'verificato';
+                  \item \textbf{Pull request\textsubscript{g} accettata}: il verificatore non trova errori e considera il lavoro "verificato";
                         accetta quindi la pull request\textsubscript{g} e fa il merge dal branch\textsubscript{g} di lavoro al branch\textsubscript{g} del documento, chiudendo la issue assegnata e il branch di lavoro;
                   \item \textbf{Pull request\textsubscript{g} rifiutata}: il verificatore non considera la stesura adeguata e segnala errori
                         ed eventuali correzioni. La pull request\textsubscript{g} resta aperta e si continua a lavorare nel sotto-branch\textsubscript{g};
@@ -34,14 +34,14 @@ all'approvazione\textsubscript{g} e quindi alla pubblicazione del documento.
                   \item Se riscontra errori o problematiche, segnala le modifiche necessarie e si
                         procede come descritto sopra;
                   \item Successivamente, aggiorna il registro delle modifiche aggiungendo una riga con
-                        la versione di pubblicazione, e contrassegna il documento come 'Approvato';
-                  \item Nel caso di un verbale esterno, il responsabile genera il file '.pdf' e lo
+                        la versione di pubblicazione, e contrassegna il documento come "Approvato";
+                  \item Nel caso di un verbale esterno, il responsabile genera il file ".pdf" e lo
                         invia al soggetto esterno con cui si è svolto l'incontro. Quest'ultimo
                         restituisce il documento firmato, che verrà caricato nel repository;
                   \item Infine, il responsabile accetta la pull request e fa il merge dal
                         branch\textsubscript{g} del documento al main.
                   \item Un'action di GitHub\textsubscript{g} si occupa di compilare il documento e di
-                        renderlo disponibile pubblicamente in formato '.pdf'.
+                        renderlo disponibile pubblicamente in formato ".pdf".
             \end{itemize}
 \end{itemize}
 
@@ -86,20 +86,20 @@ caratteristiche:
 Al fine di ottenere una stesura della documentazione omogenea, e quindi più
 professionale, vengono adottate le seguenti convenzioni.
 \paragraph{Date}
-Per garantire un ordinamento in ordine cronologico in fase di pubblicazione,
+~\\\\Per garantire un ordinamento in ordine cronologico in fase di pubblicazione,
 dal più recente al meno recente, viene utilizzato il formato
 \textbf{yyyy-mm-dd} se la data deve essere indicata nel nome del documento
 (vale per verbali interni/esterni); per indicare una data all'interno del
 documento, invece, viene utilizzato il formato \textbf{dd-mm-yyyy}.
 \paragraph{Nomi di persona}
-All'interno dei documenti i nomi di persona saranno rappresentati da cognome e
+~\\\\All'interno dei documenti i nomi di persona saranno rappresentati da cognome e
 nome.
 \paragraph{Elenchi puntati}
-Gli elenchi puntati saranno gestiti in questo modo:
+~\\\\Gli elenchi puntati saranno gestiti in questo modo:
 \begin{itemize}
       \item Ogni elemento dell'elenco deve iniziare con la lettera maiuscola;
-      \item Ogni elemento dell'elenco deve terminare con ';', ad eccezione dell'ultimo che
-            terminerà con '.';
+      \item Ogni elemento dell'elenco deve terminare con ";", ad eccezione dell'ultimo che
+            terminerà con ".";
 \end{itemize}
 \paragraph{Stile del testo}
 \begin{itemize}
@@ -109,13 +109,13 @@ Gli elenchi puntati saranno gestiti in questo modo:
             nome del gruppo o indirizzo email del gruppo.
 \end{itemize}
 \paragraph{Link}
-All'interno dei documenti i link saranno strutturati in questo modo:
+~\\\\All'interno dei documenti i link saranno strutturati in questo modo:
 \begin{itemize}
       \item Breve descrizione della destinazione del link: \textbackslash
             url\{indirizzo\_del\_link\}.
 \end{itemize}
 \paragraph{Terminologia inglese}
-Tutti i termini in lingua inglese saranno riportati al singolare, in quanto
+~\\\\Tutti i termini in lingua inglese saranno riportati al singolare, in quanto
 questa scelta risulta più coerente con l'uso comune e l'assonanza nella lingua
 italiana. Ad esempio, termini come "file" o "commit" verranno sempre utilizzati
 nella loro forma singolare, anche quando si riferiscono a concetti plurali, per
@@ -126,7 +126,7 @@ casi in cui il termine inglese non abbia un corrispettivo diretto o il genere
 non sia immediatamente evidente. Questa scelta mira a favorire una lettura
 fluida e una comprensione condivisa del testo.
 \paragraph{Acronimi}
-Tutti gli acronimi seguiranno queste regole:
+~\\\\Tutti gli acronimi seguiranno queste regole:
 \begin{itemize}
       \item L'acronimo deve essere scritto in maiuscolo;
       \item L'articolo davanti a un acronimo deve concordare in genere e numero con il
@@ -142,22 +142,22 @@ Tutti gli acronimi seguiranno queste regole:
 Per la stesura dei documenti viene usato il linguaggio LaTeX, un linguaggio di
 marcatura per la preparazione di testi. È fortemente consigliato usare Visual
 Studio Code, un IDE che supporta numerose estensioni, tra cui LaTeX Workshop,
-per la compilazione di sorgenti '.tex' e l'anteprima del documento in formato
-'.pdf'. \\I documenti seguono una struttura comune:
+per la compilazione di sorgenti ".tex" e l'anteprima del documento in formato
+".pdf". \\I documenti seguono una struttura comune:
 \begin{itemize}
-      \item Cartella 'config' contenente il file 'changelog\_input' che permette di
+      \item Cartella "config" contenente il file "changelog\_input" che permette di
             compilare i campi della tabella di registrazione delle modifiche;
-      \item Cartella 'template' contenente:
+      \item Cartella "template" contenente:
             \begin{itemize}
-                  \item File 'changelog': questo file contiene la definizione di un comando chiamato
+                  \item File "changelog": questo file contiene la definizione di un comando chiamato
                         \texttt{\char`\\changelogTable}, che serve per generare la tabella formattata;
-                  \item File 'package': configura pacchetti e comandi per personalizzare
+                  \item File "package": configura pacchetti e comandi per personalizzare
                         l'impaginazione, le tabelle, le intestazioni, la numerazione e la formattazione
                         di testo, inclusi glossari e codici;
-                  \item Cartella 'images' contenente le immagini inserite nel documento.
+                  \item Cartella "images" contenente le immagini inserite nel documento.
             \end{itemize}
-      \item File 'main' include i file e i pacchetti necessari a comporre il file;
-      \item File 'titlepage' contenente il template della pagina di intestazione.
+      \item File "main" include i file e i pacchetti necessari a comporre il file;
+      \item File "titlepage" contenente il template della pagina di intestazione.
 \end{itemize}
 Oltre a questi file, viene creato un file per ogni sezione, per garantire maggiore ordine all'organizzazione
 del documento e facilitare la suddivisione dei compiti.
@@ -168,7 +168,7 @@ all'interno del repository, e nella pagina web creata tramite GitHub
 Pages\textsubscript{g}.\\ La documentazione interna è composta da:
 \begin{itemize}
       \item \textit{\textbf{Verbali Interni}}: riportano ciò che viene detto e discusso durante le riunioni interne, ossia tra i soli membri del gruppo.
-            Il nome del file deve avere la forma 'VI\_yyyy-mm-dd', per garantire l'ordinamento.
+            Il nome del file deve avere la forma "VI\_yyyy-mm-dd", per garantire l'ordinamento.
             \\Nei \textit{verbali interni} la struttura del contenuto assume questa forma:
             \begin{itemize}
                   \item \textbf{Informazioni generali}: contiene i dettagli dell'incontro, nello specifico:
@@ -252,7 +252,7 @@ La documentazione esterna è composta da tutti i documenti che interessano anche
 il proponente e/o il committente.
 \begin{itemize}
       \item \textit{\textbf{Verbali esterni}}: verbali frutto di incontri fra i membri del gruppo e soggetti esterni ad esso.\\
-            Seguono la struttura dei verbali interni, il nome del file deve avere la forma 'VE\_yyyy-mm-dd'. Cambia il processo di approvazione\textsubscript{g} del documento:
+            Seguono la struttura dei verbali interni, il nome del file deve avere la forma "VE\_yyyy-mm-dd". Cambia il processo di approvazione\textsubscript{g} del documento:
             il verbale viene approvato non solo dal responsabile, ma anche dal soggetto esterno con il quale si è svolto l'incontro,
             per rendere il documento più professionale e garantire coerenza tra il gruppo e il soggetto esterno.
       \item \textit{\textbf{Lettera di candidatura}}: serve per esprimere la volontà di candidarsi allo svolgimento del capitolato scelto, dopo aver discusso e redatto lo \textit{Studio di fattibilità},
@@ -270,8 +270,8 @@ il proponente e/o il committente.
       \item \textit{\textbf{Diario di bordo}}: documento informale ad uso esterno che permette di interagire settimanalmente con il committente per riportare aggiornamenti sullo stato di
             avanzamento del progetto, descrivendo tutto ciò che è stato fatto rispetto al \textit{Diario di bordo} precedente,
             e quello che il gruppo si impegna a fare nel periodo successivo, vengono inoltre riportati dubbi e domande da porre al committente.
-            Vengono elaborati tramite la piattaforma online 'Canva.com', che permette di creare presentazioni collaborative, accessibili online.\\
-            La struttura del \textit{Diario di bordo} è composta da 4 slides contenenti:
+            Vengono elaborati tramite la piattaforma online Canva, che permette di creare presentazioni collaborative, accessibili online.\\
+            La struttura del \textit{Diario di bordo} è composta da quattro slide contenenti:
             \begin{itemize}
                   \item \textbf{Slide 1}: slide di presentazione che contiene:
                         \begin{itemize}
@@ -279,7 +279,7 @@ il proponente e/o il committente.
                               \item Nome del gruppo;
                               \item Indirizzo email del guppo;
                               \item Titolo del documento: il titolo del \textit{Diario di bordo} segue una sintassi
-                                    prefissata ovvero 'Diario di bordo \#N', dove N è un numero che incrementa ad
+                                    prefissata ovvero "Diario di bordo \#N", dove N è un numero che incrementa ad
                                     ogni presentazione.
                         \end{itemize}
                   \item \textbf{Slide 2}: contiene ciò che è stato svolto nel periodo trascorso;
@@ -370,7 +370,7 @@ il proponente e/o il committente.
                         completato e l'esito della verifica. Per ogni metrica di processo viene usato un grafico per descriverne l'andamento
                         durante il corso del progetto.
             \end{itemize}
-      \item \textit{\textbf{Glossario}}: documento che contiene il significato dei termini chiave utilizzati nel progetto (indicati con il pedice 'g'), utile per garantire una comprensione comune fornendo spiegazioni concise e precise.
+      \item \textit{\textbf{Glossario}}: documento che contiene il significato dei termini chiave utilizzati nel progetto (indicati con il pedice "g"), utile per garantire una comprensione comune fornendo spiegazioni concise e precise.
             \\La struttura del \textit{Glossario} è composta da sezioni caratterizzate dalle lettere dell'alfabeto in ordine alfabetico, contenenti le parole che hanno come iniziale quella lettera.
 \end{itemize}
 
@@ -427,7 +427,7 @@ I branch si dividono in:
                   \item \textbf{main}: branch principale che contiene la documentazione e il codice approvato del responsabile,
                         nonché la parte che viene mostrata sulla pagina web;
                   \item \textbf{docs/[NOME-DOCUMENTO]}: un branch per ogni documento, che contiene solamente le versioni verificate del documento.
-                        Se il nome del documento include dei trattini ('-'), nel nome del branch devono essere sostituiti con underscore ('\_'),
+                        Se il nome del documento include dei trattini ("-"), nel nome del branch devono essere sostituiti con underscore ("\_"),
                         ad esempio docs/VI\_2024\_11\_20.
             \end{itemize}
       \item \textbf{Branch derivati}: sono branch utilizzati per aggiungere modifiche e aggiornare un documento o una parte di codice che poi dovrà essere verificata
@@ -665,7 +665,7 @@ un documento, si procederà in questo modo:
       \item Verrà creata una issue che specifica l'attività di modifica o aggiunta da
             svolgere;
       \item Verrà creato un sotto-branch\textsubscript{g} chiamato
-            'docs/[NOME-DOCUMENTO]-N' dove con N si intende il numero della issue di
+            "docs/[NOME-DOCUMENTO]-N" dove con N si intende il numero della issue di
             riferimento;
       \item Rimanendo in questo sotto-branch\textsubscript{g}, verrà aggiornato il
             documento;
@@ -673,7 +673,7 @@ un documento, si procederà in questo modo:
             verrà aperta una pull request\textsubscript{g};
       \item Uno tra i verificatori in carica durante quello sprint si assegnerà la verifica
             del documento e modificherà il registro delle modifiche compilando il campo
-            'Verificatore';
+            "Verificatore";
       \item Se la verifica avrà esito positivo, ci sarà il merge tra il
             sotto-branch\textsubscript{g} e il branch\textsubscript{g} principale del
             documento, con conseguente chiusura della issue e del sotto-branch;
