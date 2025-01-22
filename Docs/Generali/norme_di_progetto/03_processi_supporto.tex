@@ -5,9 +5,9 @@ efficienti ed efficaci.
 \subsubsection{Descrizione}
 Questa sezione contiene tutte le norme che ogni membro del gruppo dovrà seguire
 durante la stesura della documentazione. Fornisce le indicazioni utili per
-ottenere uniformità nei documenti e permette di operare seguendo linee
-guida durante tutte le fasi del ciclo di vita di un documento: creazione,
-stesura, verifica\textsubscript{g} ed eventuali modifiche, fino ad arrivare
+ottenere uniformità nei documenti e permette di operare seguendo linee guida
+durante tutte le fasi del ciclo di vita di un documento: creazione, stesura,
+verifica\textsubscript{g} ed eventuali modifiche, fino ad arrivare
 all'approvazione\textsubscript{g} e quindi alla pubblicazione del documento.
 \subsubsection{Ciclo di vita di un documento}
 \begin{itemize}
@@ -20,9 +20,9 @@ all'approvazione\textsubscript{g} e quindi alla pubblicazione del documento.
             Tramite una pull request\textsubscript{g}, viene messo in esame quanto aggiunto al documento rispetto alla versione precedente. Si presentano due casi:
             \begin{itemize}
                   \item \textbf{Pull request\textsubscript{g} accettata}: il verificatore non trova errori e considera il lavoro 'verificato';
-                   accetta quindi la pull request\textsubscript{g} e fa il merge dal branch\textsubscript{g} di lavoro al branch\textsubscript{g} del documento, chiudendo la issue assegnata e il branch di lavoro;
-                  \item \textbf{Pull request\textsubscript{g} rifiutata}: il verificatore non considera la stesura adeguata e segnala errori 
-                  ed eventuali correzioni. La pull request\textsubscript{g} resta aperta e si continua a lavorare nel sotto-branch\textsubscript{g};
+                        accetta quindi la pull request\textsubscript{g} e fa il merge dal branch\textsubscript{g} di lavoro al branch\textsubscript{g} del documento, chiudendo la issue assegnata e il branch di lavoro;
+                  \item \textbf{Pull request\textsubscript{g} rifiutata}: il verificatore non considera la stesura adeguata e segnala errori
+                        ed eventuali correzioni. La pull request\textsubscript{g} resta aperta e si continua a lavorare nel sotto-branch\textsubscript{g};
             \end{itemize}
       \item \textbf{Approvazione\textsubscript{g}}: Una volta che tutte le sezioni sono state verificate e il documento è pronto per essere pubblicato,
             si procede con l'approvazione\textsubscript{g}, effettuata dal responsabile. La procedura è la seguente:
@@ -36,8 +36,8 @@ all'approvazione\textsubscript{g} e quindi alla pubblicazione del documento.
                   \item Successivamente, aggiorna il registro delle modifiche aggiungendo una riga con
                         la versione di pubblicazione, e contrassegna il documento come 'Approvato';
                   \item Nel caso di un verbale esterno, il responsabile genera il file '.pdf' e lo
-                        invia al soggetto esterno con cui si è svolto l'incontro. Quest'ultimo restituisce il
-                        documento firmato, che verrà caricato nel repository;
+                        invia al soggetto esterno con cui si è svolto l'incontro. Quest'ultimo
+                        restituisce il documento firmato, che verrà caricato nel repository;
                   \item Infine, il responsabile accetta la pull request e fa il merge dal
                         branch\textsubscript{g} del documento al main.
                   \item Un'action di GitHub\textsubscript{g} si occupa di compilare il documento e di
@@ -140,10 +140,10 @@ Tutti gli acronimi seguiranno queste regole:
 \end{itemize}
 \subsubsection{Strumenti per la stesura}
 Per la stesura dei documenti viene usato il linguaggio LaTeX, un linguaggio di
-marcatura per la preparazione di testi. È fortemente consigliato usare
-Visual Studio Code, un IDE che supporta numerose estensioni, tra cui LaTeX
-Workshop, per la compilazione di sorgenti '.tex' e l'anteprima del documento in
-formato '.pdf'. \\I documenti seguono una struttura comune:
+marcatura per la preparazione di testi. È fortemente consigliato usare Visual
+Studio Code, un IDE che supporta numerose estensioni, tra cui LaTeX Workshop,
+per la compilazione di sorgenti '.tex' e l'anteprima del documento in formato
+'.pdf'. \\I documenti seguono una struttura comune:
 \begin{itemize}
       \item Cartella 'config' contenente il file 'changelog\_input' che permette di
             compilare i campi della tabella di registrazione delle modifiche;
@@ -375,8 +375,8 @@ il proponente e/o il committente.
 \end{itemize}
 
 \subsubsection{Metriche}
-Per perseguire la qualità nel processo di documentazione, si è deciso
-di adottare le seguenti metriche:
+Per perseguire la qualità nel processo di documentazione, si è deciso di
+adottare le seguenti metriche:
 \begin{itemize}
       \item \nameref{M:DOCC};
       \item \nameref{M:GI};
@@ -426,8 +426,9 @@ I branch si dividono in:
             \begin{itemize}
                   \item \textbf{main}: branch principale che contiene la documentazione e il codice approvato del responsabile,
                         nonché la parte che viene mostrata sulla pagina web;
-                  \item \textbf{docs/NOME-DOCUMENTO}: un branch per ogni documento, che contiene solamente le versioni verificate del documento.
-                        Se il nome del documento include dei trattini ('-'), nel nome del branch devono essere sostituiti con underscore ('\_').
+                  \item \textbf{docs/[NOME-DOCUMENTO]}: un branch per ogni documento, che contiene solamente le versioni verificate del documento.
+                        Se il nome del documento include dei trattini ('-'), nel nome del branch devono essere sostituiti con underscore ('\_'),
+                        ad esempio docs/VI\_2024\_11\_20.
             \end{itemize}
       \item \textbf{Branch derivati}: sono branch utilizzati per aggiungere modifiche e aggiornare un documento o una parte di codice che poi dovrà essere verificata
             attraverso una pull request verso il branch da cui esso è stato derivato;\\
@@ -450,7 +451,7 @@ I branch si dividono in:
                   \item \textbf{COGNOME-ASSEGNATARIO}: indica il cognome del membro che modifica il documento.
             \end{itemize}
             Se un componente richiede una pull request, ma il branch di destinazione è più aggiornato di quello di partenza,
-            deve fare un merge dal branch di destinazione a quello di partenza. In questo modo vengono applicate le modifiche delle versioni 
+            deve fare un merge dal branch di destinazione a quello di partenza. In questo modo vengono applicate le modifiche delle versioni
             già approvate/verificate nel branch di partenza. Inoltre, è necessario che il registro delle modifiche e la pagina iniziale
             vengano adeguatamente modificati per segnalare l'incremento della versione.
       \item \textbf{Branch di hotfix}: sono branch dedicati all'hotfix e quindi a correzioni minime, sia per la documentazione che per il codice. Valgono le stesse regole dei
@@ -466,11 +467,11 @@ gruppo, specificatamente colui che ha preso in carico la issue alla cui
 risoluzione quel branch è dedicato.
 
 Una volta che la issue viene risolta il componente deve richiedere una pull
-request verso il branch da cui esso deriva. Notare che se il branch
-di destinazione è:
+request verso il branch da cui esso deriva. Notare che se il branch di
+destinazione è:
 \begin{itemize}
       \item \textbf{main} $\rightarrow$ il documento deve essere approvato;
-      \item \textbf{docs/NOME-DOCUMENTO} $\rightarrow$ il documento deve essere verificato e successivamente viene eliminato il branch derivato.
+      \item \textbf{docs/[NOME-DOCUMENTO]} $\rightarrow$ il documento deve essere verificato e successivamente viene eliminato il branch derivato.
 \end{itemize}
 
 Di seguito si riporta un semplice ma esaustivo esempio di workflow tramite
@@ -535,7 +536,7 @@ della sezione aggiunta. Alla creazione di una pull request bisogna associare:
       \item \textbf{Descrizione}: contiene una lista riassuntiva di ciò che è stato fatto includendo le issue completate, e quindi da chiudere,
             con la sintassi
             \begin{center}
-                  \textbf{close ID-ISSUE}
+                  \textbf{close \#[ID-ISSUE]}
             \end{center}
             in modo tale che vengano tutte chiuse in automatico quando la pull request verrà accettata;
       \item \textbf{Gli assegnatari}: coloro che hanno anche il compito di apportare le modifiche necessarie al documento;
@@ -544,15 +545,15 @@ della sezione aggiunta. Alla creazione di una pull request bisogna associare:
 dove:
 
 \begin{itemize}
-      \item \textbf{NOME-DOCUMENTO}: indica il nome del documento sul quale si sta lavorando e richiedendo l'approvazione;
+      \item \textbf{NOME-DOCUMENTO}: indica il nome del documento sul quale si sta lavorando e richiedendo la verifica/approvazione;
       \item \textbf{ID-ISSUE}: indica il numero identificativo associato alla issue relativa alla modifica del documento.
 \end{itemize}
 
 Per una descrizione più dettagliata delle issue si faccia riferimento a
-\nameref{inf:its}
+\nameref{inf:its}.
 
 Per i commit relativi alle pull request seguire le regole descritte nella
-sezione \nameref{inf:pr}
+sezione \nameref{inf:pr}.
 
 \subsubsection{Automazione}\label{inf:automaz}
 \subsubsubsection{Scopo}
@@ -649,10 +650,14 @@ La verifica verrà fatta in maniera efficace adottando questi metodi:
 \begin{itemize}
       \item \textbf{Analisi statica}: non richiede esecuzione dell'oggetto di verifica, quindi applicabile a documentazione e codice, usata per accertare conformità e regole nonché assenza di difetti, adotteremo i due seguenti metodi di lettura:
             \begin{itemize}
-                  \item \textbf{Walkthrough}: processo in cui il team esamina documenti o codice, in modo strutturato ma informale. L'obiettivo è identificare errori, migliorare la qualità e favorire la comprensione;
-                  \item \textbf{Inspection}: processo di revisione più formale, in cui i veroficatori controllano documenti o codice per trovare errori e migliorare la qualità eseguendo una lettura mirata dell'oggetto di verifica. Segue regole precise e prevede momenti organizzati, come pianificazione, definizione lista di controllo, lettura e correzione dei difetti.
+                  \item \textbf{Walkthrough}: il verificatore esamina documenti o codice in cerca di difetti, ma senza svolgere una
+                        ricerca specifica per un certo tipo di errore. L'obiettivo è identificare errori, migliorare la qualità e favorire la comprensione;
+                  \item \textbf{Inspection}: il verificatore controlla documenti o codice per trovare errori
+                        eseguendo un'analisi mirata dell'oggetto di verifica. È necessario organizzare gli elementi da verificare in liste di controllo,
+                        per poi passare alla verifica vera e propria. Questo approccio è più efficiente rispetto al walkthrough, 
+                        anche perché in molti casi può essere automatizzato.
             \end{itemize}
-      \item \textbf{Analisi dinamica}: richiede esecuzione dell'oggetto di verifica, quindi applicabile solo al codice, usata per accertare che il codice sia corretto, non introduca errori nel sistema e soddisfi i requisiti preposti.
+      \item \textbf{Analisi dinamica}: richiede l'esecuzione dell'oggetto di verifica, quindi è applicabile solo al codice, usata per accertare che il codice sia corretto, non introduca errori nel sistema e soddisfi i requisiti preposti.
 \end{itemize}
 \subsubsection{Verifica della documentazione} Al momento della necessità di modificare o aggiungere qualcosa a una sezione di
 un documento, si procederà in questo modo:
@@ -660,7 +665,7 @@ un documento, si procederà in questo modo:
       \item Verrà creata una issue che specifica l'attività di modifica o aggiunta da
             svolgere;
       \item Verrà creato un sotto-branch\textsubscript{g} chiamato
-            'docs/nome\_del\_documento-N' dove con N si intende il numero della issue di
+            'docs/[NOME-DOCUMENTO]-N' dove con N si intende il numero della issue di
             riferimento;
       \item Rimanendo in questo sotto-branch\textsubscript{g}, verrà aggiornato il
             documento;
@@ -669,8 +674,8 @@ un documento, si procederà in questo modo:
       \item Uno tra i verificatori in carica durante quello sprint si assegnerà la verifica
             del documento e modificherà il registro delle modifiche compilando il campo
             'Verificatore';
-      \item Se la pull request\textsubscript{g} avrà esito positivo, ci sarà il merge tra
-            il sotto-branch\textsubscript{g} e il branch\textsubscript{g} principale del
+      \item Se la verifica avrà esito positivo, ci sarà il merge tra il
+            sotto-branch\textsubscript{g} e il branch\textsubscript{g} principale del
             documento, con conseguente chiusura della issue e del sotto-branch;
       \item In caso di esito negativo, verranno segnalati gli errori da parte del
             verificatore tramite commenti, e il redattore si occuperà di risolverli
@@ -686,10 +691,17 @@ durante l'esecuzione. I test vengono progettati per garantire che il codice
 funzioni correttamente in vari scenari e che rispetti i requisiti prefissati. I
 principali tipi di test utilizzati in questo processo sono:
 \begin{itemize}
-      \item \textbf{Test di unità}: verificano il corretto funzionamento delle singole unità o funzioni del codice, testando piccoli blocchi di logica isolati. Questi test sono fondamentali per individuare errori precoci e garantire che ogni componente funzioni come previsto. Vengono scritti dal programmatore che implementa il modulo;
-      \item \textbf{Test di integrazione}: verificano che i vari moduli o componenti del sistema interagiscano correttamente tra loro. Questi test sono particolarmente utili per identificare problemi che si verificano quando le diverse parti del sistema vengono messe insieme;
-      \item \textbf{Test di regressione}: vengono eseguiti per verificare che le modifiche recenti al codice non abbiano introdotto nuovi errori o causato il malfunzionamento di funzionalità precedentemente funzionanti. Questi test sono essenziali per mantenere l'integrità del software durante lo sviluppo continuo;
-      \item \textbf{Test di sistema}: testano il comportamento complessivo dell'applicazione in un ambiente che simula il più possibile l'ambiente di produzione. Questi test verificano che l'intero sistema funzioni come previsto sotto condizioni realistiche e che tutte le componenti siano correttamente integrate.
+      \item \textbf{Test di unità}: verificano il corretto funzionamento delle singole unità o funzioni del codice, testando piccoli blocchi di logica isolati.
+            Questi test sono fondamentali per individuare errori precoci e garantire che ogni componente funzioni come previsto.
+            Vengono definiti durante la progettazione di dettaglio;
+      \item \textbf{Test di integrazione}: verificano che i vari moduli o componenti del sistema interagiscano correttamente tra loro.
+            Questi test sono particolarmente utili per identificare problemi che si verificano quando le diverse parti del sistema vengono messe insieme.
+            Vengono definiti nella fase di progettazione logica;
+      \item \textbf{Test di regressione}: vengono eseguiti per verificare che le modifiche al codice non abbiano introducano nuovi errori o causino anomalie in funzionalità già presenti.
+            Questi test sono essenziali per mantenere l'integrità del software durante lo sviluppo continuo;
+      \item \textbf{Test di sistema}: testano il comportamento complessivo dell'applicazione in un ambiente che simula il più possibile l'ambiente di produzione.
+            Questi test verificano che l'intero sistema funzioni come previsto sotto condizioni realistiche e che tutte le componenti siano correttamente integrate.
+            Vengono definiti nella fase di analisi dei requisiti software;
 \end{itemize}
 I test vengono identificati attraverso un codice con questa struttura:
 \textbf{
@@ -704,10 +716,15 @@ I test vengono identificati attraverso un codice con questa struttura:
       \item \textbf{R}: test di regressione;
       \item \textbf{S}: test di sistema.
 \end{itemize}
-
+Ogni test, inoltre, possiede uno stato, che può essere:
+\begin{itemize}
+      \item \textbf{NI}: non implementato;
+      \item \textbf{S}: superato;
+      \item \textbf{NS}: non superato.
+\end{itemize}
 \paragraph{Metriche}
-Per perseguire la qualità nel processo di verifica, si è deciso di
-adottare le seguenti metriche:
+Per perseguire la qualità nel processo di verifica, si è deciso di adottare le
+seguenti metriche:
 \begin{itemize}
       \item \nameref{M:COC};
       \item \nameref{M:SC};
@@ -722,8 +739,8 @@ adottare le seguenti metriche:
       \item \nameref{M:CD}.
 \end{itemize}
 \subsection{Validazione}
-\subsubsection{Scopo}
-Per la documentazione la validazione corrisponde alla pubblicazione del
-documento nel branch\textsubscript{g} main.\\ Questo processo avviene dopo
-l'ultima verifica\textsubscript{g} e sarà il responsabile a stabilire se il
-prodotto è accettabile o ha bisogno di ulteriori verifiche.
+Nel processo di validazione il fornitore dimostra che tutti i requisiti utente
+siano stati soddisfatti. Per questo scopo assumono fondamentale importanza
+i test di accettazione. Essi verificano che il prodotto finale sia conforme ai requisiti e
+alle aspettative dell'utente finale, e quindi sia pronto per essere rilasciato.
+I test di accettazione vengono definiti con il proponente nella fase di analisi dei requisiti.
