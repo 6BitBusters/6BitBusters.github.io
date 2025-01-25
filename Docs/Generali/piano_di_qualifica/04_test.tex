@@ -4,14 +4,15 @@ il prodotto, nella sua totalità, soddisfi pienamente tutti i requisiti specific
 nel documento di \textit{Analisi dei Requisiti}.
 I test si classificano in:
 \begin{itemize}
-    \item \textbf{Test di unità}: vengono stabiliti durante la progettazione di
+    \item \textbf{Test di unità}: vengono definiti durante la progettazione di
     dettaglio e verificano il funzionamento delle singole unità software;
-    \item \textbf{Test di integrazione}: vengono stabiliti durante la progettazione
+    \item \textbf{Test di integrazione}: vengono definiti durante la progettazione
     architetturale e verificano le interazioni tra le componenti;
-    \item \textbf{Test di sistema}: vengono stabiliti durante l'analisi dei requisiti
+    \item \textbf{Test di sistema}: vengono definiti durante l'analisi dei requisiti
     e verificano che il sistema, nel suo complesso, soddisfi i requisiti software;
     \item \textbf{Test di accettazione}: vengono effettuati insieme al proponente 
-    durante la fase di collaudo, per accertare il soddisfacimento dei requisiti utente.
+    durante la fase di collaudo, per accertare il soddisfacimento dei requisiti utente
+    e concludere quindi la validazione del prodotto.
 \end{itemize}
 Per ciascun test, vengono forniti un codice identificativo, una descrizione, e
 lo stato del test. 
@@ -88,5 +89,27 @@ abbreviazioni per identificare lo stato dei test:
 }
 \subsection{Test di accettazione}
 \testTable{
-    TA1 & - & NI\tabularnewline
+    TA1 & Verifica che all'avvio del sistema sia visibile all'utente la lista
+    dei dataset disponibili & NI\tabularnewline
+    TA2 & Verifica che l'utente possa visualizzare le informazioni primarie di
+     un dataset & NI\tabularnewline
+    TA3 & Verifica che l'utente, selezionando un dataset, possa visualizzarne 
+    i dettagli & NI\tabularnewline
+    TA4 & Verifica che l'utente possa  & NI\tabularnewline
+    TA5 & Verifica che la tabella dei dati sia visibile correttamente 
+    & NI\tabularnewline
+    TA6 & Verifica che il grafico 3D a barre verticali sia visibile correttamente 
+    & NI\tabularnewline
+    TA7 & Verifica che gli assi del grafico siano visibili e abbiano le 
+    etichette appropriate & NI\tabularnewline
+    TA8 & Verifica che l'utente possa spostare la vista del grafico senza
+    modificarne l'angolazione (panning) & NI\tabularnewline
+    TA9 & Verifica che l'utente possa ruotare la vista del grafico attorno 
+    all'asse X & NI\tabularnewline
+    TA10 & Verifica che l'utente possa ruotare la vista del grafico attorno
+    all'asse Y & NI\tabularnewline
+    TA11 & Verifica che l'utente possa ruotare la vista del grafico attorno
+    all'asse Z & NI\tabularnewline
+    TA12 & Verifica che l'utente possa compiere un'azione di zoom sul grafico 
+    & NI\tabularnewline
 }
