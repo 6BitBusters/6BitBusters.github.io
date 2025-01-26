@@ -98,9 +98,9 @@
 \section{Requisiti}
 \subsection{Introduzione}
 Sono stati definiti dei requisiti codificati in base all’ambito di competenza e ad un numero seriale per
-tenerne meglio traccia, inoltre nelle tabelle sottostanti sono fornite di descrizione e classificazione di ciascun
+tenerne meglio traccia. Nelle tabelle sottostanti sono forniti descrizione e classificazione di ciascun
 requisito. 
-Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Progetto}
+Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di progetto}.
 \subsection{Requisiti funzionali}
 \requirementsTable{
     % VISUALIZZAZIONE DATASET
@@ -114,7 +114,7 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
 
     % VISUALIZZAZIONE DEI DATI IN TABELLA
     \RFM & L’utente deve poter visualizzare i dati del dataset selezionato in forma tabellare & Obbligatorio   & UC5\tabularnewline
-    \RFM & L’utente deve poter visualizzare le intestazioni  della tabella  & Obbligatorio  & UC5.1 \tabularnewline
+    \RFM & L’utente deve poter visualizzare le intestazioni della tabella  & Obbligatorio  & UC5.1 \tabularnewline
     \RFM & L’utente deve poter visualizzare il valore del dato in una cella della tabella  & Obbligatorio  & UC5.2 \tabularnewline
     
     % VISUALIZZAZIONE DEI DATI SUL GRAFICO
@@ -162,9 +162,9 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
     rispetto ai precedenti filtri applicati   & Obbligatorio & UC18\tabularnewline
 
     %VALOR MEDIO
-    \RFM & L’utente deve poter di visualizzare un piano parallelo alla base che rappresenti un valor medio  & Obbligatorio & UC19\tabularnewline
-    \RFM & L’utente deve poter di visualizzare un piano parallelo alla base che rappresenti il valor medio globale & Obbligatorio & UC19.1\tabularnewline
-    \RFD & L’utente deve poter di visualizzare un piano parallelo alla base che rappresenti il valor medio di un singolo elemento  & Desiderabile & UC19.2\tabularnewline
+    \RFM & L’utente deve poter visualizzare un piano parallelo alla base che rappresenti un valor medio  & Obbligatorio & UC19\tabularnewline
+    \RFM & L’utente deve poter visualizzare un piano parallelo alla base che rappresenti il valor medio globale & Obbligatorio & UC19.1\tabularnewline
+    \RFD & L’utente deve poter visualizzare un piano parallelo alla base che rappresenti il valor medio di un singolo elemento  & Desiderabile & UC19.2\tabularnewline
 
     }
 
@@ -172,24 +172,24 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
 \subsection{Requisiti qualitativi}
     
 \requirementsTable{
-    \RQM & Il software deve essere sviluppato seguendo le metriche e il modello di qualità descritti nel documento \textit{Norme di Progetto}  & Obbligatorio  & Decisione interna \tabularnewline
-    \RQM & Il software deve essere sviluppato pubblicando il codice sorgente sul repository Github dedicato  & Obbligatorio  & Decisione interna \tabularnewline
+    \RQM & Il software deve essere sviluppato seguendo le metriche e il modello di qualità descritti nel documento \textit{Norme di progetto}  & Obbligatorio  & Decisione interna \tabularnewline
+    \RQM & Il software deve essere sviluppato pubblicando il codice sorgente nel repository Github dedicato  & Obbligatorio  & Decisione interna \tabularnewline
     \RQM & Il software deve essere sviluppato in modo tale da supportare grandi volumi di dati   & Obbligatorio & Capitolato \tabularnewline
-    \RQM & L'architettura del software deve permettere con agilità di poter aggiungere nuove funzionalità e possibilità di iterazione con il grafico   & Obbligatorio  & Capitolato \tabularnewline
-    \RQM & La suite di test deve essere robusta per garantire ciò specificato in RQ4  & Obbligatorio  & Capitolato \tabularnewline
+    \RQM & L'architettura del software deve permettere, con agilità, di aggiungere nuove funzionalità e possibilità di iterazione con il grafico   & Obbligatorio  & Capitolato \tabularnewline
+    \RQM & La suite di test deve essere robusta per garantire quanto specificato nel RQ4  & Obbligatorio  & Capitolato \tabularnewline
     \RQD & Il software deve essere testato attraverso test di tipo e2e  & Desiderabile  & Capitolato \tabularnewline  
 }
  \pagebreak
 \subsection{Requisiti di vincolo}
 \requirementsTable{
     \RVM & Il software deve essere sviluppato utilizzando Typescript come linguaggio di programmazione primario  & Obbligatorio  & Decisione interna \tabularnewline
-    \RVM & Il software deve essere sviluppato utilizzando la libreria React per la creazione di un interfaccia visiva sempice  & Obbligatorio  & Decisione interna \tabularnewline
+    \RVM & Il software deve essere sviluppato utilizzando la libreria React per la creazione di un'interfaccia visiva semplice  & Obbligatorio  & Decisione interna \tabularnewline
     \RVM & Il software deve essere sviluppato utilizzando la libreria Three.js   & Obbligatorio & Decisione interna \tabularnewline
     \RVM & Il software deve essere compatibile dalla versione 131 del browser Chrome  & Obbligatorio & Decisione interna \tabularnewline
     \RVM & Il software deve essere compatibile dalla versione 133 del browser Firefox  & Obbligatorio & Decisione interna \tabularnewline
     \RVM & Il software deve essere compatibile dalla versione 115 del browser Opera  & Obbligatorio & Decisione interna \tabularnewline
     \RVM & Il software deve essere compatibile dalla versione 131 del browser Microsoft Edge  & Obbligatorio & Decisione interna \tabularnewline
-    \RVO & Le barre de grafico 3D devono avere una colorazione appropriata che rendano i valori più veloci da comprendere  & Opzionale & Capitolato \tabularnewline
+    \RVO & Le barre de grafico 3D devono avere una colorazione appropriata che renda i relativi valori facilmente e velocemente comprensibili  & Opzionale & Capitolato \tabularnewline
     }
 \newpage
 
@@ -198,7 +198,7 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di Proget
     \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 100000 non deve avere un tempo di caricamento superiore a 2 secondi  & Obbligatorio & Decisione interna \tabularnewline
     \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 500000 non deve avere un tempo di caricamento superiore a 5 secondi  & Obbligatorio & Decisione interna \tabularnewline
     \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 1000000 non deve avere un tempo di caricamento superiore a 8 secondi  & Obbligatorio & Decisione interna \tabularnewline
-    \RPD & Il software quando carica un dataset di dimensioni maggiori di 1000000 non deve avere un tempo di caricamento superiore a 15 secondi  & Desiderabile & Decisione interna \tabularnewline
+    \RPD & Il software quando carica un dataset di dimensioni maggiori a 1000000 non deve avere un tempo di caricamento superiore a 15 secondi  & Desiderabile & Decisione interna \tabularnewline
     \RPM & Il software non deve avere un tempo di risposta superiore a 5 secondi & Obbligatorio & Decisione interna \tabularnewline
 }
 
