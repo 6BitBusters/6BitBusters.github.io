@@ -9,31 +9,6 @@
 % dati relativi alla prima pagina
 \makeindex
 \begin{document}
-\counterwithin{table}{section}
-
-% Prima pagina
-\input{titlepage.tex}
-
-% Diario delle modifiche
-\input{template/changelog.tex}
-\input{config/changelog_input.tex}
-\pagebreak
-
-% Indice
-{
-    \hypersetup{linkcolor=black}
-    \tableofcontents
-}
-\pagebreak
-
-% Contenuto
-\include{content_01.tex}
-\pagebreak
-
-% insert here other content (\include)
-\input{template/tracking.tex}
-\input{config/tracking_input.tex}
-
-\hfill\signature{Approvazione esterna}{Sanmarco Informatica}
-
+\include{titlepage}
+\includepdf[pages={2,3,4,5,6}]{VE_2024_12_19_firmato.pdf}
 \end{document}
