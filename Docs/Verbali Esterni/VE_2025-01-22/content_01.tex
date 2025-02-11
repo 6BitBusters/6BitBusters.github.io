@@ -18,18 +18,43 @@
 
 \section{Motivo della riunione}
 \begin{itemize}
-    \item 
-    \item 
-    \item Programmazione della prossima riunione.
+    \item Chiarimenti sui test E2E;
+    \item Discussione su come reperire i dati per i grafici;
+    \item Pianificazione della prossima riunione.
 \end{itemize}
 
 \section{Resoconto della riunione}
-\subsection{}
 
-\subsection{}
+\subsection{Chiarimenti sui test E2E}
+Durante la riunione si è parlato dell'importanza dei test E2E (End-to-End) per garantire la qualità del software prima del rilascio. 
+Questi test dovrebbero includere:
+\begin{itemize}
+    \item Controlli per correggere eventuali errori prima della pubblicazione;
+    \item Verifiche sulle funzionalità principali;
+    \item Simulazioni d'uso basate sulle aspettative degli utenti.
+\end{itemize}
+Un esempio pratico è il seguente: se un utente analizza una serie numerica di valori tra 1 e 10 e calcola la media 5, si aspetta che, selezionando la visualizzazione dei valori superiori alla media, vengano mostrati solo quelli maggiori di 5. 
+Un ulteriore esempio riguarda l'uso della rotellina del mouse dove l'utente si aspetta di effettuare uno zoom avanti/indietro.
+\\Il proponente ha sottolineato l'importanza di una checklist di controllo per verificare che i test coprano tutti gli scenari previsti.
+
+\subsection{Reperimento dei dati per la costruzione dei grafici}
+Un altro argomento affrontato è stato il reperimento dei dati per i grafici. 
+Il proponente ci ha illustrato le due principali soluzioni:
+\begin{itemize}
+    \item Sviluppare un backend basato su un database;
+    \item Svilppare un frontend che estrae i dati tramite API. 
+\end{itemize}
+Per la soluzione basata su backend, è necessario definire una lista di fonti disponibili, garantendo che siano omogenee. 
+Ogni fonte avrà un proprio database, che riceverà in input un UID selezionato e restituirà una matrice con le etichette associate. 
+Sarà implementata un'interfaccia unificata per accedere ai dati provenienti da fonti diverse, come API o database, in modo che il frontend non debba preoccuparsi della loro tipologia. 
+Inoltre, verrà utilizzata un'API backend per gestire la raccolta e la fornitura dei dati.
+\\
+Per la soluzione basata solo sul frontend, il codice includerà parte della logica, organizzata attraverso servizi che interagiranno con API per ottenere i dati. 
+Le interfacce saranno definite con implementazioni riutilizzabili dalla vista, semplificando l'integrazione con i dati ricevuti e migliorando la modularità dell'applicazione.
+
+Infine, il proponente ha illustrato che, dopo il caricamento del dataset il punto focale è la sincronizzazione tra grafico, tabella e pulsanti azione presenti nell'interfaccia. 
+Per fare ciò dovremmo utilizzare librerie specifiche per React, valutando le migliori soluzioni disponibili.
 
 \subsection{Programmazione della prossima riunione}
-La prossima riunione sarà programmata in data da destinarsi in quanto 
+La prossima riunione sarà calendarizzata in seguito al risultato dell'RTB.
 
-
-\hfill\signature{Approvazione esterna}{Sanmarco Informatica}
