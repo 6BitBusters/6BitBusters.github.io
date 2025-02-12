@@ -41,15 +41,14 @@ Un ulteriore esempio riguarda l'uso della rotellina del mouse dove l'utente si a
 Un altro argomento affrontato è stato il reperimento dei dati per i grafici. 
 Il proponente ci ha illustrato le due principali soluzioni:
 \begin{itemize}
-    \item Sviluppare un backend basato su un database;
+    \item Sviluppare un backend per la gestione dei dati e delle loro fonti;
     \item Svilppare un frontend che estrae i dati tramite API. 
 \end{itemize}
-Per la soluzione basata su backend, è necessario definire una lista di fonti disponibili, garantendo che siano omogenee. 
-Ogni fonte avrà un proprio database, che riceverà in input un UID selezionato e restituirà una matrice con le etichette associate. 
-Sarà implementata un'interfaccia unificata per accedere ai dati provenienti da fonti diverse, come API o database, in modo che il frontend non debba preoccuparsi della loro tipologia. 
-Inoltre, verrà utilizzata un'API backend per gestire la raccolta e la fornitura dei dati.
+Per la soluzione basata sul backend, è necessario definire una lista di fonti disponibili, garantendo che siano omogenee. 
+Ogni fonte, che può essere un database o un'API, riceverà in input un UID selezionato e restituirà una matrice con le etichette associate. 
+Sarà implementata un'interfaccia unificata per accedere ai dati in modo che il frontend non debba preoccuparsi della tipologia della fonte. 
 \\
-Per la soluzione basata solo sul frontend, il codice includerà parte della logica, organizzata attraverso servizi che interagiranno con API per ottenere i dati. 
+Per la soluzione basata solo sul frontend, il codice includerà parte della logica, organizzata attraverso servizi che interagiranno con API pubbliche senza Key per ottenere i dati. 
 Le interfacce saranno definite con implementazioni riutilizzabili dalla vista, semplificando l'integrazione con i dati ricevuti e migliorando la modularità dell'applicazione.
 
 Infine, il proponente ha illustrato che, dopo il caricamento del dataset il punto focale è la sincronizzazione tra grafico, tabella e pulsanti azione presenti nell'interfaccia. 
