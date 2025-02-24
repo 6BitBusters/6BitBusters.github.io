@@ -1,0 +1,59 @@
+\section{Informazioni generali}
+\subsection{Dettagli sull'incontro}
+\begin{itemize}
+    \item \textbf{Luogo}: Google Meet
+    \item \textbf{Data}: 22-01-2025
+    \item \textbf{Ora di inizio}: 17:00
+    \item \textbf{Ora di fine}: 17:30
+    \item \textbf{Partecipante dell'azienda}: Beggiato Alex
+    \item \textbf{Partecipanti}:
+    \begin{itemize}
+        \item Bergamin Elia
+        \item Chilese Elena
+        \item Diviesti Filippo
+        \item Djossa Edgar
+        \item Soranzo Andrea  
+    \end{itemize}
+\end{itemize}
+
+\section{Motivo della riunione}
+\begin{itemize}
+    \item Chiarimenti sui test E2E;
+    \item Discussione su come reperire i dati per i grafici;
+    \item Pianificazione della prossima riunione.
+\end{itemize}
+
+\section{Resoconto della riunione}
+
+\subsection{Chiarimenti sui test E2E}
+Durante la riunione si è parlato dell'importanza dei test E2E (End-to-End) per garantire la qualità del software prima del rilascio. 
+Questi test dovrebbero includere:
+\begin{itemize}
+    \item Controlli per correggere eventuali errori prima della pubblicazione;
+    \item Verifiche sulle funzionalità principali;
+    \item Simulazioni d'uso basate sulle aspettative degli utenti.
+\end{itemize}
+Un esempio pratico è il seguente: se un utente analizza una serie numerica di valori tra 1 e 10 e calcola la media 5, si aspetta che, selezionando la visualizzazione dei valori superiori alla media, vengano mostrati solo quelli maggiori di 5. 
+Un ulteriore esempio riguarda l'uso della rotellina del mouse dove l'utente si aspetta di effettuare uno zoom avanti/indietro.
+\\Il proponente ha sottolineato l'importanza di una checklist di controllo per verificare che i test coprano tutti gli scenari previsti.
+
+\subsection{Reperimento dei dati per la costruzione dei grafici}
+Un altro argomento affrontato è stato il reperimento dei dati per i grafici. 
+Il proponente ci ha illustrato le due principali soluzioni:
+\begin{itemize}
+    \item Sviluppare un backend per la gestione dei dati e delle loro fonti;
+    \item Svilppare un frontend che estrae i dati tramite API. 
+\end{itemize}
+Per la soluzione basata sul backend, è necessario definire una lista di fonti disponibili, garantendo che siano omogenee. 
+Ogni fonte, che può essere un database o un'API, riceverà in input un UID selezionato e restituirà una matrice con le etichette associate. 
+Sarà implementata un'interfaccia unificata per accedere ai dati in modo che il frontend non debba preoccuparsi della tipologia della fonte. 
+\\
+Per la soluzione basata solo sul frontend, il codice includerà parte della logica, organizzata attraverso servizi che interagiranno con API pubbliche senza Key per ottenere i dati. 
+Le interfacce saranno definite con implementazioni riutilizzabili dalla vista, semplificando l'integrazione con i dati ricevuti e migliorando la modularità dell'applicazione.
+
+Infine, il proponente ha illustrato che, dopo il caricamento del dataset il punto focale è la sincronizzazione tra grafico, tabella e pulsanti azione presenti nell'interfaccia. 
+Per fare ciò dovremmo utilizzare librerie specifiche per React, valutando le migliori soluzioni disponibili.
+
+\subsection{Programmazione della prossima riunione}
+La prossima riunione sarà calendarizzata in seguito al risultato dell'RTB.
+
