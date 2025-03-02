@@ -36,7 +36,7 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
     template/images/AC.png
 }
 { % DESCRIZIONE RTB
-    Come il grafico fa notare il confronto con il Planned Value rivela una forte correlazione, suggerendo che le ore e i costi effettivamente impiegati per ogni ruolo sono in linea con le previsioni iniziali.
+    Come si nota dal grafico, Actual Cost e Planned Value hanno una forte correlazione, suggerendo che le ore e i costi effettivamente impiegati per ogni ruolo sono in linea con le previsioni iniziali.
     Ciò indica una pianificazione accurata e una buona esecuzione del progetto.
 }
 
@@ -50,7 +50,7 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
 { % DESCRIZIONE RTB
     Questo grafico illustra solamente il valore di Earned Value che rappresenta il valore delle attività realizzate nel progetto.
     Da solo rientra tra i valori limite, e rappresenta un valor positivo, ma spesso viene messo a confronto con le altre metriche.
-    Analizzando quindi i 3 grafici di Earned Value, Planned Value e Actual Cost si può notare come siano tutti allineati. 
+    Analizzando quindi i tre grafici di Earned Value, Planned Value e Actual Cost, si può notare come siano tutti allineati. 
     Questo indica una gestione del progetto accurata, con una precisa corrispondenza tra le attività pianificate, quelle effettivamente svolte e i costi sostenuti.
 }
 
@@ -87,8 +87,10 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
     template/images/CV.png
 }
 { % DESCRIZIONE RTB
-    L'analisi del grafico evidenzia una sovrastima iniziale delle ore necessarie per completare le attività.
-    Con il progredire del progetto, il team ha affinato le proprie stime, acquisendo una maggiore consapevolezza dei tempi di esecuzione e delle competenze individuali.
+    Una Cost Variance negativa indica che il progetto sta spendendo più di quanto previsto. 
+    Ciò è dovuto principalmente al fatto che i ruoli più ricoperti sono quelli di responsabile, 
+    amministratore, e analista che hanno un costo orario superiore alla media.
+    Infatti, nello sprint 4, in cui è stato realizzato il PoC dai programmatore, la Cost Variance è stata positiva.
 }
 
 \Met
@@ -125,7 +127,7 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
 { % DESCRIZIONE RTB
     Il grafico mostra un iniziale Requirements Stability Index del 100\% in quanto nei primi due periodi il team si è
     concentrato sulla creazione e successivo aggiornamento di un WoW. 
-    È stato solo dal terzo sprint in poi che il team ha iniziato ad analizzare e successivamente raffinare i requisiti, rendendoli più chiari e comprensibili per facilitare le successive fasi di progettazione.
+    È stato solo dal terzo sprint in poi che il team ha iniziato a definire i requisiti.
 }
 
 \Met
@@ -151,6 +153,7 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
 { % DESCRIZIONE RTB
     Come mostra il grafico, l'iniziale carenza di competenze ha limitato la capacità del team di soddisfare tutte le metriche.
     Grazie all'apprendimento continuo e all'introduzione di strumenti automatizzati, il team ha colmato queste lacune apportando delle migliorie ai vari documenti.
+    L'unica metrica non soddisfatta attualmente è MPC6 - Cost Variance.
 }
 
 \Met
@@ -161,14 +164,14 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
     template/images/RISCHI.png
 }
 { % DESCRIZIONE RTB
-    Il grafico evidenzia una notevole stabilità dei rischi non previsti durante l'intero progetto.
-    Questo è ovviamente un ottimo segno in quanto indica che il gruppo è stato in grado di gestire i rischi in modo efficace e che non sono 
-    emersi nuovi rischi inaspettati.
+    Il grafico evidenzia l'assenza di rischi non previsti durante l'intero progetto.
+    Questo è ovviamente un buon segno in quanto indica che il gruppo è stato in grado 
+    di gestire i rischi in modo efficace e che non sono emersi nuovi rischi inaspettati.
 }
 
 \subsection{Verifica della qualità dei prodotti}
 In questa sezione vengono analizzate le attività svolte per garantire la qualità dei prodotti realizzati.
- Le analisi effettuate comprendono sia i documenti che il software, al fine di garantire un risultato finale che soddisfi i requisiti stabiliti.\\
+Le analisi effettuate comprendono sia i documenti che il software, al fine di garantire un risultato finale che soddisfi i requisiti stabiliti.\\
 Per calcolare le seguenti misure abbiamo utilizzato le formule e le nozioni descritte nel documento di \textit{Norme di progetto v1.0.0}.
 
 \Met
@@ -179,8 +182,10 @@ Per calcolare le seguenti misure abbiamo utilizzato le formule e le nozioni desc
     template/images/GUL.png
 }
 { % DESCRIZIONE RTB
-    L'analisi del grafico conferma che, nelle prime fasi del progetto, l'Indice di Gulpease non ha raggiunto i valori minimi, a causa della mancanza di conoscenze specifiche da parte del team.
-    Solo dopo aver implementato un'automazione per il calcolo dell'indice, è stato possibile migliorarne i risultati nei periodi successivi.
+    L'analisi del grafico conferma che, nelle prime fasi del progetto, l'Indice di Gulpease non ha raggiunto i 
+    valori minimi, a causa della mancanza di conoscenze specifiche da parte del team.
+    Solo dopo aver implementato un'automazione per il calcolo dell'indice, è stato possibile 
+    migliorarne i risultati nei periodi successivi.
 }
 
 \Met
@@ -191,8 +196,10 @@ Per calcolare le seguenti misure abbiamo utilizzato le formule e le nozioni desc
     template/images/ERR-G.png
 }
 { % DESCRIZIONE RTB
-    L'analisi del grafico rivela un numero inizialmente elevato di errori ortografici, in particolare nei documenti \textit{Norme di progetto v1.0.0} e \textit{Piano di progetto v1.0.0}.
-    Tuttavia, si osserva una netta diminuzione di tali errori nei periodi e nei documenti successivi, indicando un miglioramento progressivo nella qualità della scrittura.
+    L'analisi del grafico rivela un numero inizialmente elevato di errori ortografici, 
+    in particolare nei documenti \textit{Norme di progetto v1.0.0} e \textit{Piano di progetto v1.0.0}.
+    Tuttavia, si osserva una netta diminuzione di tali errori nei periodi e nei 
+    documenti successivi, indicando un miglioramento progressivo nella qualità della scrittura.
 }
 
 
