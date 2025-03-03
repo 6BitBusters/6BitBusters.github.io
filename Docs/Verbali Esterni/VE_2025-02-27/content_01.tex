@@ -29,7 +29,7 @@
 Durante la riunione, il team ha discusso i progressi del progetto e le prossime attività da svolgere. Sono stati evidenziati i punti critici e le possibili soluzioni per migliorare il flusso di lavoro.
 
 \subsection{Definizione dei requisiti hardware per garantire prestazioni adeguate}
-Con l'introduzione del backend, i requisiti prestazionali si moltiplicano. Tuttavia, nel nostro caso, essendo il backend un "passacarte", il requisito minimo risulta relativamente basso e non richiede specifiche dettagliate.
+Con l'introduzione del backend, i requisiti prestazionali aumentano. Tuttavia, nel nostro caso, il backend svolge un ruolo minimale, limitando così l'impatto sui requisiti necessari, senza la necessità di entrare troppo nello specifico.
 Per quanto riguarda l'hardware lato client, il consiglio è di individuare un requisito minimo prendendo in considerazione i dispositivi disponibili, assicurandosi che sia in linea con gli standard di mercato, in particolare per la memoria RAM. Questo permetterà di testare adeguatamente il sistema e garantire prestazioni accettabili.
 Lato backend, è necessario analizzare il volume di dati gestito dall'hardware e il numero di utenti simultanei previsti. Node.js presenta già dei requisiti minimi per la gestione di un certo numero di utenze in parallelo. Data la presenza di una chiamata significativa al server, mentre il resto delle operazioni è poco oneroso, bisognerà definire quante utenze possono operare contemporaneamente e stimare i requisiti di RAM per il backend. Anche per il client sarà necessario eseguire test per verificare le prestazioni.
 
@@ -52,6 +52,6 @@ Per migliorare il rendering, si consiglia di:
 \item Salvare la posizione della camera, spostare temporaneamente il grafico fuori dall'inquadratura per applicare i materiali sfruttando le ottimizzazioni off-screen, e infine ripristinare la posizione originale della camera.
 \end{itemize}
 \subsection{Definire limiti massimi di dimensioni per le assi}
-Ci è stato suggerito di integrare i requisiti prestazionali introducendo limiti massimi per la dimensione dei singoli assi, oltre ai limiti già definiti sulla dimensione complessiva del dataset.
+Ci è stato suggerito di integrare i requisiti funzionali introducendo limiti massimi per la dimensione dei singoli assi, oltre ai limiti già definiti sulla dimensione complessiva del dataset.
 
 \hfill\signature{Approvazione esterna}{Sanmarco Informatica}
