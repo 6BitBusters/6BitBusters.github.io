@@ -86,15 +86,15 @@ def UpdateHtml(html:str,pdfs:dict[str, list]):
         if type=="Generali":
             html = html.replace("{{Generali}}","<ul>{{Generali Interni}}</ul><ul>{{Generali Esterni}}</ul>")
             pdfs[type].sort(reverse=True)
-            #i = []
-            #e = []
-            #for pdf in pdfs[type]:
-            #    if pdf.GetUse() == "Interno":
-            #        i.append(MakeLink(pdf))
-            #    if pdf.GetUse() == "Esterno":
-            #        e.append(MakeLink(pdf))
-            #html = html.replace("{{Generali Interni}}","\n".join(i))
-            #html = html.replace("{{Generali Esterni}}","\n".join(e))
+            i = []
+            e = []
+            for pdf in pdfs[type]:
+                if pdf.GetUse() == "Interno":
+                    i.append(MakeLink(pdf))
+                if pdf.GetUse() == "Esterno":
+                    e.append(MakeLink(pdf))
+            html = html.replace("{{Generali Interni}}","\n".join(i) for l in i)
+            html = html.replace("{{Generali Esterni}}","\n".join(e) for l in e)
         else:
             pdfs[type].sort(reverse=True)
             html = html.replace("{{"+ type +"}}","\n".join(MakeLink(pdf) for pdf in pdfs[type]))
