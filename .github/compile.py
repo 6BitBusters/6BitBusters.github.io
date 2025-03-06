@@ -121,7 +121,7 @@ def GetDocUse(path:str):
     with open(path,'r') as doc:
         for line in doc:
             if "Uso" in line:
-                use = line.split("&")[1]
+                use = line.split("&")[1].strip().strip("\\")
     return use if use != "" else "vuoto"
     
 def MakeLink(pdf:PDF):
