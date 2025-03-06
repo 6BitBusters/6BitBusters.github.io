@@ -51,7 +51,7 @@ def main(UseThread:bool=False):
                 pool.submit(BuildTypePDF,init_path,pdfs,command,type)
     else:
         BuildAllPDF(init_path, pdfs, command) 
-    html = html.replace("{{Generali}}","<ul>{{Generali Interni}}</ul><ul>{{Generali Esterni}}</ul>")
+
     UpdateHtml(html,pdfs)
 
 
@@ -84,16 +84,17 @@ def UpdateHtml(html:str,pdfs:dict[str, list]):
     logging.info(f'Updating the HTML')
     for type in pdfs:
         if type=="Generali":
+            html = html.replace("{{Generali}}","<ul>{{Generali Interni}}</ul><ul>{{Generali Esterni}}</ul>")
             pdfs[type].sort(reverse=True)
-            i = []
-            e = []
-            for pdf in pdfs[type]:
-                if pdf.GetUse() == "Interno":
-                    i.append(MakeLink(pdf))
-                if pdf.GetUse() == "Esterno":
-                    e.append(MakeLink(pdf))
-            html = html.replace("{{Generali Interni}}","\n".join(i))
-            html = html.replace("{{Generali Esterni}}","\n".join(e))
+            #i = []
+            #e = []
+            #for pdf in pdfs[type]:
+            #    if pdf.GetUse() == "Interno":
+            #        i.append(MakeLink(pdf))
+            #    if pdf.GetUse() == "Esterno":
+            #        e.append(MakeLink(pdf))
+            #html = html.replace("{{Generali Interni}}","\n".join(i))
+            #html = html.replace("{{Generali Esterni}}","\n".join(e))
         else:
             pdfs[type].sort(reverse=True)
             html = html.replace("{{"+ type +"}}","\n".join(MakeLink(pdf) for pdf in pdfs[type]))
