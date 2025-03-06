@@ -86,6 +86,13 @@ def UpdateHtml(html:str,pdfs:dict[str, list]):
         if type=="Generali":
             html = html.replace("{{Generali}}","<ul>{{Generali Interni}}</ul><ul>{{Generali Esterni}}</ul>")
             pdfs[type].sort(reverse=True)
+
+            i = []
+            for pdf in pdfs[type]:
+                i.append(MakeLink(pdf))
+            html = html.replace("{{Generali Interni}}",i)
+            
+            '''
             i = []
             e = []
             for pdf in pdfs[type]:
@@ -95,6 +102,7 @@ def UpdateHtml(html:str,pdfs:dict[str, list]):
                     e.append(MakeLink(pdf))
             html = html.replace("{{Generali Interni}}","\n".join(l for l in i))
             html = html.replace("{{Generali Esterni}}","\n".join(l for l in e))
+            '''
         else:
             pdfs[type].sort(reverse=True)
             html = html.replace("{{"+ type +"}}","\n".join(MakeLink(pdf) for pdf in pdfs[type]))
