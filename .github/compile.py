@@ -90,7 +90,7 @@ def UpdateHtml(html:str,pdfs:dict[str, list]):
             i = []
             for pdf in pdfs[type]:
                 i.append(MakeLink(pdf))
-            html = html.replace("{{Generali Interni}}",i)
+            html = html.replace("{{Generali Interni}}","\n".join(l for l in i))
             
             '''
             i = []
