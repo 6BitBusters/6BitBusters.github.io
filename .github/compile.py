@@ -93,8 +93,8 @@ def UpdateHtml(html:str,pdfs:dict[str, list]):
                     i.append(MakeLink(pdf))
                 if pdf.GetUse() == "Esterno":
                     e.append(MakeLink(pdf))
-            html = html.replace("{{Generali Interni}}","\n".join(i) for l in i)
-            html = html.replace("{{Generali Esterni}}","\n".join(e) for l in e)
+            html = html.replace("{{Generali Interni}}","\n".join(l for l in i))
+            html = html.replace("{{Generali Esterni}}","\n".join(l for l in e))
         else:
             pdfs[type].sort(reverse=True)
             html = html.replace("{{"+ type +"}}","\n".join(MakeLink(pdf) for pdf in pdfs[type]))
