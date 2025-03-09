@@ -101,6 +101,13 @@ Sono stati definiti dei requisiti codificati in base all’ambito di competenza 
 tenerne meglio traccia. Nelle tabelle sottostanti sono forniti descrizione e classificazione di ciascun
 requisito. 
 Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di progetto}.
+
+\subsection{Requisiti minimi hardware}
+6-8GB RAM, CPU intel i5 (se Windows), GPU ? (per diminuire il tempo di caricamento)
+
+
+
+
 \subsection{Requisiti funzionali}
 \requirementsTable{
     % VISUALIZZAZIONE DATASET
@@ -135,7 +142,7 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
     \RFM & L’utente deve poter ruotare il grafico attorno all'asse Z   & Obbligatorio & UC11\tabularnewline
     
     %ZOOM
-    \RFM & L’utente deve poter eseguire un’azione di zoom indipendentemente dalla posizione della telecamera & Obbligatorio & UC12\tabularnewline
+    \RFM & L’utente deve poter eseguire un’azione di zoom indipendentemente dalla posizione della telecamera & Obbligatorio & UC12\par UC12.1\par UC12.2\tabularnewline
 
     %RIPOSIONNAMENTO
     \RFM & L’utente deve poter riposizionare la telecamera alla sua posizione iniziale  & Obbligatorio  & UC13\tabularnewline
@@ -151,9 +158,9 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
     \RFM & L’utente deve poter filtrare un numero N dei valori più bassi & Obbligatorio & UC16\par UC16.2\tabularnewline
     \RFM & L’utente deve poter inserire un numero per effettuare un filtraggio & Obbligatorio & UC16\par UC16.3\tabularnewline
     \RFM & L’utente deve poter filtrare i valori inferiori o uguali rispetto a un valore del grafico & Obbligatorio & UC17\par UC17.1\par UC17.1.1\tabularnewline
-    \RFM & L’utente deve poter filtrare i valori inferiori o uguali rispetto al valor medio globale & Obbligatorio & UC17\par UC17.1\par UC17.1.2\tabularnewline
+    \RFM & L’utente deve poter filtrare i valori inferiori o uguali rispetto al valore medio globale, ossia la media dei valori del grafico & Obbligatorio & UC17\par UC17.1\par UC17.1.2\tabularnewline
     \RFM & L’utente deve poter filtrare i valori superiori o uguali rispetto a un valore del grafico & Obbligatorio & UC17\par UC17.2\par UC17.2.1\tabularnewline
-    \RFM & L’utente deve poter filtrare i valori superiori o uguali rispetto al valor medio globale & Obbligatorio & UC17\par UC17.2\par UC17.2.2\tabularnewline
+    \RFM & L’utente deve poter filtrare i valori superiori o uguali rispetto al valore medio globale & Obbligatorio & UC17\par UC17.2\par UC17.2.2\tabularnewline
 
     %RESET
     \RFM & L’utente deve poter ripristinare lo stato del grafico
@@ -168,21 +175,21 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
 
     }
 
-   
+   \pagebreak
 \subsection{Requisiti qualitativi}
-    
+   
 \requirementsTable{
     \RQM & Il software deve essere sviluppato seguendo le metriche e il modello di qualità descritti nel documento \textit{Norme di progetto}  & Obbligatorio  & Decisione interna \tabularnewline
     \RQM & Il software deve essere sviluppato pubblicando il codice sorgente nel repository Github dedicato  & Obbligatorio  & Decisione interna \tabularnewline
-    \RQM & Il software deve essere sviluppato in modo tale da supportare grandi volumi di dati   & Obbligatorio & Capitolato \tabularnewline
-    \RQM & L'architettura del software deve permettere, con agilità, di aggiungere nuove funzionalità e possibilità di iterazione con il grafico   & Obbligatorio  & Capitolato \tabularnewline
-    \RQM & La suite di test deve essere robusta per garantire quanto specificato nel RQ4  & Obbligatorio  & Capitolato \tabularnewline
-    \RQD & Il software deve essere testato attraverso test di tipo e2e  & Desiderabile  & Capitolato \tabularnewline  
+    \RQM & La consegna del progetto deve includere i diagrammi UML relativi ai casi d'uso identificati & Obbligatorio & Decisione interna \tabularnewline
+    \RQM & Il software deve essere testato attraverso test di tipo e2e, concentrando l'attenzione sulle funzionalità chiave che impattano negativamente sull'esperienza utente (non più di 10 funzionalità)  & Desiderabile  & Capitolato \tabularnewline 
+    \RQM & Deve essere consegnata la documentazione relativa ai test effettuati con i relativi risultati & Obbligatorio & Decisione interna \tabularnewline
 }
  \pagebreak
 \subsection{Requisiti di vincolo}
 \requirementsTable{
     \RVM & Il software deve essere sviluppato utilizzando Typescript come linguaggio di programmazione primario  & Obbligatorio  & Decisione interna \tabularnewline
+    \RVM & Il software deve supportare un massimo di 500 elementi per le coordinate X e Z mantenendo il limite di 1000 dati (es. con 500 righe, il massimo numero di colonne sarà pari a 5) & Obbligatorio & Decisione interna \tabularnewline
     \RVM & Il software deve essere sviluppato utilizzando la libreria React per la creazione di un'interfaccia visiva semplice  & Obbligatorio  & Decisione interna \tabularnewline
     \RVM & Il software deve essere sviluppato utilizzando la libreria Three.js   & Obbligatorio & Decisione interna \tabularnewline
     \RVM & Il software deve essere compatibile dalla versione 131 del browser Chrome  & Obbligatorio & Decisione interna \tabularnewline
@@ -209,9 +216,11 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
 
 \subsubsection{Fonte - Requisiti}
 \SrcToReqTable{
-    Capitolato & RQ3\par RQ4\par RQ5\par RQ6\par RV8 \tabularnewline
+    Capitolato & RQ4 \tabularnewline
     Decisione interna & RQ1\par
-                        RQ2\par 
+                        RQ2\par
+                        RQ3\par
+                        RQ5\par 
                         RV1\par 
                         RV2\par 
                         RV3\par 
@@ -219,11 +228,15 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
                         RV5\par
                         RV6\par
                         RV7\par
+                        RV8\par
+                        RV9\par
+                        RV10\par
+                        RV11\par
                         RP1\par
                         RP2\par
                         RP3\par
                         RP4\par
-                        RP5\par
+                        RP5
                         \tabularnewline
     UC1    & RF1 \tabularnewline
     UC1.1    & RF2 \tabularnewline
@@ -247,6 +260,8 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
     UC10    & RF17 \tabularnewline
     UC11   & RF18 \tabularnewline
     UC12    & RF19 \tabularnewline
+    UC12.1    & RF19 \tabularnewline
+    UC12.2    & RF19 \tabularnewline
     UC13    & RF20 \tabularnewline
     UC14   & RF21 \tabularnewline
     UC15    & RF22 \tabularnewline
@@ -292,7 +307,7 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
     RF16 & UC9 \tabularnewline
     RF17 & UC10 \tabularnewline
     RF18 & UC11\tabularnewline
-    RF19 & UC12 \tabularnewline
+    RF19 & UC12\par UC12.1\par UC12.2 \tabularnewline
     RF20 & UC13 \tabularnewline
     RF21 & UC14 \tabularnewline
     RF22 & UC15\par UC15.1\par UC15.2 \tabularnewline
@@ -310,10 +325,10 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
 
     RQ1 & Decisione interna\tabularnewline
     RQ2 & Decisione interna\tabularnewline
-    RQ3 & Capitolato\tabularnewline
+    RQ3 & Decisione interna\tabularnewline
     RQ4 & Capitolato\tabularnewline
-    RQ5 & Capitolato\tabularnewline
-    RQ6 & Capitolato\tabularnewline
+    RQ5 & Decisione interna\tabularnewline
+
 
     RV1 & Decisione interna\tabularnewline
     RV2 & Decisione interna\tabularnewline
@@ -322,10 +337,10 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
     RV5 & Decisione interna\tabularnewline
     RV6 & Decisione interna\tabularnewline
     RV7 & Decisione interna\tabularnewline
-    RV7 & Capitolato\tabularnewline
     RV8 & Decisione interna\tabularnewline
     RV9 & Decisione interna\tabularnewline
     RV10 & Decisione interna\tabularnewline
+    RV11 & Decisione interna\tabularnewline
 
     RP1 & Decisione interna\tabularnewline
     RP2 & Decisione interna\tabularnewline
@@ -350,7 +365,7 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
     Di vincolo & \arabic{RV1} & \arabic{RV2} & \arabic{RV3} & \arabic{RV} \tabularnewline
     Prestazionali & \arabic{RP1} & \arabic{RP2} & \arabic{RP3} & \arabic{RP} \tabularnewline
     \bottomrule
-    \textbf{Totale requisiti} & \arabic{M} & \arabic{D} & \arabic{O} & \arabic{T}
+    \textbf{Totale requisiti} & \arabic{M} & \arabic{D} & \arabic{O} & \arabic{T} \tabularnewline
     
 }
 
