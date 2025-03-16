@@ -102,10 +102,7 @@ tenerne meglio traccia. Nelle tabelle sottostanti sono forniti descrizione e cla
 requisito. 
 Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di progetto}.
 
-\subsection{Requisiti minimi hardware}
-6-8GB RAM, CPU intel i5 (se Windows), GPU ? (per diminuire il tempo di caricamento)
-
-
+%\subsection{Requisiti minimi hardware}
 
 
 \subsection{Requisiti funzionali}
@@ -142,7 +139,8 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
     \RFM & L’utente deve poter ruotare il grafico attorno all'asse Z   & Obbligatorio & UC11\tabularnewline
     
     %ZOOM
-    \RFM & L’utente deve poter eseguire un’azione di zoom indipendentemente dalla posizione della telecamera & Obbligatorio & UC12\par UC12.1\par UC12.2\tabularnewline
+    \RFM & L’utente deve poter eseguire un’azione di zoom-in indipendentemente dalla posizione della telecamera & Obbligatorio & UC12\par UC12.1\tabularnewline
+    \RFM & L’utente deve poter eseguire un’azione di zoom-out indipendentemente dalla posizione della telecamera & Obbligatorio & UC12\par UC12.2\tabularnewline
 
     %RIPOSIONNAMENTO
     \RFM & L’utente deve poter riposizionare la telecamera alla sua posizione iniziale  & Obbligatorio  & UC13\tabularnewline
@@ -182,7 +180,7 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
     \RQM & Il software deve essere sviluppato seguendo le metriche e il modello di qualità descritti nel documento \textit{Norme di progetto}  & Obbligatorio  & Decisione interna \tabularnewline
     \RQM & Il software deve essere sviluppato pubblicando il codice sorgente nel repository Github dedicato  & Obbligatorio  & Decisione interna \tabularnewline
     \RQM & La consegna del progetto deve includere i diagrammi UML relativi ai casi d'uso identificati & Obbligatorio & Decisione interna \tabularnewline
-    \RQM & Il software deve essere testato attraverso test di tipo e2e, concentrando l'attenzione sulle funzionalità chiave che impattano negativamente sull'esperienza utente (non più di 10 funzionalità)  & Desiderabile  & Capitolato \tabularnewline 
+    \RQM & Il software deve essere testato attraverso test di tipo e2e, concentrando l'attenzione sulle funzionalità chiave che impattano negativamente sull'esperienza utente (almeno 3 funzionalità)  & Desiderabile  & Capitolato \tabularnewline 
     \RQM & Deve essere consegnata la documentazione relativa ai test effettuati con i relativi risultati & Obbligatorio & Decisione interna \tabularnewline
 }
  \pagebreak
@@ -259,30 +257,30 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
     UC9    & RF16 \tabularnewline
     UC10    & RF17 \tabularnewline
     UC11   & RF18 \tabularnewline
-    UC12    & RF19 \tabularnewline
+    UC12    & RF19\par RF20 \tabularnewline
     UC12.1    & RF19 \tabularnewline
-    UC12.2    & RF19 \tabularnewline
-    UC13    & RF20 \tabularnewline
-    UC14   & RF21 \tabularnewline
-    UC15    & RF22 \tabularnewline
-    UC15.1    & R22 \tabularnewline
-    UC15.2    & RF22 \tabularnewline
-    UC16    & RF23\par RF24\par RF25 \tabularnewline
-    UC16.1    & RF23 \tabularnewline
-    UC16.2    & RF24 \tabularnewline
-    UC16.3    & RF25 \tabularnewline
-    UC17    & RF26\par RF27\par RF28\par RF29 \tabularnewline
-    UC17.1    & RF26\par RF27 \tabularnewline
-    UC17.1.1    & RF26 \tabularnewline
-    UC17.1.2    & RF27 \tabularnewline
-    UC17.2    & RF28\par RF29 \tabularnewline
-    UC17.2.1    & RF28 \tabularnewline
-    UC17.2.2    & RF29 \tabularnewline
-    UC18   & RF30 \tabularnewline
-    UC19   & RF31\par RF32 \tabularnewline
-    UC19.1    & RF31 \tabularnewline
-    UC19.2    & RF32 \tabularnewline
-    VE 2024-12-19  & RF33 \tabularnewline
+    UC12.2    & RF20 \tabularnewline
+    UC13    & RF21 \tabularnewline
+    UC14   & RF22 \tabularnewline
+    UC15    & RF23 \tabularnewline
+    UC15.1    & R23 \tabularnewline
+    UC15.2    & RF23 \tabularnewline
+    UC16    & RF24\par RF25\par RF26 \tabularnewline
+    UC16.1    & RF24 \tabularnewline
+    UC16.2    & RF25 \tabularnewline
+    UC16.3    & RF26 \tabularnewline
+    UC17    & RF27\par RF28\par RF29\par RF30 \tabularnewline
+    UC17.1    & RF27\par RF28 \tabularnewline
+    UC17.1.1    & RF27 \tabularnewline
+    UC17.1.2    & RF28 \tabularnewline
+    UC17.2    & RF29\par RF30 \tabularnewline
+    UC17.2.1    & RF29 \tabularnewline
+    UC17.2.2    & RF30 \tabularnewline
+    UC18   & RF31 \tabularnewline
+    UC19   & RF32\par RF33 \tabularnewline
+    UC19.1    & RF32 \tabularnewline
+    UC19.2    & RF33 \tabularnewline
+    VE 2024-12-19  & RF34 \tabularnewline
 
     }
 
@@ -307,21 +305,22 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
     RF16 & UC9 \tabularnewline
     RF17 & UC10 \tabularnewline
     RF18 & UC11\tabularnewline
-    RF19 & UC12\par UC12.1\par UC12.2 \tabularnewline
-    RF20 & UC13 \tabularnewline
-    RF21 & UC14 \tabularnewline
-    RF22 & UC15\par UC15.1\par UC15.2 \tabularnewline
-    RF23 & UC16\par UC16.1 \tabularnewline
-    RF24 & UC16\par UC16.2 \tabularnewline
-    RF25 & UC16\par UC16.3 \tabularnewline
-    RF26 & UC17\par UC17.1\par UC17.1.1 \tabularnewline
-    RF27 & UC17\par UC17.1\par UC17.1.2 \tabularnewline
-    RF28 & UC17\par UC17.2\par UC17.2.1 \tabularnewline
-    RF29 & UC17\par UC17.2\par UC17.2.2 \tabularnewline
-    RF30 & UC18 \tabularnewline
-    RF31 & UC19\par UC19.1 \tabularnewline
-    RF32 & UC19\par UC19.2 \tabularnewline
-    RF33 & VE 2024-12-19  \tabularnewline
+    RF19 & UC12\par UC12.1\tabularnewline
+    RF20 & UC12\par UC12.2 \tabularnewline
+    RF21 & UC13 \tabularnewline
+    RF22 & UC14 \tabularnewline
+    RF23 & UC15\par UC15.1\par UC15.2 \tabularnewline
+    RF24 & UC16\par UC16.1 \tabularnewline
+    RF25 & UC16\par UC16.2 \tabularnewline
+    RF26 & UC16\par UC16.3 \tabularnewline
+    RF27 & UC17\par UC17.1\par UC17.1.1 \tabularnewline
+    RF28 & UC17\par UC17.1\par UC17.1.2 \tabularnewline
+    RF29 & UC17\par UC17.2\par UC17.2.1 \tabularnewline
+    RF30 & UC17\par UC17.2\par UC17.2.2 \tabularnewline
+    RF31 & UC18 \tabularnewline
+    RF32 & UC19\par UC19.1 \tabularnewline
+    RF33 & UC19\par UC19.2 \tabularnewline
+    RF34 & VE 2024-12-19  \tabularnewline
 
     RQ1 & Decisione interna\tabularnewline
     RQ2 & Decisione interna\tabularnewline
