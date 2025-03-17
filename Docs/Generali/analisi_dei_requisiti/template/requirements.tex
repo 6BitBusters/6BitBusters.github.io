@@ -1,0 +1,93 @@
+\newcommand{\requirementsTable}[1]{
+
+\renewcommand{\arraystretch}{1.5}
+\rowcolors{2}{pari}{dispari}
+\begin{longtable}{ %0.87
+		>{\centering}M{0.15\textwidth} 
+		>{\centering}M{0.5\textwidth}
+		>{\centering}M{0.20\textwidth}
+		>{\centering\arraybackslash}M{0.15\textwidth} 
+		 }
+	\rowcolorhead
+	\headertitle{Requisito} &
+	\centering \headertitle{Descrizione} &	
+	\headertitle{Classificazione} &
+	\headertitle{Fonte}
+	\endfirsthead	
+	\endhead
+	
+	#1
+
+\end{longtable}
+\vspace{2em}
+
+}
+
+\newcommand{\SrcToReqTable}[1]{
+
+\renewcommand{\arraystretch}{1.5}
+\rowcolors{2}{pari}{dispari}
+\begin{longtable}{ %0.87
+		>{\centering}M{0.5\textwidth} 
+		>{\centering\arraybackslash}M{0.20\textwidth} 
+		 }
+	\rowcolorhead
+	\headertitle{Fonte} &
+	\centering\headertitle{Requisito}
+	\endfirsthead	
+	\endhead
+	
+	#1
+
+\end{longtable}
+\vspace{2em}
+
+}
+
+\newcommand{\ReqToUCTable}[1]{
+
+\renewcommand{\arraystretch}{1.5}
+\rowcolors{2}{pari}{dispari}
+\begin{longtable}{ %0.87
+		>{\centering}M{0.5\textwidth} 
+		>{\centering\arraybackslash}M{0.20\textwidth} 
+		 }
+	\rowcolorhead
+	\headertitle{Requisito} &
+	\centering\headertitle{Fonte}
+	\endfirsthead	
+	\endhead
+	
+	#1
+
+\end{longtable}
+\vspace{2em}
+
+}
+
+\newcommand{\requirementsSummaryTable}[1]{
+
+\renewcommand{\arraystretch}{1.5}
+\rowcolors{2}{pari}{dispari}
+\begin{longtable}{ %0.87
+		>{\centering}M{0.3\textwidth} 
+		>{\centering}M{0.15\textwidth}
+		>{\centering}M{0.15\textwidth}
+		>{\centering}M{0.15\textwidth}
+		>{\centering\arraybackslash}M{0.15\textwidth} 
+		 }
+	\rowcolorhead
+	\headertitle{Tipologia} &
+	\centering \headertitle{Obbligatorio} &	
+	\headertitle{Desiderabile} &
+	\headertitle{Opzionale} &
+	\headertitle{Totale}
+	\endfirsthead	
+	\endhead
+	
+	#1
+
+\end{longtable}
+\vspace{2em}
+
+}

@@ -1,0 +1,417 @@
+\newcounter{M}
+
+\newcommand{\MPC}[2]{
+    \refstepcounter{M}
+    \subsubsection{MPC\arabic{M} - #1}\label{M:#2}
+    }
+\newcommand{\MPD}[2]{
+    \refstepcounter{M}
+    \subsubsection{MPD\arabic{M} - #1}\label{M:#2}
+}
+\GetTitleStringSetup{expand}
+\section{Metriche di qualità}
+\subsection{Introduzione}
+Le metriche di qualità sono strumenti fondamentali per
+valutare e migliorare l’efficacia e l’efficienza nello sviluppo del prodotto software. Queste metriche
+forniscono indicatori oggettivi e misurabili che consentono di valutare la conformità agli
+standard, identificare aree di miglioramento e monitorare la salute complessiva del processo
+di sviluppo.
+\subsection*{Codifica}
+\begin{center}
+    \textbf{M[Tipologia][Id numerico]}
+\end{center}
+dove:
+\begin{itemize}
+    \item \textbf{Tipologia}: indica il tipo della metrica:
+    \begin{itemize}
+        \item \textbf{PC}: per il processo;
+        \item \textbf{PD}: per il prodotto.
+    \end{itemize}
+    \item \textbf{Id numerico}: indica un numero univoco incrementale separato per le due tipologie.
+\end{itemize}
+
+
+\subsection{Metriche per la qualità di processo}
+Di seguito sono descritte le metriche di qualità di processo che il gruppo intende adottare.
+\MPC{Planned Value (PV)}{PV}
+Costo pianificato (in \euro) per realizzare le attività di progetto alla data corrente.
+\begin{itemize}
+    \item \textbf{Formula}: $PV = BAC * \frac{PH}{THP}$
+    \item \textbf{Valore accettabile}: $\geq0$ \euro
+    \item \textbf{Valore ottimale}: $\leq$ BAC
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{BAC}: il budget totale preventivato;
+    \item \textbf{PH}: ore di lavoro pianificate;
+    \item \textbf{THP}: ore di lavoro pianificate totali.
+\end{itemize}
+
+\MPC{Actual Cost (AC)}{AC}
+Costo effettivamente sostenuto (in \euro) alla data corrente. 
+\begin{itemize}
+    \item \textbf{Formula}: $AC = \sum_{r}^{R}(THR_r*HC_r)$
+    \item \textbf{Valore accettabile}: $\geq0$ \euro
+    \item \textbf{Valore ottimale}: $\leq$ EaC (Estimated at Completion)
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{R}: insieme dei ruoli;
+    \item \textbf{THR}: ore di lavoro effettive per ruolo;
+    \item \textbf{HC}: costo fisso ad ora per il determinato ruolo.
+\end{itemize}
+
+\MPC{Earned Value (EV)}{EV}
+Valore (in \euro) delle attività realizzate nel progetto fino alla data corrente. 
+\begin{itemize}
+    \item \textbf{Formula}: $EV=BAC*\frac{EH}{THP}$
+    \item \textbf{Valore accettabile}: $\geq0$ \euro
+    \item \textbf{Valore ottimale}: $\leq$ EaC
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{BAC} : il budget totale preventivato;
+    \item \textbf{EH}: ore di lavoro effettive;
+    \item \textbf{THP}: ore di lavoro pianificate totali.
+\end{itemize}
+
+\MPC{Estimated at Completion (EaC)}{EAC}
+Revisione del costo (in \euro) stimato per la realizzazione del progetto alla data corrente. 
+\begin{itemize}
+    \item \textbf{Formula}:$EaC = AC+EtC$
+    \item \textbf{Valore accettabile}: $\geq BAC - 5\%$
+    \item \textbf{Valore accettabile}: $\leq  BAC + 5\%$
+    \item \textbf{Valore ottimale}: BAC
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{AC}: Actual Cost;
+    \item \textbf{EtC}: Estimated to Complete.
+\end{itemize}
+
+
+\MPC{Estimate to Complete (EtC)}{ETC}
+Valore (in \euro) stimato per la realizzazione delle rimanenti attività necessarie al completamento del progetto. 
+\begin{itemize}
+    \item \textbf{Formula}: $EtC=BAC-EV$
+    \item \textbf{Valore accettabile}: $\geq0$ \euro
+    \item \textbf{Valore ottimale}: $\leq$ EaC
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{BAC}: il budget totale preventivato;
+    \item \textbf{EV}: Earned Value.
+\end{itemize}
+
+\MPC{Cost Variance (CV)}{CV}
+Valore che indica se del costo realmente maturato è maggiore, uguale o minore rispetto al costo effettivo.
+Se CV $>$ 0 , il progetto è più efficiente (costo inferiore rispetto a quanto pianificato); 
+se CV $<$ 0 , il progetto è meno efficiente (costo superiore rispetto a quanto pianificato). 
+Se CV = 0 , il progetto rispetta esattamente il costo pianificato.
+\begin{itemize}
+    \item \textbf{Formula}: $CV=EV-AC$
+    \item \textbf{Valore accettabile}: $\geq0$ \euro
+    \item \textbf{Valore ottimale}: $\geq0$ \euro
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{AC} : Actual Cost;
+    \item \textbf{EV}: Earned Value.
+\end{itemize}
+
+\MPC{Schedule Variance (SV)}{SV}
+Percentuale che indica se si è in linea, in anticipo o in ritardo rispetto alla schedulazione delle attività di progetto pianificate nella baseline. 
+Se SV $>$ 0 significa che il progetto sta producendo con maggior velocità a quanto pianificato, viceversa se negativo. 
+\begin{itemize}
+    \item \textbf{Formula}: $SV=\frac{EV-PV}{PV}*100$
+    \item \textbf{Valore accettabile}: $\geq-10\%$
+    \item \textbf{Valore ottimale}: $\geq0\%$
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{EV}: Earned Value;
+    \item \textbf{PV}: Planned Value.
+\end{itemize}
+
+\MPC{Budget Variance (BV)}{BV}
+Percentuale che indica se alla data corrente si è speso di più o di meno rispetto a quanto previsto a budget alla data corrente. 
+Se BV $>$ 0 significa che il progetto sta spendendo il proprio budget con maggior velocità di quanto pianificato, viceversa se negativo.
+\begin{itemize}
+    \item \textbf{Formula}: $BV=\frac{PV-AC}{PV}*100$
+    \item \textbf{Valore accettabile}: $-10\%\leq BV \leq 10\%$
+    \item \textbf{Valore ottimale}: $0\%$
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{AC} : Actual Cost;
+    \item \textbf{PV}: Planned Value.
+\end{itemize}
+
+\MPC{Requirements Stability Index (RSI)}{RSI}
+Indice che traccia la variazione dei requisiti dell'arco del progetto
+\begin{itemize}
+    \item \textbf{Formula}: $RSI = (1 - \frac{CRN+DRN+ARN}{IR})*100$
+    \item \textbf{Valore accettabile}: $\geq70\%$
+    \item \textbf{Valore ottimale}: $100\%$
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{CRN} : numero di requisiti cambiati;
+    \item \textbf{DRN}: numero di requisiti eliminati;
+    \item \textbf{ARN}: numero di requisiti aggiunti;
+    \item \textbf{IR}: numero totale di requisiti iniziali.
+\end{itemize}
+
+\MPC{Completezza dei documenti}{DOCC}
+Percentuale che indica lo stato di completezza di un documento
+\begin{itemize}
+    \item \textbf{Formula}: $CD=\frac{SS}{TS}*100$
+    \item \textbf{Valore accettabile}: $100\%$
+    \item \textbf{Valore ottimale}: $100\%$
+\end{itemize} 
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{SS}: sezioni del documento redatte;
+    \item \textbf{TS}: sezioni del documento da redigere.
+\end{itemize} 
+
+
+\MPC{Metriche soddisfatte}{MM}
+Indice percentuale per tenere conto delle metriche soddisfatte. Una
+metrica si dice soddisfatta se raggiunge almeno il valore accettabile imposto sul \textit{Piano di Qualifica}.
+\begin{itemize}
+    \item \textbf{Formula}: $MS = \frac{MS}{TM}*100$
+    \item \textbf{Valore accettabile}:$\geq80\%$
+    \item \textbf{Valore ottimale}:$100\%$
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{MS} : numero di metriche soddisfatte;
+    \item \textbf{TM}: numero di metriche valutate.
+\end{itemize}
+
+\MPC{Code Coverage}{COC}
+Percentuale che indica quanta porzione di codice sorgente è stata eseguita tramite test.
+\begin{itemize}
+    \item \textbf{Valore accettabile}:$\geq75\%$
+    \item \textbf{Valore ottimale}:$\geq90\%$
+\end{itemize} 
+
+\MPC{Statement Coverage (SC)}{SC} 
+Percentuale che indica quante istruzioni del codice che sono state eseguite tramite test.
+\begin{itemize}
+    \item \textbf{Formula}: $SC = \frac{ES}{TS}*100$
+    \item \textbf{Valore accettabile}: $\geq80\%$
+    \item \textbf{Valore ottimale}: $100\%$
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{ES} : numero di linee eseguite;
+    \item \textbf{TS}: numero di linee totali.
+\end{itemize}
+
+\MPC{Branch Coverage (BC)}{BC} 
+Percentuale che indica i rami di decisione nel codice che sono stati eseguiti tramite test.
+\begin{itemize}
+    \item \textbf{Formula}: $BC = \frac{EB}{TB}*100$
+    \item \textbf{Valore accettabile}: $\geq80\%$
+    \item \textbf{Valore ottimale}: $100\%$
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{EB} : numero di rami eseguiti;
+    \item \textbf{TB}: numero di rami totali.
+\end{itemize}
+
+\MPC{Rischi non previsti}{UR}
+Valore intero che indica il numero di rischi non previsti durante il corso del progetto.
+\begin{itemize}
+    \item \textbf{Valore accettabile}: $\leq5$
+    \item \textbf{Valore ottimale}: $0$
+\end{itemize}  
+
+
+\pagebreak
+\setcounter{M}{0}
+\subsection{Metriche per la qualità di prodotto}
+Di seguito sono descritte le metriche di qualità di prodotto che il gruppo intende adottare.
+
+\MPD{Indice di Gulpease}{GI}
+Indice di leggibilità di un testo tarato sulla lingua italiana. I risultati sono compresi tra 0 e
+100, dove il valore 100 indica la leggibilità più alta e 0 la leggibilità più bassa. Ai seguenti valori si
+associano i seguenti significati:
+\begin{itemize}
+    \item inferiore a 80 sono difficili da leggere per chi ha la licenza elementare;
+    \item inferiore a 60 sono difficili da leggere per chi ha la licenza media;
+    \item inferiore a 40 sono difficili da leggere per chi ha un diploma superiore.
+\end{itemize}
+\begin{itemize}
+    \item \textbf{Formula}: $GI=89+\frac{300*PN-10*LN}{WN}$
+    \item \textbf{Valore accettabile} $\geq50$
+    \item \textbf{Valore ottimale}: $\geq80$
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{PN} : numero di frasi;
+    \item \textbf{LN}: numero di lettere;
+    \item \textbf{WN}: numero di parole.
+\end{itemize}
+
+\MPD{Errori grammaticali}{GE}
+Numero di errori grammaticali presenti nei documenti.
+\begin{itemize}
+    \item \textbf{Valore accettabile} $0$
+    \item \textbf{Valore ottimale}: $0$
+\end{itemize}  
+
+\MPD{Requisiti obbligatori soddisfatti}{MR}
+Percentuale che indica i requisiti obbligatori soddisfatti.
+\begin{itemize}
+    \item \textbf{Formula}: $CMR=\frac{MR}{TMR}*100$
+    \item \textbf{Valore accettabile}: 100\%
+    \item \textbf{Valore ottimale}: 100\%
+\end{itemize}
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{MR} : numero di requisiti obbligatori soddisfatti;
+    \item \textbf{TMR}: numero di requisiti obbligatori in totale.
+\end{itemize} 
+
+\MPD{Requisiti desiderabili soddisfatti}{DR}
+Percentuale che indica i requisiti desiderabili soddisfatti.
+\begin{itemize}
+    \item \textbf{Formula}: $CDR=\frac{DR}{TDR}*100$
+    \item \textbf{Valore accettabile}: $\geq0\%$
+    \item \textbf{Valore ottimale}: $100\%$
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{DR} : numero di requisiti desiderabili soddisfatti;
+    \item \textbf{TDR}: numero di requisiti desiderabili in totale.
+\end{itemize} 
+
+
+\MPD{Requisiti opzionali soddisfatti}{OR}
+Percentuale che indica i requisiti opzionali soddisfatti.
+\begin{itemize}
+    \item \textbf{Formula}: $COR=\frac{OR}{TOR}*100$
+    \item \textbf{Valore accettabile}: $\geq0\%$
+    \item \textbf{Valore ottimale}: $100\%$
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{OR} : numero di requisiti opzionali soddisfatti;
+    \item \textbf{TOR}: numero di requisiti opzionali in totale.
+\end{itemize} 
+
+\MPD{Casi di test superati}{PTC}
+Percentuale che indica i test che terminano con esisto positivo.
+\begin{itemize}
+    \item \textbf{Formula}: $CTS=\frac{PTC}{TTC}*100$
+    \item \textbf{Valore accettabile}: $\geq90\%$
+    \item \textbf{Valore ottimale}: $100\%$
+\end{itemize}
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{PTC} : numero di test superati;
+    \item \textbf{TTC}: numero di test in totale.
+\end{itemize} 
+
+\MPD{Densità errori}{FD}
+Percentuale di failure o di esecuzioni non andate a buon fine di determinate azioni. Le
+eventuali esecuzioni fallite o failure saranno segnate dai programmatori e di conseguenza verrà calcolato
+il valore della metrica.
+\begin{itemize}
+    \item \textbf{Formula}: $FD=\frac{FTN}{TN}*100$
+    \item \textbf{Valore accettabile}: 20\%
+    \item \textbf{Valore ottimale}: 10\%
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{FTN} : numero di test falliti;
+    \item \textbf{TN}: numero di test eseguiti in totale.
+\end{itemize}
+
+\MPD{Tempo di apprendimento}{EOL}
+Misura basata sul tempo che rappresenta quando, in media, un'utente ci impiega per imparare come si utilizza il programma.
+\begin{itemize}
+    \item \textbf{Valore accettabile}: $\leq$ 5 minuti
+    \item \textbf{Valore ottimale}: $\leq$ 2 minuti
+\end{itemize}  
+
+\MPD{Tempo di caricamento}{LT}
+Tempo medio di attesa per il caricamento dell'applicazione.
+\begin{itemize}
+    \item \textbf{Valore accettabile}:$\leq15$ secondi
+    \item \textbf{Valore ottimale}:$\leq10$ secondi
+\end{itemize} 
+
+\MPD{Tempo medio di risposta}{ART}
+Tempo medio impiegato dal software per rispondere a una richiesta utente o svolgere un’attività di sistema. 
+\begin{itemize}
+    \item \textbf{Valore accettabile}:$\leq5$ secondi
+    \item \textbf{Valore ottimale}:$\leq1$ secondi
+\end{itemize}  
+
+\MPD{Complessità ciclomatica}{CYC}
+Metrica utilizzata per misurare la complessità di un singolo metodo. Calcolata sul grafo dei cammini linearmente indipendenti percorsi dal software ed i punti decisionali del programma.
+\begin{itemize}
+    \item \textbf{Formula}: $CC=v(G)=e-n+2p$
+    \item \textbf{Valore accettabile}: $\leq8$
+    \item \textbf{Valore ottimale}: $\leq4$
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{e}: numero di archi nel grafo;
+    \item \textbf{n}: numero di punti decisionali (nodi) nel grafo;
+    \item \textbf{p}: numero di componenti connesse tra loro;
+    \item \textbf{G}: grafo dei cammini.
+\end{itemize}
+
+\MPD{Parametri per metodo}{PPM}
+Valore che indica quanti parametri può avere un metodo all'interno del codice sorgente.
+\begin{itemize}
+    \item \textbf{Valore accettabile}: $\leq6$
+    \item \textbf{Valore ottimale}: $\leq4$
+\end{itemize} 
+
+\MPD{Linee di codice per metodo}{LPM}
+Valore che indica da quante linee di codice può essere composto un metodo all'interno del codice sorgente.
+\begin{itemize}
+    \item \textbf{Valore accettabile}: $\leq30$
+    \item \textbf{Valore ottimale}: $\leq20$
+\end{itemize} 
+
+\MPD{Linee di codice per file}{LPF}
+Valore che indica da quante linee di codice può essere composto un file nel progetto.
+\begin{itemize}
+    \item \textbf{Valore accettabile}: $\leq120$
+    \item \textbf{Valore ottimale}: $\leq80$
+\end{itemize} 
+
+\MPD{Densità dei commenti}{CD}
+Percentuale delle righe di commento sul totale delle righe di codice presenti in un modulo.
+\begin{itemize}
+    \item \textbf{Formula}: $CD=\frac{CMLN}{CLN}*100$
+    \item \textbf{Valore accettabile}: $20-45\%$
+    \item \textbf{Valore ottimale}: $25-35\%$
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{CMLN}: numero di righe di commento;
+    \item \textbf{CLN}: numero di righe di codice.
+\end{itemize}
+
+\MPD{Supported Browser(SB)}{SB}
+Valore percentuale dei browser e loro relativa versione che supportano dal prodotto software.
+\begin{itemize}
+    \item \textbf{Formula}: $SB=\frac{BN}{TBN}*100$
+    \item \textbf{Valore accettabile}: $\geq80\%$
+    \item \textbf{Valore ottimale}: $100\%$
+\end{itemize}  
+Per eseguire il calcolo:
+\begin{itemize}
+    \item \textbf{BN} : numero di browser in cui il software funziona;
+    \item \textbf{TBN}: numero di browser testati.
+\end{itemize}
+

@@ -1,0 +1,350 @@
+\newcounter{RF1}
+\newcounter{RF2}
+\newcounter{RF3}
+\newcounter{RV1}
+\newcounter{RV2}
+\newcounter{RV3}
+\newcounter{RP1}
+\newcounter{RP2}
+\newcounter{RP3}
+\newcounter{RQ1}
+\newcounter{RQ2}
+\newcounter{RQ3}
+
+\newcounter{RF}
+\newcounter{RV}
+\newcounter{RP}
+\newcounter{RQ}
+
+\newcounter{M}
+\newcounter{D}
+\newcounter{O}
+
+\newcommand{\RFM}{
+    \stepcounter{M}
+    \stepcounter{RF}
+    \stepcounter{RF1}
+    RF\arabic{RF}
+}
+\newcommand{\RFD}{
+    \stepcounter{D}
+    \stepcounter{RF}
+    \stepcounter{RF2}
+    RF\arabic{RF}
+}
+\newcommand{\RFO}{
+    \stepcounter{O}
+    \stepcounter{RF}
+    \stepcounter{RF3}
+    RF\arabic{RF}
+}
+\newcommand{\RVM}{
+    \stepcounter{M}
+    \stepcounter{RV}
+    \stepcounter{RV1}
+    RV\arabic{RV}
+}
+\newcommand{\RVD}{
+    \stepcounter{D}
+    \stepcounter{RV}
+    \stepcounter{RV2}
+    RV\arabic{RV}
+}
+\newcommand{\RVO}{
+    \stepcounter{O}
+    \stepcounter{RV}
+    \stepcounter{RV3}
+    RV\arabic{RV}
+}
+\newcommand{\RPM}{
+    \stepcounter{M}
+    \stepcounter{RP}
+    \stepcounter{RP1}
+    RP\arabic{RP}
+}
+\newcommand{\RPD}{
+    \stepcounter{D}
+    \stepcounter{RP}
+    \stepcounter{RP2}
+    RP\arabic{RP}
+}
+\newcommand{\RPO}{
+    \stepcounter{O}
+    \stepcounter{RP}
+    \stepcounter{RP3}
+    RP\arabic{RP}
+}
+\newcommand{\RQM}{
+    \stepcounter{M}
+    \stepcounter{RQ}
+    \stepcounter{RQ1}
+    RQ\arabic{RQ}
+}
+\newcommand{\RQD}{
+    \stepcounter{D}
+    \stepcounter{RQ}
+    \stepcounter{RQ2}
+    RQ\arabic{RQ}
+}
+\newcommand{\RQO}{
+    \stepcounter{O}
+    \stepcounter{RQ}
+    \stepcounter{RQ3}
+    RQ\arabic{RQ}
+}
+
+
+\input{template/requirements.tex}
+\section{Requisiti}
+\subsection{Introduzione}
+Sono stati definiti dei requisiti codificati in base all’ambito di competenza e ad un numero seriale per
+tenerne meglio traccia. Nelle tabelle sottostanti sono forniti descrizione e classificazione di ciascun
+requisito. 
+Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di progetto}.
+\subsection{Requisiti funzionali}
+\requirementsTable{
+    % VISUALIZZAZIONE DATASET
+    \RFM & L’utente deve poter visualizzare i dataset  & Obbligatorio & UC1 \tabularnewline
+    \RFM & L’utente deve poter visualizzare le informazioni primarie dei dataset  & Obbligatorio & UC1.1\par UC1.1.1\par UC1.1.2 \tabularnewline
+    \RFM & L’utente deve poter visualizzare i dettagli dei dataset  & Obbligatorio  & UC2\par UC2.1 \tabularnewline
+
+    % CARICAMENTO DATASET
+    \RFM & L’utente deve poter caricare il dataset &  Obbligatorio &UC3\tabularnewline
+    \RFM & L’utente deve ricevere un errore se il caricamento di un dataset fallisce  & Obbligatorio& UC4\tabularnewline
+
+    % VISUALIZZAZIONE DEI DATI IN TABELLA
+    \RFM & L’utente deve poter visualizzare i dati del dataset selezionato in forma tabellare & Obbligatorio   & UC5\tabularnewline
+    \RFM & L’utente deve poter visualizzare le intestazioni della tabella  & Obbligatorio  & UC5.1 \tabularnewline
+    \RFM & L’utente deve poter visualizzare il valore del dato in una cella della tabella  & Obbligatorio  & UC5.2 \tabularnewline
+    
+    % VISUALIZZAZIONE DEI DATI SUL GRAFICO
+    \RFM & L’utente deve poter visualizzare i dati del dataset selezionato in forma di grafico tridimensionale a barre verticali  & Obbligatorio  &  UC6\tabularnewline
+    \RFM & L’utente deve poter visualizzare gli assi del grafico tridimensionale  & Obbligatorio   &  UC6.1\tabularnewline
+    \RFM & L’utente deve poter visualizzare l'asse X del grafico tridimensionale   & Obbligatorio  & UC6.1.1 \tabularnewline
+    \RFM & L’utente deve poter visualizzare l'asse Y del grafico tridimensionale   & Obbligatorio  & UC6.1.2 \tabularnewline
+    \RFM & L’utente deve poter visualizzare l'asse Z del grafico tridimensionale   & Obbligatorio  & UC6.1.3 \tabularnewline
+
+    
+    % TELECAMERA
+    \RFM & L’utente deve poter muovere la telecamera orizzontalmente & Obbligatorio  &  UC7\tabularnewline
+    \RFM & L’utente deve poter muovere la telecamera verticalmente  & Obbligatorio &  UC8\tabularnewline
+    
+    % TELECAMERA
+    \RFM & L’utente deve poter ruotare il grafico attorno all'asse X   & Obbligatorio & UC9\tabularnewline
+    \RFM & L’utente deve poter ruotare il grafico attorno all'asse Y  & Obbligatorio  & UC10\tabularnewline
+    \RFM & L’utente deve poter ruotare il grafico attorno all'asse Z   & Obbligatorio & UC11\tabularnewline
+    
+    %ZOOM
+    \RFM & L’utente deve poter eseguire un’azione di zoom indipendentemente dalla posizione della telecamera & Obbligatorio & UC12\tabularnewline
+
+    %RIPOSIONNAMENTO
+    \RFM & L’utente deve poter riposizionare la telecamera alla sua posizione iniziale  & Obbligatorio  & UC13\tabularnewline
+
+    %VISUALIZZAZIONE PRIMO PIANO
+    \RFM & L’utente deve poter visualizzare una singola barra del grafico in primo piano  & Obbligatorio & UC14\tabularnewline
+
+    %VISUALIZZAZIONE DETTAGLI
+    \RFM & L’utente deve poter visualizzare i dettagli di una barra del grafico  & Obbligatorio & UC15\par UC15.1\par UC15.2\tabularnewline
+
+    %FILTRI
+    \RFM & L’utente deve poter filtrare un numero N dei valori più alti & Obbligatorio & UC16\par UC16.1\tabularnewline
+    \RFM & L’utente deve poter filtrare un numero N dei valori più bassi & Obbligatorio & UC16\par UC16.2\tabularnewline
+    \RFM & L’utente deve poter inserire un numero per effettuare un filtraggio & Obbligatorio & UC16\par UC16.3\tabularnewline
+    \RFM & L’utente deve poter filtrare i valori inferiori o uguali rispetto a un valore del grafico & Obbligatorio & UC17\par UC17.1\par UC17.1.1\tabularnewline
+    \RFM & L’utente deve poter filtrare i valori inferiori o uguali rispetto al valor medio globale & Obbligatorio & UC17\par UC17.1\par UC17.1.2\tabularnewline
+    \RFM & L’utente deve poter filtrare i valori superiori o uguali rispetto a un valore del grafico & Obbligatorio & UC17\par UC17.2\par UC17.2.1\tabularnewline
+    \RFM & L’utente deve poter filtrare i valori superiori o uguali rispetto al valor medio globale & Obbligatorio & UC17\par UC17.2\par UC17.2.2\tabularnewline
+
+    %RESET
+    \RFM & L’utente deve poter ripristinare lo stato del grafico
+    rispetto ai precedenti filtri applicati   & Obbligatorio & UC18\tabularnewline
+
+    %VALOR MEDIO
+    \RFM & L’utente deve poter visualizzare un piano parallelo alla base che rappresenti il valor medio globale & Obbligatorio & UC19\par UC19.1\tabularnewline
+    \RFD & L’utente deve poter visualizzare un piano parallelo alla base che rappresenti la media dei valori relativi a un etichetta & Desiderabile & UC19\par UC19.2\tabularnewline
+
+    %COLORE
+    \RFO & Le barre del grafico 3D devono avere una colorazione appropriata che renda i relativi valori facilmente e velocemente comprensibili  & Opzionale & VE 2024-12-19 \tabularnewline
+
+    }
+
+   
+\subsection{Requisiti qualitativi}
+    
+\requirementsTable{
+    \RQM & Il software deve essere sviluppato seguendo le metriche e il modello di qualità descritti nel documento \textit{Norme di progetto}  & Obbligatorio  & Decisione interna \tabularnewline
+    \RQM & Il software deve essere sviluppato pubblicando il codice sorgente nel repository Github dedicato  & Obbligatorio  & Decisione interna \tabularnewline
+    \RQM & Il software deve essere sviluppato in modo tale da supportare grandi volumi di dati   & Obbligatorio & Capitolato \tabularnewline
+    \RQM & L'architettura del software deve permettere, con agilità, di aggiungere nuove funzionalità e possibilità di iterazione con il grafico   & Obbligatorio  & Capitolato \tabularnewline
+    \RQM & La suite di test deve essere robusta per garantire quanto specificato nel RQ4  & Obbligatorio  & Capitolato \tabularnewline
+    \RQD & Il software deve essere testato attraverso test di tipo e2e  & Desiderabile  & Capitolato \tabularnewline  
+}
+ \pagebreak
+\subsection{Requisiti di vincolo}
+\requirementsTable{
+    \RVM & Il software deve essere sviluppato utilizzando Typescript come linguaggio di programmazione primario  & Obbligatorio  & Decisione interna \tabularnewline
+    \RVM & Il software deve essere sviluppato utilizzando la libreria React per la creazione di un'interfaccia visiva semplice  & Obbligatorio  & Decisione interna \tabularnewline
+    \RVM & Il software deve essere sviluppato utilizzando la libreria Three.js   & Obbligatorio & Decisione interna \tabularnewline
+    \RVM & Il software deve essere compatibile dalla versione 131 del browser Chrome  & Obbligatorio & Decisione interna \tabularnewline
+    \RVM & Il software deve essere compatibile dalla versione 133 del browser Firefox  & Obbligatorio & Decisione interna \tabularnewline
+    \RVM & Il software deve essere compatibile dalla versione 115 del browser Opera  & Obbligatorio & Decisione interna \tabularnewline
+    \RVM & Il software deve essere compatibile dalla versione 131 del browser Microsoft Edge  & Obbligatorio & Decisione interna \tabularnewline
+    }
+\newpage
+
+\subsection{Requisiti prestazionali}
+\requirementsTable{
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 100000 non deve avere un tempo di caricamento superiore a 2 secondi  & Obbligatorio & Decisione interna \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 500000 non deve avere un tempo di caricamento superiore a 5 secondi  & Obbligatorio & Decisione interna \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 1000000 non deve avere un tempo di caricamento superiore a 8 secondi  & Obbligatorio & Decisione interna \tabularnewline
+    \RPD & Il software quando carica un dataset di dimensioni maggiori a 1000000 non deve avere un tempo di caricamento superiore a 15 secondi  & Desiderabile & Decisione interna \tabularnewline
+    \RPM & Il software non deve avere un tempo di risposta superiore a 5 secondi & Obbligatorio & Decisione interna \tabularnewline
+}
+
+
+\subsection{Tracciamento requisiti}
+
+\subsubsection{Fonte - Requisiti}
+\SrcToReqTable{
+    Capitolato & RQ3\par RQ4\par RQ5\par RQ6\par RV8 \tabularnewline
+    Decisione interna & RQ1\par
+                        RQ2\par 
+                        RV1\par 
+                        RV2\par 
+                        RV3\par 
+                        RV4\par
+                        RV5\par
+                        RV6\par
+                        RV7\par
+                        RP1\par
+                        RP2\par
+                        RP3\par
+                        RP4\par
+                        RP5\par
+                        \tabularnewline
+    UC1    & RF1 \tabularnewline
+    UC1.1    & RF2 \tabularnewline
+    UC1.1.1    & RF2 \tabularnewline
+    UC1.1.2    & RF2 \tabularnewline
+    UC2    & RF3 \tabularnewline
+    UC2.1    & RF3 \tabularnewline
+    UC3    & RF4 \tabularnewline
+    UC4   & RF5 \tabularnewline
+    UC5    & RF6 \tabularnewline
+    UC5.1    & RF7 \tabularnewline
+    UC5.2    & RF8 \tabularnewline
+    UC6    & RF9 \tabularnewline
+    UC6.1    & RF10 \tabularnewline
+    UC6.1.1    & RF11 \tabularnewline
+    UC6.1.2    & RF12 \tabularnewline
+    UC6.1.3    & RF13 \tabularnewline
+    UC7    & RF14 \tabularnewline
+    UC8   & RF15 \tabularnewline
+    UC9    & RF16 \tabularnewline
+    UC10    & RF17 \tabularnewline
+    UC11   & RF18 \tabularnewline
+    UC12    & RF19 \tabularnewline
+    UC13    & RF20 \tabularnewline
+    UC14   & RF21 \tabularnewline
+    UC15    & RF22 \tabularnewline
+    UC15.1    & R22 \tabularnewline
+    UC15.2    & RF22 \tabularnewline
+    UC16    & RF23\par RF24\par RF25 \tabularnewline
+    UC16.1    & RF23 \tabularnewline
+    UC16.2    & RF24 \tabularnewline
+    UC16.3    & RF25 \tabularnewline
+    UC17    & RF26\par RF27\par RF28\par RF29 \tabularnewline
+    UC17.1    & RF26\par RF27 \tabularnewline
+    UC17.1.1    & RF26 \tabularnewline
+    UC17.1.2    & RF27 \tabularnewline
+    UC17.2    & RF28\par RF29 \tabularnewline
+    UC17.2.1    & RF28 \tabularnewline
+    UC17.2.2    & RF29 \tabularnewline
+    UC18   & RF30 \tabularnewline
+    UC19   & RF31\par RF32 \tabularnewline
+    UC19.1    & RF31 \tabularnewline
+    UC19.2    & RF32 \tabularnewline
+    VE 2024-12-19  & RF33 \tabularnewline
+
+    }
+
+\subsubsection{Requisiti - Fonti}
+\ReqToUCTable{
+
+    RF1 & UC1 \tabularnewline
+    RF2 & UC1.1\par UC1.1.1\par UC1.1.2\tabularnewline
+    RF3 & UC2\par UC2.1 \tabularnewline
+    RF4 & UC3 \tabularnewline
+    RF5 & UC4 \tabularnewline
+    RF6 & UC5 \tabularnewline
+    RF7 & UC5.1 \tabularnewline
+    RF8 & UC5.2 \tabularnewline
+    RF9 & UC6 \tabularnewline
+    RF10 & UC6.1 \tabularnewline
+    RF11 & UC6.1.1 \tabularnewline
+    RF12 & UC6.1.2 \tabularnewline
+    RF13 & UC6.1.3 \tabularnewline
+    RF14 & UC7 \tabularnewline
+    RF15 & UC8 \tabularnewline
+    RF16 & UC9 \tabularnewline
+    RF17 & UC10 \tabularnewline
+    RF18 & UC11\tabularnewline
+    RF19 & UC12 \tabularnewline
+    RF20 & UC13 \tabularnewline
+    RF21 & UC14 \tabularnewline
+    RF22 & UC15\par UC15.1\par UC15.2 \tabularnewline
+    RF23 & UC16\par UC16.1 \tabularnewline
+    RF24 & UC16\par UC16.2 \tabularnewline
+    RF25 & UC16\par UC16.3 \tabularnewline
+    RF26 & UC17\par UC17.1\par UC17.1.1 \tabularnewline
+    RF27 & UC17\par UC17.1\par UC17.1.2 \tabularnewline
+    RF28 & UC17\par UC17.2\par UC17.2.1 \tabularnewline
+    RF29 & UC17\par UC17.2\par UC17.2.2 \tabularnewline
+    RF30 & UC18 \tabularnewline
+    RF31 & UC19\par UC19.1 \tabularnewline
+    RF32 & UC19\par UC19.2 \tabularnewline
+    RF33 & VE 2024-12-19  \tabularnewline
+
+    RQ1 & Decisione interna\tabularnewline
+    RQ2 & Decisione interna\tabularnewline
+    RQ3 & Capitolato\tabularnewline
+    RQ4 & Capitolato\tabularnewline
+    RQ5 & Capitolato\tabularnewline
+    RQ6 & Capitolato\tabularnewline
+
+    RV1 & Decisione interna\tabularnewline
+    RV2 & Decisione interna\tabularnewline
+    RV3 & Decisione interna\tabularnewline
+    RV4 & Decisione interna\tabularnewline
+    RV5 & Decisione interna\tabularnewline
+    RV6 & Decisione interna\tabularnewline
+    RV7 & Decisione interna\tabularnewline
+    RV7 & Capitolato\tabularnewline
+
+    RP1 & Decisione interna\tabularnewline
+    RP2 & Decisione interna\tabularnewline
+    RP3 & Decisione interna\tabularnewline
+    RP4 & Decisione interna\tabularnewline
+    RP5 & Decisione interna\tabularnewline
+
+}
+
+\newcounter{T}
+
+\addtocounter{T}{\value{M}}
+\addtocounter{T}{\value{D}}
+\addtocounter{T}{\value{O}}
+
+
+
+\subsubsection{Riepilogo requisiti}
+\requirementsSummaryTable{
+    Funzionale & \arabic{RF1} & \arabic{RF2} & \arabic{RF3} & \arabic{RF} \tabularnewline
+    Di qualità & \arabic{RQ1} & \arabic{RQ2} & \arabic{RQ3} & \arabic{RQ} \tabularnewline
+    Di vincolo & \arabic{RV1} & \arabic{RV2} & \arabic{RV3} & \arabic{RV} \tabularnewline
+    Prestazionali & \arabic{RP1} & \arabic{RP2} & \arabic{RP3} & \arabic{RP} \tabularnewline
+    \bottomrule
+    \textbf{Totale requisiti} & \arabic{M} & \arabic{D} & \arabic{O} & \arabic{T}
+    
+}
+

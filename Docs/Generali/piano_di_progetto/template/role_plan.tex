@@ -1,0 +1,28 @@
+
+\newcommand{\roleTable}[1]{
+
+	\renewcommand{\arraystretch}{1.5}
+	\rowcolors{2}{pari}{dispari}
+	\begin{longtable}{ %0.87
+		>{\centering}M{0.20\textwidth}
+		>{\centering}M{0.10\textwidth}
+		>{\centering}M{0.10\textwidth}
+		>{\centering}M{0.10\textwidth}
+		>{\centering\arraybackslash}M{0.15\textwidth}
+		}
+		\rowcolorhead
+		\headertitle{Ruolo}           &
+		\centering
+		\headertitle{Ore ind.}        &
+		\headertitle{Ore tot.}        &
+		\headertitle{Costo (\euro/h)} &
+		\headertitle{Costo Totale (\euro)}
+		\endfirsthead
+		\endhead
+
+		#1
+
+	\end{longtable}
+	\vspace{1em}
+
+}

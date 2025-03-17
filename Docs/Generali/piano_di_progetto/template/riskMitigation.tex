@@ -1,0 +1,20 @@
+\newcommand{\riskMitigation}[1]{%
+    \renewcommand{\arraystretch}{1.5}% Modifica l'altezza delle righe
+    \rowcolors{2}{pari}{dispari}% Alterna i colori delle righe
+    \begin{longtable}{%
+        >{\centering\arraybackslash}m{0.22\textwidth}%
+        >{\centering\arraybackslash}m{0.38\textwidth}%
+        >{\centering\arraybackslash}m{0.38\textwidth}%
+    }%
+        \rowcolorhead
+        \headertitle{Nome} &
+        \headertitle{Descrizione} &
+        \headertitle{Mitigazione} \\
+        \endfirsthead
+        \endhead
+
+        #1 % Contenuto dinamico
+
+    \end{longtable}
+    \vspace{1em}
+}

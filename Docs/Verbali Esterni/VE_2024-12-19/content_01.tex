@@ -24,42 +24,58 @@
     \item Discussione sul PoC, richiesti consigli su come dividersi i compiti all'interno del gruppo e cosa andare a sviluppare.
 \end{itemize}
 
-\section{Resoconto della riunione}
-\subsection{Dettagli dei dataset}
-Dovendo proporre all'utente una lista di dataset tra cui poter scegliere, è stato chiesto al proponente se i dettagli dovessero essere visibili direttamente dalla lista oppure se dovessero essere nascosti e accessibili in un altro modo.\\
-Il proponente ha suggerito che, per migliorare l'usabilità, sarebbe preferibile visualizzare i dettagli principali direttamente nella lista, consentendo all'utente di vederli immediatamente. Per i dettagli più specifici, si potrebbe prevedere un'opzione di espansione della casella relativa al dataset, che permetta di visualizzarli in un secondo momento, con la possibilità di espandere o ridurre la sezione tramite un bottone.
-\subsection{Legenda e colore delle barre}  
-Abbiamo chiesto al proponente se fosse necessario includere una legenda esplicativa per chiarire gli elementi mostrati nel grafico, come i valori degli assi, l'altezza delle barre e il colore delle barre, e, in tal caso, cosa dovrebbe contenere.\\
-Il proponente ha risposto che, essendo il grafico già autoesplicativo grazie alle etichette sugli assi che descrivono i valori corrispondenti, non è necessario implementare una legenda.  
-\\Per quanto riguarda la colorazione delle barre, è emerso che, trattandosi di un requisito opzionale, non è richiesta una colorazione specifica. Tuttavia, se decideremo di implementarla, questa dovrà essere studiata con attenzione e non sarà casuale. I colori dovranno avere lo scopo di facilitare la comprensione del grafico da parte dell'utente, ad esempio, variando in base all'altezza delle barre.\\
-A tal proposito, il proponente ci ha mostrato un esempio di come Excel gestisce la colorazione in base ai valori. In questo esempio, il colore rosso viene utilizzato per rappresentare il valore minimo, mentre il colore si schiarisce progressivamente fino a raggiungere il valore massimo, che è caratterizzato dal colore verde.
-\subsection{Funzione hover sopra le barre}
-È stato chiesto se, quando si passa il puntatore del mouse sopra una barra (funzione hover), debba essere mostrato solo il valore numerico corrispondente o anche le etichette degli assi X e Y.\\
-Per rendere più chiaro ciò che viene visualizzato, ci è stato suggerito di mostrare sia il valore numerico che le etichette corrispondenti agli assi X e Y.
-\subsection{Funzione di filtraggio}
-Una funzionalità richiesta è quella di evidenziare un certo numero di barre all'interno del grafico, opacizzando quelle che non rientrano nella selezione tramite filtraggio. Questo filtraggio dovrà prevedere quattro tipi di selezione:
+\section{Resoconto della Riunione}
+\subsection{Dettagli dei Dataset}
+Per permettere all'utente di scegliere un dataset da una lista, abbiamo chiesto al proponente se i dettagli dovessero essere visibili direttamente nella lista o accessibili in altro modo. \\
+Il proponente ha suggerito di mostrare i dettagli principali direttamente nella lista per migliorare l'usabilità. 
+I dettagli più specifici, invece, potrebbero essere visualizzati solo su richiesta, tramite un'opzione di espansione della casella del dataset. 
+Questa sezione espandibile potrebbe essere gestita con un bottone per espanderla e ridurla.
 
+\subsection{Legenda e Colore delle Barre}
+Abbiamo chiesto al proponente se fosse necessario includere una legenda per chiarire gli elementi del grafico, come i valori degli assi, l'altezza delle barre e il colore delle barre.\\
+Secondo il proponente, il grafico è già autoesplicativo grazie alle etichette sugli assi, quindi una legenda non è necessaria.
+Per quanto riguarda i colori delle barre, si è discusso del fatto che, essendo un requisito opzionale, non è obbligatorio definire una colorazione specifica. 
+Tuttavia, se si decidesse di implementarla, i colori dovrebbero aiutare l'utente a comprendere meglio il grafico. 
+Ad esempio, i colori potrebbero variare in base all'altezza delle barre.
+Il proponente ha mostrato un esempio di Excel in cui i colori cambiano in base ai valori: il minimo è rappresentato dal rosso, e il colore diventa progressivamente più chiaro fino al massimo, indicato dal verde.
+
+\subsection{Funzione Hover sopra le Barre}
+Abbiamo chiesto se, passando il puntatore del mouse sopra una barra (funzione hover), si debba mostrare solo il valore numerico o anche le etichette degli assi X e Y.\\
+Per migliorare la chiarezza, è stato suggerito di mostrare sia il valore numerico sia le etichette degli assi.
+
+\subsection{Funzione di Filtraggio}
+Una funzionalità richiesta prevede di evidenziare alcune barre nel grafico, rendendo opache le altre che non rientrano nella selezione. 
+Il filtraggio dovrà includere quattro tipi di selezione:
 \begin{itemize} 
-    \item Mostrare le barre corrispondenti ai bottom N valori;
-    \item Mostrare le barre corrispondenti ai top N valori;
-    \item Mostrare le barre corrispondenti ai valori inferiori al valore medio globale;
-    \item Mostrare le barre corrispondenti ai valori superiori al valore medio globale. 
+    \item Mostrare le barre dei bottom N valori;
+    \item Mostrare le barre dei top N valori;
+    \item Mostrare le barre dei valori inferiori al valore medio globale;
+    \item Mostrare le barre dei valori superiori al valore medio globale. 
 \end{itemize}
-Abbiamo chiesto se queste funzionalità siano mutuamente esclusive o se possano essere selezionate contemporaneamente. Inoltre, abbiamo chiesto se il piano parallelo alla base relativo al valore medio globale debba essere sempre visibile.\\
-Dalla risposta del proponente è emerso che le funzionalità di filtraggio sono in relazione di esclusività tra loro, quindi ne verrà selezionata solo una alla volta.\\ La visualizzazione del piano relativo al valore medio globale, invece, è indipendente dai filtri. Ci è stato suggerito di implementare una checkbox che permetta all'utente di decidere se visualizzare o meno il piano.
+Abbiamo chiesto se queste opzioni di filtraggio siano mutuamente esclusive o se possano essere selezionate contemporaneamente. 
+Inoltre, abbiamo chiesto se il piano parallelo alla base relativo al valore medio globale debba essere sempre visibile.\\
+Il proponente ha chiarito che le opzioni di filtraggio sono mutuamente esclusive, quindi è possibile selezionarne solo una alla volta.\\ 
+La visualizzazione del piano relativo al valore medio globale, invece, è indipendente dai filtri. 
+Ci è stato suggerito di implementare una checkbox che permetta all'utente di decidere se visualizzare o meno il piano.
+
 \subsection{Test E2E}
-Pur trattandosi di un requisito opzionale ma gradito, e considerando che i membri del gruppo non ne avevano familiarità, abbiamo chiesto una spiegazione sui test E2E (End-to-End), in particolare su cosa siano e come possano essere implementati.\\
-Ci è stato spiegato che il testing E2E è fondamentale per garantire che l'applicazione funzioni correttamente dal punto di vista dell'utente finale. Il proponente ha spiegato che questo tipo di test permette di verificare come l'utente interagisce con l'applicazione e assicura che le funzionalità siano correttamente implementate. Inoltre, ha suggerito l'uso di strumenti come Selenium, Cypress e Playwright per automatizzare questi test, che registrano una serie di azioni dell'utente e le ripetono per verificare che l'impatto sia visibile in altre parti dell'applicazione. Un esempio pratico di test E2E potrebbe essere la verifica della lista di dataset, dove ci si aspetta che gli elementi siano visibili e che i dettagli vengano correttamente mostrati al clic.
-\subsection{Requisiti prestazionali e compatibilità con i browser}
-Abbiamo chiesto se fossero presenti anche dei requisiti prestazionali misurabili, come ad esempio il tempo di caricamento della pagina, e se dovessimo prendere in considerazione la retrocompatibilità con le versioni precedenti dei vari browser.\\
-Per quanto riguarda i requisiti prestazionali, ci è stato detto che non ci sono parametri particolari e definiti da rispettare. Tuttavia, è stato richiesto di immedesimarsi nell'utilizzatore dell'applicazione e porsi la domanda: \textit{"Quanto sarei disposto ad aspettare per il caricamento di questo dataset?"}.\\
-Proseguendo nella discussione, si è deciso di basarsi sulla dimensione del dataset per ottenere un tempo di caricamento ragionevole, nell'ordine di grandezza dei secondi.\\
-A livello di compatibilità con i browser, ci è stato detto che è sufficiente garantire il funzionamento sull'ultima versione e assicurarsi che il prodotto sia utilizzabile con i browser più comuni.\\
-\subsection{Suddivisione del lavoro per PoC}
-Prima di terminare l'incontro, abbiamo chiesto al proponente qualche consiglio su come suddividere il lavoro di sviluppo del PoC.\\
-Ci è stato indicato che, a differenza dell'MVP (il quale richiede una divisione ben strutturata tra backend, frontend e interazione con il dataset), il PoC può essere sviluppato in parallelo, permettendo di testare singolarmente le tecnologie proposte per la realizzazione del progetto.\\
-A tal proposito, ci è stato suggerito di concentrarsi sugli aspetti che potrebbero comportare maggiori difficoltà durante lo sviluppo del prodotto finale e di affrontare i punti critici del progetto.\\
-Questo approccio consentirà di arrivare alla RTB con la consapevolezza che tutti i requisiti potranno essere soddisfatti.\\
+Anche se i test E2E (End-to-End) sono un requisito opzionale, abbiamo chiesto chiarimenti su cosa siano e come implementarli, dato che il gruppo non ne aveva familiarità.\\
+Ci è stato spiegato che i test E2E sono utili per verificare il corretto funzionamento dell’applicazione dal punto di vista dell’utente finale. 
+Questo tipo di test controlla le interazioni dell’utente e assicura che le funzionalità siano implementate correttamente.
+Il proponente ha suggerito strumenti come Selenium, Cypress e Playwright per automatizzare i test. 
+Questi strumenti registrano una sequenza di azioni e le ripetono, verificando che ogni modifica abbia il risultato atteso in altre parti dell’applicazione. 
+Un esempio pratico potrebbe essere il controllo della lista dei dataset, dove è necessario verificare che gli elementi siano visibili e che i dettagli vengano mostrati correttamente al clic.
 
+\subsection{Requisiti Prestazionali e Compatibilità con i Browser}
+Abbiamo chiesto informazioni sui requisiti prestazionali, come il tempo di caricamento della pagina, e sulla retrocompatibilità con le diverse versioni dei browser.\\
+Per quanto riguarda le prestazioni, non sono stati indicati parametri precisi. 
+Tuttavia, è stato suggerito di considerare l’esperienza dell’utente e chiedersi: "Quanto tempo sarei disposto ad aspettare per caricare questo dataset?". 
+Si è deciso di basare il tempo di caricamento sulla dimensione del dataset, mantenendolo ragionevole e nell’ordine di grandezza dei secondi.
+Per la compatibilità con i browser, è sufficiente garantire il funzionamento dell’applicazione sull’ultima versione dei browser più comuni.
 
-\hfill\signature{Approvazione esterna}{Sanmarco Informatica}
+\subsection{Suddivisione del Lavoro per il PoC}
+Abbiamo chiesto al proponente consigli su come suddividere il lavoro per lo sviluppo del PoC. \\
+Ci è stato spiegato che, a differenza dell’MVP, che richiede una chiara separazione tra backend, frontend e gestione del dataset, il PoC può essere sviluppato in parallelo. 
+Questo approccio permette di testare singolarmente le tecnologie necessarie per il progetto.
+È stato consigliato di concentrarsi sugli aspetti più complessi e sui punti critici che potrebbero creare difficoltà durante lo sviluppo del prodotto finale. 
+Questo approccio consente di arrivare alla RTB con la certezza che tutti i requisiti potranno essere soddisfatti.

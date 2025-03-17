@@ -1,0 +1,55 @@
+\section{Informazioni generali}
+\subsection{Dettagli sull'incontro}
+\begin{itemize}
+    \item \textbf{Luogo}: Google Meet
+    \item \textbf{Data}: 08-01-2025
+    \item \textbf{Ora di inizio}: 13:00
+    \item \textbf{Ora di fine}: 13:45
+    \item \textbf{Partecipante dell'azienda}: Beggiato Alex
+    \item \textbf{Partecipanti}:
+    \begin{itemize}
+        \item Bergamin Elia
+        \item Chilese Elena
+        \item Djossa Edgar
+        \item Pincin Matteo 
+        \item Soranzo Andrea  
+    \end{itemize}
+\end{itemize}
+
+\section{Motivo della riunione}
+\begin{itemize}
+\item Discussione sull'andamento del progetto;
+\item Definizione dei requisiti hardware per garantire prestazioni adeguate;
+\item Analisi della code coverage per i test end-to-end;
+\item Ottimizzazione della visualizzazione delle barre nel grafico 3D.
+\end{itemize}
+
+\section{Resoconto della riunione}
+\subsection{Discussione sull'andamento del progetto}
+Durante la riunione, il team ha discusso i progressi del progetto e le prossime attività da svolgere. Sono stati evidenziati i punti critici e le possibili soluzioni per migliorare il flusso di lavoro.
+
+\subsection{Definizione dei requisiti hardware per garantire prestazioni adeguate}
+Con l'introduzione del backend, i requisiti prestazionali aumentano. Tuttavia, nel nostro caso, il backend svolge un ruolo minimale, limitando così l'impatto sui requisiti necessari, senza la necessità di entrare troppo nello specifico.
+Per quanto riguarda l'hardware lato client, il consiglio è di individuare un requisito minimo prendendo in considerazione i dispositivi disponibili, assicurandosi che sia in linea con gli standard di mercato, in particolare per la memoria RAM. Questo permetterà di testare adeguatamente il sistema e garantire prestazioni accettabili.
+Lato backend, è necessario analizzare il volume di dati gestito dall'hardware e il numero di utenti simultanei previsti. Node.js presenta già dei requisiti minimi per la gestione di un certo numero di utenze in parallelo. Data la presenza di una chiamata significativa al server, mentre il resto delle operazioni è poco oneroso, bisognerà definire quante utenze possono operare contemporaneamente e stimare i requisiti di RAM per il backend. Anche per il client sarà necessario eseguire test per verificare le prestazioni.
+
+\subsection{Analisi della code coverage per i test end-to-end}
+Non esiste una regola fissa per la copertura del codice. È importante valutare quanto sia utile avere una coverage al 100\% rispetto a focalizzarsi su test significativi per l'utente.
+Per definire i test chiave, bisognerà individuare i momenti vincolanti per l'utente e comprendere quando quest'ultimo è soddisfatto. Si prevede di testare un massimo di 10 funzionalità, focalizzandosi sulle operazioni che impattano maggiormente l'esperienza utente, stimando tra 5 e 7 funzionalità critiche.
+Di seguito qualche esempio di funzionalità da testare:
+\begin{itemize}
+\item Interazione con la lista di dataset;
+\item Output generato dalle interazioni con la lista;
+\item Visualizzazione del grafico;
+\item Accesso ai dati visualizzati.
+\end{itemize}
+
+\subsection{Ottimizzazione della visualizzazione delle barre nel grafico 3D}
+Il gruppo ha discusso il problema della visualizzazione inefficiente delle barre, che causa un rendering lento con dataset di grandi dimensioni. È stata proposta una soluzione per ottimizzare le prestazioni, ovvero rendere le barre completamente trasparenti limitando il rendering solo a quelle filtrate. Tuttavia, questa opzione è stata scartata poiché altererebbe i requisiti funzionali.
+Per migliorare il rendering, si consiglia di:
+\begin{itemize}
+\item Interrompere il rendering prima di modificare i materiali, applicare i materiali e poi riavviare il rendering;
+\item Salvare la posizione della camera, spostare temporaneamente il grafico fuori dall'inquadratura per applicare i materiali sfruttando le ottimizzazioni off-screen, e infine ripristinare la posizione originale della camera.
+\end{itemize}
+\subsection{Definire limiti massimi di dimensioni per le assi}
+Ci è stato suggerito di integrare i requisiti di vincolo introducendo limiti massimi per la dimensione dei singoli assi, oltre ai limiti già definiti sulla dimensione complessiva del dataset.

@@ -6,6 +6,7 @@ on:
       - 'docs/**'
 jobs:
   test-gulpease:
+    if: ${{ github.head_ref != 'main' }}
     runs-on: ubuntu-latest
     outputs:
       idx: ${{ steps.value.outputs.idx }}
