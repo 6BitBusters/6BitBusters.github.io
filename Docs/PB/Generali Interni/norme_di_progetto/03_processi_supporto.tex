@@ -506,7 +506,7 @@ dove:
       \item \textbf{COSA}: breve descrizione di cosa di è aggiunto e/o fatto.
 \end{itemize}
 
-Notare però che dopo l'approvazione di una pull request tutti i commit relativi
+Dopo l'approvazione di una pull request tutti i commit relativi al documento
 verranno raggruppati in un unico commit, il cui titolo deve rispettare la
 struttura sintattica descritta in seguito.
 \begin{center}
@@ -520,15 +520,6 @@ dove:
 \end{itemize}
 Per quanto riguarda il commento facoltativo, si lascia quello di default proposto da GitHub,
 ovvero un elenco puntato di tutti i commit che verranno raggruppati.\\
-
-Per aggiornare direttamente il main si è deciso di disabilitare temporaneamente
-il protection, eseguire un commit con delle modifiche, con la struttura
-sintattica elencata sopra, e infine attivare nuovamente il protection. Questa
-soluzione è stata adottata perché il team ritiene sia più veloce e semplice
-apportare modifiche a template e action in questo modo rispetto alla creazione
-di un branch e a una successiva pull request, inoltre il main, una volta
-ultimate le automazioni, non verrà più modificato se non dai merge scatenati
-dalle pull request.
 
 \subsubsection{Pull request}\label{inf:pr}
 Per effettuare un merge su un branch protetto si deve aprire, da GitHub, una
@@ -563,7 +554,7 @@ Per una descrizione più dettagliata delle issue si faccia riferimento a
 Per i commit relativi alle pull request seguire le regole descritte nella
 sezione \nameref{inf:pr}.
 
-\subsubsection{Automazione}\label{inf:automaz}
+\subsubsection{Automazioni}\label{inf:automaz}
 \subsubsubsection{Scopo}
 Lo scopo dell'automazione è garantire una maggiore efficienza e ridurre il
 rischio di errori umani. Tuttavia, il costo necessario per rendere automatiche
@@ -609,6 +600,20 @@ Per aggiungere un'action, è necessario seguire i seguenti passaggi:
       \item Effettuare un commit con le modifiche apportate (vedi \nameref{inf:comm});
       \item Riabilitare il protection del main.
 \end{itemize}
+
+\subsubsection{Page Github}
+\subsubsubsection{Scopo}
+Attraverso la pagina GitHub, il team vuole fornire un punto di accesso centralizzato e di facile consultazione per tutta la documentazione.
+
+\subsubsubsection{Aggiornare il sito}
+Il procedimento è molto simile a quello per aggiungere un'action:
+\begin{itemize}
+      \item Modificare o creare un nuovo file in linguaggio HTML, CSS o Javascript nella cartella \texttt{website} del repository.
+      \item Disabilitare temporaneamente il protection del main;
+      \item Effettuare un commit con le modifiche apportate (vedi \nameref{inf:comm});
+      \item Riabilitare il protection del main.
+\end{itemize}
+
 
 \subsection{Accertamento della qualità}
 \subsubsection{Scopo}
