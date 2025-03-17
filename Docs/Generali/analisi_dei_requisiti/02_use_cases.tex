@@ -732,7 +732,7 @@
 %UC12 - UC19
 \UseCase{Zoom della vista}
 \begin{figure}[h!]\centering
-    \includegraphics[scale=0.6]{template/images/UC12.png}
+    \includegraphics[scale=0.8]{template/images/UC12.png}
     \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
 \UCdsc
@@ -763,6 +763,63 @@
     \end{itemize}
 } 
 
+\SubUseCase{Zoom-in della vista}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item Lo zoom-in permette all'utente di avvicinarsi all'ambiente, aumentando la profondità positiva della visualizzazione.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item L'azione di zoom-in deve essere valida. Un'azione di zoom-in è valida se non va al di fuori di un'area predefinita dal sistema;
+        \item La telecamera si trova in una posizione arbitraria nello spazio.
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item La telecamera si trova in una posizione più vicina all'ambiente, ovvero con una profondità maggiore.
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L'utente interagisce con il sistema per eseguire un'azione di zoom-in, che modifica la posizione della telecamera in direzione di una profondità maggiore.
+    \end{itemize}
+} 
+
+\SubUseCase{Zoom-out della vista}
+\UCdsc
+{ % ATTORE
+    \begin{itemize}
+        \item Utente in ambiente 3D.
+    \end{itemize}
+}
+{ % DESCRIZIONE
+    \begin{itemize}
+        \item Lo zoom out permette all'utente di allontanarsi dall'ambiente, riducendo la profondità della visualizzazione.
+    \end{itemize}
+}
+{ % PRECONDIZIONI
+    \begin{itemize}
+        \item L'azione di zoom-out deve essere valida. Un'azione di zoom-out è valida se non va al di fuori di un'area predefinita dal sistema;
+        \item La telecamera si trova in una posizione arbitraria nello spazio.
+    \end{itemize}
+}
+{ % POSTCONDIZIONI
+    \begin{itemize}
+        \item La telecamera si trova in una posizione più lontana rispetto a quella iniziale, ovvero con una profondità minore.
+    \end{itemize}
+}
+{ % SCENARIO PRIMARIO
+    \begin{itemize}
+        \item L'utente interagisce con il sistema per eseguire un'azione di zoom-out, che modifica la posizione della telecamera in direzione di una profondità minore.
+    \end{itemize}
+} 
 
 \UseCase{Riposiziona telecamera alla posizione d’origine}
 \begin{figure}[H]\centering
