@@ -175,6 +175,116 @@ diagramma delle classi, al fine di realizzare un prodotto utilizzabile. \\
 La codifica dovrà rispettare delle norme ben definite per garantire la leggibilità
 e la manutenibilità del codice.
 
+\subsubsubsection{Stile di codifica}
+In questo paragrafo si va a definire le norme di scrittura di tutto ciò che riguarda il codice.
+\begin{itemize}
+    \item \textbf{Indentazione:} I blocchi di codice innestati dovranno avere un’indentazione di quattro spazi;
+    \item \textbf{Parentesi graffe:} La parentesi aperta dovrà essere inserita nella stessa riga di dichiarazione del
+    costrutto, separata da uno spazio, mentre la parentesi chiusa dovrà essere inserita con la giusta
+    indentazione alla riga immediatamente successiva all’ultima riga di codice del costrutto;
+    \item \textbf{Metodi:} Il nome dei metodi dovrà essere formattato in \textbf{CamelCase}, dove ogni parola inizia con la lettera maiuscola tranne la prima.
+    È preferibile mantenere metodi brevi, con poche righe di codice;
+    \item \textbf{Classi:} Il nome delle classi dovrà essere formattato in \textbf{PascalCase}, dove ogni parola inizia con la lettera maiuscola;
+    \item \textbf{Variabili:} Il nome delle variabili dovrà essere formattato in \textbf{SnakeCase}, dove ogni parola è scritta in minuscolo e separata da un \textit{underscore} e in inglese.
+    La loro dichiarazione dovrà avvenire all’inizio della funzione o script;
+    \item \textbf{Costanti:} Il nome dovrà essere formattato in \textbf{SnakeCase} e in inglese ma in questo caso ogni parola deve essere scritta in maiuscolo;
+    \item \textbf{Univocità dei nomi:} Tutti i costrutti dovranno avere nomi univoci e significativi seguendo il più possibile le norme del \textbf{Clean Code}. 
+    L'obiettivo è riuscire a capire il più velocemente possibile a cosa serve la variabile o il comportamento della funzione;
+    \item \textbf{Commenti:} I commenti dovranno essere inseriti prima dell’inizio del costrutto e presentati in lingua
+    italiana, inoltre sono obbligatori in parti di codice che non sono immediatamente comprensibili.
+    Ogni volta che viene aggiornato un metodo va verificata la validità del commento;
+    \item \textbf{File:} I file dovranno avere un nome che inizia per lettera maiuscola che ne specifichi il contenuto.
+\end{itemize}
+
+\subsubsubsection{Norme linguaggi adottati}
+In questo paragrafo andremo a definire le norme che il gruppo ha deciso di adottare per ogni specifico
+linguaggio utilizzato nel progetto.
+\begin{itemize}
+    \item \textbf{HTML:} Utilizzato per creare l'interfaccia utente della pagina web. Il team ha deciso si applicare 4 semplici regole:
+    \begin{itemize}
+        \item Utilizzo tag lowercase;
+        \item Chiusura di tutti i tag;
+        \item Valori degli attributi in minuscolo.
+        \item Seguire le buone pratiche di struttura proposte del WCAG2.1 \url{https://www.w3.org/TR/WCAG21/}(17-03-2025)
+    \end{itemize}
+    \item \textbf{CSS:} Utilizzato per fornire uno stile gli elementi HTML. Il team ha concordato le seguenti normative:
+    \begin{itemize}
+        \item Un solo selettore per linea in set di regole con più selettori;
+        \item Un singolo spazio prima della parentesi graffa di apertura di un set di regole;
+        \item Una regola per linea di un blocco di regole;
+        \item Un livello di rientro per ogni regola;
+        \item Mettete la parentesi graffa di chiusura di un set di regole, nella stessa colonna del primo carattere
+        del set di regole;
+        \item Separare ogni set di regole con una linea vuota.
+    \end{itemize}
+    \item \textbf{TypeScript:} Utilizzato per scrivere la logica dell'applicativo. 
+    Il team ha deciso di adottare lo stile di codifica presente al seguente link:
+    \begin{center}
+        \url{https://google.github.io/styleguide/tsguide.html}(17-03-2025)
+    \end{center}
+\end{itemize}
+
+\subsubsubsection{Norme React.js}
+Per quanto riguarda i costrutti che la libreria React.js ci consente di creare il team ha concordato le seguenti normative:
+\begin{itemize}
+    \item Il nome del componente deve essere uguale al nome del modulo con la prima lettera maiuscola;
+    \item Scrittura di informazioni dentro ad un tag;
+    \begin{itemize}
+        \item Se l’informazione può essere contenuta in una linea di codice allora si mantiene sulla stessa
+        linea;
+        \item Se l’informazione è più lunga di una linea di codice allora bisogna indentare le informazioni.
+    \end{itemize}
+    \item Utilizzare sempre \textbf{SnakeCase} per i nomi delle prop;
+    \item Utilizzare sempre i doppi apici;
+    \item Utilizzare una self-close se i tag non hanno figli;
+    \item Utilizzare className per assegnare classi CSS agli elementi;
+\end{itemize}
+
+\subsubsubsection{Organizzazione codice}
+% TO_DECIDE %
+
+
+\subsubsubsection{Strumenti di sviluppo}
+Di seguito gli strumenti utilizzati durante il processo di sviluppo:
+\begin{itemize}
+    \item \textbf{React.js:} Libreria open-source per la creazione di interfacce utente in JavaScript;
+    \item \textbf{Three.js:} Libreria JavaScript utilizzata per la realizzazione di contenuti 3D per il web, utilizza le
+    API WebGL;
+    \item \textbf{Node.js:} Runtime system open source multi-piattaforma orientato agli eventi per l’esecuzione
+    di codice JavaScript;
+    \item \textbf{React three fiber:} React renderer per three.js , permette di costruire componenti riutilizzabili
+    e indipendenti;
+    \item \textbf{memjs:} Libreria JavaScript per il dialogo con un client memcached, che nel nostro caso è utilizzato come sistema di cache dati.
+    \item \textbf{Nest.js:} Framework per Node.js che semplifica lo sviluppo di applicazioni server-side efficienti e scalabili.
+    \item \textbf{Pattern React Placeholder:}
+    \item \textbf{Docker:} Piattaforma open source che permette di "containerizzare" e rendere portabili le applicazioni.
+\end{itemize}
+
+\subsubsubsection{Ambiente di lavoro}
+Di seguito riportiamo gli strumenti che hanno definito il nostro ambiente di lavoro durante il processo di
+sviluppo.
+
+\begin{itemize}
+    \item \textbf{Visual Studio Code:} Code editor scelto per sviluppare tutto il codice presente nel nostro progetto.
+    Compatibile con Windows, MacOS e Linux;
+    \item \textbf{Docker desktop:} Applicazione intuitiva che semplifica l'utilizzo dei container Docker 
+\end{itemize}
+
+
+\subsubsubsection{Configurazione ambiente di lavoro}
+La configurazione dell’ambiente di lavoro viene fatta da un componente del gruppo, che carica la cartella
+di lavoro configurata nel repo. Successivamente gli altri componenti devono eseguire le seguenti istruzioni
+per mettersi in condizioni di lavorare. Per prima cosa ogni componente del gruppo deve installare Node.js, NPM e Docker
+attraverso package manager oppure ai seguenti link:
+\begin{itemize}
+    \item \textbf{Node.js:} \url{https://nodejs.org/en/download}
+    \item \textbf{Docker:} \url{https://www.docker.com/get-started/}
+\end{itemize}
+Successivamente si deve entrare nella cartella di lavoro ottenuta dalla repo, aprire il terminale e utlizzare
+il comando npm install che installa tutte le dipendenze di progetto.
+% AGGIUNGERE PROBABILE DOCKER_COMPOSE %
+
+
 \subsubsection{Metriche}
 Per perseguire la qualità nel processo di sviluppo, si è deciso di adottare le
 seguenti metriche:
