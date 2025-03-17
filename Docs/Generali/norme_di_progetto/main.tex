@@ -1,0 +1,51 @@
+\documentclass[a4paper]{article}
+\usepackage[normalem]{ulem}
+\usepackage{graphicx}
+\usepackage[font=small,labelfont=bf]{caption}
+
+% impostazioni generali
+\input{template/package.tex}
+
+% dati relativi alla prima pagina
+\makeindex
+
+
+\begin{document}
+\counterwithin{table}{section}
+
+% Prima pagina
+\input{titlepage.tex}
+
+% Diario delle modifiche
+\input{template/changelog.tex}
+\input{config/changelog_input.tex}
+\pagebreak
+
+% Indice
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+}
+\pagebreak
+
+\input{01_intro}
+\pagebreak
+
+\input{02_processi_primari}
+\pagebreak
+
+\input{03_processi_supporto}
+\pagebreak
+
+\input{04_processi_organizzativi}
+\pagebreak
+
+\input{05_std_qualita}
+\pagebreak
+
+\input{06_metriche_qualita}
+\pagebreak
+
+\end{document}
+
+

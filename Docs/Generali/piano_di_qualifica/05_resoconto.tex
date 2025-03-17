@@ -1,0 +1,206 @@
+\newcommand{\Met}[3]{
+    \subsubsection{#1}
+    \begin{figure}[h!] \centering
+        \includegraphics[scale=0.75]{#2}
+        \caption{Proiezione della#1nei vari periodi di progetto}
+    \end{figure}
+    \subsubsection*{RTB}
+    #3
+    \newpage
+}
+
+\section{Resoconto delle attività di verifica}
+
+\subsection{Verifica della qualità dei processi}
+In questa sezione sono presentati i risultati dell'attività di verifica svolta per valutare la qualità del processo.\\
+Le misure riportate sono state calcolate utilizzando le formule e i concetti descritti nel documento \textit{Norme di progetto v1.0.0}, oltre ai dati definiti nel documento \textit{Piano di progetto v1.0.0}.\\
+Di seguito sono presentati i grafici relativi a diverse metriche significative del processo nei vari sprint.
+
+\Met
+{ % METRICA
+    MPC1 - Planned Value
+}
+{ % GRAFICO
+    template/images/PV.png
+}
+{ % DESCRIZIONE RTB
+    Il grafico mostra una crescita dei costi regolare e prevedibile, coerente con una pianificazione accurata che suddivide equamente il budget tra i vari sprint.
+    Questo è un valore positivo e significa che il team riesce a pianificare nel modo corretto le ore per ogni ruolo ad ogni sprint.
+}
+
+\Met
+{ % METRICA
+    MPC2 - Actual Cost
+}
+{ % GRAFICO
+    template/images/AC.png
+}
+{ % DESCRIZIONE RTB
+    Come si nota dal grafico, Actual Cost e Planned Value hanno una forte correlazione, suggerendo che le ore e i costi effettivamente impiegati per ogni ruolo sono in linea con le previsioni iniziali.
+    Ciò indica una pianificazione accurata e una buona esecuzione del progetto.
+}
+
+\Met
+{ % METRICA
+    MPC3 - Earned Value
+}
+{ % GRAFICO
+    template/images/EV.png
+}
+{ % DESCRIZIONE RTB
+    Questo grafico illustra solamente il valore di Earned Value che rappresenta il valore delle attività realizzate nel progetto.
+    Da solo rientra tra i valori limite, e rappresenta un valor positivo, ma spesso viene messo a confronto con le altre metriche.
+    Analizzando quindi i tre grafici di Earned Value, Planned Value e Actual Cost, si può notare come siano tutti allineati. 
+    Questo indica una gestione del progetto accurata, con una precisa corrispondenza tra le attività pianificate, quelle effettivamente svolte e i costi sostenuti.
+}
+
+\Met
+{ % METRICA
+    MPC4 - Estimated at Completion
+}
+{ % GRAFICO
+    template/images/EaC.png
+}
+{ % DESCRIZIONE RTB
+    Il grafico mostra che l'Estimated at Completion (EAC) è molto vicino al Budget at Completion (BAC).
+    Questo indica un'elevata precisione della stima iniziale dei costi e una gestione finanziaria efficace durante i periodi del progetto. 
+}
+
+\Met
+{ % METRICA
+    MPC5 - Estimate to Complete
+}
+{ % GRAFICO
+    template/images/EtC.png
+}
+{ % DESCRIZIONE RTB
+    Il grafico evidenzia una relazione inversa tra ETC e AC.
+    La tendenza all'abbassamento dell'ETC e all'aumento dell'AC è coerente con l'andamento previsto. 
+    Questa dinamica suggerisce una buona gestione delle risorse e un avanzamento del progetto conforme alla pianificazione.
+}
+
+\Met
+{ % METRICA
+    MPC6 - Cost Variance
+}
+{ % GRAFICO
+    template/images/CV.png
+}
+{ % DESCRIZIONE RTB
+    Una Cost Variance negativa indica che il progetto sta spendendo più di quanto previsto. 
+    Ciò è dovuto principalmente al fatto che i ruoli più ricoperti sono quelli di responsabile, 
+    amministratore, e analista che hanno un costo orario superiore alla media.
+    Infatti, nello sprint 4, in cui è stato realizzato il PoC dai programmatore, la Cost Variance è stata positiva.
+}
+
+\Met
+{ % METRICA
+    MPC7 - Schedule Variance
+}
+{ % GRAFICO
+    template/images/SV.png
+}
+{ % DESCRIZIONE RTB
+    L'analisi del grafico evidenzia che, inizialmente, l'assenza di un WoW solido ha impedito al team di rispettare le tempistiche previste. 
+    Con l'introduzione e il consolidamento del WoW, il team ha ottimizzato la pianificazione e l'esecuzione delle attività, migliorando significativamente il rispetto delle scadenze.
+}
+
+\Met
+{ % METRICA
+    MPC8 - Budget Variance
+}
+{ % GRAFICO
+    template/images/BV.png
+}
+{ % DESCRIZIONE RTB
+    L'analisi del grafico indica che il team sta impiegando un po' meno risorse rispetto alle previsioni iniziali.
+    Questo dimostra una gestione efficiente e un'ottima capacità di adattamento alle esigenze del progetto.
+}
+
+\Met
+{ % METRICA
+    MPC9 - Requirements Stability Index
+}
+{ % GRAFICO
+    template/images/RSI.png
+}
+{ % DESCRIZIONE RTB
+    Il grafico mostra un iniziale Requirements Stability Index del 100\% in quanto nei primi due periodi il team si è
+    concentrato sulla creazione e successivo aggiornamento di un WoW. 
+    È stato solo dal terzo sprint in poi che il team ha iniziato a definire i requisiti.
+}
+
+\Met
+{ % METRICA
+    MPC10 - Completezza dei documenti
+}
+{ % GRAFICO
+    template/images/CD.png
+}
+{ % DESCRIZIONE RTB  
+    Come mostrato dal grafico il team ha raramente avuto problemi riguardanti la completezza dei documenti.
+    Si può notare che solamente durante lo sprint 3 il team ha avuto delle difficoltà nella redazione del documento \textit{Analisi dei requisiti v1.0.0}.
+    In ogni caso, tutti i membri si sono impegnati al massimo per garantire il completamento delle attività assegnate.
+}
+
+\Met
+{ % METRICA
+    MPC11 - Metriche soddisfatte
+}
+{ % GRAFICO
+    template/images/MS.png
+}
+{ % DESCRIZIONE RTB
+    Come mostra il grafico, l'iniziale carenza di competenze ha limitato la capacità del team di soddisfare tutte le metriche.
+    Grazie all'apprendimento continuo e all'introduzione di strumenti automatizzati, il team ha colmato queste lacune apportando delle migliorie ai vari documenti.
+    L'unica metrica non soddisfatta attualmente è MPC6 - Cost Variance.
+}
+
+\Met
+{ % METRICA
+    MPC15 - Rischi non previsti
+}
+{ % GRAFICO
+    template/images/RISCHI.png
+}
+{ % DESCRIZIONE RTB
+    Il grafico evidenzia l'assenza di rischi non previsti durante l'intero progetto.
+    Questo è ovviamente un buon segno in quanto indica che il gruppo è stato in grado 
+    di gestire i rischi in modo efficace e che non sono emersi nuovi rischi inaspettati.
+}
+
+\subsection{Verifica della qualità dei prodotti}
+In questa sezione vengono analizzate le attività svolte per garantire la qualità dei prodotti realizzati.
+Le analisi effettuate comprendono sia i documenti che il software, al fine di garantire un risultato finale che soddisfi i requisiti stabiliti.\\
+Per calcolare le seguenti misure abbiamo utilizzato le formule e le nozioni descritte nel documento di \textit{Norme di progetto v1.0.0}.
+
+\Met
+{ % METRICA
+    MPD1 - Indice Gulpease
+}
+{ % GRAFICO
+    template/images/GUL.png
+}
+{ % DESCRIZIONE RTB
+    L'analisi del grafico conferma che, nelle prime fasi del progetto, l'Indice di Gulpease non ha raggiunto i 
+    valori minimi, a causa della mancanza di conoscenze specifiche da parte del team.
+    Solo dopo aver implementato un'automazione per il calcolo dell'indice, è stato possibile 
+    migliorarne i risultati nei periodi successivi.
+}
+
+\Met
+{ % METRICA
+    MPD2 - Errori grammaticali
+}
+{ % GRAFICO
+    template/images/ERR-G.png
+}
+{ % DESCRIZIONE RTB
+    L'analisi del grafico rivela un numero inizialmente elevato di errori ortografici, 
+    in particolare nei documenti \textit{Norme di progetto v1.0.0} e \textit{Piano di progetto v1.0.0}.
+    Tuttavia, si osserva una netta diminuzione di tali errori nei periodi e nei 
+    documenti successivi, indicando un miglioramento progressivo nella qualità della scrittura.
+}
+
+
+

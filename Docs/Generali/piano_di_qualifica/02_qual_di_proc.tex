@@ -1,0 +1,29 @@
+\section{Qualità di processo}
+Per garantire la qualità dei processi, il gruppo usa la struttura definita 
+dallo standard ISO/IEC 12207:1995, adattandola alle specifiche esigenze del 
+progetto. Il quadro di riferimento delle metriche selezionate è definito nelle 
+\textit{Norme di progetto v1.0.0}.
+
+\subsection{Obiettivi metrici}
+\input{template/metrics_table.tex}
+
+\metricsTable{
+
+    MPC1 & Planned Value (PV)& $\geq$ \EUR{0} & $\leq$ BAC\tabularnewline
+    MPC2 & Actual Cost (AC)& $\geq$ \EUR{0} & $\leq$ EAC\tabularnewline
+    MPC3 & Earned Value (EV)& $\geq$ \EUR{0} & $\leq$ EAC\tabularnewline
+    MPC4 & Estimated at Completion (EAC)& $\geq$ BAC - 5\% \\ $\leq$ BAC + 5\% & BAC\tabularnewline
+    MPC5 & Estimate to Complete (ETC)& $\geq$ \EUR{0} & $\leq$ EAC\tabularnewline
+    MPC6 & Cost Variance (CV)& $\geq$ \EUR{0} & $\geq$ \EUR{0}\tabularnewline
+    MPC7 & Schedule Variance (SV)& $\geq -10$\% & $\geq$ 0\%\tabularnewline
+    MPC8 & Budget Variance (BV)&  -10\% $\leq$ BV $\leq$ 10\%  & 0\%\tabularnewline
+    MPC9 & Requirements Stability Index (RSI) & $\geq 70$\% & 100\%\tabularnewline
+    MPC10 & Completezza dei documenti & 100\% & 100\%\tabularnewline
+    MPC11 & Metriche soddisfatte & $\geq 80$\% & 100\%\tabularnewline
+    MPC12 & Code Coverage (CC) & $\geq 75$\% & $\geq 90$\%\tabularnewline
+    MPC13 & Statement Coverage (SC) & $\geq 80$\% & 100\%\tabularnewline
+    MPC14 & Branch Coverage (BC) & $\geq 80$\% & 100\%\tabularnewline
+    MPC15 & Rischi non previsti & $\leq 5$ & 0\tabularnewline
+
+    \captionline\caption{Metriche di processo}
+}

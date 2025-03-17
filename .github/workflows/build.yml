@@ -34,6 +34,7 @@ jobs:
           latexmk
       - name: Compile
         run: |
+          python3 .github/glossify.py
           python3 .github/compile.py
       - name: Setup Pages
         uses: actions/configure-pages@v5

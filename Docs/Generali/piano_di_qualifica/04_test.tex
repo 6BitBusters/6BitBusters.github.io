@@ -1,0 +1,135 @@
+\section{Specifica dei test}
+L'esecuzione dei test rappresenta un passaggio fondamentale per verificare che 
+il prodotto, nella sua totalità, soddisfi pienamente tutti i requisiti specificati
+nel documento di \textit{Analisi dei requisiti v1.0.0}.
+I test si classificano in:
+\begin{itemize}
+    \item \textbf{Test di unità}: vengono definiti durante la progettazione di
+    dettaglio e verificano il funzionamento delle singole unità software;
+    \item \textbf{Test di integrazione}: vengono definiti durante la progettazione
+    architetturale e verificano le interazioni tra le componenti;
+    \item \textbf{Test di sistema}: vengono definiti durante l'analisi dei requisiti
+    e verificano che il sistema, nel suo complesso, soddisfi i requisiti software;
+    \item \textbf{Test di accettazione}: vengono effettuati insieme al proponente 
+    durante la fase di collaudo, per accertare il soddisfacimento dei requisiti utente
+    e concludere quindi la validazione del prodotto.
+\end{itemize}
+Per ciascun test, vengono forniti un codice identificativo, una descrizione, e
+lo stato del test. 
+Come specificato nel documento \textit{Norme di progetto v1.0.0}, vengono utilizzate le seguenti 
+abbreviazioni per identificare lo stato dei test:
+\begin{itemize}
+    \item \textbf{NI}: Non Implementato;
+    \item \textbf{S}: Superato;
+    \item \textbf{NS}: Non Superato.
+\end{itemize}
+
+\input{template/test_table.tex}
+\subsection{Test di unità}
+\testTable{
+    TU1 & - & NI\tabularnewline
+}
+\subsection{Test di integrazione}
+\testTable{
+    TI1 & - & NI\tabularnewline
+}
+\subsection{Test di sistema}
+\testTable{
+    TS1 & Verifica che l'utente possa visualizzare la lista dei dataset disponibili & NI\tabularnewline
+    TS2 & Verifica che l'utente possa visualizzare le informazioni primarie dei dataset & NI\tabularnewline
+    TS3 & Verifica che l'utente possa visualizzare il nome dei dataset & NI\tabularnewline
+    TS4 & Verifica che l'utente possa visualizzare la dimensione dei dataset & NI\tabularnewline
+    TS5 & Verifica che l'utente possa visualizzare i dettagli di un dataset & NI\tabularnewline
+    TS6 & Verifica che l'utente possa visualizzare la descrizione del contenuto di un dataset & NI\tabularnewline
+    TS7 & Verifica che l'utente possa caricare nel sistema un dataset della lista & NI\tabularnewline
+    TS8 & Verifica che, nel caso in cui il caricamento del dataset fallisca, 
+        venga visualizzato un messaggio di errore & NI\tabularnewline
+    TS9 & Verifica che l'utente possa visualizzare il dataset in forma tabellare & NI\tabularnewline
+    TS10 & Verifica che l'utente possa visualizzare le intestazioni della tabella & NI\tabularnewline
+    TS11 & Verifica che l'utente possa visualizzare i valori del dataset nelle celle della tabella & NI\tabularnewline
+    TS12 & Verifica che l'utente possa visualizzare il dataset in 
+        forma di grafico 3D a barre verticali & NI\tabularnewline
+    TS13 & Verifica che l'utente possa visualizzare gli assi del grafico & NI\tabularnewline
+    TS14 & Verifica che l'utente possa visualizzare l'asse X con i valori appropriati & NI\tabularnewline
+    TS15 & Verifica che l'utente possa visualizzare l'asse Y con i valori appropriati & NI\tabularnewline
+    TS16 & Verifica che l'utente possa visualizzare l'asse Z con i valori appropriati & NI\tabularnewline
+    TS17 & Verifica che l'utente possa spostare orizzontalmente la vista & NI\tabularnewline
+    TS18 & Verifica che l'utente possa spostare verticalmente la vista & NI\tabularnewline
+    TS19 & Verifica che l'utente possa ruotare il grafico  & NI\tabularnewline
+    TS20 & Verifica che l'utente possa ruotare il grafico attorno all'asse X & NI\tabularnewline
+    TS21 & Verifica che l'utente possa ruotare il grafico attorno all'asse Y & NI\tabularnewline
+    TS22 & Verifica che l'utente possa ruotare il grafico attorno all'asse Z & NI\tabularnewline
+    TS23 & Verifica che l'utente possa compiere un'azione di zoom indipendentemente dalla posizione della telecamera & NI\tabularnewline
+    TS24 & Verifica che l'utente possa riposizionare la vista alla posizione iniziale & NI\tabularnewline
+    TS25 & Verifica che l'utente possa visualizzare i dettagli di una barra del grafico & NI\tabularnewline
+    TS26 & Verifica che l'utente possa visualizzare le etichette della barra del grafico & NI\tabularnewline
+    TS27 & Verifica che l'utente possa visualizzare il valore rappresentato dalla barra del grafico & NI\tabularnewline
+    TS28 & Verifica che l'utente possa visualizzare una singola barra del grafico in primo piano & NI\tabularnewline
+    TS29 & Verifica che l'utente possa filtrare su valori che soddisfano certe condizioni & NI\tabularnewline
+    TS30 & Verifica che l'utente possa filtrare su un numero arbitrario (N) di valori & NI\tabularnewline
+    TS31 & Verifica che l'utente possa inserire un numero N di valori su cui filtrare & NI\tabularnewline
+    TS32 & Verifica che l'utente possa filtrare gli N valori più alti & NI\tabularnewline
+    TS33 & Verifica che l'utente possa filtrare gli N valori più bassi & NI\tabularnewline
+    TS34 & Verifica che l'utente possa filtrare su valori inferiori o uguali al valore scelto & NI\tabularnewline
+    TS35 & Verifica che l'utente possa filtrare su valori inferiori o uguali rispetto al valor medio globale & NI\tabularnewline
+    TS36 & Verifica che l'utente possa filtrare su valori superiori o uguali al valore scelto & NI\tabularnewline
+    TS37 & Verifica che l'utente possa filtrare su valori superiori o uguali rispetto al valor medio globale & NI\tabularnewline
+    TS38 & Verifica che l'utente possa ripristinare lo stato del grafico rimuovendo i filtri precedentemente applicati & NI\tabularnewline
+    TS39 & Verifica che l'utente possa visualizzare il piano parallelo alla base del grafico che rappresento un valor medio & NI\tabularnewline
+    TS40 & Verifica che l'utente possa visualizzare il piano parallelo alla base del grafico che rappresenta il valore medio globale & NI\tabularnewline
+    TS41 & Verifica che l'utente possa visualizzare il piano parallelo alla base del grafico che rappresenta il valore medio di un singolo elemento del dataset & NI\tabularnewline
+}
+\subsection{Test di accettazione}
+\testTable{
+    TA1 & Verifica che all'avvio del sistema la lista dei dataset disponibili 
+    sia visibile all'utente & NI\tabularnewline
+    TA2 & Verifica che l'utente possa visualizzare le informazioni primarie di
+     un dataset & NI\tabularnewline
+    TA3 & Verifica che l'utente, selezionando un dataset, possa visualizzarne 
+    i dettagli & NI\tabularnewline
+    TA4 & Verifica che l'utente possa caricare un dataset nel sistema 
+    & NI\tabularnewline
+    TA5 & Verifica che la tabella dei dati sia visibile correttamente 
+    & NI\tabularnewline
+    TA6 & Verifica che il grafico 3D a barre verticali sia visibile correttamente 
+    & NI\tabularnewline
+    TA7 & Verifica che gli assi del grafico siano visibili e abbiano le 
+    etichette appropriate & NI\tabularnewline
+    TA8 & Verifica che l'utente possa spostare la vista del grafico senza
+    modificarne l'angolazione (panning) & NI\tabularnewline
+    TA9 & Verifica che l'utente possa ruotare la vista del grafico attorno 
+    all'asse X & NI\tabularnewline
+    TA10 & Verifica che l'utente possa ruotare la vista del grafico attorno
+    all'asse Y & NI\tabularnewline
+    TA11 & Verifica che l'utente possa ruotare la vista del grafico attorno
+    all'asse Z & NI\tabularnewline
+    TA12 & Verifica che l'utente possa compiere un'azione di zoom sul grafico 
+    & NI\tabularnewline
+    TA13 & Verifica che l'utente possa riposizionare la vista del grafico alla
+    posizione iniziale & NI\tabularnewline
+    TA14 & Verifica che l'utente, selezionando una cella della tabella, possa
+    visualizzare in primo piano la relativa barra & NI\tabularnewline
+    TA15 & Verifica che l'utente, posizionando il cursore su una barra del
+    grafico, possa visualizzarne i dettagli & NI\tabularnewline
+    TA16 & Verifica che l'utente, inserendo un numero arbitrario (N), possa
+    filtrare gli N valori più alti & NI\tabularnewline
+    TA17 & Verifica che l'utente, inserendo un numero arbitrario (N), possa
+    filtrare gli N valori più bassi & NI\tabularnewline
+    TA18 & Verifica che l'utente possa filtrare i valori superiori (o uguali)
+    al valore medio globale & NI\tabularnewline
+    TA19 & Verifica che l'utente possa filtrare i valori inferiori (o uguali)
+    al valore medio globale & NI\tabularnewline
+    TA20 & Verifica che l'utente, selezionando una barra del grafico o una 
+    cella della tabella, possa filtrare i valori superiori (o uguali) al valore
+    della barra o della cella selezionata & NI\tabularnewline
+    TA21 & Verifica che l'utente, selezionando una barra del grafico o una
+    cella della tabella, possa filtrare i valori inferiori (o uguali) al valore
+    della barra o della cella selezionata & NI\tabularnewline
+    TA22 & Verifica che l'utente possa rimuovere tutti i filtri applicati 
+    al grafico & NI\tabularnewline
+    TA23 & Verifica che l'utente possa visualizzare il piano parallelo alla base
+    del grafico che rappresenta il valore medio globale & NI\tabularnewline
+    TA24 & Verifica che l'utente possa visualizzare il piano parallelo alla base
+    del grafico che rappresenta la media dei valori relativi a una determinata
+    etichetta di un asse & NI\tabularnewline
+}
