@@ -178,36 +178,36 @@ e la manutenibilità del codice.
 \subsubsubsection{Stile di codifica}
 In questo paragrafo si va a definire le norme di scrittura di tutto ciò che riguarda il codice.
 \begin{itemize}
-    \item \textbf{Indentazione:} I blocchi di codice innestati dovranno avere un’indentazione di quattro spazi;
-    \item \textbf{Parentesi graffe:} La parentesi aperta dovrà essere inserita nella stessa riga di dichiarazione del
+    \item \textbf{Indentazione:} i blocchi di codice innestati dovranno avere un’indentazione di quattro spazi;
+    \item \textbf{Parentesi graffe:} la parentesi aperta dovrà essere inserita nella stessa riga di dichiarazione del
     costrutto, separata da uno spazio, mentre la parentesi chiusa dovrà essere inserita con la giusta
     indentazione alla riga immediatamente successiva all’ultima riga di codice del costrutto;
-    \item \textbf{Metodi:} Il nome dei metodi dovrà essere formattato in \textbf{CamelCase}, dove ogni parola inizia con la lettera maiuscola tranne la prima.
+    \item \textbf{Metodi:} il nome dei metodi dovrà essere formattato in \textbf{CamelCase}, dove ogni parola inizia con la lettera maiuscola tranne la prima.
     È preferibile mantenere metodi brevi, con poche righe di codice;
-    \item \textbf{Classi:} Il nome delle classi dovrà essere formattato in \textbf{PascalCase}, dove ogni parola inizia con la lettera maiuscola;
-    \item \textbf{Variabili:} Il nome delle variabili dovrà essere formattato in \textbf{SnakeCase}, dove ogni parola è scritta in minuscolo e separata da un \textit{underscore} e in inglese.
+    \item \textbf{Classi:} il nome delle classi dovrà essere formattato in \textbf{PascalCase}, dove ogni parola inizia con la lettera maiuscola;
+    \item \textbf{Variabili:} il nome delle variabili dovrà essere formattato in \textbf{SnakeCase}, dove ogni parola è scritta in minuscolo e separata da un \textit{underscore} e in inglese.
     La loro dichiarazione dovrà avvenire all’inizio della funzione o script;
-    \item \textbf{Costanti:} Il nome dovrà essere formattato in \textbf{SnakeCase} e in inglese ma in questo caso ogni parola deve essere scritta in maiuscolo;
-    \item \textbf{Univocità dei nomi:} Tutti i costrutti dovranno avere nomi univoci e significativi seguendo il più possibile le norme del \textbf{Clean Code}. 
+    \item \textbf{Costanti:} il nome dovrà essere formattato in \textbf{SnakeCase} e in inglese ma in questo caso ogni parola deve essere scritta in maiuscolo;
+    \item \textbf{Univocità dei nomi:} tutti i costrutti dovranno avere nomi univoci e significativi seguendo il più possibile le norme del \textbf{Clean Code}. 
     L'obiettivo è riuscire a capire il più velocemente possibile a cosa serve la variabile o il comportamento della funzione;
-    \item \textbf{Commenti:} I commenti dovranno essere inseriti prima dell’inizio del costrutto e presentati in lingua
+    \item \textbf{Commenti:} i commenti dovranno essere inseriti prima dell’inizio del costrutto e presentati in lingua
     italiana, inoltre sono obbligatori in parti di codice che non sono immediatamente comprensibili.
     Ogni volta che viene aggiornato un metodo va verificata la validità del commento;
-    \item \textbf{File:} I file dovranno avere un nome che inizia per lettera maiuscola che ne specifichi il contenuto.
+    \item \textbf{File:} i file dovranno avere un nome che inizia per lettera maiuscola che ne specifichi il contenuto.
 \end{itemize}
 
 \subsubsubsection{Norme linguaggi adottati}
 In questo paragrafo andremo a definire le norme che il gruppo ha deciso di adottare per ogni specifico
 linguaggio utilizzato nel progetto.
 \begin{itemize}
-    \item \textbf{HTML:} Utilizzato per creare l'interfaccia utente della pagina web. Il team ha deciso si applicare 4 semplici regole:
+    \item \textbf{HTML:} utilizzato per creare l'interfaccia utente della pagina web. Il team ha deciso si applicare 4 semplici regole:
     \begin{itemize}
         \item Utilizzo tag lowercase;
         \item Chiusura di tutti i tag;
         \item Valori degli attributi in minuscolo.
-        \item Seguire le buone pratiche di struttura proposte del WCAG2.1 \url{https://www.w3.org/TR/WCAG21/}(17-03-2025)
+        \item Seguire le buone pratiche di struttura proposte del WCAG2.1 \url{https://www.w3.org/TR/WCAG21}(18-03-2025)
     \end{itemize}
-    \item \textbf{CSS:} Utilizzato per fornire uno stile gli elementi HTML. Il team ha concordato le seguenti normative:
+    \item \textbf{CSS:} utilizzato per fornire uno stile gli elementi HTML. Il team ha concordato le seguenti normative:
     \begin{itemize}
         \item Un solo selettore per linea in set di regole con più selettori;
         \item Un singolo spazio prima della parentesi graffa di apertura di un set di regole;
@@ -217,10 +217,10 @@ linguaggio utilizzato nel progetto.
         del set di regole;
         \item Separare ogni set di regole con una linea vuota.
     \end{itemize}
-    \item \textbf{TypeScript:} Utilizzato per scrivere la logica dell'applicativo. 
+    \item \textbf{TypeScript:} utilizzato per scrivere la logica dell'applicativo. 
     Il team ha deciso di adottare lo stile di codifica presente al seguente link:
     \begin{center}
-        \url{https://google.github.io/styleguide/tsguide.html}(17-03-2025)
+        \url{https://google.github.io/styleguide/tsguide.html}(18-03-2025)
     \end{center}
 \end{itemize}
 
@@ -240,64 +240,57 @@ Per quanto riguarda i costrutti che la libreria React.js ci consente di creare i
     \item Utilizzare className per assegnare classi CSS agli elementi;
 \end{itemize}
 
-\subsubsubsection{Organizzazione codice}
+\subsubsubsection{Organizzazione codice} % SOGGETTO A VARIAZIONE %
+
 In seguito riportiamo la struttura che il gruppo ha deciso di utilizzare per il progetto:
 \begin{itemize}
     \item \textbf{client} Parte frontend;
-    \item \textbf{server} Perte backend.
-\end{itemize}
-
-% SOGGETTO A VARIAZIONE %
-
-Il lato frontend dovrà essere strutturato nel seguente modo:
-\begin{itemize}
-    \item \textbf{\textbackslash cypress} Cartella per test e2e;
-    \item \textbf{\textbackslash test} Cartella per test;
-    \item \textbf{\textbackslash public} Risorse pubbliche;
-    \item \textbf{\textbackslash src}
     \begin{itemize}
-        \item \textbf{\textbackslash components} Componenti React.js;
-        \item \textbf{\textbackslash pages} Componenti delle pagine dell'applicazione;
-        \item \textbf{\textbackslash contexts} Gestione dello stato globale con Context API;
-        \item \textbf{\textbackslash services} Chiamate API e logica di gestione dei dati;
-        \item \textbf{\textbackslash assets} Immagini, icone e altri file statici;
-        \item \textbf{\textbackslash styles} Fogli di stile.
-        \item \textbf{App.tsx};
-        \item \textbf{Index.tsx}.
+        \item \textbf{\textbackslash cypress} cartella per test e2e;
+        \item \textbf{\textbackslash test} cartella per test;
+        \item \textbf{\textbackslash public} risorse pubbliche;
+        \item \textbf{\textbackslash src}
+        \begin{itemize}
+            \item \textbf{\textbackslash components} componenti React.js;
+            \item \textbf{\textbackslash pages} componenti delle pagine dell'applicazione;
+            \item \textbf{\textbackslash contexts} gestione dello stato globale con Context API;
+            \item \textbf{\textbackslash services} chiamate API e logica di gestione dei dati;
+            \item \textbf{\textbackslash assets} immagini, icone e altri file statici;
+            \item \textbf{\textbackslash styles} fogli di stile.
+            \item \textbf{App.tsx};
+            \item \textbf{Index.tsx}.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{server} Parte backend.
+    \begin{itemize}
+        \item \textbf{\textbackslash config}
+        \begin{itemize}
+            \item \textbf{.env } file contenente le chiavi delle API.
+        \end{itemize}
+        \item \textbf{\textbackslash controllers} controller che gestiscono le richieste HTTP;
+        \item \textbf{\textbackslash services} business logic;
+        \item \textbf{\textbackslash middleware} gestione degli errori;
+        \item \textbf{\textbackslash repositories} persistent logic;
+        \item \textbf{\textbackslash entities} modelli dei dati da salvare su una repository;
+        \item \textbf{\textbackslash test} cartella per test.
     \end{itemize}
 \end{itemize}
-
-
-Il lato backend dovrà essere strutturato nel seguente modo:
-\begin{itemize}
-    \item \textbf{\textbackslash config}
-    \begin{itemize}
-        \item \textbf{.env } File contenente le chiavi delle API.
-    \end{itemize}
-    \item \textbf{\textbackslash controllers} Controller che gestiscono le richieste HTTP;
-    \item \textbf{\textbackslash services} Business logic;
-    \item \textbf{\textbackslash middleware} Gestione degli errori;
-    \item \textbf{\textbackslash repositories} Persistent logic;
-    \item \textbf{\textbackslash entities} Modelli dei dati da salvare su una repository;
-    \item \textbf{\textbackslash test} Cartella per test.
-\end{itemize}
-
 
 
 \subsubsubsection{Strumenti di sviluppo}
 Di seguito gli strumenti utilizzati durante il processo di sviluppo:
 \begin{itemize}
-    \item \textbf{React.js:} Libreria open-source per la creazione di interfacce utente in JavaScript;
-    \item \textbf{Three.js:} Libreria JavaScript utilizzata per la realizzazione di contenuti 3D per il web, utilizza le
+    \item \textbf{React.js:} libreria open-source per la creazione di interfacce utente in JavaScript;
+    \item \textbf{Three.js:} libreria JavaScript utilizzata per la realizzazione di contenuti 3D per il web, utilizza le
     API WebGL;
-    \item \textbf{Node.js:} Runtime system open source multi-piattaforma orientato agli eventi per l’esecuzione
+    \item \textbf{Node.js:} runtime system open source multi-piattaforma orientato agli eventi per l’esecuzione
     di codice JavaScript;
-    \item \textbf{React three fiber:} React renderer per three.js , permette di costruire componenti riutilizzabili
+    \item \textbf{React three fiber:} react renderer per three.js , permette di costruire componenti riutilizzabili
     e indipendenti;
-    \item \textbf{memjs:} Libreria JavaScript per il dialogo con un client memcached, che nel nostro caso è utilizzato come sistema di cache dati.
-    \item \textbf{Nest.js:} Framework per Node.js che semplifica lo sviluppo di applicazioni server-side efficienti e scalabili.
+    \item \textbf{memjs:} libreria JavaScript per il dialogo con un client memcached, che nel nostro caso è utilizzato come sistema di cache dati.
+    \item \textbf{Nest.js:} framework per Node.js che semplifica lo sviluppo di applicazioni server-side efficienti e scalabili.
     \item \textbf{Pattern React Placeholder:}
-    \item \textbf{Docker:} Piattaforma open source che permette di "containerizzare" e rendere portabili le applicazioni.
+    \item \textbf{Docker:} piattaforma open source che permette di "containerizzare" e rendere portabili le applicazioni.
 \end{itemize}
 
 \subsubsubsection{Ambiente di lavoro}
@@ -305,9 +298,9 @@ Di seguito riportiamo gli strumenti che hanno definito il nostro ambiente di lav
 sviluppo.
 
 \begin{itemize}
-    \item \textbf{Visual Studio Code:} Code editor scelto per sviluppare tutto il codice presente nel nostro progetto.
+    \item \textbf{Visual Studio Code:} text editor scelto per sviluppare tutto il codice presente nel nostro progetto.
     Compatibile con Windows, MacOS e Linux;
-    \item \textbf{Docker desktop:} Applicazione intuitiva che semplifica l'utilizzo dei container Docker 
+    \item \textbf{Docker desktop:} applicazione intuitiva che semplifica l'utilizzo dei container Docker 
 \end{itemize}
 
 \subsubsubsection{Configurazione ambiente di lavoro}
@@ -319,7 +312,7 @@ attraverso package manager oppure ai seguenti link:
     \item \textbf{Node.js:} \url{https://nodejs.org/en/download}
     \item \textbf{Docker:} \url{https://www.docker.com/get-started/}
 \end{itemize}
-Successivamente si deve entrare nella cartella di lavoro ottenuta dalla repo, aprire il terminale e utlizzare
+Successivamente si deve entrare nella cartella di lavoro ottenuta dalla repo, aprire il terminale e utilizzare
 il comando \textit{npm install} che installa tutte le dipendenze di progetto.
 
 % AGGIUNGERE PROBABILE DOCKER_COMPOSE %
