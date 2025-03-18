@@ -269,7 +269,7 @@ In seguito riportiamo la struttura che il gruppo ha deciso di utilizzare per il 
         \end{itemize}
         \item \textbf{\textbackslash controllers} controller che gestiscono le richieste HTTP;
         \item \textbf{\textbackslash services} business logic;
-        \item \textbf{\textbackslash middleware} gestione degli errori;
+        \item \textbf{\textbackslash middleware} middleware personalizzati (gestione degli errori);
         \item \textbf{\textbackslash repositories} persistent logic;
         \item \textbf{\textbackslash entities} modelli dei dati da salvare su una repository;
         \item \textbf{\textbackslash test} cartella per test.
@@ -307,7 +307,7 @@ sviluppo.
 La configurazione dell’ambiente di lavoro viene fatta da un componente del gruppo, che carica la cartella
 di lavoro configurata nel repo. Successivamente gli altri componenti devono eseguire le seguenti istruzioni
 per mettersi in condizioni di lavorare. Per prima cosa ogni componente del gruppo deve installare Node.js, NPM e Docker
-attraverso package manager oppure ai seguenti link:
+attraverso package manager oppure i seguenti link:
 \begin{itemize}
     \item \textbf{Node.js:} \url{https://nodejs.org/en/download}
     \item \textbf{Docker:} \url{https://www.docker.com/get-started/}
