@@ -235,13 +235,53 @@ Per quanto riguarda i costrutti che la libreria React.js ci consente di creare i
         \item Se l’informazione è più lunga di una linea di codice allora bisogna indentare le informazioni.
     \end{itemize}
     \item Utilizzare sempre \textbf{SnakeCase} per i nomi delle prop;
-    \item Utilizzare sempre i doppi apici;
+    \item Utilizzare sempre i doppi apici invece che i singoli;
     \item Utilizzare una self-close se i tag non hanno figli;
     \item Utilizzare className per assegnare classi CSS agli elementi;
 \end{itemize}
 
 \subsubsubsection{Organizzazione codice}
-% TO_DECIDE %
+In seguito riportiamo la struttura che il gruppo ha deciso di utilizzare per il progetto:
+\begin{itemize}
+    \item \textbf{client} Parte frontend;
+    \item \textbf{server} Perte backend.
+\end{itemize}
+
+% SOGGETTO A VARIAZIONE %
+
+Il lato frontend dovrà essere strutturato nel seguente modo:
+\begin{itemize}
+    \item \textbf{\textbackslash cypress} Cartella per test e2e;
+    \item \textbf{\textbackslash test} Cartella per test;
+    \item \textbf{\textbackslash public} Risorse pubbliche;
+    \item \textbf{\textbackslash src}
+    \begin{itemize}
+        \item \textbf{\textbackslash components} Componenti React.js;
+        \item \textbf{\textbackslash pages} Componenti delle pagine dell'applicazione;
+        \item \textbf{\textbackslash contexts} Gestione dello stato globale con Context API;
+        \item \textbf{\textbackslash services} Chiamate API e logica di gestione dei dati;
+        \item \textbf{\textbackslash assets} Immagini, icone e altri file statici;
+        \item \textbf{\textbackslash styles} Fogli di stile.
+        \item \textbf{App.tsx};
+        \item \textbf{Index.tsx}.
+    \end{itemize}
+\end{itemize}
+
+
+Il lato backend dovrà essere strutturato nel seguente modo:
+\begin{itemize}
+    \item \textbf{\textbackslash config}
+    \begin{itemize}
+        \item \textbf{.env } File contenente le chiavi delle API.
+    \end{itemize}
+    \item \textbf{\textbackslash controllers} Controller che gestiscono le richieste HTTP;
+    \item \textbf{\textbackslash services} Business logic;
+    \item \textbf{\textbackslash middleware} Gestione degli errori;
+    \item \textbf{\textbackslash repositories} Persistent logic;
+    \item \textbf{\textbackslash entities} Modelli dei dati da salvare su una repository;
+    \item \textbf{\textbackslash test} Cartella per test.
+\end{itemize}
+
 
 
 \subsubsubsection{Strumenti di sviluppo}
@@ -270,7 +310,6 @@ sviluppo.
     \item \textbf{Docker desktop:} Applicazione intuitiva che semplifica l'utilizzo dei container Docker 
 \end{itemize}
 
-
 \subsubsubsection{Configurazione ambiente di lavoro}
 La configurazione dell’ambiente di lavoro viene fatta da un componente del gruppo, che carica la cartella
 di lavoro configurata nel repo. Successivamente gli altri componenti devono eseguire le seguenti istruzioni
@@ -281,7 +320,8 @@ attraverso package manager oppure ai seguenti link:
     \item \textbf{Docker:} \url{https://www.docker.com/get-started/}
 \end{itemize}
 Successivamente si deve entrare nella cartella di lavoro ottenuta dalla repo, aprire il terminale e utlizzare
-il comando npm install che installa tutte le dipendenze di progetto.
+il comando \textit{npm install} che installa tutte le dipendenze di progetto.
+
 % AGGIUNGERE PROBABILE DOCKER_COMPOSE %
 
 
