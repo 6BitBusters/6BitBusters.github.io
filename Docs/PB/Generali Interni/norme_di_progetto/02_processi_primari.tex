@@ -175,23 +175,24 @@ diagramma delle classi, al fine di realizzare un prodotto utilizzabile. \\
 La codifica dovrà rispettare delle norme ben definite per garantire la leggibilità
 e la manutenibilità del codice.
 
-\subsubsubsection{Stile di codifica}
+\subsubsubsection{Stile di codifica}\label{ref:stile}
 In questo paragrafo si va a definire le norme di scrittura di tutto ciò che riguarda il codice.
 \begin{itemize}
-    \item \textbf{Indentazione:} i blocchi di codice innestati dovranno avere un’indentazione di quattro spazi;
+    \item \textbf{Indentazione:} i blocchi di codice innestati dovranno avere un’indentazione di due spazi;
+    \item \textbf{Formattazione:} il codice scritto non deve superare il limite di 80 caratteri per riga;
     \item \textbf{Parentesi graffe:} la parentesi aperta dovrà essere inserita nella stessa riga di dichiarazione del
     costrutto, separata da uno spazio, mentre la parentesi chiusa dovrà essere inserita con la giusta
     indentazione alla riga immediatamente successiva all’ultima riga di codice del costrutto;
-    \item \textbf{Metodi:} il nome dei metodi dovrà essere formattato in \textbf{CamelCase}, dove ogni parola inizia con la lettera maiuscola tranne la prima.
+    \item \textbf{Metodi:} il nome dei metodi dovrà essere formattato in \textbf{Camel Case} e in inglese, dove ogni parola inizia con la lettera maiuscola tranne la prima.
     È preferibile mantenere metodi brevi, con poche righe di codice;
-    \item \textbf{Classi:} il nome delle classi dovrà essere formattato in \textbf{PascalCase}, dove ogni parola inizia con la lettera maiuscola;
-    \item \textbf{Variabili:} il nome delle variabili dovrà essere formattato in \textbf{SnakeCase}, dove ogni parola è scritta in minuscolo e separata da un \textit{underscore} e in inglese.
+    \item \textbf{Classi:} il nome delle classi dovrà essere formattato in \textbf{Pascal Case} e in inglese, dove ogni parola inizia con la lettera maiuscola;
+    \item \textbf{Variabili:} il nome delle variabili dovrà essere formattato in \textbf{Snake Case} e in inglese, dove ogni parola è scritta in minuscolo e separata da un underscore.
     La loro dichiarazione dovrà avvenire all’inizio della funzione o script;
-    \item \textbf{Costanti:} il nome dovrà essere formattato in \textbf{SnakeCase} e in inglese ma in questo caso ogni parola deve essere scritta in maiuscolo;
-    \item \textbf{Univocità dei nomi:} tutti i costrutti dovranno avere nomi univoci e significativi seguendo il più possibile le norme del \textbf{Clean Code}. 
+    \item \textbf{Costanti:} il nome dovrà essere formattato in \textbf{Macro Case} e in inglese, dove ogni parola è scritta in maiuscolo e separata da un underscore;
+    \item \textbf{Univocità dei nomi:} tutti i costrutti dovranno avere nomi univoci e significativi seguendo il più possibile le norme del \href{https://medium.com/@pabashani.herath/clean-code-naming-conventions-4cac223de3c6#77bb}{Clean Code} (18-07-2025).\\
     L'obiettivo è riuscire a capire il più velocemente possibile a cosa serve la variabile o il comportamento della funzione;
-    \item \textbf{Commenti:} i commenti dovranno essere inseriti prima dell’inizio del costrutto e presentati in lingua
-    italiana, inoltre sono obbligatori in parti di codice che non sono immediatamente comprensibili.
+    \item \textbf{Commenti:} i commenti dovranno essere inseriti prima dell’inizio del costrutto, presentati in lingua
+    italiana e indentati di uno spazio. Inoltre sono obbligatori in parti di codice che non sono immediatamente comprensibili.
     Ogni volta che viene aggiornato un metodo va verificata la validità del commento;
     \item \textbf{File:} i file dovranno avere un nome che inizia per lettera maiuscola che ne specifichi il contenuto.
 \end{itemize}
@@ -205,7 +206,7 @@ linguaggio utilizzato nel progetto.
         \item Utilizzo tag lowercase;
         \item Chiusura di tutti i tag;
         \item Valori degli attributi in minuscolo.
-        \item Seguire le buone pratiche di struttura proposte del WCAG2.1 \url{https://www.w3.org/TR/WCAG21}(18-03-2025)
+        \item Seguire le buone pratiche di struttura proposte del WCAG2.1 \url{https://www.w3.org/TR/WCAG21} (18-03-2025)
     \end{itemize}
     \item \textbf{CSS:} utilizzato per fornire uno stile gli elementi HTML. Il team ha concordato le seguenti normative:
     \begin{itemize}
@@ -222,6 +223,9 @@ linguaggio utilizzato nel progetto.
     \begin{center}
         \url{https://google.github.io/styleguide/tsguide.html}(18-03-2025)
     \end{center}
+    \textbf{NOTA:}
+    Le direttive specificate nella sezione \nameref{ref:stile} prevalgono su alcune delle norme definite nel collegamento precedente,
+    in particolare per quanto riguarda la formattazione dei nomi.
 \end{itemize}
 
 \subsubsubsection{Norme React.js}
@@ -234,13 +238,13 @@ Per quanto riguarda i costrutti che la libreria React.js ci consente di creare i
         linea;
         \item Se l’informazione è più lunga di una linea di codice allora bisogna indentare le informazioni.
     \end{itemize}
-    \item Utilizzare sempre \textbf{SnakeCase} per i nomi delle prop;
+    \item Utilizzare sempre \textbf{Snake Case} per i nomi delle prop;
     \item Utilizzare sempre i doppi apici invece che i singoli;
     \item Utilizzare una self-close se i tag non hanno figli;
     \item Utilizzare className per assegnare classi CSS agli elementi;
 \end{itemize}
 
-\subsubsubsection{Organizzazione codice} % SOGGETTO A VARIAZIONE %
+\subsubsubsection{Organizzazione codice}  % SOGGETTO A VARIAZIONE %
 
 In seguito riportiamo la struttura che il gruppo ha deciso di utilizzare per il progetto:
 \begin{itemize}
@@ -258,7 +262,7 @@ In seguito riportiamo la struttura che il gruppo ha deciso di utilizzare per il 
             \item \textbf{\textbackslash assets} immagini, icone e altri file statici;
             \item \textbf{\textbackslash styles} fogli di stile.
             \item \textbf{App.tsx};
-            \item \textbf{Index.tsx}.
+            \item \textbf{Main.tsx}.
         \end{itemize}
     \end{itemize}
     \item \textbf{server} Parte backend.
@@ -288,7 +292,7 @@ Di seguito gli strumenti utilizzati durante il processo di sviluppo:
     \item \textbf{React three fiber:} react renderer per three.js , permette di costruire componenti riutilizzabili
     e indipendenti;
     \item \textbf{memjs:} libreria JavaScript per il dialogo con un client memcached, che nel nostro caso è utilizzato come sistema di cache dati.
-    \item \textbf{Nest.js:} framework per Node.js che semplifica lo sviluppo di applicazioni server-side efficienti e scalabili.
+    \item \textbf{NestJS:} framework per Node.js che semplifica lo sviluppo di applicazioni server-side efficienti e scalabili.
     \item \textbf{Pattern React Placeholder:}
     \item \textbf{Docker:} piattaforma open source che permette di "containerizzare" e rendere portabili le applicazioni.
 \end{itemize}
