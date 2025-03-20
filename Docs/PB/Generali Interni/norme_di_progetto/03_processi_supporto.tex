@@ -122,7 +122,7 @@ questa scelta risulta più coerente con l'uso comune e l'assonanza nella lingua
 italiana. Ad esempio, termini come "file" o "commit" verranno sempre utilizzati
 nella loro forma singolare, anche quando si riferiscono a concetti plurali, per
 evitare ambiguità o traduzioni non naturali.\\ Per quanto riguarda il genere
-(maschile o femminile), verrà specificato all'interno del \textit{Glossario},
+(maschile o femminile), verrà specificato all'interno del \textit{Glossario v2.0.0},
 così da uniformare l'interpretazione e garantire chiarezza, specialmente nei
 casi in cui il termine inglese non abbia un corrispettivo diretto o il genere
 non sia immediatamente evidente. Questa scelta mira a favorire una lettura
@@ -136,7 +136,7 @@ fluida e una comprensione condivisa del testo.
             termini stranieri, la concordanza va basata sul significato tradotto o
             percepito in italiano. Questo garantisce una corretta integrazione
             dell'acronimo nella struttura grammaticale della lingua;
-      \item Ogni acronimo deve essere inserito nel \textit{Glossario}, accompagnato da una
+      \item Ogni acronimo deve essere inserito nel \textit{Glossario v2.0.0}, accompagnato da una
             spiegazione dettagliata del suo significato, per garantire chiarezza e
             comprensione.
 \end{itemize}
@@ -257,7 +257,7 @@ il proponente e/o il committente.
             Seguono la struttura dei verbali interni, il nome del file deve avere la forma "VE\_yyyy-mm-dd". Cambia il processo di approvazione\textsubscript{g} del documento:
             il verbale viene approvato non solo dal responsabile, ma anche dal soggetto esterno con il quale si è svolto l'incontro,
             per rendere il documento più professionale e garantire coerenza tra il gruppo e il soggetto esterno.
-      \item \textit{\textbf{Lettera di candidatura}}: serve per esprimere la volontà di candidarsi allo svolgimento del capitolato scelto, dopo aver discusso e redatto lo \textit{Studio di fattibilità},
+      \item \textit{\textbf{Lettera di presentazione}}: serve per esprimere la volontà di candidarsi allo svolgimento del capitolato scelto, dopo aver discusso e redatto lo \textit{Studio di fattibilità},
             è composta da:
             \begin{itemize}
                   \item Pagina iniziale: viene dichiarato il capitolato per il quale il gruppo ha
@@ -299,7 +299,7 @@ il proponente e/o il committente.
                         riunioni interne, come specificato nella sottosezione \nameref{inf:reqs}.
             \end{itemize}
       \item \textit{\textbf{Piano di progetto}}: ha lo scopo di supportare la gestione delle risorse per quanto riguarda l'avanzamento del progetto, per riuscire a portarlo a termine entro la data decisa.\\
-            Il \textit{Piano di progetto} ha inoltre la funzione di descrivere il modello di sviluppo adottato, e di monitorarlo tramite la suddivisione in periodi, per analizzare il lavoro svolto e poter apportare miglioramenti con il passare del tempo.
+            Il \textit{Piano di progetto v1.0.0} ha inoltre la funzione di descrivere il modello di sviluppo adottato, e di monitorarlo tramite la suddivisione in periodi, per analizzare il lavoro svolto e poter apportare miglioramenti con il passare del tempo.
             \\Il corpo del documento è composto da queste sezioni:
             \begin{itemize}
                   \item \textbf{Introduzione}: riporta lo scopo del documento, lo scopo del prodotto, i riferimenti normativi e informativi;
@@ -373,7 +373,7 @@ il proponente e/o il committente.
                         durante il corso del progetto.
             \end{itemize}
       \item \textit{\textbf{Glossario}}: documento che contiene il significato dei termini chiave utilizzati nel progetto (indicati con il pedice "g"), utile per garantire una comprensione comune fornendo spiegazioni concise e precise.
-            \\La struttura del \textit{Glossario} è composta da sezioni caratterizzate dalle lettere dell'alfabeto in ordine alfabetico, contenenti le parole che hanno come iniziale quella lettera.
+            \\La struttura del \textit{Glossario v2.0.0} è composta da sezioni caratterizzate dalle lettere dell'alfabeto in ordine alfabetico, contenenti le parole che hanno come iniziale quella lettera.
 \end{itemize}
 
 \subsubsection{Metriche}
@@ -411,13 +411,22 @@ repository è formata in questo modo:
       \item \textbf{3Dataviz}: cartella che contiene i file sorgente del prodotto software;
       \item \textbf{Docs}: cartella che contiene la documentazione. Si divide ulteriormente in:
             \begin{itemize}
-                  \item \textbf{Candidatura}: cartella che contiene i documenti da presentare per la candidatura;
-                  \item \textbf{Generali}: cartella che contiene tutta la documentazione esterna e interna tranne i verbali;
-                  \item \textbf{Verbali esterni}: cartella contenente i verbali esterni, che riportano gli incontri con soggetti esterni;
-                  \item \textbf{Verbali interni}: cartella contenente i verbali interni, relativi agli incontri tra membri del gruppo.
+                  \item \textbf{CC}: cartella che contiene i documenti utili per la candidatura per il capitolato;
+                  \item \textbf{PB}: cartella che contiene i documenti utili per la revisione \textit{Product Baseline} 
+                  \item \textbf{RTB}: cartella che contiene i documenti utili per la revisione \textit{Requirements and Technology Baseline} 
             \end{itemize}
       \item \textbf{website}: cartella che contiene i file sorgente del sito web che successivamente verrà pubblicato utilizzando GitHub Pages.
 \end{itemize}
+\newpage
+All'interno delle cartelle \textbf{CC},\textbf{PB},\textbf{RTB} sono presenti ulteriori cartelle che dividono il tipo di documentazione:
+\begin{itemize}
+      \item \textbf{Candidatura}: cartella che contiene i documenti da presentare per la candidatura;
+      \item \textbf{Generali Esterni}: cartella che contiene tutta la restante documentazione esterna tranne i verbali;
+      \item \textbf{Generali Interni}: cartella che contiene tutta la restante documentazione interna tranne i verbali;
+      \item \textbf{Verbali Esterni}: cartella contenente i verbali esterni, relativi agli incontri incontri con soggetti esterni;
+      \item \textbf{Verbali Interni}: cartella contenente i verbali interni, relativi agli incontri tra membri del gruppo.
+\end{itemize}
+
 Il repository è dotato di sistema di auto-build per la documentazione grazie a GitHub Actions (vedi \nameref{inf:automaz}).
 Per maggiori informazioni riguardanti i branch seguire le regole descritte nella sezione \nameref{inf:branch}.
 
@@ -428,9 +437,6 @@ I branch si dividono in:
             \begin{itemize}
                   \item \textbf{main}: branch principale che contiene la documentazione e il codice approvato del responsabile,
                         nonché la parte che viene mostrata sulla pagina web;
-                  \item \textbf{docs/[NOME-DOCUMENTO]}: un branch per ogni documento, che contiene solamente le versioni verificate del documento.
-                        Se il nome del documento include dei trattini ("-"), nel nome del branch devono essere sostituiti con underscore ("\_"),
-                        ad esempio docs/VI\_2024\_11\_20.
             \end{itemize}
       \item \textbf{Branch derivati}: sono branch utilizzati per aggiungere modifiche e aggiornare un documento o una parte di codice che poi dovrà essere verificata
             attraverso una pull request verso il branch da cui esso è stato derivato;\\
@@ -500,7 +506,7 @@ dove:
       \item \textbf{COSA}: breve descrizione di cosa di è aggiunto e/o fatto.
 \end{itemize}
 
-Notare però che dopo l'approvazione di una pull request tutti i commit relativi
+Dopo l'approvazione di una pull request tutti i commit relativi al documento
 verranno raggruppati in un unico commit, il cui titolo deve rispettare la
 struttura sintattica descritta in seguito.
 \begin{center}
@@ -514,15 +520,6 @@ dove:
 \end{itemize}
 Per quanto riguarda il commento facoltativo, si lascia quello di default proposto da GitHub,
 ovvero un elenco puntato di tutti i commit che verranno raggruppati.\\
-
-Per aggiornare direttamente il main si è deciso di disabilitare temporaneamente
-il protection, eseguire un commit con delle modifiche, con la struttura
-sintattica elencata sopra, e infine attivare nuovamente il protection. Questa
-soluzione è stata adottata perché il team ritiene sia più veloce e semplice
-apportare modifiche a template e action in questo modo rispetto alla creazione
-di un branch e a una successiva pull request, inoltre il main, una volta
-ultimate le automazioni, non verrà più modificato se non dai merge scatenati
-dalle pull request.
 
 \subsubsection{Pull request}\label{inf:pr}
 Per effettuare un merge su un branch protetto si deve aprire, da GitHub, una
@@ -557,7 +554,7 @@ Per una descrizione più dettagliata delle issue si faccia riferimento a
 Per i commit relativi alle pull request seguire le regole descritte nella
 sezione \nameref{inf:pr}.
 
-\subsubsection{Automazione}\label{inf:automaz}
+\subsubsection{Automazioni}\label{inf:automaz}
 \subsubsubsection{Scopo}
 Lo scopo dell'automazione è garantire una maggiore efficienza e ridurre il
 rischio di errori umani. Tuttavia, il costo necessario per rendere automatiche
@@ -573,7 +570,7 @@ particolare, sono state scritte tre diverse action:
             tutta la documentazione creata fino a quel momento e di creare la relativa pagina web tramite Pages;
       \item \texttt{pr\_build\_check.yml}: si scatena quando viene effettuata una pull request verso il main o verso
             un branch di documentazione, ovvero del tipo docs/[NOME-DOCUMENTO]. Serve per verificare che
-            i sorgenti LaTeX compilino correttamente e che sia stato modificato uno e un solo documento;
+            i sorgenti LaTeX compilino correttamente;
       \item \texttt{pr\_gulpease\_check.yml}: si scatena quando viene effettuata una pull request verso il main o verso
             un branch di documentazione, ovvero del tipo docs/[NOME-DOCUMENTO]. Essa verifica che
             l'indice Gulpease del documento, espresso come media degli indici delle sezioni, sia maggiore o uguale a 50.
@@ -604,6 +601,20 @@ Per aggiungere un'action, è necessario seguire i seguenti passaggi:
       \item Riabilitare il protection del main.
 \end{itemize}
 
+\subsubsection{Page Github}
+\subsubsubsection{Scopo}
+Attraverso la pagina GitHub, il team vuole fornire un punto di accesso centralizzato e di facile consultazione per tutta la documentazione.
+
+\subsubsubsection{Aggiornare il sito}
+Il procedimento è molto simile a quello per aggiungere un'action:
+\begin{itemize}
+      \item Modificare o creare un nuovo file in linguaggio HTML, CSS o Javascript nella cartella \texttt{website} del repository;
+      \item Disabilitare temporaneamente il protection del main;
+      \item Effettuare un commit con le modifiche apportate (vedi \nameref{inf:comm});
+      \item Riabilitare il protection del main.
+\end{itemize}
+
+
 \subsection{Accertamento della qualità}
 \subsubsection{Scopo}
 Lo scopo del processo di accertamento della qualità è garantire la qualità dei
@@ -616,7 +627,7 @@ Il piano della qualità comprende gli obiettivi di qualità che il team si
 impegna a raggiungere e le metriche utilizzate per misurare il raggiungimento
 di tali obiettivi. \\ Il controllo della qualità consite nella misurazione e
 analisi degli indicatori di interesse, valutando il grado di raggiungimento
-degli obiettivi di qualità. \\ Il documento \textit{Piano di qualifica} tratta
+degli obiettivi di qualità. \\ Il documento \textit{Piano di qualifica v1.1.0} tratta
 nel dettaglio le attività di pianificazione e controllo della qualità. \\
 \subsubsection{Ciclo di Deming}
 Per quanto riguarda l'attività di miglioramento continuo dei processi, il
