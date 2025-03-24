@@ -614,6 +614,17 @@ Il procedimento è molto simile a quello per aggiungere un'action:
       \item Riabilitare il protection del main.
 \end{itemize}
 
+\subsubsection{Docker}
+\subsubsubsection{Scopo}
+Docker viene utilizzato per la creazione di immagini e container isolati per facilitare e velocizzare lo sviluppo dell'applicazione e garantendo portabilità e coerenza tra ambienti.
+
+\subsubsubsection{Docker compose}
+Sono stati creati 2 file per la creazione e avvio automatico dei container:
+\begin{itemize}
+      \item \textit{dc-dev.yaml:} permette la creazione di container che condividono volumi con l'host, consentendo l'hot-reloading immediato delle modifiche all'applicazione.
+      \item \textit{dc-dep.yaml:}  permette la creazione di container che hanno una copia dell'applicazione, utilizzati per il deploy finale.
+\end{itemize}
+
 
 \subsection{Accertamento della qualità}
 \subsubsection{Scopo}
