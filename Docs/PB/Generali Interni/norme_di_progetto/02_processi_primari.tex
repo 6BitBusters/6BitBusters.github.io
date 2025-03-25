@@ -250,24 +250,9 @@ In seguito riportiamo la struttura che il gruppo ha deciso di utilizzare per il 
 \begin{itemize}
     \item \textbf{client} Parte frontend;
     \begin{itemize}
-        \item \textbf{\textbackslash cypress} cartella per test e2e;
-        \item \textbf{\textbackslash test} cartella per test;
-        \item \textbf{\textbackslash public} risorse pubbliche;
-        \item \textbf{\textbackslash src}
-        \begin{itemize}
-            \item \textbf{\textbackslash components} componenti React.js;
-            \begin{itemize}
-                \item \textbf{\textbackslash UI} componenti utilizzati per la creazione dell'interfaccia utente.
-                \item \textbf{\textbackslash 3D} componenti utilizzati per la renderizzazione degli elementi nell'ambiente 3D
-            \end{itemize}
-            \item \textbf{\textbackslash pages} componenti delle pagine dell'applicazione;
-            \item \textbf{\textbackslash contexts} gestione dello stato globale con Context API;
-            \item \textbf{\textbackslash services} chiamate API e logica di gestione dei dati;
-            \item \textbf{\textbackslash assets} immagini, icone e altri file statici;
-            \item \textbf{\textbackslash styles} fogli di stile.
-            \item \textbf{App.tsx};
-            \item \textbf{Main.tsx}.
-        \end{itemize}
+        \item Il team ha deciso di utilizzare un'organizzazione di cartelle seguendo le linee guida proposte dalla documentazione ufficiale di Redux-Toolkit:\\
+        \url{https://redux.js.org/tutorials/essentials/part-2-app-structure#application-contents} (18-03-2025)\\ \\
+        \textbf{Nota:} I fogli di stile per ogni componente UI verrà collocato nella stessa cartella del componente stesso.
     \end{itemize}
 
     \item \textbf{server} Parte backend.
