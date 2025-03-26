@@ -75,7 +75,22 @@
 % Permette tabelle su più pagine
 %\usepackage{longtable}
 
+\usepackage{titlesec}
+% Imposta la dimensione personalizzata per \subsubsection e mantieni la numerazione
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{11pt}{13pt}\bfseries}  % 11pt di testo, 12pt di interlinea
+  {\thesubsubsection\quad}  % Mantiene il numero della subsubsection
+  {0pt}  
+  {}  
 
+% Imposta la dimensione personalizzata per \paragraph e mantieni la numerazione
+\titleformat{\paragraph}
+  {\normalfont\fontsize{10pt}{12pt}\bfseries}  
+  {\theparagraph\quad}  % Mantiene il numero del paragrafo (se numerato)
+  {0pt}  
+  {}
+\setlength{\parindent}{0pt}
+\titlespacing{\paragraph}{0pt}{*3}{*1}
 
 %COMANDI TABELLE
 \newcommand{\rowcolorhead}{\rowcolor[HTML]{731733}}
