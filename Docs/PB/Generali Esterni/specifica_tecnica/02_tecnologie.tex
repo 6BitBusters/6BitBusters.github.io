@@ -1,0 +1,284 @@
+\section{Tecnologie}
+Questa sezione descrive gli strumenti e le tecnologie adottati per lo sviluppo,
+il testing e il deployment del software relativo al progetto \textit{3Dataviz}.
+In particolare, vengono illustrati il linguaggio di programmazione, le
+librerie, i framework e le infrastrutture utilizzate.
+
+\subsection{Linguaggio di programmazione}
+\subsubsection{TypeScript}
+TypeScript è un linguaggio di programmazione open-source sviluppato da
+Microsoft. Si tratta di un superset di JavaScript, che introduce la
+tipizzazione statica, consentendo di rilevare errori di programmazione in fase
+di sviluppo, ridurre il numero di bug e migliorare la qualità del codice.
+\begin{itemize}
+    \item \textbf{Versione}: 5.8.2;
+    \item \textbf{Documentazione}: \url{https://www.typescriptlang.org/docs/} (consultato:
+          25-03-2025).
+\end{itemize}
+Nel contesto del progetto \textit{3Dataviz}, TypeScript è il linguaggio principale
+utilizzato per lo sviluppo sia del frontend che del backend. \\Per il frontend,
+si utilizza TSX, un'estensione di Typescript che permette di definire la struttura
+dell'interfaccia utente in modo più leggibile e dichiarativo, integrando HTML
+direttamente nel codice TypeScript.
+
+\subsection{Formato dei dati}
+\subsubsection{JSON}
+JSON (JavaScript Object Notation) è un formato di scambio dati leggero e
+indipendente dal linguaggio di programmazione. È ampiamente utilizzato nello
+sviluppo web e nello scambio di dati tra applicazioni. \\JSON è basato su due
+strutture di dati:
+\begin{itemize}
+    \item \textbf{Oggetti}: insiemi di coppie chiave-valore;
+    \item \textbf{Array}: liste ordinate di valori.
+\end{itemize}
+JSON viene utilizzato per la trasmissione dei dati tra frontend e backend, nonché
+per la memorizzazione dei dati nel sistema di cache.
+
+\subsection{Frontend}
+\subsubsection{Vite}
+Vite è uno strumento di build progettato per offrire un'esperienza di sviluppo
+veloce e fluida nei progetti web moderni. Si compone di due parti principali:
+\begin{itemize}
+    \item Un server di sviluppo, che estende le funzionalità dei moduli ES nativi,
+          offrendo, ad esempio, un Hot Module Replacement (HMR) estremamente rapido;
+    \item Un comando di compilazione che crea il bundle del codice utilizzando Rollup,
+          preconfigurato per generare risorse statiche ottimizzate per la produzione.
+\end{itemize}
+Vite è estendibile tramite plugin, che consentono di personalizzare
+il processo di sviluppo e di compilazione. Nel progetto \textit{3Dataviz}, viene utilizzato il
+plugin \texttt{@vitejs/plugin-react-swc}, che abilita la sintassi JSX e ottimizza la compilazione del codice React.
+
+\begin{itemize}
+    \item \textbf{Versione}: 6.2.3;
+    \item \textbf{Documentazione}: \url{https://vitejs.dev/guide/} (consultato:
+          25-03-2025).
+\end{itemize}
+
+\subsubsection{Three.js}
+Three.js è una libreria JavaScript open-source per la creazione di grafica 3D.
+Fornisce un'API ad alto livello per la creazione di scene 3D complesse,
+utilizzando WebGL come backend per la grafica hardware-accelerata. \\Three.js
+semplifica la creazione di oggetti 3D, luci, materiali e animazioni, offrendo
+funzionalità avanzate come il ray tracing e il supporto per shading e texture.
+\begin{itemize}
+    \item \textbf{Versione}: 0.174.0;
+    \item \textbf{Documentazione}: \url{https://threejs.org/docs/} (consultato:
+          25-03-2025).
+\end{itemize}
+Questa è la libreria intorno su cui si basa l'intero progetto, in quanto
+viene utilizzata per la visualizzazione dei dati in 3D, nonché per la
+navigazione e l'interazione con il grafico.
+
+\subsubsection{GSAP}
+GSAP (GreenSock Animation Platform) è una libreria JavaScript open-source per
+la creazione di animazioni di alta qualità.
+\begin{itemize}
+    \item \textbf{Versione}: 3.12.7;
+    \item \textbf{Documentazione}: \url{https://gsap.com/docs/v3} (consultato:
+          25-03-2025).
+\end{itemize}
+GSAP è necessaria per l'implementazione dei casi d'uso relativi al posizionamento
+della camera in punti specifici della scena 3D, nonché per la gestione delle
+animazioni di transizione tra un punto e l'altro.
+
+\subsubsection{React}
+React è una libreria JavaScript open-source per la creazione di interfacce
+utente. Consente di definire componenti riutilizzabili che rappresentano parti
+dell'interfaccia, aggiornando automaticamente la vista in base allo stato
+dell'applicazione. \\React adotta un approccio dichiarativo per la definizione
+dell'interfaccia utente, semplificando la gestione dello stato e la
+sincronizzazione con il DOM. \\Non è opinionato nella scelta delle librerie di
+routing o di gestione dello stato, permettendo una facile integrazione con
+altre tecnologie.
+\begin{itemize}
+    \item \textbf{Versione}: 19.0.0;
+    \item \textbf{Documentazione}: \url{https://react.dev/learn} (consultato:
+          25-03-2025).
+\end{itemize}
+
+\paragraph{React Router}
+Libreria open-source che fornisce un sistema di routing per React. Consente di
+definire rotte all'interno dell'applicazione, associando componenti React a URL
+specifici. \\React Router gestisce la navigazione tra le diverse rotte,
+aggiornando il contenuto dell'interfaccia utente in base all'URL corrente.
+\begin{itemize}
+    \item \textbf{Versione}: 7.4.0;
+    \item \textbf{Documentazione}: \url{https://reactrouter.com/home} (consultato:
+          25-03-2025).
+\end{itemize}
+
+\paragraph{React Three Fiber}
+Libreria open-source che permette di integrare Three.js all'interno di
+un'applicazione React. Fornisce un'API dichiarativa per la creazione di scene
+3D, semplificando l'integrazione di Three.js con React e consentendo di
+definire componenti 3D riutilizzabili.
+\begin{itemize}
+    \item \textbf{Versione}: 9.1.0;
+    \item \textbf{Documentazione}: \url{https://docs.pmnd.rs/react-three-fiber/getting-started/introduction} (consultato:
+          25-03-2025).
+\end{itemize}
+
+\paragraph{React Three Drei}
+Libreria open-source che fornisce componenti e hook riutilizzabili per React
+Three Fiber. Contiene una vasta gamma di componenti pronti all'uso per la
+creazione di scene 3D, semplificando lo sviluppo di applicazioni 3D basate su
+React e Three.js.
+\begin{itemize}
+    \item \textbf{Versione}: 10.0.5;
+    \item \textbf{Documentazione}: \url{https://drei.docs.pmnd.rs/getting-started/introduction} (consultato:
+          25-03-2025).
+\end{itemize}
+
+\subsubsection{Redux}
+Redux è una libreria open-source per la gestione dello stato globale nelle
+applicazioni JavaScript. Si basa su due concetti fondamentali:
+\begin{itemize}
+    \item \textbf{Store}, che rappresenta lo stato dell'applicazione;
+    \item \textbf{Azioni}, che definiscono le modifiche allo stato.
+\end{itemize}
+Redux semplifica la gestione dello stato, fornendo un'API per definire
+azioni e reducer, che aggiornano lo stato in base alle azioni ricevute.
+\begin{itemize}
+    \item \textbf{Versione}: 5.0.1;
+    \item \textbf{Documentazione}: \url{https://redux.js.org/introduction/getting-started} (consultato:
+          25-03-2025).
+\end{itemize}
+Redux è utilizzato per gestire lo stato globale dell'applicazione, in particolare per
+memorizzare i dati caricati dal backend e per gestire lo stato della
+visualizzazione 3D.
+
+\paragraph{Redux Toolkit}
+Pacchetto ufficiale per Redux, progettato per semplificare la gestione dello
+stato. Viene utilizzato per configurare lo store Redux e per definire le azioni
+e i reducer necessari alla gestione dello stato globale dell'applicazione.
+\begin{itemize}
+    \item \textbf{Versione}: 2.6.1;
+    \item \textbf{Documentazione}: \url{https://redux-toolkit.js.org/introduction/getting-started} (consultato:
+          25-03-2025).
+\end{itemize}
+
+\paragraph{React Redux}
+Pacchetto che funge da collegamento tra l'interfaccia utente in React e Redux.
+Consente ai componenti React di leggere i dati dallo store Redux e di inviare
+azioni per aggiornare lo stato dell'applicazione.
+\begin{itemize}
+    \item \textbf{Versione}: 9.2.0;
+    \item \textbf{Documentazione}: \url{https://react-redux.js.org/introduction/getting-started} (consultato:
+          25-03-2025).
+\end{itemize}
+
+\subsubsection{Axios}
+Axios è un client HTTP basato su Promise per Node.js e browser. È isomorfo,
+cioè può essere eseguito sia nel browser che in Node.js utilizzando lo stesso
+codice sorgente. Lato server, Axios utilizza il modulo http nativo di Node.js,
+mentre lato client usa XMLHttpRequest.
+\begin{itemize}
+    \item \textbf{Versione}: 1.8.4;
+    \item \textbf{Documentazione}: \url{https://axios-http.com/docs/intro} (consultato:
+          25-03-2025).
+\end{itemize}
+Nel progetto \textit{3Dataviz}, Axios viene utilizzato:
+\begin{itemize}
+    \item Lato frontend, per effettuare richieste HTTP al backend e ottenere i dati da
+          visualizzare nel grafico 3D;
+    \item Lato backend, per effettuare richieste HTTP alle API esterne, acquisendo i dati
+          da elaborare e inviare al frontend.
+\end{itemize}
+
+\subsection{Backend}
+\subsubsection{Node.js}
+Node.js è un runtime JavaScript open-source basato sul motore V8 di Google
+Chrome. Consente di eseguire codice JavaScript lato server, utilizzando un
+modello di I/O asincrono e orientato agli eventi. Node.js è progettato per
+essere leggero e scalabile, adatto per la creazione di applicazioni web ad alte
+prestazioni.
+\begin{itemize}
+    \item \textbf{Versione}: 22.14.0;
+    \item \textbf{Documentazione}: \url{https://nodejs.org/en/docs/} (consultato:
+          25-03-2025).
+\end{itemize}
+
+\subsubsection{NestJS}
+NestJS è un framework per Node.js che fornisce un'architettura modulare e
+scalabile per la creazione di applicazioni lato server. \\Si basa su
+Express.js, offrendo funzionalità aggiuntive come la dependency injection, i
+middleware e i decorator. NestJS consente di organizzare il codice in moduli
+riutilizzabili e di definire facilmente controller, servizi e provider.
+\begin{itemize}
+    \item \textbf{Versione}: 11.0.12;
+    \item \textbf{Documentazione}: \url{https://docs.nestjs.com/} (consultato:
+          26-03-2025).
+\end{itemize}
+Nel progetto \textit{3Dataviz}, NestJS è utilizzato per creare il backend,
+definendo i controller per gestire le richieste HTTP effettuate dal frontend,
+i servizi per ottenere ed elaborare i dati provenienti dalle API esterne, e i
+provider per l'iniezione delle dipendenze.
+
+\subsubsection{Memcached}
+Memcached è un sistema di cache open-source ad alte prestazioni, progettato per
+accelerare le applicazioni web dinamiche alleggerendo il carico del database.
+Funziona come un archivio chiave-valore per piccoli dati arbitrari (massimo 1
+MB) che possono consistere in risultati di chiamate a database o a API.
+\begin{itemize}
+    \item \textbf{Versione}: 1.6.38;
+    \item \textbf{Documentazione}: \url{https://docs.memcached.org/} (consultato:
+          26-03-2025).
+\end{itemize}
+Memcached viene utilizzato per memorizzare i dati ottenuti dalle API esterne,
+al fine di ridurre i tempi di accesso ai dati, nonché il numero di richieste
+effettuate alle API. Ciò è particolarmente utile nel caso di API che impongono
+un limite massimo di richieste per unità di tempo.
+
+\subsection{Deployment}
+\subsubsection{Docker}
+Docker è una piattaforma open-source per lo sviluppo, la distribuzione e
+l'esecuzione di applicazioni in contenitori. I contenitori Docker sono unità
+standardizzate di software che includono il codice sorgente, le dipendenze e le
+configurazioni necessarie per eseguire un'applicazione.
+\begin{itemize}
+    \item \textbf{Documentazione}: \url{https://docs.docker.com/} (consultato:
+          26-03-2025).
+\end{itemize}
+Per lo sviluppo, il testing e il rilascio del prodotto sono stati utilizzati container Docker in
+modo da garantire ambienti consistenti e riproducibili.
+
+\subsection{Testing}
+\subsubsection{Vitest}
+Vitest è un framework di testing per Vite. Offre funzionalità avanzate come il
+supporto per TypeScript, la configurazione tramite file di setup e la
+possibilità di eseguire test in modalità watch. Questa è particolarmente utile
+in fase di sviluppo attivo e debugging, poiché riduce i tempi di attesa per
+l'esecuzione dei test e aiuta a mantenere il codice sempre funzionante durante
+il processo di sviluppo.
+\begin{itemize}
+    \item \textbf{Versione}: 3.0.9;
+    \item \textbf{Documentazione}: \url{https://vitest.dev/guide/} (consultato:
+          26-03-2025).
+\end{itemize}
+Vitest è utilizzato per eseguire i test di unità e di integrazione del frontend,
+verificando che i componenti React siano implementati correttamente.
+
+\subsubsection{Cypress}
+Cypress è un framework di testing end-to-end per applicazioni web. Consente di
+scrivere test in JavaScript, eseguirli in un browser reale e visualizzare i
+risultati in tempo reale.
+\begin{itemize}
+    \item \textbf{Versione}: 14.2.0;
+    \item \textbf{Documentazione}: \url{https://docs.cypress.io/} (consultato:
+          26-03-2025).
+\end{itemize}
+Cypress è utilizzato per testare il frontend dell'applicazione, verificando che
+l'interfaccia utente sia correttamente visualizzata e che le principali funzionalità
+siano implementate correttamente.
+
+\subsubsection{Jest}
+Jest è un framework di testing progettato per garantire la correttezza di
+qualsiasi sorgente JavaScript. Consente di scrivere test con un'API
+accessibile e ricca di funzionalità che fornisce risultati rapidamente.
+\begin{itemize}
+    \item \textbf{Versione}: 29.7.0;
+    \item \textbf{Documentazione}: \url{https://jestjs.io/docs/getting-started} (consultato:
+          26-03-2025).
+\end{itemize}
+Jest è utilizzato per eseguire i test di unità e di integrazione del backend,
+verificando che i servizi e i controller siano implementati correttamente.
