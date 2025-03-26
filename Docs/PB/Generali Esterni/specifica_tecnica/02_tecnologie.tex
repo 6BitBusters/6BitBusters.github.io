@@ -199,57 +199,53 @@ prestazioni.
 \end{itemize}
 
 \subsubsection{NestJS}
-NestJS è un framework per Node.js che fornisce un'architettura modulare e
-scalabile per la creazione di applicazioni lato server. \\Si basa su
-Express.js, offrendo funzionalità aggiuntive come la dependency injection, i
-middleware e i decorator. NestJS consente di organizzare il codice in moduli
+NestJS è un framework per Node.js che offre un'architettura modulare e
+scalabile per la creazione di applicazioni lato server. Si basa su
+Express.js e fornisce funzionalità aggiuntive come dependency injection,
+middleware e decorator. NestJS consente di organizzare il codice in moduli
 riutilizzabili e di definire facilmente controller, servizi e provider.
 \begin{itemize}
     \item \textbf{Versione}: 11.0.12;
     \item \textbf{Documentazione}: \url{https://docs.nestjs.com/} (consultato:
           26-03-2025).
 \end{itemize}
-Nel progetto \textit{3Dataviz}, NestJS è utilizzato per creare il backend,
-definendo i controller per gestire le richieste HTTP effettuate dal frontend,
-i servizi per ottenere ed elaborare i dati provenienti dalle API esterne, e i
+Nel progetto \textit{3Dataviz}, NestJS è utilizzato per creare il backend.
+In particolare, viene impiegato per definire i controller che gestiscono le richieste HTTP provenienti dal frontend,
+i servizi per ottenere ed elaborare i dati dalle API esterne, e i
 provider per l'iniezione delle dipendenze.
 
 \subsubsection{Memcached}
 Memcached è un sistema di cache open-source ad alte prestazioni, progettato per
-accelerare le applicazioni web dinamiche alleggerendo il carico del database.
-Funziona come un archivio chiave-valore per piccoli dati arbitrari (massimo 1
-MB) che possono consistere in risultati di chiamate a database o a API.
+accelerare le applicazioni web dinamiche riducendo il carico sul database.
+Funziona come un archivio chiave-valore per piccoli dati arbitrari (fino a 1
+MB) che possono includere risultati di query a database o chiamate a API.
 \begin{itemize}
     \item \textbf{Versione}: 1.6.38;
     \item \textbf{Documentazione}: \url{https://docs.memcached.org/} (consultato:
           26-03-2025).
 \end{itemize}
-Memcached viene utilizzato per memorizzare i dati ottenuti dalle API esterne,
-al fine di ridurre i tempi di accesso ai dati, nonché il numero di richieste
-effettuate alle API. Ciò è particolarmente utile nel caso di API che impongono
-un limite massimo di richieste per unità di tempo.
+Memcached viene utilizzato nel progetto per memorizzare i dati ottenuti dalle API esterne,
+al fine di ridurre i tempi di accesso ai dati e il numero di richieste
+effettuate alle API. Ciò è particolarmente utile per le API che impongono limit sul numero di richieste per unità di tempo.
 
 \subsection{Deployment}
 \subsubsection{Docker}
 Docker è una piattaforma open-source per lo sviluppo, la distribuzione e
-l'esecuzione di applicazioni in contenitori. I contenitori Docker sono unità
-standardizzate di software che includono il codice sorgente, le dipendenze e le
+l'esecuzione di applicazioni in contenitori. I contenitori Docker sono unità di software che includono il codice sorgente, le dipendenze e le
 configurazioni necessarie per eseguire un'applicazione.
 \begin{itemize}
     \item \textbf{Documentazione}: \url{https://docs.docker.com/} (consultato:
           26-03-2025).
 \end{itemize}
-Per lo sviluppo, il testing e il rilascio del prodotto sono stati utilizzati container Docker in
-modo da garantire ambienti consistenti e riproducibili.
+Per lo sviluppo, il testing e il rilascio del prodotto sono stati utilizzati container Docker per garantire ambienti consistenti e facilmente riproducibili.
 
 \subsection{Testing}
 \subsubsection{Vitest}
 Vitest è un framework di testing per Vite. Offre funzionalità avanzate come il
 supporto per TypeScript, la configurazione tramite file di setup e la
-possibilità di eseguire test in modalità watch. Questa è particolarmente utile
-in fase di sviluppo attivo e debugging, poiché riduce i tempi di attesa per
-l'esecuzione dei test e aiuta a mantenere il codice sempre funzionante durante
-il processo di sviluppo.
+possibilità di eseguire test in modalità watch. Questa modalità è particolarmente utile
+durante lo sviluppo attivo e il debugging, poiché riduce i tempi di attesa per
+l'esecuzione dei test e aiuta a mantenere il codice sempre funzionante.
 \begin{itemize}
     \item \textbf{Versione}: 3.0.9;
     \item \textbf{Documentazione}: \url{https://vitest.dev/guide/} (consultato:
@@ -260,7 +256,7 @@ verificando che i componenti React siano implementati correttamente.
 
 \subsubsection{Cypress}
 Cypress è un framework di testing end-to-end per applicazioni web. Consente di
-scrivere test in JavaScript, eseguirli in un browser reale e visualizzare i
+scrivere test in JavaScript, eseguirli in un browser e visualizzare i
 risultati in tempo reale.
 \begin{itemize}
     \item \textbf{Versione}: 14.2.0;
@@ -274,11 +270,11 @@ siano implementate correttamente.
 \subsubsection{Jest}
 Jest è un framework di testing progettato per garantire la correttezza di
 qualsiasi sorgente JavaScript. Consente di scrivere test con un'API
-accessibile e ricca di funzionalità che fornisce risultati rapidamente.
+accessibile e ricca di funzionalità, che fornisce risultati rapidamente.
 \begin{itemize}
     \item \textbf{Versione}: 29.7.0;
     \item \textbf{Documentazione}: \url{https://jestjs.io/docs/getting-started} (consultato:
           26-03-2025).
 \end{itemize}
 Jest è utilizzato per eseguire i test di unità e di integrazione del backend,
-verificando che i servizi e i controller siano implementati correttamente.
+verificando che i vari componenti siano implementati correttamente.
