@@ -302,11 +302,15 @@ attraverso package manager oppure i seguenti link:
 \end{itemize}
 Successivamente si deve entrare nella cartella di lavoro ottenuta dalla repo, aprire il terminale e seguire 2 semplici step:
 \begin{enumerate}
-    \item Eseguire il comando \textit{npm install} che installa tutte le dipendenze di progetto;
-    \item Eseguire il comando \textit{docker-compose -f dc-dev.yaml up} per costruire le immagini e avviare i container docker.
+    \item Eseguire il comando \texttt{npm install} che installa tutte le dipendenze di progetto;
+    \item Eseguire il comando \texttt{docker-compose -f dc-dev.yaml up} per costruire le immagini e avviare i container docker.
 \end{enumerate}
-A progetto ultimato, si dovranno generare le immagini di deploy contenenti il codice, eseguendo il seguente comando:
-\textit{docker-compose -f dc-dep.yaml up}
+A progetto ultimato, si dovranno generare le immagini di deploy contenenti il codice, eseguendo il seguente comando:\\
+\texttt{docker-compose -f dc-dep.yaml up}\\\\
+Se si desidera ricostruire le immagini è necessario eseguire il seguente comando:\\
+\texttt{docker-compose -f dc-dev.yaml up --build}, se si vuole ricostruire l'ambiente di sviluppo,
+oppure \texttt{docker-compose -f dc-dep.yaml up --build}, se si vuole ricostruire l' ambiente di deploy.\\
+In questo modo docker ricostruirà le immagini e avvierà direttamente i container.
 
 
 
