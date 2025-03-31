@@ -91,3 +91,23 @@
 \vspace{2em}
 
 }
+\newcommand{\requirementsHWTable}[1]{
+
+\renewcommand{\arraystretch}{1.5}
+\rowcolors{2}{pari}{dispari}
+\begin{longtable}{ %0.87
+		>{\centering}M{0.15\textwidth} 
+		>{\centering\arraybackslash}M{0.3\textwidth} 
+		 }
+	\rowcolorhead
+	\headertitle{Componente} &
+	\centering \headertitle{Modello}
+	\endfirsthead	
+	\endhead
+	
+	#1
+
+\end{longtable}
+\vspace{2em}
+
+}

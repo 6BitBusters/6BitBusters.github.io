@@ -187,7 +187,7 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
 \subsection{Requisiti di vincolo}
 \requirementsTable{
     \RVM & Il software deve essere sviluppato utilizzando Typescript come linguaggio di programmazione primario  & Obbligatorio  & Decisione interna \tabularnewline
-    \RVM & Il software deve supportare un massimo di 500 elementi per le coordinate X e Z mantenendo il limite di 1000 dati (es. con 500 righe, il massimo numero di colonne sarà pari a 5) & Obbligatorio & Decisione interna \tabularnewline
+    \RVM & Il software deve supportare un massimo di 500 elementi per le coordinate X e Z mantenendo il limite di 5000 dati (es. con 500 righe, il massimo numero di colonne sarà pari a 10) & Obbligatorio & Decisione interna \tabularnewline
     \RVM & Il software deve essere sviluppato utilizzando la libreria React per la creazione di un'interfaccia visiva semplice  & Obbligatorio  & Decisione interna \tabularnewline
     \RVM & Il software deve essere sviluppato utilizzando la libreria Three.js   & Obbligatorio & Decisione interna \tabularnewline
     \RVM & Il software deve essere compatibile dalla versione 131 del browser Chrome  & Obbligatorio & Decisione interna \tabularnewline
@@ -202,13 +202,23 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
 
 \subsection{Requisiti prestazionali}
 \requirementsTable{
-    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 100000 non deve avere un tempo di caricamento superiore a 2 secondi  & Obbligatorio & Decisione interna \tabularnewline
-    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 500000 non deve avere un tempo di caricamento superiore a 5 secondi  & Obbligatorio & Decisione interna \tabularnewline
-    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 1000000 non deve avere un tempo di caricamento superiore a 8 secondi  & Obbligatorio & Decisione interna \tabularnewline
-    \RPD & Il software quando carica un dataset di dimensioni maggiori a 1000000 non deve avere un tempo di caricamento superiore a 15 secondi  & Desiderabile & Decisione interna \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 2000 non deve avere un tempo di caricamento superiore a 1 secondo  & Obbligatorio & Decisione interna \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 2000 non deve avere un tempo di rendering superiore a 1 secondo  & Obbligatorio & Decisione interna \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 3500 non deve avere un tempo di caricamento superiore a 2 secondi  & Obbligatorio & Decisione interna \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 3500 non deve avere un tempo di rendering superiore a 1 secondo & Obbligatorio & Decisione interna \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 5000 non deve avere un tempo di caricamento superiore a 3 secondi  & Obbligatorio & Decisione interna \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 5000 non deve avere un tempo di rendering superiore a 1 secondo  & Obbligatorio & Decisione interna \tabularnewline
     \RPM & Il software non deve avere un tempo di risposta superiore a 5 secondi & Obbligatorio & Decisione interna \tabularnewline
 }
 
+\subsection{Requisiti hardware}
+I requisiti hardware minimi per utilizzare in modo fluido l'applicazione web sono i seguenti:
+\requirementsHWTable{
+    \textbf{CPU} & i3-9100 3.60 GHz \tabularnewline
+    \textbf{RAM} & 4 GB \tabularnewline
+    \textbf{GPU} & Intel iris \tabularnewline
+}
+\newpage
 
 \subsection{Tracciamento requisiti}
 
