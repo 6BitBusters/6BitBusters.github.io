@@ -1,0 +1,146 @@
+\section{Descrizione dell'architettura}
+\subsection{Architettura frontend}
+\subsubsection{Elenco dei componenti}
+In quanto il team per la realizzazione del frontend utilizzerà Redux per la gestione dello stato, l'applicazione
+prevederà principalmente la divisione del codice in slices,initial states e actions.
+    \paragraph{Slices}
+        Le Slice contengono una porzione dello stato globale dell’applicazione che è gestita da un reducer
+        specifico.
+    \begin{itemize}
+            \item \textbf{DataSlice:} componente che gestisce lo stato e contiene i dati riguardanti il dataset selezionato dall'utente;
+            \item \textbf{DataLabelSlice:} componente che gestisce lo stato e contiene le etichette associate ad ogni singolo dato del dataset in modo da avere una copia di ogni singola etichetta;
+            \item \textbf{AppStateSlice:} componente che gestisce lo stato dell'applicazione come errori e caricamenti;
+            \item \textbf{DataSourceSlice:} componente che gestisce lo stato e contiene la lista dei dataset che l'utente può selezionare e quello selezionato;
+            \item \textbf{FilterOptionSlice:} componente che gestisce lo stato e contiene le opzioni di filtraggio come ad esempio se eseguire un filtro per valori maggiori o minori;
+            \item \textbf{RaycastHitSlice:} componente che gestisce lo stato e contiene le informazioni del raycast.
+    \end{itemize}
+    \paragraph{Initial states}
+        Gli stati iniziali risiedono all’interno di ciascuna slice e la loro unione contiene i dati che formano
+        lo stato globale dell’applicazione gestito dallo store.
+        \begin{itemize}
+            \item \textbf{RawDataInitialState:} componente che contiene i dati relativi dal dateset selezionato dall'utente;
+            \item \textbf{DataLabelInitialState:} componente che contiene i dati relativi alle etichette dei dati del dateset selezionato;
+            \item \textbf{AppInitialState:} componente che contiene i dati relativi stato attuale dell'applicazione;
+            \item \textbf{DataSoruceInitialState:} componente che contiene le informazioni principali di tutti i dataset e quelle del dataset selezionato;
+            \item \textbf{FilterOptionInitialState:} componente che contiene i dati relativi alle opzioni di filtraggio selezionate;
+            \item \textbf{RaycastHitInitialState:} componente che contiene i dati relativi al raycast utile per interagire con le barre del grafico 3D;
+        \end{itemize}
+    \paragraph{Actions}
+        Le azioni sono emesse dai componenti e sono inviate ai reducers per aggiornare lo stato corrispondente.
+        Le azioni sono caratterizzate da un type e da un payload che viene utilizzato dalle slice
+        per modificare lo stato.
+        Per convenzione il nome delle azioni segue il formato: \\
+        nome Slice dalla quale viene catturata.nome azione.
+        \begin{itemize}
+            \item \textbf{DataSlice.RequestData:} azione asincrona emessa per prendere i dati del dataset selezionato dal server. \\ Payload: nessuno
+            \item \textbf{DataSlice.FilterTopN:} azione emessa per eseguire un filtraggio sui dati per tenere visibili solamente i top o bottom N valori.\\ Payload: FilterPayload
+            \item \textbf{DataSlice.FilterAboveValue:} azione emessa per eseguire un filtraggio sui dati per tenere visibili solamente quelli con un valore maggiore o minore rispetto a quello selezionato.\\ Payload: FilterPayload
+            \item \textbf{DataSlice.FilterAverage:} azione emessa per eseguire un filtraggio sui dati per tenere visibili solamente quelli con cun valore maggiore o minore rispetto al valor medio globale. \\ Payload: boolean $\rightarrow$ maggiore o minore
+            \item \textbf{DataLabelSlice.SetDataLabel:} azione emessa per inizializzare le label dei dati.\\ Payload: DataLabel.
+            \item \textbf{AppStateSlice.SetLoading:} azione emessa per aggiornare lo stato dell'applicazione in modo da visualizzare la pagina di caricamento. \\ Payload: boolean
+            \item \textbf{AppStateSlice.SetError:} azione emessa per aggiornare lo stato dell'applicazione e fornire una schermata di errore inerente a quello emesso dall'applicazione. \\ Payload: number $\rightarrow$ codice di errore.
+            \item \textbf{DataSourceSlice.RequestDatasets:} azione asincrona emessa per prendere la lista delle informazioni di tutti i dataset proposti. \\ Payload: nessuno.
+            \item \textbf{DataSourceSlice.SetCurrentDataset:} azione emessa per aggiornare il dataset che è stato selezionato dall'utente. \\ Payload: string DatasetInfo.
+            \item \textbf{FilterOptionSlice.ToggleAveragePlane:} azione emessa per aggiornare il flag che rappresenta se il piano medio globale è visibile nell'ambiente 3D. \\ Payload: boolean 
+            \item \textbf{FilterOptionSlice.ToggleIsGreater:} azione emessa per aggiornare il flag che rappresenta se un'operazione di filtraggio deve essere eseguita per maggiore o minore. \\ Payload: boolean
+            \item \textbf{RaycastHitSlice.SetHit:} azione emessa per aggiornare quale barra del grafico 3D è stata selezionata. \\ Payload: number $\rightarrow$ ID della barra.
+            \item \textbf{RaycastHitSlice.SetTooltipPosition:} azione emessa per aggiornare la posizione del tooltip da mostrare in relazione alla posizione del puntatore.\\ Payload: Vector3 $\rightarrow$ posizione del puntatore.
+        \end{itemize}
+    \paragraph{Classes}
+        Classi offerte dalle librerie utilizzate:
+        \begin{itemize}
+            \item \textbf{Vector3:} classe offerta dalla libreria three.js. Rappresenta un vettore tridimensionale, ovvero
+            una grandezza fisica caratterizzata da una direzione e da una lunghezza. Il vettore tridimensionale
+            viene comunemente utilizzato per definire la posizione, la rotazione, la scala e la direzione
+            delle barre del grafico 3D;
+            \item \textbf{Provider:} componente fornito da Redux che consente di rendere lo store
+            accessibile a tutti i componenti dell’applicazione. Viene ’avvolto’ intorno al componente
+            principale dell’applicazione App e accetta lo store come prop;
+            \item \textbf{Store:} oggetto fornito da Redux che tiene traccia dello stato dell’applicazione. Contiene il
+            reducer principale che specifica come le azioni influenzano lo stato e offre metodi per accedere allo stato
+            corrente, inviare azioni e registrare funzioni di callback per essere avvisati quando lo stato
+            cambia;
+            \item \textbf{RootReducer:} componente Redux che combina tutti i reducers dell’applicazione in uno stato
+            globale. Questa funzione viene passata allo store per gestire lo stato complessivo dell’applicazione;
+            \item \textbf{FontLoader:} classe utility di Three.js che permette di caricare dati di font in formato JSON per poi generare mesh di testo in ambienti tridimensionali. 
+            \item \textbf{Gasp:} classe utility della libreria gasp che permette di creare animazioni sia dell'interfaccia utente e sia all'interno dell'ambiente 3D con facilità e poco codice.
+        \end{itemize}
+        Classi definite dal team:
+        \begin{itemize}
+            \item \textbf{RawData:} classe che rappresenta il singolo dato da rappresentare tramite una barra del grafico;
+            \item \textbf{DataLabel:} classe che contiene gli array per le label, uno per l'asse x e uno per l'asse z;
+            \item \textbf{AppState:} classe che rappresenta lo stato dell'applicazione;
+            \item \textbf{DatasetInfo:} classe che rappresenta un dataset e ne conserva le principali informazioni;
+            \item \textbf{FilterOption:} classe che rappresenta la configurazione delle opzioni di filtraggio;
+            \item \textbf{RaycastHit:} classe che rappresenta il punto di intersezione tra puntatore e barra del grafico;
+            \item \textbf{FilterPayload:} classe che rappresenta il payload da passare alle action di filtraggio sul DataSlice;
+            \item \textbf{MaxRequestError:} classe che rappresenta un errore di massime richieste effettuate;
+            \item \textbf{NetworkError:} classe che rappresenta un errore di trasmissione e collegamento alle API;
+            \item \textbf{ServerError:} classe che rappresenta un errore di collegamento al server
+        \end{itemize}
+    \paragraph{React UI components}
+        I seguenti componenti, realizzati dal team, hanno il compito di visualizzare i dati dello stato che costituiscono l’interfaccia
+        utente:
+        \begin{itemize}
+            \item \textbf{RouterErrorPage:} componente che rappresenta la pagina di errore per l'applicazione web;
+            \item \textbf{SelectionPage:} componente che rappresenta la homepage dell'applicazione web;
+            \item \textbf{DatasetItem:} componente che rappresenta il singolo dataset con i suoi dati;
+            \item \textbf{UI:} componente che contiene i componenti grafici che vanno a costituire l’interfaccia utente;
+            \item \textbf{Tooltip:} componente che rappresenta un tooltip per la visualizzazione dei dettaglio di una barra;
+            \item \textbf{DataTable:} componente che rappresenta la tabella contenente tutti i valori del dataset selezionato;
+            \item \textbf{FilterModOption:} componente per configurare il tipo di filtraggio;
+            \item \textbf{AvgPlaneOption:} componente per selezionare se rendere visibile o meno il piano medio;
+            \item \textbf{NFilter:} componente che consente di inserire un valore N ed effettua il filtraggio sui top o bottom N valori;
+            \item \textbf{AbsFilter:} componente che consente di effettuare il filtraggio di valori che sono maggiori o minori rispetto al valor medio globale;
+            \item \textbf{AboveFilter:} componente che consente di effettuare il filtraggio di valori che sono maggiori o minori rispetto al valore selezionato dall'utente;
+            \item \textbf{BaseFilter:} componente contenente tutti gli elementi in comune ai componenti per i filtri;
+        \end{itemize}
+    \paragraph{Three.js 3D components}
+        I seguenti componenti hanno il compito di visualizzare i dati del dataset all'interno dell'ambiente 3D tramite il grafico:
+        \begin{itemize}
+            \item \textbf{MainEnvironment:} componente che rappresenta la pagina dove viene renderizzato l'ambiente 3D.
+            \item \textbf{CustomCanvas:} componente che fornisce una camera e una scena con una serie di props opzionali utili alla configurazione dell’ambiente 3D;
+            \item \textbf{BarChart:} componente che rappresenta il grafico 3D;
+            \item \textbf{Bar:} componente che rappresenta una singola barra del grafico 3D;
+            \item \textbf{ZAxis:} componente che rappresenta l'asse Z del grafico;
+            \item \textbf{XAxis:} componente che rappresenta l'asse X del grafico;
+            \item \textbf{YAxis:} componente che rappresenta l'asse Y del grafico;
+            \item \textbf{Lights:} componente rappresenta le luci all’interno della scena;
+        \end{itemize}
+
+\subsection{Design pattern architetturale}
+I componenti che costituiscono l’architettura utilizzata seguono il pattern offerto dalla libreria Redux-
+Toolkit.
+Redux-Toolkit è pensato per integrarsi con React e il principale vantaggio che offre è quello di poter
+gestire i dati condivisi tra i componenti React in modo centralizzato semplificando la gestione dello stato
+globale dell’applicazione.
+Inoltre Redux-Toolkit è un wrapper che semplifica l'utilizzo di Redux in modo tale da scrivere meno codice e commettere meno errori durante lo sviluppo.
+
+I componenti che formano l’architettura di Redux-Toolkit sono:
+\begin{itemize}
+    \item \textbf{Store:} componente che contiene lo stato globale dell’applicazione.
+    All’avvio dell’applicazione viene configurato utilizzando RootReducer e i componenti che utilizzano
+    lo stato globale si mettono in ascolto dello store in modo da venire renderizzati ogni volta che un dato
+    di interesse cambia valore. Questo modo di operare può essere visto come un pattern Observer in
+    cui lo store è il Subject e gli Observers sono i componenti React che osservano i cambiamenti dello store;
+    \item \textbf{RootReducer:} componente utilizzato per configurare lo store combinando le slice;
+    \item \textbf{Slice:} componente che contiene un proprio stato che rappresenta una porzione dello stato globale
+    dell’applicazione, i reducer che operano su tale stato e i selector per consentire ai suoi client il
+    reperimento dei dati.
+    \item \textbf{Reducer:} componente che riceve come parametri uno stato iniziale (InitialState) e una action
+    (composta da un type e un payload) e restituisce lo stato dopo aver operato sui dati. 
+    React-Toolkit gestisce le chiamate ai reducer in seguito ai dispatch delle action che avvengono
+    specificando solamente l’oggetto che rappresenta il payload;
+    \item \textbf{Actions:} oggetto composto da un type e da un payload di cui viene effettuato il dispatch quando
+    opportuno. Il payload è un oggetto che contiene i dati da passare al reducer che catturerà l’action;
+    \item \textbf{InitialState:}componente che contiene i dati di una slice su cui essa opera.
+    Importante sottolineare che Redux-Toolkit garantisce anche l’immutabilità
+    dei dati in modo che i reducer restituiscano delle copie dello stato in modo che esso non possa venire
+    modificato dall’esterno e utilizzato in modo improrio.
+    L’unico modo per modificare i dati dello stato globale `e quindi con il dispatch di un’action;
+    \item \textbf{Selector:} funzione che prende lo stato corrente di una slice come argomento e ritorna un sottoinsieme
+    specifico del suo stato. In altre parole, un selector consente di selezionare una parte specifica
+    dello stato in modo da poterla utilizzare in modo isolato all’interno di un componente React.
+\end{itemize}
+
+\subsection{Architettura logica}
