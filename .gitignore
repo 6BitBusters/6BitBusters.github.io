@@ -16,7 +16,6 @@
 *.lof
 *.toc
 
-
 # compiled output
 /3Dataviz/backend/dist
 /3Dataviz/backend/node_modules

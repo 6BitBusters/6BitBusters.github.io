@@ -1,0 +1,29 @@
+
+\section*{Registro delle modifiche}
+
+\newcommand{\changelogTable}[1]{
+
+\renewcommand{\arraystretch}{1.5}
+\rowcolors{2}{pari}{dispari}
+\begin{longtable}{ %0.87
+		>{\centering}M{0.10\textwidth} 
+		>{\centering}M{0.11\textwidth}
+		>{\centering}M{0.21\textwidth}
+		>{\centering}M{0.28\textwidth} 
+		>{\centering\arraybackslash}M{0.17\textwidth} 
+		 }
+	\rowcolorhead
+	\headertitle{Versione} &
+	\centering \headertitle{Data} &	
+	\headertitle{Autore} &
+	\headertitle{Descrizione} & 
+	\headertitle{Verificatore} 
+	\endfirsthead	
+	\endhead
+	
+	#1
+
+\end{longtable}
+\vspace{-2em}
+
+}
