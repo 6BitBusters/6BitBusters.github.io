@@ -32,7 +32,11 @@ jobs:
       - name : Install dependencies
         run: |
           if [ -n "${{ steps.find.outputs.doc }}" ]; then
-            sudo apt install -y texlive texlive-latex-extra texlive-lang-italian
+            sudo apt-get update 
+            sudo apt install -y \ 
+            texlive \
+            texlive-latex-extra \
+            texlive-lang-italian
           fi
       - name: Compile the modified LaTeX file
         run: |
