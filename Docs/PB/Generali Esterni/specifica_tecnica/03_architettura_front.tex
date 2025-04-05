@@ -111,8 +111,8 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
 \paragraph{Componenti React UI}
     I seguenti componenti, sviluppati dal team, visualizzano i dati dello stato che compongono l'interfaccia utente:
     \begin{itemize}
-        \item \textbf{RouterErrorPage:} componente che visualizza la pagina di errore dell'applicazione web;
-        \item \textbf{HomePage:} componente che visualizza la homepage dell'applicazione web;
+        \item \textbf{RouterErrorPage:} componente che visualizza la pagina di errore dell'applicazione;
+        \item \textbf{HomePage:} componente che visualizza la homepage dell'applicazione;
         \item \textbf{DatasetItem:} componente che visualizza i metadati di un dataset.
         \item \textbf{UI:} componente che aggrega i componenti grafici che compongono l'interfaccia utente;
                 \item \textbf{Tooltip:} componente che visualizza un tooltip con i dettagli di una barra;
@@ -604,14 +604,14 @@ Spostando l'attenzione sulla creazione dell'interfaccia utente e sulle dipendenz
     \caption{Pages}
 \end{figure}
 \textbf{Descrizione del diagramma:}
-Questo diagramma mostra come sono organizzate le varie pagine dell'applicazione web.
+Questo diagramma mostra come sono organizzate le varie pagine dell'applicazione.
 \begin{itemize}
     \item \textbf{Provider:}
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
             \item Store (associazione): utile al Provider di Redux per consentire l'accesso allo store (e quindi allo stato globale) a tutti i componenti nella gerarchia;
-            \item RouterProvider (associazione): componente React che gestisce le pagine dell'applicazione web e le loro relative rotte.
+            \item RouterProvider (associazione): componente React che gestisce le pagine dell'applicazione e le loro relative rotte.
         \end{itemize} 
     \end{itemize}
 
@@ -646,7 +646,7 @@ Questo diagramma presenta l'organizzazione degli elementi all'interno della pagi
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item UI (composizione): componente React che avvolge e gestisce l'intera interfaccia utente (UI) dell'applicazione web;
+            \item UI (composizione): componente React che avvolge e gestisce l'intera interfaccia utente (UI) dell'applicazione;
             \item CustomCanvas (composizione): componente React responsabile della visualizzazione e del rendering dell'ambiente tridimensionale.
         \end{itemize} 
     \end{itemize}
@@ -664,7 +664,7 @@ Questo diagramma presenta la struttura e gli elementi che costituiscono l'interf
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item Footer (composizione): componente React dedicato alla visualizzazione del footer dell'applicazione web;
+            \item Footer (composizione): componente React dedicato alla visualizzazione del footer dell'applicazione;
             \item DataTable (composizione): componente React dedicato alla presentazione di un dataset in formato tabellare;
             \item FilterOptions (composizione): componente React dedicato alla visualizzazione di un form contenente le opzioni per filtrare i dati.
         \end{itemize} 
