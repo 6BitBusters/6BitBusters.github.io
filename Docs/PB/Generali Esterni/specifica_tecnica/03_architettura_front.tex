@@ -1,105 +1,5 @@
 \section{Descrizione dell'architettura}
 \subsection{Architettura frontend}
-\subsubsection{Elenco dei componenti}
-Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello stato, l'applicazione sarà strutturata principalmente attraverso la suddivisione del codice in slices, stati iniziali e azioni.
-\paragraph{Slices}
-    Le Slice contengono una porzione dello stato globale dell’applicazione che è gestita da un reducer
-    specifico.
-\begin{itemize}
-        \item \textbf{DataSlice:} componente che gestisce lo stato e contiene i dati relativi al dataset selezionato dall'utente;
-        \item \textbf{AppStateSlice:} componente che gestisce lo stato dell'applicazione come errori e caricamenti;
-        \item \textbf{DataSourceSlice:} componente che gestisce lo stato e contiene l'elenco dei dataset selezionabili dall'utente e il dataset selezionato;
-        \item \textbf{FilterOptionSlice:} componente che gestisce lo stato e contiene le opzioni di filtraggio, come la selezione di valori maggiori o minori;
-        \item \textbf{RaycastHitSlice:} componente che gestisce lo stato e contiene le informazioni relative al raycasting.
-\end{itemize}
-\paragraph{Initial states}
-    Gli stati iniziali, definiti all'interno di ciascuna slice, si combinano per formare lo stato globale dell'applicazione, gestito dallo store.
-    \begin{itemize}
-        \item \textbf{RawDataInitialState:} componente che contiene i dati relativi al dateset selezionato dall'utente;
-        \item \textbf{AppInitialState:} componente che contiene i dati relativi allo stato attuale dell'applicazione;
-        \item \textbf{DataSoruceInitialState:} componente che contiene le informazioni principali di tutti i dataset e quelle relative al dataset selezionato dall'utente;
-        \item \textbf{FilterOptionInitialState:} componente che contiene i dati relativi alle opzioni di filtraggio selezionate dall'utente;
-        \item \textbf{RaycastHitInitialState:} componente che contiene i dati relativi al raycasting, utilizzati per l'interazione con le barre del grafico tridimensionale.
-    \end{itemize}
-\paragraph{Actions}
-    LLe azioni, emesse dai componenti, vengono inviate ai reducers per aggiornare lo stato corrispondente.
-    Ogni azione è caratterizzata da un type e da un payload, che viene utilizzato dalle slices per modificare lo stato.
-    Per convenzione il nome delle azioni segue il formato: \\
-    \begin{center}
-        \textbf{[nome Slice dalla quale viene catturata].[nome azione]}.
-    \end{center}
-    \begin{itemize}
-        \item \textbf{DataSlice.requestData:} azione asincrona emessa per recuperare, dal server, i dati del dataset selezionato; \\ Payload: nessuno
-        \item \textbf{DataSlice.filterTopN:} azione emessa per filtrare i dati, visualizzando esclusivamente i top o bottom N valori; \\ Payload: FilterPayload
-        \item \textbf{DataSlice.filterAboveValue:} azione emessa per filtrare i dati, visualizzando esclusivamente quelli con un valore maggiore o minore rispetto al valore selezionato;\\ Payload: FilterPayload
-        \item \textbf{DataSlice.filterAverage:} azione emessa per filtrare i dati, visualizzando esclusivamente quelli con un valore maggiore o minore rispetto alla media globale; \\ Payload: boolean $\rightarrow$ maggiore o minore
-        \item \textbf{AppStateSlice.setLoading:} azione emessa per aggiornare lo stato dell'applicazione e visualizzare la pagina di caricamento; \\ Payload: boolean
-        \item \textbf{AppStateSlice.setError:} azione emessa per aggiornare lo stato dell'applicazione e visualizzare una schermata di errore specifica, basata sull'errore generato dall'applicazione; \\ Payload: number $\rightarrow$ codice di errore.
-        \item \textbf{DataSourceSlice.requestDatasets:} azione asincrona emessa per recuperare l'elenco delle informazioni relative a tutti i dataset disponibili; \\ Payload: nessuno.
-        \item \textbf{DataSourceSlice.setCurrentDataset:} azione emessa per aggiornare il dataset selezionato dall'utente; \\ Payload: string DatasetInfo.
-        \item \textbf{FilterOptionSlice.toggleAveragePlane:} azione emessa per aggiornare il flag di visibilità del piano medio globale nell'ambiente tridimensionale; \\ Payload: boolean 
-        \item \textbf{FilterOptionSlice.toggleIsGreater:} azione emessa per aggiornare il flag che determina se il filtraggio deve essere eseguito per valori maggiori o minori; \\ Payload: boolean
-        \item \textbf{RaycastHitSlice.setHit:} azione emessa per aggiornare la barra selezionata nel grafico tridimensionale; \\ Payload: number $\rightarrow$ ID della barra.
-        \item \textbf{RaycastHitSlice.setTooltipPosition:} azione emessa per aggiornare la posizione del tooltip in base alla posizione del puntatore.\\ Payload: Vector3 $\rightarrow$ posizione del puntatore.
-    \end{itemize}
-\paragraph{Classes}
-    Classi offerte dalle librerie utilizzate:
-    \begin{itemize}
-        \item \textbf{Vector3:} classe offerta dalla libreria three.js. Rappresenta un vettore tridimensionale, ovvero
-        una grandezza fisica caratterizzata da una direzione e da una lunghezza. Il vettore tridimensionale
-        viene comunemente utilizzato per definire la posizione, la rotazione, la scala e la direzione
-        delle barre del grafico tridimensionale;
-        \item \textbf{Provider:} Componente Redux che rende lo store accessibile a tutti i componenti dell'applicazione, "avvolgendo" il componente principale App e accettando lo store come prop;
-        \item \textbf{Store:} Lo store Redux traccia lo stato dell'applicazione, contiene il reducer principale per la gestione delle azioni e fornisce metodi per accedere allo stato,
-        inviare azioni e registrare listener per le modifiche di stato;
-        \item \textbf{RootReducer:} componente Redux che combina tutti i reducers dell’applicazione in uno stato
-        globale. Questa funzione viene passata allo store per gestire lo stato complessivo dell’applicazione;
-        \item \textbf{FontLoader:} classe utility di Three.js che permette di caricare dati di font in formato JSON per poi generare mesh di testo in ambienti tridimensionali;
-        \item \textbf{Gasp:} classe utility della libreria gasp che permette di creare animazioni sia dell'interfaccia utente e sia all'interno dell'ambiente tridimensionale con facilità e poco codice.
-    \end{itemize}
-    Classi definite dal team:
-    \begin{itemize}
-        \item \textbf{RawData:} classe che rappresenta un singolo dato proveniente dal server;
-        \item \textbf{Data:} classe che rappresenta un singolo dato, visualizzato come una barra nel grafico;
-        \item \textbf{AppState:} classe che rappresenta lo stato globale dell'applicazione;
-        \item \textbf{DatasetInfo:} classe che rappresenta un dataset e ne memorizza le informazioni principali;
-        \item \textbf{FilterOption:} classe che rappresenta la configurazione delle opzioni di filtraggio dati;
-        \item \textbf{RaycastHit:} classe che rappresenta il punto di intersezione tra il puntatore e la barra del grafico;
-        \item \textbf{FilterPayload:} classe che rappresenta il payload da inviare alle azioni di filtraggio del DataSlice;
-        \item \textbf{MaxRequestError:} classe che rappresenta un errore di superamento del limite massimo di richieste effettuate;
-        \item \textbf{NetworkError:} classe che rappresenta un errore di comunicazione e connessione alle API;
-        \item \textbf{ServerError:} classe che rappresenta un errore di connessione al server.
-    \end{itemize}
-\paragraph{React UI components}
-    I seguenti componenti, sviluppati dal team, visualizzano i dati dello stato che compongono l'interfaccia utente:
-    \begin{itemize}
-        \item \textbf{RouterErrorPage:} componente che visualizza la pagina di errore dell'applicazione web;
-        \item \textbf{SelectionPage:} componente che visualizza la homepage dell'applicazione web;
-        \item \textbf{DatasetItem:} componente che visualizza un singolo dataset con i relativi dati.
-        \item \textbf{UI:} componente che aggrega i componenti grafici che compongono l'interfaccia utente;
-                \item \textbf{Tooltip:} componente che visualizza un tooltip con i dettagli di una barra;
-        \item \textbf{DataTable:} componente che visualizza una tabella contenente tutti i valori del dataset selezionato;
-        \item \textbf{FilterModOption:} componente per la configurazione del tipo di filtraggio dati;
-        \item \textbf{AvgPlaneOption:} componente per la selezione della visibilità del piano medio;
-        \item \textbf{NFilter:} componente che consente l'inserimento di un valore N e applica il filtraggio ai primi o agli ultimi N valori;
-        \item \textbf{AbsFilter:} componente che consente di filtrare i valori maggiori o minori rispetto alla media globale;
-        \item \textbf{AboveFilter:} componente che consente di filtrare i valori maggiori o minori rispetto al valore selezionato dall'utente;
-        \item \textbf{BaseFilter:} componente contenente gli elementi comuni a tutti i componenti di filtraggio.
-    \end{itemize}
-\paragraph{Three.js tridimensionale components}
-    I seguenti componenti visualizzano i dati del dataset all'interno dell'ambiente tridimensionale tramite un grafico.
-    \begin{itemize}
-        \item \textbf{EnvironmentPage:} componente che visualizza la pagina in cui viene renderizzato l'ambiente tridimensionale;
-        \item \textbf{CustomCanvas:} componente che fornisce una camera e una scena tridimensionale, configurabili tramite props opzionali;
-        \item \textbf{BarChart:} componente che visualizza un grafico tridimensionale;
-        \item \textbf{Bar:} componente che visualizza una singola barra in un grafico tridimensionale;
-        \item \textbf{Raycaster:} componente che gestisce la logica di intersezione tra il puntatore e le barre del grafico.;
-        \item \textbf{ZAxis:} componente che rappresenta l'asse Z del grafico tridimensionale;
-        \item \textbf{XAxis:} componente che rappresenta l'asse X del grafico tridimensionale;
-        \item \textbf{YAxis:} componente che rappresenta l'asse Y del grafico tridimensionale;
-        \item \textbf{Lights:} componente che gestisce l'illuminazione all'interno della scena tridimensionale.
-    \end{itemize}
-
 \subsubsection{Design pattern architetturale}
 
 \paragraph{Redux-Toolkit}
@@ -116,55 +16,135 @@ I componenti che formano l’architettura di Redux-Toolkit sono:
     All’avvio dell’applicazione viene configurato utilizzando RootReducer e i componenti che utilizzano
     lo stato globale si mettono in ascolto dello store in modo da venire renderizzati ogni volta che un dato
     di interesse cambia valore. Questo modo di operare può essere visto come un pattern Observer in
-    cui lo store è il Subject e gli Observers sono i componenti React che osservano i cambiamenti dello store;
+    cui lo store è il Subject e gli Observer sono i componenti React che osservano i cambiamenti dello store;
     \item \textbf{RootReducer:} componente utilizzato per configurare lo store combinando le slice;
     \item \textbf{Slice:} componente che contiene un proprio stato che rappresenta una porzione dello stato globale
     dell’applicazione, i reducer che operano su tale stato e i selector per consentire ai suoi client il
     reperimento dei dati;
-    \item \textbf{Reducer:} componente che riceve come parametri uno stato iniziale (InitialState) e una action
+    \item \textbf{Reducer:} componente che riceve come parametri uno stato iniziale (InitialState) e un'action
     (composta da un type e un payload) e restituisce lo stato dopo aver operato sui dati. 
+    Il type rappresenta una stringa univoca che ha lo scopo di identificare la specifica azione che si intende eseguire.
+    Il payload è un oggetto che contiene i dati necessari per l'esecuzione dell'action.
     React-Toolkit gestisce le chiamate ai reducer in seguito ai dispatch delle action che avvengono
     specificando solamente l’oggetto che rappresenta il payload;
-    \item \textbf{Actions:} oggetto composto da un type e da un payload di cui viene effettuato il dispatch quando
+    \item \textbf{Action:} oggetto composto da un type e da un payload di cui viene effettuato il dispatch quando
     opportuno. Il payload è un oggetto che contiene i dati da passare al reducer che catturerà l’action;
-    \item \textbf{InitialState:}componente che contiene i dati di una slice su cui essa opera.
-    Importante sottolineare che Redux-Toolkit garantisce anche l’immutabilità
-    dei dati in modo che i reducer restituiscano delle copie dello stato in modo che esso non possa venire
-    modificato dall’esterno e utilizzato in modo improrio.
+    \item \textbf{InitialState:} componente che inizializza i dati di una slice su cui essa opera.
+    Importante sottolineare che Redux-Toolkit garantisce l’immutabilità dei dati in modo che i reducer restituiscano delle copie dello stato in modo che esso non possa venire
+    modificato dall’esterno e utilizzato in modo improprio.
     L’unico modo per modificare i dati dello stato globale `e quindi con il dispatch di un’action;
     \item \textbf{Selector:} funzione che prende lo stato corrente di una slice come argomento e ritorna un sottoinsieme
     specifico del suo stato. In altre parole, un selector consente di selezionare una parte specifica
     dello stato in modo da poterla utilizzare in modo isolato all’interno di un componente React.
 \end{itemize}
 
-\paragraph{NestJS}
-I componenti che costituiscono l’architettura backend utilizzata seguono il pattern offerto dal framework NestJS.
-NestJS è progettato per lo sviluppo di applicazioni server-side altamente scalabili e facilmente testabili.
-Questo obiettivo è raggiunto grazie a una solida architettura modulare e all'adozione del pattern di Dependency Injection,
-che favoriscono la separazione delle responsabilità e la gestione efficiente delle dipendenze.
-
-I principali componenti che formano l'architettura di NestJS sono:
+\subsubsection{Elenco dei componenti}
+Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello stato, l'applicazione sarà strutturata principalmente attraverso la suddivisione del codice in slice, stati iniziali e azioni.
+\paragraph{Slice}
+    Le slice contengono una porzione dello stato globale dell’applicazione che è gestita da un reducer
+    specifico.
 \begin{itemize}
-    \item \textbf{Controller:} componente il quale compito è quello di gestire le richieste HTTP e fornire una risposta al client.
-    Utilizzano dei decoratori per definire le varie rotte dell'applicazione e successivamente chiamano i servizi per eseguire la logica di businnes e recuperare o manipolare dati;
-    \item \textbf{Service:} componente il quale compito è quello di gestire la logica di businnes dell'applicazione.
-    I servizi possono interagire con i database o, come nel nostro caso, con API esterne per recuperare e manipolare i dati necessari per l'applicazione.
-    Inoltre possono essere riutilizzati in più controller e altre parti dell'applicazione, promuovendo la riusabilità del codice e riducendo la duplicazione;
-    \item \textbf{Module:} componente che ha il compito di raggruppare e organizzare controller, servizi e altri moduli, gestendo le dipendenze e l'incapsulamento.
-    Questo significa che i provider possono essere iniettati solo all'interno del modulo corrente, a meno che non vengano esportati esplicitamente per l'uso in altri moduli importati;
-    \item \textbf{Middleware:} funzioni che intercettano e processano le richieste e le risposte durante il loro ciclo di vita, operando sia prima che dopo l'esecuzione dei controller.
-    Il loro scopo principale è trasformare le richieste in formati elaborabili dal server e, viceversa, formattare le risposte in modo adeguato per i client;
+        \item \textbf{DataSlice:} componente che gestisce lo stato e contiene i dati relativi al dataset selezionato dall'utente;
+        \item \textbf{AppStateSlice:} componente che gestisce lo stato dell'applicazione come errori e caricamenti;
+        \item \textbf{DataSourceSlice:} componente che gestisce lo stato e contiene l'elenco dei dataset selezionabili dall'utente e il dataset selezionato;
+        \item \textbf{FilterOptionSlice:} componente che gestisce lo stato e contiene le opzioni di filtraggio dei valori;
+        \item \textbf{RaycastHitSlice:} componente che gestisce lo stato e contiene le informazioni relative al raycasting.
 \end{itemize}
+\paragraph{Initial state}
+    Gli stati iniziali, definiti all'interno di ciascuna slice, si combinano per formare lo stato globale iniziale, gestito dallo store.
+    \begin{itemize}
+        \item \textbf{RawDataInitialState:} componente che inizializza i dati relativi al dateset selezionato dall'utente;
+        \item \textbf{AppInitialState:} componente che inizializza i dati relativi allo stato attuale dell'applicazione;
+        \item \textbf{DataSourceInitialState:} componente che inizializza le informazioni principali di tutti i dataset e quelle relative al dataset selezionato dall'utente;
+        \item \textbf{FilterOptionInitialState:} componente che inizializza i dati relativi alle opzioni di filtraggio selezionate dall'utente;
+        \item \textbf{RaycastHitInitialState:} componente che inizializza i dati relativi al raycasting, utilizzati per l'interazione con le barre del grafico 3D.
+    \end{itemize}
+\paragraph{Action}
+    Le azioni, emesse dai componenti, vengono inviate ai reducer per aggiornare lo stato corrispondente.
+    Ogni azione è caratterizzata da un type e da un payload, che viene utilizzato dalle slice per modificare lo stato.
+    Per convenzione il nome delle azioni segue il formato: \\
+    \begin{center}
+        \textbf{[nome slice dalla quale viene catturata].[nome azione]}.
+    \end{center}
+    \begin{itemize}
+        \item \textbf{DataSlice.requestData:} azione asincrona emessa per recuperare dal server i dati del dataset selezionato; \\ Payload: nessuno
+        \item \textbf{DataSlice.filterTopN:} azione emessa per filtrare i dati, visualizzando esclusivamente i primi N valori più alti o più bassi; \\ Payload: FilterPayload
+        \item \textbf{DataSlice.filterAboveValue:} azione emessa per filtrare i dati, visualizzando esclusivamente quelli con un valore maggiore o minore rispetto al valore selezionato;\\ Payload: FilterPayload
+        \item \textbf{DataSlice.filterAverage:} azione emessa per filtrare i dati, visualizzando esclusivamente quelli con un valore maggiore o minore rispetto alla media globale; \\ Payload: boolean $\rightarrow$ maggiore o minore
+        \item \textbf{AppStateSlice.setLoading:} azione emessa per aggiornare lo stato dell'applicazione e visualizzare la pagina di caricamento; \\ Payload: boolean
+        \item \textbf{AppStateSlice.setError:} azione emessa per aggiornare lo stato dell'applicazione e visualizzare una schermata di errore specifica, basata sull'errore generato dall'applicazione; \\ Payload: number $\rightarrow$ codice di errore.
+        \item \textbf{DataSourceSlice.requestDatasets:} azione asincrona emessa per recuperare l'elenco delle informazioni relative a tutti i dataset disponibili; \\ Payload: nessuno.
+        \item \textbf{DataSourceSlice.setCurrentDataset:} azione emessa per aggiornare il dataset selezionato dall'utente; \\ Payload: number $\rightarrow$ ID del dataset.
+        \item \textbf{FilterOptionSlice.toggleAveragePlane:} azione emessa per aggiornare il flag di visibilità del piano medio globale nell'ambiente tridimensionale; \\ Payload: boolean 
+        \item \textbf{FilterOptionSlice.toggleIsGreater:} azione emessa per aggiornare il flag che determina se il filtraggio deve essere eseguito per valori maggiori o minori; \\ Payload: boolean
+        \item \textbf{RaycastHitSlice.setHit:} azione emessa per aggiornare la barra selezionata nel grafico 3D; \\ Payload: number $\rightarrow$ ID della barra.
+        \item \textbf{RaycastHitSlice.setTooltipPosition:} azione emessa per aggiornare la posizione del tooltip in base alla posizione del puntatore.\\ Payload: Vector3 $\rightarrow$ posizione del puntatore.
+    \end{itemize}
+\paragraph{Classes}
+    Classi offerte dalle librerie utilizzate:
+    \begin{itemize}
+        \item \textbf{Vector3:} classe offerta dalla libreria three.js. Rappresenta un vettore tridimensionale, ovvero
+        una grandezza fisica caratterizzata da una direzione e da una lunghezza. Il vettore tridimensionale
+        viene comunemente utilizzato per definire la posizione, la rotazione, la scala e la direzione
+        delle barre del grafico 3D;
+        \item \textbf{Provider:} Componente Redux che rende lo store accessibile a tutti i componenti dell'applicazione, "avvolgendo" il componente principale App e accettando lo store come prop;
+        \item \textbf{Store:} Lo store Redux traccia lo stato dell'applicazione, contiene il reducer principale per la gestione delle azioni e fornisce metodi per accedere allo stato,
+        inviare azioni e registrare listener per le modifiche di stato;
+        \item \textbf{RootReducer:} componente Redux che combina tutti i reducer dell’applicazione in uno stato
+        globale. Questa funzione viene passata allo store per gestire lo stato complessivo dell’applicazione;
+        \item \textbf{FontLoader:} classe utility di Three.js che permette di caricare dati di font in formato JSON per poi generare mesh di testo in ambienti tridimensionali;
+        \item \textbf{gasp:} classe utility della libreria gasp che permette di creare animazioni sia dell'interfaccia utente e sia all'interno dell'ambiente tridimensionale con facilità e poco codice.
+    \end{itemize}
+    Classi definite dal team:
+    \begin{itemize}
+        \item \textbf{RawData:} classe che rappresenta un singolo dato proveniente dal server;
+        \item \textbf{Data:} classe che rappresenta un singolo dato, visualizzato come una barra nel grafico;
+        \item \textbf{AppState:} classe che rappresenta lo stato globale dell'applicazione;
+        \item \textbf{DatasetInfo:} classe che rappresenta un dataset e ne memorizza le informazioni principali;
+        \item \textbf{FilterOption:} classe che rappresenta la configurazione delle opzioni di filtraggio dati;
+        \item \textbf{RaycastHit:} classe che rappresenta il punto di intersezione tra il puntatore e la barra del grafico;
+        \item \textbf{FilterPayload:} classe che rappresenta il payload da inviare alle azioni di filtraggio del DataSlice;
+        \item \textbf{MaxRequestError:} classe che rappresenta un errore di superamento del limite massimo di richieste effettuate;
+        \item \textbf{NetworkError:} classe che rappresenta un errore di comunicazione e connessione alle API;
+        \item \textbf{ServerError:} classe che rappresenta un errore di connessione al server.
+    \end{itemize}
+\paragraph{Componenti React UI}
+    I seguenti componenti, sviluppati dal team, visualizzano i dati dello stato che compongono l'interfaccia utente:
+    \begin{itemize}
+        \item \textbf{RouterErrorPage:} componente che visualizza la pagina di errore dell'applicazione web;
+        \item \textbf{HomePage:} componente che visualizza la homepage dell'applicazione web;
+        \item \textbf{DatasetItem:} componente che visualizza i metadati di un dataset.
+        \item \textbf{UI:} componente che aggrega i componenti grafici che compongono l'interfaccia utente;
+                \item \textbf{Tooltip:} componente che visualizza un tooltip con i dettagli di una barra;
+        \item \textbf{DataTable:} componente che visualizza una tabella contenente tutti i valori del dataset selezionato;
+        \item \textbf{FilterModOption:} componente per la configurazione del tipo di filtraggio dati;
+        \item \textbf{AvgPlaneOption:} componente per la selezione della visibilità del piano medio;
+        \item \textbf{NFilter:} componente che consente l'inserimento di un valore N e applica il filtraggio ai primi N valori più alti o più bassi;
+        \item \textbf{Filter:} componente che implementa un filtro generico capace di filtrare valori superiori o inferiori rispetto a un dato valore di riferimento;
+    \end{itemize}
+\paragraph{Componenti tridimensionali di Three.js}
+    I seguenti componenti visualizzano i dati del dataset all'interno dell'ambiente tridimensionale tramite un grafico.
+    \begin{itemize}
+        \item \textbf{EnvironmentPage:} componente che visualizza la pagina in cui viene renderizzato l'ambiente tridimensionale;
+        \item \textbf{CustomCanvas:} componente che fornisce una camera e una scena tridimensionale, configurabili tramite props opzionali;
+        \item \textbf{BarChart:} componente che visualizza un grafico 3D;
+        \item \textbf{Bar:} componente che visualizza una singola barra in un grafico 3D;
+        \item \textbf{Raycaster:} componente che gestisce la logica di intersezione tra il puntatore e le barre del grafico.;
+        \item \textbf{ZAxis:} componente che rappresenta l'asse Z del grafico 3D;
+        \item \textbf{XAxis:} componente che rappresenta l'asse X del grafico 3D;
+        \item \textbf{YAxis:} componente che rappresenta l'asse Y del grafico 3D;
+        \item \textbf{Lights:} componente che gestisce l'illuminazione all'interno della scena tridimensionale.
+    \end{itemize}
 
 \subsubsection{Architettura logica}
-I diagrammi delle classi sono organizzati per slices e componenti React per una lettura più semplice. 
+I diagrammi delle classi sono organizzati per slice e componenti React per una lettura più semplice. 
 Esistono anche diagrammi che mostrano le dipendenze generali tra i componenti React.\\\\
 \textbf{Nota:}\\
 I rettangoli che rappresentano le classi sono colorati per distinguere i diversi tipi di componenti.
 \begin{itemize}
     \item \textbf{Bianco:} normali classi;
     \item \textbf{Giallo:} action di Redux;
-    \item \textbf{Blù:} componenti React.
+    \item \textbf{Blu:} componenti React.
 \end{itemize}
 
 \paragraph{DataSlice}
@@ -190,7 +170,7 @@ Questo diagramma include tutti i componenti utili per recuperare e filtrare i da
         \end{itemize} 
         \item \textbf{Interazioni:}
         \begin{itemize}
-            \item DataInitialState: viene modificato in base alle actions catturate dal reducer della slice.
+            \item DataInitialState: viene modificato in base alle action catturate dal reducer della slice.
         \end{itemize} 
         \item \textbf{Action catturate:}
         \begin{itemize}
@@ -304,7 +284,7 @@ Questo diagramma illustra i componenti per recuperare le informazioni chiave dai
         \end{itemize} 
         \item \textbf{Interazioni:}
         \begin{itemize}
-            \item DataSourceInitialState: viene modificato in base alle actions catturate dal reducer della slice.
+            \item DataSourceInitialState: viene modificato in base alle action catturate dal reducer della slice.
         \end{itemize} 
         \item \textbf{Action catturate:}
         \begin{itemize}
@@ -322,7 +302,7 @@ Questo diagramma illustra i componenti per recuperare le informazioni chiave dai
         \end{itemize} 
     \end{itemize}
 
-    \item \textbf{SelectionPage:}
+    \item \textbf{HomePage:}
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
@@ -373,7 +353,7 @@ Questo diagramma mostra i componenti per la gestione dello stato dell'applicazio
         \end{itemize} 
         \item \textbf{Interazioni:}
         \begin{itemize}
-            \item DataSourceInitialState: viene modificato in base alle actions catturate dal reducer della slice.
+            \item DataSourceInitialState: viene modificato in base alle action catturate dal reducer della slice.
         \end{itemize} 
         \item \textbf{Action catturate:}
         \begin{itemize}
@@ -463,7 +443,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
         \end{itemize} 
         \item \textbf{Interazioni:}
         \begin{itemize}
-            \item FilterOptionInitialState: viene modificato in base alle actions catturate dal reducer della slice.
+            \item FilterOptionInitialState: viene modificato in base alle action catturate dal reducer della slice.
         \end{itemize} 
         \item \textbf{Action catturate:}
         \begin{itemize}
@@ -552,7 +532,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le informazion
         \end{itemize} 
         \item \textbf{Interazioni:}
         \begin{itemize}
-            \item DataSourceInitialState: viene modificato in base alle actions catturate dal reducer della slice.
+            \item DataSourceInitialState: viene modificato in base alle Action catturate dal reducer della slice.
         \end{itemize} 
         \item \textbf{Action catturate:}
         \begin{itemize}
@@ -635,17 +615,17 @@ Questo diagramma mostra come sono organizzate le varie pagine dell'applicazione 
         \end{itemize} 
     \end{itemize}
 
-    \item \textbf{SelectionPage:}
+    \item \textbf{HomePage:}
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item SelectionPage (composizione): componente React che offre all'utente l'interfaccia per la scelta del dataset desiderato;
+            \item HomePage (composizione): componente React che offre all'utente l'interfaccia per la scelta del dataset desiderato;
             \item EnviroinmentPage (composizione): componente React che fornisce l'interfaccia per visualizzare un dataset in un ambiente tridimensionale;
             \item RouterErrorPage (composizione): componente React responsabile della visualizzazione e della gestione degli errori generati dall'applicazione.
         \end{itemize} 
     \end{itemize}
 
-    \item \textbf{SelectionPage:}
+    \item \textbf{HomePage:}
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
@@ -735,7 +715,7 @@ Questo diagramma presenta la struttura e gli elementi che costituiscono l'ambien
         \item \textbf{Dipendenze:}
         \begin{itemize}
             \item OrbitControls (composizione): componente React Three Fiber che abilita la navigazione e la manipolazione della camera 3D utilizzando gli input del mouse;
-            \item BarChart (composizione): componente React che racchiude e gestisce l'intera struttura del grafico tridimensionale.
+            \item BarChart (composizione): componente React che racchiude e gestisce l'intera struttura del grafico 3D.
         \end{itemize} 
     \end{itemize}
 \end{itemize}
@@ -748,16 +728,16 @@ Questo diagramma presenta la struttura e gli elementi che costituiscono l'ambien
     \caption{Bar chart}
 \end{figure}
 \textbf{Descrizione del diagramma:}
-Questo diagramma presenta gli elementi che costituiscono il grafico tridimensionale.
+Questo diagramma presenta gli elementi che costituiscono il grafico 3D.
 \begin{itemize}
     \item \textbf{BarChart:}
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item Axis (composizione): componente React che contiene gli assi X, Y e Z del grafico tridimensionale;
+            \item Axis (composizione): componente React che contiene gli assi X, Y e Z del grafico 3D;
             \item Lights (composizione): componente React per la gestione delle luci nell'ambiente tridimensionale;
             \item Raycaster (composizione): componente React che implementa la logica per determinare se e dove il puntatore del mouse interseca una barra del grafico;
-            \item Bar (composizione): componente React dedicato al rendering degli elementi che rappresentano le barre all'interno del grafico tridimensionale.
+            \item Bar (composizione): componente React dedicato al rendering degli elementi che rappresentano le barre all'interno del grafico 3D.
         \end{itemize} 
     \end{itemize}
 
@@ -776,15 +756,15 @@ Questo diagramma presenta gli elementi che costituiscono il grafico tridimension
     \caption{Axis}
 \end{figure}
 \textbf{Descrizione del diagramma:}
-Questo diagramma presenta gli elementi che costituiscono ciascuno dei tre assi del grafico tridimensionale.
+Questo diagramma presenta gli elementi che costituiscono ciascuno dei tre assi del grafico 3D.
 \begin{itemize}
     \item \textbf{Axis:}
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item XAxis (composizione): componente React che rappresenta l'asse X del grafico tridimensionale con relative etichette;
-            \item YAxis (composizione): componente React che rappresenta l'asse Y del grafico tridimensionale con relative etichette;
-            \item ZAxis (composizione): componente React che rappresenta l'asse Z del grafico tridimensionale con relative etichette.
+            \item XAxis (composizione): componente React che rappresenta l'asse X del grafico 3D con relative etichette;
+            \item YAxis (composizione): componente React che rappresenta l'asse Y del grafico 3D con relative etichette;
+            \item ZAxis (composizione): componente React che rappresenta l'asse Z del grafico 3D con relative etichette.
         \end{itemize} 
     \end{itemize}
 \end{itemize}
