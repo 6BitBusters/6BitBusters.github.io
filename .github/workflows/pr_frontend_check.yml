@@ -3,7 +3,7 @@ name: Check frontend code
 on:
   pull_request:
     branches:
-      - 'code/frontend-**'
+      - 'code/frontend'
       - main
       
 jobs:
