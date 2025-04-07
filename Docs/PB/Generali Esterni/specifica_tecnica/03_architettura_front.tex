@@ -27,11 +27,12 @@ I componenti che formano l’architettura di Redux-Toolkit sono:
     Il payload è un oggetto che contiene i dati necessari per l'esecuzione dell'action.
     React-Toolkit gestisce le chiamate ai reducer in seguito ai dispatch delle action che avvengono
     specificando solamente l’oggetto che rappresenta il payload;
+    Con il termine dispatch si intende una funzione che viene chiamata per inviare una action allo store di Redux e innescare un cambiamento dello stato.
     \item \textbf{Action:} oggetto composto da un type e da un payload di cui viene effettuato il dispatch quando
     opportuno. Il payload è un oggetto che contiene i dati da passare al reducer che catturerà l’action;
     \item \textbf{InitialState:} componente che contiene i dati di una slice su cui essa opera.
     Importante sottolineare che Redux-Toolkit garantisce l’immutabilità dei dati in modo che i reducer restituiscano delle copie dello stato in modo che esso non possa venire
-    modificato dall’esterno e utilizzato in modo improprio.
+    modificato dall’esterno è utilizzato in modo improprio.
     L’unico modo per modificare i dati dello stato globale `e quindi con il dispatch di un’action;
     \item \textbf{Selector:} funzione che prende lo stato corrente di una slice come argomento e ritorna un sottoinsieme
     specifico del suo stato. In altre parole, un selector consente di selezionare una parte specifica
@@ -39,7 +40,7 @@ I componenti che formano l’architettura di Redux-Toolkit sono:
 \end{itemize}
 
 \subsubsection{Elenco dei componenti}
-Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello stato, l'applicazione sarà strutturata principalmente attraverso la suddivisione del codice in slice, stati iniziali e azioni.
+Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello stato, l'applicazione sarà strutturata principalmente attraverso la suddivisione del codice in slice, stati iniziali e action.
 \paragraph{Slice}
     Le slice contengono una porzione dello stato globale dell’applicazione che è gestita da un reducer
     specifico.
@@ -48,7 +49,7 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
         \item \textbf{AppStateSlice:} componente che gestisce lo stato dell'applicazione come errori e caricamenti;
         \item \textbf{DataSourceSlice:} componente che gestisce lo stato e contiene l'elenco dei dataset selezionabili dall'utente e il dataset selezionato;
         \item \textbf{FilterOptionSlice:} componente che gestisce lo stato e contiene le opzioni di filtraggio dei valori;
-        \item \textbf{FViewOptionSlice:} componente che gestisce lo stato e contiene le opzioni di visibilità del piano medio;
+        \item \textbf{ViewOptionSlice:} componente che gestisce lo stato e contiene le opzioni di visibilità del piano medio;
         \item \textbf{RaycastHitSlice:} componente che gestisce lo stato e contiene le informazioni relative al raycast.
 \end{itemize}
 \paragraph{Initial state}
@@ -62,9 +63,9 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
         \item \textbf{RaycastHitState:} componente che contiene i dati relativi al raycast, utilizzati per l'interazione con le barre del grafico 3D.
     \end{itemize}
 \paragraph{Action}
-    Le azioni, emesse dai componenti, vengono inviate ai reducer per aggiornare lo stato corrispondente.
+    Le action, emesse dai componenti, vengono inviate ai reducer per aggiornare lo stato corrispondente.
     Ogni action è caratterizzata da un type e da un payload, che viene utilizzato dalle slice per modificare lo stato.
-    Per convenzione il nome delle azioni segue il formato: \\
+    Per convenzione il nome delle action segue il formato: \\
     \begin{center}
         \textbf{[nome slice dalla quale viene catturata].[nome action]}.
     \end{center}
@@ -77,7 +78,7 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
         \item \textbf{AppStateSlice.setError:} action emessa per aggiornare lo stato dell'applicazione e visualizzare una schermata di errore specifica, basata sull'errore generato dall'applicazione; \\ Payload: number $\rightarrow$ codice di errore.
         \item \textbf{DataSourceSlice.requestDatasets:} action asincrona emessa per recuperare l'elenco delle informazioni relative a tutti i dataset disponibili; \\ Payload: nessuno.
         \item \textbf{DataSourceSlice.setCurrentDataset:} action emessa per aggiornare il dataset selezionato dall'utente; \\ Payload: number $\rightarrow$ ID del dataset.
-        \item \textbf{ViewOptionSlice.toggleAveragePlane:} action emessa per aggiornare il flag di visibilità del piano medio globale nell'ambiente tridimensionale; \\ Payload: boolean 
+        \item \textbf{ViewOptionSlice.toggleAveragePlane:} action emessa per aggiornare il flag di visibilità del piano medio globale nell'ambiente 3D; \\ Payload: boolean 
         \item \textbf{FilterOptionSlice.toggleIsGreater:} action emessa per aggiornare il flag che determina se il filtraggio deve essere eseguito per valori maggiori o minori; \\ Payload: boolean
         \item \textbf{RaycastHitSlice.setHit:} action emessa per aggiornare la barra selezionata nel grafico 3D; \\ Payload: number $\rightarrow$ ID della barra.
         \item \textbf{RaycastHitSlice.setTooltipPosition:} action emessa per aggiornare la posizione del tooltip in base alla posizione del puntatore.\\ Payload: Vector3 $\rightarrow$ posizione del puntatore.
@@ -90,12 +91,15 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
         viene comunemente utilizzato per definire la posizione, la rotazione, la scala e la direzione
         delle barre del grafico 3D;
         \item \textbf{Provider:} Componente Redux che rende lo store accessibile a tutti i componenti dell'applicazione, "avvolgendo" il componente principale App e accettando lo store come prop;
-        \item \textbf{Store:} Lo store Redux traccia lo stato dell'applicazione, contiene il reducer principale per la gestione delle azioni e fornisce metodi per accedere allo stato,
-        inviare azioni e registrare listener per le modifiche di stato;
+        \item \textbf{Store:} Lo store Redux traccia lo stato dell'applicazione, contiene il reducer principale per la gestione delle action e fornisce metodi per accedere allo stato,
+        registra i listener per le modifiche di stato;
         \item \textbf{RootReducer:} componente Redux che combina tutti i reducer dell’applicazione in uno stato
         globale. Questa funzione viene passata allo store per gestire lo stato complessivo dell’applicazione;
         \item \textbf{FontLoader:} classe utility di Three.js che permette di caricare dati di font in formato JSON per poi generare mesh di testo in ambienti tridimensionali;
-        \item \textbf{Gsap:} classe utility della libreria gasp che permette di creare animazioni sia dell'interfaccia utente e sia all'interno dell'ambiente tridimensionale con facilità e poco codice.
+        \item \textbf{Gsap:} classe utility della libreria gsap che permette di creare animazioni sia dell'interfaccia utente (UI) e sia all'interno dell'ambiente 3D con facilità e poco codice.
+        \item \textbf{Canvas:} componente React Three Fiber che comprende gli elementi grafici che vanno a costituire la scena 3D. 
+        Fornisce una camera e una scena con una serie di props opzionali utili alla configurazione dell’ambiente 3D;
+        \item \textbf{OrbitControls:} componente React Three Fiber che abilita la navigazione e la manipolazione della telecamera 3D utilizzando gli input del mouse;
     \end{itemize}
     Classi definite dal team:
     \begin{itemize}
@@ -105,13 +109,13 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
         \item \textbf{AppState:} classe che rappresenta lo stato globale dell'applicazione;
         \item \textbf{DatasetInfo:} classe che rappresenta un dataset e ne memorizza le informazioni principali;
         \item \textbf{RaycastHit:} classe che rappresenta il punto di intersezione tra il puntatore e una barra del grafico;
-        \item \textbf{FilterPayload:} classe che rappresenta il payload da inviare alle azioni di filtraggio del DataSlice;
+        \item \textbf{FilterPayload:} classe che rappresenta il payload da inviare alle action di filtraggio del DataSlice;
         \item \textbf{MaxRequestError:} classe che rappresenta un errore di superamento del limite massimo di richieste effettuate;
         \item \textbf{NetworkError:} classe che rappresenta un errore di comunicazione e connessione alle API;
         \item \textbf{ServerError:} classe che rappresenta un errore di connessione al server.
     \end{itemize}
 \paragraph{Componenti React UI}
-    I seguenti componenti, sviluppati dal team, visualizzano i dati dello stato che compongono l'interfaccia utente:
+    I seguenti componenti, sviluppati dal team, visualizzano i dati dello stato che compongono l'interfaccia utente (UI):
     \begin{itemize}
         \item \textbf{ErrorPage:} componente che visualizza la pagina di errore dell'applicazione;
         \item \textbf{HomePage:} componente che visualizza la homepage dell'applicazione;
@@ -125,13 +129,13 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
         \item \textbf{Filter:} componente che implementa un filtro generico capace di filtrare valori superiori o inferiori rispetto a un dato valore di riferimento;
     \end{itemize}
 \paragraph{Componenti tridimensionali di Three.js}
-    I seguenti componenti visualizzano i dati del dataset all'interno dell'ambiente tridimensionale tramite un grafico.
+    I seguenti componenti visualizzano i dati del dataset all'interno dell'ambiente 3D tramite un grafico.
     \begin{itemize}
-        \item \textbf{EnvironmentPage:} componente che permette di visualizzare la pagina in cui viene renderizzato l'ambiente tridimensionale;
-        \item \textbf{CustomCanvas:} componente che fornisce una camera e una scena tridimensionale, configurabili tramite props opzionali;
+        \item \textbf{EnvironmentPage:} componente che permette di visualizzare la pagina in cui viene renderizzato l'ambiente 3D;
+        \item \textbf{CustomCanvas:} componente che fornisce una telecamera e una scena tridimensionale, configurabili tramite props opzionali;
         \item \textbf{BarChart:} componente che permette di visualizzare un grafico 3D;
         \item \textbf{AveragePlane:} componente che permette di visualizzare il piano medio globale;
-        \item \textbf{Bar:} componente che permette di visualizzare una singola barra in un grafico 3D;
+        \item \textbf{Bars:} componente che permette di visualizzare una singola barra in un grafico 3D;
         \item \textbf{Raycaster:} componente che gestisce la logica di intersezione tra il puntatore e le barre del grafico;
         \item \textbf{ZAxis:} componente che rappresenta l'asse Z del grafico 3D;
         \item \textbf{XAxis:} componente che rappresenta l'asse X del grafico 3D;
@@ -554,7 +558,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
         \end{itemize}  
     \end{itemize}
 
-    \item \textbf{AveragePlane:}
+    \item \textbf{BarChart:}
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
@@ -601,7 +605,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le informazion
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item RaycastHit (associazione): contiene l'oggetto che rappresenta il punto di intersezione tra il puntatore/cursore del mouse e una barra del grafico.
+            \item RaycastHit (associazione): contiene l'oggetto che rappresenta il punto di intersezione tra il cursore del mouse e una barra del grafico.
         \end{itemize} 
     \end{itemize}
 
@@ -673,12 +677,12 @@ Questo diagramma mostra come sono organizzate le varie pagine dell'applicazione.
         \end{itemize} 
     \end{itemize}
 
-    \item \textbf{HomePage:}
+    \item \textbf{RouterProvider:}
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
             \item HomePage (composizione): componente React che offre all'utente l'interfaccia per la scelta del dataset desiderato;
-            \item EnvironmentPage (composizione): componente React che fornisce l'interfaccia per visualizzare un dataset in un ambiente tridimensionale;
+            \item EnvironmentPage (composizione): componente React che fornisce l'interfaccia per visualizzare un dataset in un ambiente 3D;
             \item ErrorPage (composizione): componente React responsabile della visualizzazione e della gestione degli errori generati dall'applicazione.
         \end{itemize} 
     \end{itemize}
@@ -687,7 +691,8 @@ Questo diagramma mostra come sono organizzate le varie pagine dell'applicazione.
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item DatasetItem (composizione): componente React dedicato alla presentazione di un dataset specifico, evidenziandone le informazioni chiave.
+            \item DatasetItem (composizione): componente React dedicato alla presentazione delle informazioni chiave di un dataset
+            \item Footer (composizione): componente React dedicato alla visualizzazione del footer dell'applicazione;
         \end{itemize} 
     \end{itemize}
 \end{itemize}
@@ -700,14 +705,14 @@ Questo diagramma mostra come sono organizzate le varie pagine dell'applicazione.
     \caption{EnvironmentPage}
 \end{figure}
 \textbf{Descrizione del diagramma:}
-Questo diagramma presenta l'organizzazione degli elementi all'interno della pagina dedicata alla visualizzazione in ambiente tridimensionale.
+Questo diagramma presenta l'organizzazione degli elementi all'interno della pagina dedicata alla visualizzazione di un dataset in ambiente 3D.
 \begin{itemize}
     \item \textbf{EnvironmentPage:}
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item UI (composizione): componente React che avvolge e gestisce l'intera interfaccia utente (UI) dell'applicazione;
-            \item CustomCanvas (composizione): componente React responsabile della visualizzazione e del rendering dell'ambiente tridimensionale.
+            \item UI (composizione): componente React che avvolge e gestisce l'intera UI dell'applicazione;
+            \item CustomCanvas (composizione): componente React responsabile della visualizzazione e del rendering dell'ambiente 3D.
         \end{itemize} 
     \end{itemize}
 \end{itemize}
@@ -733,22 +738,30 @@ Questo diagramma presenta la struttura e gli elementi che costituiscono l'interf
 
 \pagebreak
 
-\paragraph{Filter options}
+\paragraph{Options}
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.45]{template/images/uml_front/ui/filteroptions.png}
+    \includegraphics[scale=0.45]{template/images/uml_front/ui/options.png}
     \caption{Filter options}
 \end{figure}
 \textbf{Descrizione del diagramma:}
-Questo diagramma evidenzia la struttura dei gruppi in cui sono suddivise le opzioni di filtraggio.
+Questo diagramma evidenzia la struttura dei gruppi in cui sono suddivise le opzioni di filtraggio e visibilità del piano medio.
 \begin{itemize}
+    \item \textbf{Option:}
+    \begin{itemize}
+        \item \textbf{Dipendenze:}
+        \begin{itemize}
+            \item FilterOptions (composizione): componente React che raggruppa le opzioni di filtraggio;
+            \item AveragePlaneOption (composizione): componente React che implementa un filtro generico capace di filtrare valori superiori o inferiori rispetto a un dato valore di riferimento;
+        \end{itemize} 
+    \end{itemize}
+
     \item \textbf{FilterOption:}
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item NFilter (composizione): componente React che offre la possibilità di filtrare un dataset visualizzando solo i suoi N valori più alti o più bassi;
-            \item Filter (composizione): componente React che implementa un filtro generico capace di filtrare valori superiori o inferiori rispetto a un dato valore di riferimento;
+            \item NFilter (composizione): componente React che offre la possibilità eseguire un filtraggio sul dataset visualizzando solo i primi N valori più alti o più bassi;
+            \item Filter (composizione): componente React che implementa un filtro generico capace di  eseguire un filtraggio visualizzando valori superiori o inferiori rispetto a un dato valore di riferimento;
             \item FilterModOption (composizione): componente React che visualizza un form per permettere all'utente di scegliere se il filtro opererà su valori maggiori o minori;
-            \item AveragePlaneOption (composizione): componente React che visualizza un form per permettere all'utente di attivare o disattivare la visualizzazione del piano del valor medio.
         \end{itemize} 
     \end{itemize}
 
@@ -762,25 +775,25 @@ Questo diagramma evidenzia la struttura dei gruppi in cui sono suddivise le opzi
     \end{itemize}
 \end{itemize}
 
+\pagebreak
+
 \paragraph{Custom canvas}
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.45]{template/images/uml_front/ui/customcanvas.png}
     \caption{Custom canvas}
 \end{figure}
 \textbf{Descrizione del diagramma:}
-Questo diagramma presenta la struttura e gli elementi che costituiscono l'ambiente tridimensionale.
+Questo diagramma presenta la struttura e gli elementi che costituiscono l'ambiente 3D.
 \begin{itemize}
     \item \textbf{CustomCanvas:}
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item OrbitControls (composizione): componente React Three Fiber che abilita la navigazione e la manipolazione della camera 3D utilizzando gli input del mouse;
+            \item OrbitControls (composizione): componente React Three Fiber che abilita la navigazione e la manipolazione della telecamera 3D utilizzando gli input del mouse;
             \item BarChart (composizione): componente React che racchiude e gestisce l'intera struttura del grafico 3D.
         \end{itemize} 
     \end{itemize}
 \end{itemize}
-
-\pagebreak
 
 \paragraph{Bar chart}
 \begin{figure}[h!] \centering
@@ -796,26 +809,24 @@ Questo diagramma presenta gli elementi che costituiscono il grafico 3D.
         \begin{itemize}
             \item Axis (composizione): componente React che contiene gli assi X, Y e Z del grafico 3D;
             \item AveragePlane (composizione): componente React che permette di visualizzare il piano medio sul grafico 3D;
-            \item Lights (composizione): componente React per la gestione delle luci nell'ambiente tridimensionale;
-            \item Raycaster (composizione): componente React che implementa la logica per determinare se e dove il puntatore/cursore del mouse interseca una barra del grafico;
-            \item Bar (composizione): componente React dedicato al rendering degli elementi che rappresentano le barre all'interno del grafico 3D.
+            \item Lights (composizione): componente React per la gestione delle luci nell'ambiente 3D;
+            \item Raycaster (composizione): componente React che implementa la logica per determinare se e dove il cursore del mouse interseca una barra del grafico;
+            \item Bars (composizione): componente React dedicato al rendering degli elementi che rappresentano le barre all'interno del grafico 3D.
         \end{itemize} 
     \end{itemize}
 
-    \item \textbf{Bar:}
+    \item \textbf{Bars:}
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item Tooltip (composizione): componente React dedicato alla visualizzazione di un piccolo riquadro informativo relativo alla barra del grafico attualmente selezionata.
+            \item Tooltip (composizione): componente React per visualizzare un riquadro informativo al passaggio del mouse sopra la barra del grafico.
         \end{itemize} 
     \end{itemize}
 \end{itemize}
 
-\pagebreak
-
 \paragraph{Axis}
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.45]{template/images/uml_front/ui/axis.png}
+    \includegraphics[scale=0.45]{template/images/uml_front/ui/axes.png}
     \caption{Axis}
 \end{figure}
 \textbf{Descrizione del diagramma:}
