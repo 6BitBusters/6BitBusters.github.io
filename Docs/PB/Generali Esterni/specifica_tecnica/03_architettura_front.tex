@@ -29,8 +29,8 @@ I componenti che formano l’architettura di Redux-Toolkit sono:
     specificando solamente l’oggetto che rappresenta il payload;
     Con il termine dispatch si intende una funzione che viene chiamata per inviare una action allo store di Redux e innescare un cambiamento dello stato.
     \item \textbf{Action:} oggetto composto da un type e da un payload di cui viene effettuato il dispatch quando
-    opportuno. Il payload è un oggetto che contiene i dati da passare al reducer che catturerà l’action;
-    \item \textbf{InitialState:} componente che contiene i dati di una slice su cui essa opera.
+    opportuno.
+    \item \textbf{State:} componente che contiene i dati di una slice su cui essa opera.
     Importante sottolineare che Redux-Toolkit garantisce l’immutabilità dei dati in modo che i reducer restituiscano delle copie dello stato in modo che esso non possa venire
     modificato dall’esterno è utilizzato in modo improprio.
     L’unico modo per modificare i dati dello stato globale `e quindi con il dispatch di un’action;
@@ -40,7 +40,7 @@ I componenti che formano l’architettura di Redux-Toolkit sono:
 \end{itemize}
 
 \subsubsection{Elenco dei componenti}
-Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello stato, l'applicazione sarà strutturata principalmente attraverso la suddivisione del codice in slice, stati iniziali e action.
+Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello stato, l'applicazione sarà strutturata principalmente attraverso la suddivisione del codice in slice, state e action.
 \paragraph{Slice}
     Le slice contengono una porzione dello stato globale dell’applicazione che è gestita da un reducer
     specifico.
@@ -52,8 +52,8 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
         \item \textbf{ViewOptionSlice:} componente che gestisce lo stato e contiene le opzioni di visibilità del piano medio;
         \item \textbf{RaycastHitSlice:} componente che gestisce lo stato e contiene le informazioni relative al raycast.
 \end{itemize}
-\paragraph{Initial state}
-    Gli stati iniziali, definiti all'interno di ciascuna slice, si combinano per formare lo stato globale iniziale, gestito dallo store.
+\paragraph{State}
+    Gli state, definiti all'interno di ciascuna slice, si combinano per formare lo stato globale iniziale, gestito dallo store.
     \begin{itemize}
         \item \textbf{DataState:} componente che contiene i dati relativi al dateset selezionato dall'utente;
         \item \textbf{AppState:} componente che contiene i dati relativi allo stato attuale dell'applicazione;
@@ -67,7 +67,7 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
     Ogni action è caratterizzata da un type e da un payload, che viene utilizzato dalle slice per modificare lo stato.
     Per convenzione il nome delle action segue il formato: \\
     \begin{center}
-        \textbf{[nome slice dalla quale viene catturata].[nome action]}.
+        \textbf{[nome slice].[nome funzione]}.
     \end{center}
     \begin{itemize}
         \item \textbf{DataSlice.requestData:} action asincrona emessa per recuperare dal server i dati del dataset selezionato; \\ Payload: nessuno
@@ -90,8 +90,8 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
         una grandezza fisica caratterizzata da una direzione e da una lunghezza. Il vettore tridimensionale
         viene comunemente utilizzato per definire la posizione, la rotazione, la scala e la direzione
         delle barre del grafico 3D;
-        \item \textbf{Provider:} Componente Redux che rende lo store accessibile a tutti i componenti dell'applicazione, "avvolgendo" il componente principale App e accettando lo store come prop;
-        \item \textbf{Store:} Lo store Redux traccia lo stato dell'applicazione, contiene il reducer principale per la gestione delle action e fornisce metodi per accedere allo stato,
+        \item \textbf{Provider:} componente Redux che rende lo store accessibile a tutti i componenti dell'applicazione, "avvolgendo" il componente principale App e accettando lo store come prop;
+        \item \textbf{Store:} componente Redux che traccia lo stato dell'applicazione, contiene il reducer principale per la gestione delle action e fornisce metodi per accedere allo stato,
         registra i listener per le modifiche di stato;
         \item \textbf{RootReducer:} componente Redux che combina tutti i reducer dell’applicazione in uno stato
         globale. Questa funzione viene passata allo store per gestire lo stato complessivo dell’applicazione;
@@ -104,9 +104,9 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
     Classi definite dal team:
     \begin{itemize}
         \item \textbf{Dataset:} classe che rappresenta l'intero dataset con relative etichette e legenda;
-        \item \textbf{Legend:} classe che rappresenta la legenda del dataset selezionato;
+        \item \textbf{Legend:} classe che rappresenta la legenda di un dataset;
         \item \textbf{Data:} classe che rappresenta un singolo dato, visualizzato come una barra nel grafico;
-        \item \textbf{AppState:} classe che rappresenta lo stato globale dell'applicazione;
+        \item \textbf{AppState:} classe che rappresenta lo stato dell'applicazione;
         \item \textbf{DatasetInfo:} classe che rappresenta un dataset e ne memorizza le informazioni principali;
         \item \textbf{RaycastHit:} classe che rappresenta il punto di intersezione tra il puntatore e una barra del grafico;
         \item \textbf{FilterPayload:} classe che rappresenta il payload da inviare alle action di filtraggio del DataSlice;
@@ -120,8 +120,12 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
         \item \textbf{ErrorPage:} componente che visualizza la pagina di errore dell'applicazione;
         \item \textbf{HomePage:} componente che visualizza la homepage dell'applicazione;
         \item \textbf{DatasetItem:} componente che visualizza i metadati di un dataset.
-        \item \textbf{UI:} componente che aggrega i componenti grafici che compongono l'interfaccia utente;
+        \item \textbf{UI:} componente che aggrega i componenti grafici che compongono la UI;
+            \begin{itemize}
+                \item \textbf{Option:} componente che aggrega le impostazioni generali;
+                \item \textbf{FilterOption:} componente che aggrega le impostazioni di filtraggio;
                 \item \textbf{Tooltip:} componente che visualizza un tooltip con i dettagli di una barra;
+            \end{itemize}
         \item \textbf{DataTable:} componente che visualizza una tabella contenente tutti i valori del dataset selezionato;
         \item \textbf{FilterModOption:} componente per la configurazione del tipo di filtraggio dati;
         \item \textbf{AveragePlaneOption:} componente per la selezione della visibilità del piano medio;
@@ -135,7 +139,7 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
         \item \textbf{CustomCanvas:} componente che fornisce una telecamera e una scena tridimensionale, configurabili tramite props opzionali;
         \item \textbf{BarChart:} componente che permette di visualizzare un grafico 3D;
         \item \textbf{AveragePlane:} componente che permette di visualizzare il piano medio globale;
-        \item \textbf{Bars:} componente che permette di visualizzare una singola barra in un grafico 3D;
+        \item \textbf{Bars:} componente che permette di visualizzare le barre di un grafico 3D;
         \item \textbf{Raycaster:} componente che gestisce la logica di intersezione tra il puntatore e le barre del grafico;
         \item \textbf{ZAxis:} componente che rappresenta l'asse Z del grafico 3D;
         \item \textbf{XAxis:} componente che rappresenta l'asse X del grafico 3D;
