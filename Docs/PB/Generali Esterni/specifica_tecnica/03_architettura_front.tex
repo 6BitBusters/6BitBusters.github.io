@@ -123,7 +123,7 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
         \item \textbf{UI:} componente che aggrega i componenti grafici che compongono la UI;
             \begin{itemize}
                 \item \textbf{Options:} componente che aggrega le impostazioni generali;
-                \item \textbf{FilterOption:} componente che aggrega le impostazioni di filtraggio;
+                \item \textbf{FilterOptions:} componente che aggrega le impostazioni di filtraggio;
                 \item \textbf{Tooltip:} componente che visualizza un tooltip con i dettagli di una barra;
             \end{itemize}
         \item \textbf{DataTable:} componente che visualizza una tabella contenente tutti i valori del dataset selezionato;
@@ -515,7 +515,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item FilterOptionSlice.toggleIsGreater (associazione semplice <<send>>): crea ed emette un’istanza dell’azione FilterOption.toggleIsGreater.
+            \item FilterOptionSlice.toggleIsGreater (associazione semplice <<send>>): crea ed emette un’istanza dell’azione FilterOptions.toggleIsGreater.
         \end{itemize}
         \item \textbf{Action emesse:}
         \begin{itemize}
@@ -759,7 +759,7 @@ Questo diagramma evidenzia la struttura dei gruppi in cui sono suddivise le opzi
         \end{itemize} 
     \end{itemize}
 
-    \item \textbf{FilterOption:}
+    \item \textbf{FilterOptions:}
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
