@@ -1,12 +1,7 @@
-import './App.css'
+import "./App.css";
 
 function App() {
-
-  return (
-    <>
-      3DataViz
-    </>
-  )
+  return <>3DataViz</>;
 }
 
-export default App
+export default App;
