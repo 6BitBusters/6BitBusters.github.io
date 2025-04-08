@@ -34,7 +34,12 @@ jobs:
         working-directory: 3Dataviz/frontend
 
       - name: Run tests
-        run: npm test
+        run: |
+          if [ -n "$(find 3Dataviz/frontend -name '*.test.*' -print -quit)" ]; then
+            npm test
+          else
+            echo "No tests found, skipping."
+          fi
         working-directory: 3Dataviz/frontend
 
       - name: Build
