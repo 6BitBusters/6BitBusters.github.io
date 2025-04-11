@@ -103,10 +103,6 @@ export const requestData = createAsyncThunk(
 export const { filterTopN, filterAboveValue, filterAverage, reset } =
   dataSlice.actions;
 
-export const selectorData = (state: RootState) => state.data.data;
-export const selectorAverage = (state: RootState) => state.data.average;
-export const selectorLegend = (state: RootState) => state.data.legend;
-export const selectorXLabels = (state: RootState) => state.data.x;
-export const selectorZLabels = (state: RootState) => state.data.z;
+export const selectorData = (state: DataState) => state;
 
 export default dataSlice.reducer;

@@ -11,10 +11,6 @@ import reducer, {
   filterAverage,
   reset,
   selectorData,
-  selectorAverage,
-  selectorLegend,
-  selectorXLabels,
-  selectorZLabels,
 } from "../../../src/features/Data/DataSlice";
 import fetchMock from "fetch-mock";
 
@@ -342,72 +338,6 @@ describe("DataSlice", () => {
       z: ["Label 1"],
       x: ["Label 1"],
     };
-    expect(selectorData({ data: initialState })).toEqual(initialState.data);
-  });
-
-  it("Prendere la media globale del dataset", () => {
-    const initialState: DataState = {
-      data: [
-        { id: 0, show: true, x: 0, y: 1, z: 0 },
-        { id: 1, show: true, x: 0, y: 2, z: 0 },
-        { id: 2, show: true, x: 0, y: 3, z: 0 },
-        { id: 3, show: true, x: 0, y: 4, z: 0 },
-      ],
-      legend: { x: "X", y: "Y", z: "Z" },
-      average: 2.5,
-      z: ["Label 1"],
-      x: ["Label 1"],
-    };
-    expect(selectorAverage({ data: initialState })).toEqual(
-      initialState.average,
-    );
-  });
-
-  it("Prendere la legenda del dataset", () => {
-    const initialState: DataState = {
-      data: [
-        { id: 0, show: true, x: 0, y: 1, z: 0 },
-        { id: 1, show: true, x: 0, y: 2, z: 0 },
-        { id: 2, show: true, x: 0, y: 3, z: 0 },
-        { id: 3, show: true, x: 0, y: 4, z: 0 },
-      ],
-      legend: { x: "X", y: "Y", z: "Z" },
-      average: 2.5,
-      z: ["Label 1"],
-      x: ["Label 1"],
-    };
-    expect(selectorLegend({ data: initialState })).toEqual(initialState.legend);
-  });
-
-  it("Prendere le etichette per l`asse X", () => {
-    const initialState: DataState = {
-      data: [
-        { id: 0, show: true, x: 0, y: 1, z: 0 },
-        { id: 1, show: true, x: 0, y: 2, z: 0 },
-        { id: 2, show: true, x: 0, y: 3, z: 0 },
-        { id: 3, show: true, x: 0, y: 4, z: 0 },
-      ],
-      legend: { x: "X", y: "Y", z: "Z" },
-      average: 2.5,
-      z: ["Label 1"],
-      x: ["Label 1"],
-    };
-    expect(selectorXLabels({ data: initialState })).toEqual(initialState.x);
-  });
-
-  it("Prendere le etichette per l`asse Z", () => {
-    const initialState: DataState = {
-      data: [
-        { id: 0, show: true, x: 0, y: 1, z: 0 },
-        { id: 1, show: true, x: 0, y: 2, z: 0 },
-        { id: 2, show: true, x: 0, y: 3, z: 0 },
-        { id: 3, show: true, x: 0, y: 4, z: 0 },
-      ],
-      legend: { x: "X", y: "Y", z: "Z" },
-      average: 2.5,
-      z: ["Label 1"],
-      x: ["Label 1"],
-    };
-    expect(selectorZLabels({ data: initialState })).toEqual(initialState.z);
+    expect(selectorData(initialState)).toEqual(initialState);
   });
 });
