@@ -3,7 +3,7 @@ import { thunk } from "redux-thunk";
 import configureMockStore from "redux-mock-store";
 import { Dataset } from "../../../src/features/Data/types/Dataset";
 import { RootState, AppDispatch } from "../../../src/app/Store";
-import { DataState } from "../../../src/features/Data/interfaces/DataState";
+import { DataState } from "../../../src/features/Data/types/DataState";
 import reducer, {
   requestData,
   filterTopN,
@@ -17,7 +17,6 @@ import reducer, {
   selectorZLabels,
 } from "../../../src/features/Data/DataSlice";
 import fetchMock from "fetch-mock";
-import { useSelector } from "react-redux";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
