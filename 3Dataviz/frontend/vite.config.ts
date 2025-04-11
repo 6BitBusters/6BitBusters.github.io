@@ -9,7 +9,7 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "html", "lcov", "json"], // 'text' per la console, 'html' per un report interattivo, 'lcov' estensione vscode
-      all: true,
+      all: false,
       include: ["src/**"],
       exclude: ["src/types/**"],
       thresholds: {

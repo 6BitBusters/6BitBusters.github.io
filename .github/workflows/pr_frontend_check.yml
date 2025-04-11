@@ -38,7 +38,7 @@ jobs:
           if [ -n "$(find . -name '*.test.*' -print -quit)" ]; then
             npm test
           else
-            echo "No tests found, skipping."
+            echo "::error::Non sono stati trovati i test"
           fi
         working-directory: 3Dataviz/frontend
 
