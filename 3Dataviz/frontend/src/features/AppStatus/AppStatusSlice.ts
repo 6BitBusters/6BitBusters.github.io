@@ -16,8 +16,12 @@ const appStatusSlice = createSlice({
     reducers: {
         setLoading: (state, action: PayloadAction<boolean>) => {
             state.isLoading = action.payload;
+            if (state.error != null) {
+                state.error = null;      
+            }
         },
         setError: (state, action: PayloadAction<number>) => {
+            state.isLoading = false;
             switch (action.payload) {
                 case 429:
                     state.error = new MaxRequestError();
