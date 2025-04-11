@@ -1,7 +1,5 @@
-export interface Data {
-  id: number;
+import { Entity } from "./Entity";
+
+export interface Data extends Entity {
   show: boolean;
-  y: number;
-  x: number;
-  z: number;
 }

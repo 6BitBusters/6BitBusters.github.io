@@ -1,11 +1,5 @@
-import { Legend } from "../interfaces/Legend";
-
-type Entity = {
-  id: number;
-  y: number;
-  x: number;
-  z: number;
-};
+import { Entity } from "../interfaces/Entity";
+import { Legend } from "./Legend";
 
 export type Dataset = {
   data: Entity[];

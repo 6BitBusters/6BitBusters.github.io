@@ -1,10 +1,10 @@
-import { Data } from "./Data";
+import { Data } from "../interfaces/Data";
 import { Legend } from "./Legend";
 
-export interface DataState {
+export type DataState = {
   data: Data[];
   legend: Legend | null;
   average: number;
   z: string[];
   x: string[];
-}
+};

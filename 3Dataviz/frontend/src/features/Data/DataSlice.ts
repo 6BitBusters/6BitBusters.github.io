@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { DataState } from "./interfaces/DataState";
+import { DataState } from "./types/DataState";
 import { RootState } from "../../app/Store";
-import { FilterPayload } from "./interfaces/FilterPayload";
+import { FilterPayload } from "./types/FilterPayload";
 import { Data } from "./interfaces/Data";
 import { fetchDataset } from "./RequestHandler";
 
