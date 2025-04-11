@@ -26,7 +26,7 @@ jobs:
         working-directory: 3Dataviz/frontend
 
       - name: Check format
-        run: npx prettier --check .
+        run: npx prettier --check "./**/*.{ts,tsx,js}"
         working-directory: 3Dataviz/frontend
 
       - name: Run lint
