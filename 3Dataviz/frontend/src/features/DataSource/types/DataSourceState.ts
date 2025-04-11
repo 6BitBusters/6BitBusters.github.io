@@ -1,6 +1,6 @@
-import { DatasetInfo } from "./DatasetInfo"
+import { DatasetInfo } from "./DatasetInfo";
 
 export type DataSourceState = {
-    datasets: DatasetInfo[],
-    currentDataset: DatasetInfo | null
-}
+  datasets: DatasetInfo[];
+  currentDataset: DatasetInfo | null;
+};
