@@ -36,8 +36,9 @@ describe("CurrencyApiFetcher", () => {
         CurrencyApiFetcher,
         {
           provide: ConfigService,
+          // Mock del servizio
           useValue: {
-            get: jest.fn().mockReturnValue("API_KEY"), // Mock del servizio
+            get: jest.fn().mockReturnValue("API_KEY"),
           },
         },
       ],

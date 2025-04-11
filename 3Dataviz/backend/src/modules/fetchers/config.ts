@@ -24,8 +24,10 @@ export const FLIGHTS_API_CONFIG = {
     "@AIRPORT@&begin=@START_DATETIME@&end=@END_DATETIME@",
   // 2 aprile 2025 00:00:00
   START_DATETIME: 1743552000,
-  NUM_INTERVALS: 168, // (7 giorni)
-  INTERVAL_DURATION: 3600, // (1 ora)
+  // 7 giorni
+  NUM_INTERVALS: 168,
+  // 1 ora
+  INTERVAL_DURATION: 3600,
   AIRPORTS: [
     {
       id: 0,

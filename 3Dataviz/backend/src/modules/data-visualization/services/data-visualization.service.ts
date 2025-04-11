@@ -15,7 +15,7 @@ export class DataVisualizationService {
       throw new NotFoundException("Invalid fetcher ID");
     }
     // Controlla se il dataset è già  in cache
-    const cachedDataset = this.cacheService.getDatasetFromCache(id);
+    const cachedDataset = await this.cacheService.get<Dataset>(id.toString());
     if (cachedDataset) {
       return cachedDataset;
     }
@@ -23,7 +23,7 @@ export class DataVisualizationService {
     // e memorizzalo nella cache
     const fetcher = this.fetchers[id];
     const dataset = await fetcher.fetchData();
-    this.cacheService.saveDatasetToCache(id, dataset);
+    await this.cacheService.set(id.toString(), dataset);
     return dataset;
   }
 }

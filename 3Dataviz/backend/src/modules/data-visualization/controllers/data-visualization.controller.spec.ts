@@ -18,8 +18,9 @@ describe("DataVisualizationController", () => {
       providers: [
         {
           provide: DataVisualizationService,
+          // Mock del servizio
           useValue: {
-            getDatasetById: jest.fn().mockResolvedValue(mockDataset), // Mock del servizio
+            getDatasetById: jest.fn().mockResolvedValue(mockDataset),
           },
         },
       ],
