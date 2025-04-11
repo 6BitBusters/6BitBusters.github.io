@@ -40,6 +40,6 @@ const appStatusSlice = createSlice({
 
 export const { setLoading, setError } = appStatusSlice.actions;
 
-export const selectorAppState = (state: RootState) => state.appState;
+export const selectorAppState = (state: AppState) => state;
 
 export default appStatusSlice.reducer;
