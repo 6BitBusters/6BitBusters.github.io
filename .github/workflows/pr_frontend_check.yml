@@ -26,7 +26,7 @@ jobs:
         working-directory: 3Dataviz/frontend
 
       - name: Check format
-        run: npx prettier --check .
+        run: npx prettier --check "./**/*.{ts,tsx,js}"
         working-directory: 3Dataviz/frontend
 
       - name: Run lint
@@ -35,11 +35,15 @@ jobs:
 
       - name: Run tests
         run: |
-          if [ -n "$(find 3Dataviz/frontend -name '*.test.*' -print -quit)" ]; then
+          if [ -n "$(find . -name '*.test.*' -print -quit)" ]; then
             npm test
           else
-            echo "No tests found, skipping."
+            echo "::error::Non sono stati trovati i test"
           fi
+        working-directory: 3Dataviz/frontend
+
+      - name: Check coverage
+        run: npx vitest run --coverage
         working-directory: 3Dataviz/frontend
 
       - name: Build

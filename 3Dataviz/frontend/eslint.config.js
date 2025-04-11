@@ -12,6 +12,10 @@ export default tseslint.config(
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
     plugins: {
       "react-hooks": reactHooks,
@@ -23,6 +27,30 @@ export default tseslint.config(
         "warn",
         { allowConstantExport: true },
       ],
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          selector: "variable",
+          format: ["camelCase"],
+        },
+        {
+          selector: "typeLike",
+          format: ["PascalCase"],
+        },
+        {
+          selector: "classProperty",
+          format: ["camelCase"],
+        },
+        {
+          selector: "method",
+          format: ["camelCase"],
+        },
+      ],
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/no-floating-promises": "warn",
+      "@typescript-eslint/unbound-method": "warn",
+      "no-console": "warn",
+      "no-inline-comments": "error",
     },
   },
 );
