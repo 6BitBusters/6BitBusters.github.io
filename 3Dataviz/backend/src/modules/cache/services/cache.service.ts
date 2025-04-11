@@ -4,7 +4,6 @@ import { Dataset } from "src/interfaces/dataset.interface";
 @Injectable()
 export class CacheService {
   getDatasetFromCache(id: number): Dataset | null {
-    // Simulate fetching a dataset from cache
     return {
       data: [],
       legend: {
