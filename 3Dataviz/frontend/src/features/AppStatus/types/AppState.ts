@@ -1,4 +1,4 @@
 export type AppState = {
-    isLoading: boolean,
-    error: Error | null,
-}
+  isLoading: boolean;
+  error: Error | null;
+};
