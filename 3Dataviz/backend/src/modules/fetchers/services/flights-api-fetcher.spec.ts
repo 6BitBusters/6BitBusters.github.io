@@ -1,5 +1,5 @@
 jest.mock("../config", () => ({
-  flightsApiConfig: {
+  FLIGHTS_API_CONFIG: {
     START_DATETIME: 0,
     NUM_INTERVALS: 2,
     INTERVAL_DURATION: 3600,
@@ -20,7 +20,7 @@ jest.mock("axios");
 
 import { Test, TestingModule } from "@nestjs/testing";
 import { FlightsApiFetcher } from "./flights-api-fetcher";
-import { flightsApiConfig } from "../config";
+import { FLIGHTS_API_CONFIG } from "../config";
 import { FlightsData } from "../interfaces/flights-data.interface";
 import axios, { AxiosError } from "axios";
 import { Dataset } from "src/interfaces/dataset.interface";
@@ -31,7 +31,7 @@ describe("FlightsApiFetcher", () => {
   let flightsApiFetcher: FlightsApiFetcher;
   const expectedResult: Dataset = {
     data: [],
-    legend: flightsApiConfig.LEGEND,
+    legend: FLIGHTS_API_CONFIG.LEGEND,
     xLabels: ["01/01/1970 00:00 - 00:59", "01/01/1970 01:00 - 01:59"],
     zLabels: ["Parigi", "Milano"],
   };
@@ -51,21 +51,21 @@ describe("FlightsApiFetcher", () => {
 
   it("should return the correct name", () => {
     const name = flightsApiFetcher.getName();
-    expect(name).toBe(flightsApiConfig.NAME);
+    expect(name).toBe(FLIGHTS_API_CONFIG.NAME);
   });
 
   it("should return the correct size", () => {
     const size = flightsApiFetcher.getSize();
     const expectedSize = [
-      flightsApiConfig.NUM_INTERVALS,
-      flightsApiConfig.AIRPORTS.length,
+      FLIGHTS_API_CONFIG.NUM_INTERVALS,
+      FLIGHTS_API_CONFIG.AIRPORTS.length,
     ];
     expect(size).toEqual(expectedSize);
   });
 
   it("should return the correct description", () => {
     const description = flightsApiFetcher.getDescription();
-    expect(description).toBe(flightsApiConfig.DESCRIPTION);
+    expect(description).toBe(FLIGHTS_API_CONFIG.DESCRIPTION);
   });
 
   it("should fetch data and return transformed dataset", async () => {

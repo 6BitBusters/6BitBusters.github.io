@@ -1,7 +1,7 @@
 import { Injectable, ServiceUnavailableException } from "@nestjs/common";
 import { BaseFetcher } from "./base-fetcher";
 import axios from "axios";
-import { weatherApiConfig } from "../config";
+import { WEATHER_API_CONFIG } from "../config";
 import { Dataset } from "../../../interfaces/dataset.interface";
 import { Entry } from "../../../interfaces/entry.interface";
 import { Legend } from "../../../interfaces/legend.interface";
@@ -15,15 +15,15 @@ export class WeatherApiFetcher extends BaseFetcher {
   }
 
   private buildUrl(): string {
-    const latitudes = weatherApiConfig.CITIES.map((city) => city.latitude).join(
-      ",",
-    );
-    const longitudes = weatherApiConfig.CITIES.map(
+    const latitudes = WEATHER_API_CONFIG.CITIES.map(
+      (city) => city.latitude,
+    ).join(",");
+    const longitudes = WEATHER_API_CONFIG.CITIES.map(
       (city) => city.longitude,
     ).join(",");
-    const startDate = weatherApiConfig.START_DATE;
-    const endDate = weatherApiConfig.END_DATE;
-    const baseUrl = weatherApiConfig.BASE_URL;
+    const startDate = WEATHER_API_CONFIG.START_DATE;
+    const endDate = WEATHER_API_CONFIG.END_DATE;
+    const baseUrl = WEATHER_API_CONFIG.BASE_URL;
     const url = baseUrl
       .replace("@LATITUDE@", latitudes)
       .replace("@LONGITUDE@", longitudes)
@@ -33,21 +33,21 @@ export class WeatherApiFetcher extends BaseFetcher {
   }
 
   getName(): string {
-    return weatherApiConfig.NAME;
+    return WEATHER_API_CONFIG.NAME;
   }
 
   getSize(): [number, number] {
     const numDays = this.daysBetween(
-      new Date(weatherApiConfig.START_DATE),
-      new Date(weatherApiConfig.END_DATE),
+      new Date(WEATHER_API_CONFIG.START_DATE),
+      new Date(WEATHER_API_CONFIG.END_DATE),
     );
     const numHours = numDays * 24;
-    const numCities = weatherApiConfig.CITIES.length;
+    const numCities = WEATHER_API_CONFIG.CITIES.length;
     return [numHours, numCities];
   }
 
   getDescription(): string {
-    return weatherApiConfig.DESCRIPTION;
+    return WEATHER_API_CONFIG.DESCRIPTION;
   }
 
   async fetchData(): Promise<Dataset> {
@@ -66,10 +66,10 @@ export class WeatherApiFetcher extends BaseFetcher {
 
   protected transformData(data: WeatherData[]): Dataset {
     const entries: Entry[] = [];
-    const legend: Legend = weatherApiConfig.LEGEND;
+    const legend: Legend = WEATHER_API_CONFIG.LEGEND;
 
     const xLabels = data[0].hourly.time;
-    const zLabels = weatherApiConfig.CITIES.map((city) => city.name);
+    const zLabels = WEATHER_API_CONFIG.CITIES.map((city) => city.name);
 
     for (let i = 0; i < data.length; i++) {
       const hours = data[i].hourly.time;

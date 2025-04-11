@@ -1,23 +1,31 @@
-import { Injectable } from "@nestjs/common";
-import { Dataset } from "src/interfaces/dataset.interface";
+import { Injectable, OnModuleDestroy, OnModuleInit } from "@nestjs/common";
+import memjs from "memjs";
 
 @Injectable()
-export class CacheService {
-  getDatasetFromCache(id: number): Dataset | null {
-    return {
-      data: [],
-      legend: {
-        x: "",
-        y: "",
-        z: "",
-      },
-      xLabels: [id.toString()],
-      zLabels: [],
-    };
+export class CacheService implements OnModuleInit, OnModuleDestroy {
+  private cache: memjs.Client;
+
+  onModuleInit() {
+    this.cache = memjs.Client.create("localhost:11211");
   }
 
-  saveDatasetToCache(id: number, dataset: Dataset): void {
-    // Simulate storing a dataset in cache
-    console.log(`Dataset with ID ${id} stored in cache.${dataset.xLabels[0]}`);
+  onModuleDestroy() {
+    this.cache.quit();
+  }
+  async get<T>(key: string): Promise<T | null> {
+    const result = await this.cache.get(key);
+    if (result.value) {
+      return JSON.parse(result.value.toString()) as T;
+    }
+    return null;
+  }
+
+  async set<T>(key: string, value: T, ttlSeconds = 2592000): Promise<void> {
+    const stringValue = JSON.stringify(value);
+    await this.cache.set(key, stringValue, { expires: ttlSeconds });
+  }
+
+  async delete(key: string): Promise<void> {
+    await this.cache.delete(key);
   }
 }

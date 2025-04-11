@@ -38,6 +38,11 @@ export default tseslint.config(
           format: ['camelCase'],
         },
         {
+          selector: 'variable',
+          modifiers: ['const'],
+          format: ['camelCase', 'UPPER_CASE'],
+        },
+        {
           selector: 'typeLike',
           format: ['PascalCase'],
         },

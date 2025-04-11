@@ -1,5 +1,5 @@
 jest.mock("../config", () => ({
-  currencyApiConfig: {
+  CURRENCY_API_CONFIG: {
     START_YEAR: 2000,
     END_YEAR: 2001,
     NUM_CURRENCIES: 3,
@@ -18,7 +18,7 @@ jest.mock("@nestjs/config");
 
 import { Test, TestingModule } from "@nestjs/testing";
 import { CurrencyApiFetcher } from "./currency-api-fetcher";
-import { currencyApiConfig } from "../config";
+import { CURRENCY_API_CONFIG } from "../config";
 import { CurrencyData } from "../interfaces/currency-data.interface";
 import axios from "axios";
 import { Dataset } from "src/interfaces/dataset.interface";
@@ -55,20 +55,20 @@ describe("CurrencyApiFetcher", () => {
 
   it("should return the correct name", () => {
     const name = currencyApiFetcher.getName();
-    expect(name).toBe(currencyApiConfig.NAME);
+    expect(name).toBe(CURRENCY_API_CONFIG.NAME);
   });
 
   it("should return the correct size", () => {
     const size = currencyApiFetcher.getSize();
     const numYears =
-      currencyApiConfig.END_YEAR - currencyApiConfig.START_YEAR + 1;
-    const expectedSize = [numYears, currencyApiConfig.NUM_CURRENCIES];
+      CURRENCY_API_CONFIG.END_YEAR - CURRENCY_API_CONFIG.START_YEAR + 1;
+    const expectedSize = [numYears, CURRENCY_API_CONFIG.NUM_CURRENCIES];
     expect(size).toEqual(expectedSize);
   });
 
   it("should return the correct description", () => {
     const description = currencyApiFetcher.getDescription();
-    expect(description).toBe(currencyApiConfig.DESCRIPTION);
+    expect(description).toBe(CURRENCY_API_CONFIG.DESCRIPTION);
   });
 
   it("should fetch data and return transformed dataset", async () => {
@@ -142,7 +142,7 @@ describe("CurrencyApiFetcher", () => {
           z: 2,
         },
       ],
-      legend: currencyApiConfig.LEGEND,
+      legend: CURRENCY_API_CONFIG.LEGEND,
       xLabels: ["2000", "2001"],
       zLabels: ["USD", "GBP", "JPY"],
     };

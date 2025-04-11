@@ -1,4 +1,4 @@
-export const currencyApiConfig = {
+export const CURRENCY_API_CONFIG = {
   NAME: "Tassi di cambio",
   BASE_URL:
     "https://api.currencybeacon.com/v1/historical?api_key=@API_KEY@" +
@@ -17,7 +17,7 @@ export const currencyApiConfig = {
   },
 };
 
-export const flightsApiConfig = {
+export const FLIGHTS_API_CONFIG = {
   NAME: "Partenze aeree",
   BASE_URL:
     "https://opensky-network.org/api/flights/departure?airport=" +
@@ -54,7 +54,7 @@ export const flightsApiConfig = {
     z: "Aeroporto",
   },
 };
-export const populationApiConfig = {
+export const POPULATION_API_CONFIG = {
   NAME: "Popolazione per anno",
   BASE_URL:
     "https://api.worldbank.org/v2/country/@COUNTRY_CODE@/indicator/" +
@@ -203,7 +203,7 @@ export const populationApiConfig = {
   },
 };
 
-export const weatherApiConfig = {
+export const WEATHER_API_CONFIG = {
   NAME: "Temperatura oraria",
   BASE_URL:
     "https://archive-api.open-meteo.com/v1/archive?latitude=@LATITUDE@" +

@@ -1,7 +1,7 @@
 import { Injectable, ServiceUnavailableException } from "@nestjs/common";
 import { BaseFetcher } from "./base-fetcher";
 import axios from "axios";
-import { currencyApiConfig } from "../config";
+import { CURRENCY_API_CONFIG } from "../config";
 import { Dataset } from "../../../interfaces/dataset.interface";
 import { Entry } from "../../../interfaces/entry.interface";
 import { Legend } from "../../../interfaces/legend.interface";
@@ -15,7 +15,7 @@ export class CurrencyApiFetcher extends BaseFetcher {
   }
 
   private buildUrl(year: number): string {
-    const baseUrl = currencyApiConfig.BASE_URL;
+    const baseUrl = CURRENCY_API_CONFIG.BASE_URL;
     const apiKey = this.configService.get<string>("CURRENCY_API_KEY");
     if (!apiKey) {
       throw new Error("API key non trovata.");
@@ -27,26 +27,26 @@ export class CurrencyApiFetcher extends BaseFetcher {
   }
 
   getName(): string {
-    return currencyApiConfig.NAME;
+    return CURRENCY_API_CONFIG.NAME;
   }
 
   getSize(): [number, number] {
     const numYears =
-      currencyApiConfig.END_YEAR - currencyApiConfig.START_YEAR + 1;
-    const numCurrencies = currencyApiConfig.NUM_CURRENCIES;
+      CURRENCY_API_CONFIG.END_YEAR - CURRENCY_API_CONFIG.START_YEAR + 1;
+    const numCurrencies = CURRENCY_API_CONFIG.NUM_CURRENCIES;
     return [numYears, numCurrencies];
   }
 
   getDescription(): string {
-    return currencyApiConfig.DESCRIPTION;
+    return CURRENCY_API_CONFIG.DESCRIPTION;
   }
 
   async fetchData(): Promise<Dataset> {
     const data: CurrencyData[] = [];
     try {
       for (
-        let year = currencyApiConfig.START_YEAR;
-        year <= currencyApiConfig.END_YEAR;
+        let year = CURRENCY_API_CONFIG.START_YEAR;
+        year <= CURRENCY_API_CONFIG.END_YEAR;
         year++
       ) {
         const url = this.buildUrl(year);
@@ -64,11 +64,11 @@ export class CurrencyApiFetcher extends BaseFetcher {
 
   protected transformData(data: CurrencyData[]): Dataset {
     const entries: Entry[] = [];
-    const legend: Legend = currencyApiConfig.LEGEND;
+    const legend: Legend = CURRENCY_API_CONFIG.LEGEND;
 
     const numYears = this.getSize()[0];
     const xLabels = Array.from({ length: numYears }, (_, offset) => {
-      return (currencyApiConfig.START_YEAR + offset).toString();
+      return (CURRENCY_API_CONFIG.START_YEAR + offset).toString();
     });
     const zLabelsSet = new Set<string>();
     for (const record of data) {
