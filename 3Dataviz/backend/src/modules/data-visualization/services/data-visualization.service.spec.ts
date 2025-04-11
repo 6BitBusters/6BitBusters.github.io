@@ -59,24 +59,27 @@ describe("DataVisualizationService", () => {
   });
 
   it("should get the dataset if cached", async () => {
-    cacheService.getDatasetFromCache = jest.fn(() => mockDataset);
+    cacheService.get = jest.fn().mockResolvedValue(mockDataset);
     const id = 0;
     const dataset = await service.getDatasetById(id);
     expect(dataset).toEqual(mockDataset);
   });
 
   it("should fetch data from the correct fetcher if not cached", async () => {
-    cacheService.getDatasetFromCache = jest.fn(() => null);
+    cacheService.get = jest.fn().mockResolvedValue(null);
+    cacheService.set = jest.fn();
     const dataset = await service.getDatasetById(0);
     expect(dataset).toEqual(mockDataset);
     expect(mockFetcher0.fetchData).toHaveBeenCalled();
   });
 
   it("should save the dataset to cache", async () => {
-    cacheService.getDatasetFromCache = jest.fn(() => null);
-    const spy = jest.spyOn(cacheService, "saveDatasetToCache");
+    cacheService.get = jest.fn().mockResolvedValue(null);
+    const spy = jest.spyOn(cacheService, "set").mockImplementation(() => {
+      return Promise.resolve();
+    });
     const id = 0;
     await service.getDatasetById(id);
-    expect(spy).toHaveBeenCalledWith(id, mockDataset);
+    expect(spy).toHaveBeenCalledWith(id.toString(), mockDataset);
   });
 });
