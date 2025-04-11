@@ -4,6 +4,7 @@ import rootReducer from "./RootReducer";
 
 export const store = configureStore({
   reducer: rootReducer,
+  //filterOption: filterOptionReducer,
 });
 
 type AppStore = typeof store;
