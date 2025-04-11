@@ -12,6 +12,7 @@ describe("DataSourceController", () => {
       providers: [
         {
           provide: DataSourceService,
+          // Mock del servizio
           useValue: {
             getSources: jest.fn().mockReturnValue([
               {
@@ -20,7 +21,7 @@ describe("DataSourceController", () => {
                 size: [100, 20],
                 description: "A data source",
               },
-            ]), // Mock del servizio
+            ]),
           },
         },
       ],

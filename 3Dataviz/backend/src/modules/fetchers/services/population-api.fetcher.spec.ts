@@ -1,5 +1,5 @@
 jest.mock("../config", () => ({
-  POPULATION_API_CONFIG: {
+  populationApiConfig: {
     START_YEAR: 2022,
     END_YEAR: 2023,
     COUNTRIES: [
@@ -19,7 +19,7 @@ jest.mock("axios");
 
 import { Test, TestingModule } from "@nestjs/testing";
 import { PopulationApiFetcher } from "./population-api-fetcher";
-import { POPULATION_API_CONFIG } from "../config";
+import { populationApiConfig } from "../config";
 import { PopulationData } from "../interfaces/population-data.interface";
 import axios from "axios";
 import { Dataset } from "src/interfaces/dataset.interface";
@@ -45,20 +45,20 @@ describe("PopulationApiFetcher", () => {
 
   it("should return the correct name", () => {
     const name = populationApiFetcher.getName();
-    expect(name).toBe(POPULATION_API_CONFIG.NAME);
+    expect(name).toBe(populationApiConfig.NAME);
   });
 
   it("should return the correct size", () => {
     const size = populationApiFetcher.getSize();
     const numYears =
-      POPULATION_API_CONFIG.END_YEAR - POPULATION_API_CONFIG.START_YEAR + 1;
-    const expectedSize = [numYears, POPULATION_API_CONFIG.COUNTRIES.length];
+      populationApiConfig.END_YEAR - populationApiConfig.START_YEAR + 1;
+    const expectedSize = [numYears, populationApiConfig.COUNTRIES.length];
     expect(size).toEqual(expectedSize);
   });
 
   it("should return the correct description", () => {
     const description = populationApiFetcher.getDescription();
-    expect(description).toBe(POPULATION_API_CONFIG.DESCRIPTION);
+    expect(description).toBe(populationApiConfig.DESCRIPTION);
   });
 
   it("should fetch data and return transformed dataset", async () => {
@@ -110,7 +110,7 @@ describe("PopulationApiFetcher", () => {
           z: 1,
         },
       ],
-      legend: POPULATION_API_CONFIG.LEGEND,
+      legend: populationApiConfig.LEGEND,
       xLabels: ["2022", "2023"],
       zLabels: ["Germania", "Francia"],
     };

@@ -1,5 +1,5 @@
 jest.mock("../config", () => ({
-  WEATHER_API_CONFIG: {
+  weatherApiConfig: {
     START_DATE: "2023-01-01",
     END_DATE: "2023-01-02",
     CITIES: [
@@ -19,7 +19,7 @@ jest.mock("axios");
 
 import { Test, TestingModule } from "@nestjs/testing";
 import { WeatherApiFetcher } from "./weather-api-fetcher";
-import { WEATHER_API_CONFIG } from "../config";
+import { weatherApiConfig } from "../config";
 import { WeatherData } from "../interfaces/weather-data.interface";
 import axios from "axios";
 import { Dataset } from "src/interfaces/dataset.interface";
@@ -44,19 +44,20 @@ describe("WeatherApiService", () => {
 
   it("should return the correct name", () => {
     const name = weatherApiFetcher.getName();
-    expect(name).toBe(WEATHER_API_CONFIG.NAME);
+    expect(name).toBe(weatherApiConfig.NAME);
   });
 
   it("should return the correct size", () => {
     const size = weatherApiFetcher.getSize();
-    const numDays = 2; // 2023-01-01 to 2023-01-02
-    const expectedSize = [numDays * 24, WEATHER_API_CONFIG.CITIES.length];
+    // 2023-01-01 to 2023-01-02
+    const numDays = 2;
+    const expectedSize = [numDays * 24, weatherApiConfig.CITIES.length];
     expect(size).toEqual(expectedSize);
   });
 
   it("should return the correct description", () => {
     const description = weatherApiFetcher.getDescription();
-    expect(description).toBe(WEATHER_API_CONFIG.DESCRIPTION);
+    expect(description).toBe(weatherApiConfig.DESCRIPTION);
   });
 
   it("should fetch data and return transformed dataset", async () => {
@@ -112,7 +113,7 @@ describe("WeatherApiService", () => {
           z: 1,
         },
       ],
-      legend: WEATHER_API_CONFIG.LEGEND,
+      legend: weatherApiConfig.LEGEND,
       xLabels: ["2025-01-01T12:00:00", "2025-01-01T13:00:00"],
       zLabels: ["Francoforte", "Parigi"],
     };

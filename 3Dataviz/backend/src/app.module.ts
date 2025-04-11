@@ -13,8 +13,9 @@ import { CacheService } from "./modules/cache/services/cache.service";
     DataSourceModule,
     DataVisualizationModule,
     FetchersModule,
+    //rende ConfigService disponibile ovunque
     ConfigModule.forRoot({
-      isGlobal: true, //rende ConfigService disponibile ovunque
+      isGlobal: true,
     }),
     CacheModule,
   ],

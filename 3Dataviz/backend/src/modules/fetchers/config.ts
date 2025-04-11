@@ -1,4 +1,4 @@
-export const CURRENCY_API_CONFIG = {
+export const currencyApiConfig = {
   NAME: "Tassi di cambio",
   BASE_URL:
     "https://api.currencybeacon.com/v1/historical?api_key=@API_KEY@" +
@@ -17,15 +17,17 @@ export const CURRENCY_API_CONFIG = {
   },
 };
 
-export const FLIGHTS_API_CONFIG = {
+export const flightsApiConfig = {
   NAME: "Partenze aeree",
   BASE_URL:
     "https://opensky-network.org/api/flights/departure?airport=" +
     "@AIRPORT@&begin=@START_DATETIME@&end=@END_DATETIME@",
   // 2 aprile 2025 00:00:00
   START_DATETIME: 1743552000,
-  NUM_INTERVALS: 168, // (7 giorni)
-  INTERVAL_DURATION: 3600, // (1 ora)
+  // 7 giorni
+  NUM_INTERVALS: 168,
+  // 1 ora
+  INTERVAL_DURATION: 3600,
   AIRPORTS: [
     {
       id: 0,
@@ -52,7 +54,7 @@ export const FLIGHTS_API_CONFIG = {
     z: "Aeroporto",
   },
 };
-export const POPULATION_API_CONFIG = {
+export const populationApiConfig = {
   NAME: "Popolazione per anno",
   BASE_URL:
     "https://api.worldbank.org/v2/country/@COUNTRY_CODE@/indicator/" +
@@ -201,7 +203,7 @@ export const POPULATION_API_CONFIG = {
   },
 };
 
-export const WEATHER_API_CONFIG = {
+export const weatherApiConfig = {
   NAME: "Temperatura oraria",
   BASE_URL:
     "https://archive-api.open-meteo.com/v1/archive?latitude=@LATITUDE@" +
