@@ -14,15 +14,23 @@ export class CacheService implements OnModuleInit, OnModuleDestroy {
   }
 
   async get<T>(key: string): Promise<T | null> {
-    const result = await this.cache.get(key);
-    if (result.value) {
-      return JSON.parse(result.value.toString()) as T;
+    try {
+      const result = await this.cache.get(key);
+      if (result.value) {
+        return JSON.parse(result.value.toString()) as T;
+      }
+    } catch {
+      return null;
     }
     return null;
   }
 
   async set<T>(key: string, value: T, ttlSeconds = 2592000): Promise<void> {
     const stringValue = JSON.stringify(value);
-    await this.cache.set(key, stringValue, { expires: ttlSeconds });
+    try {
+      await this.cache.set(key, stringValue, { expires: ttlSeconds });
+    } catch {
+      // Il fallimento del salvataggio in cache non deve interrompere il flusso
+    }
   }
 }

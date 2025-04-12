@@ -54,6 +54,26 @@ describe("CacheService", () => {
     expect(result).toBeNull();
   });
 
+  it("should handle errors in get gracefully", async () => {
+    const mockGet = jest.spyOn(Client.create(), "get");
+    mockGet.mockImplementation(() => {
+      throw new Error("Mock error");
+    });
+    const result = await service.get("testKey");
+    expect(result).toBeNull();
+    mockGet.mockRestore();
+  });
+
+  it("should handle errors in set gracefully", async () => {
+    const mockSet = jest.spyOn(Client.create(), "set");
+    mockSet.mockImplementation(() => {
+      throw new Error("Mock error");
+    });
+    await service.set("testKey", { test: "testValue" });
+    expect(mockSet).toHaveBeenCalled();
+    mockSet.mockRestore();
+  });
+
   it("should call quit on module destroy", () => {
     const spy = jest.spyOn(Client.create(), "quit");
     service.onModuleDestroy();
