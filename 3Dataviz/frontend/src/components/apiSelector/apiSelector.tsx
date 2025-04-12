@@ -2,7 +2,6 @@ import "./apiSelector.css";
 import Select, { SingleValue } from "react-select";
 import { useState } from "react";
 import DatasetItem from "../datasetItem/datasetItem";
-import { redirect } from "react-router";
 import { useNavigate } from "react-router";
 
 type APIItem = {
