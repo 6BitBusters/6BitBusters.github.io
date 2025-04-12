@@ -40,7 +40,9 @@ describe("DataSourceSlice", () => {
       datasets: [],
       currentDataset: null,
     };
-    fetchMock.mockGlobal().route("http://127.0.0.1:5000/api", mockDatasets);
+    fetchMock
+      .mockGlobal()
+      .route("http://127.0.0.1:5000/data-source", mockDatasets);
 
     const expectedState: DataSourceState = {
       datasets: mockDatasets,
@@ -67,7 +69,9 @@ describe("DataSourceSlice", () => {
       datasets: [],
       currentDataset: null,
     };
-    fetchMock.mockGlobal().route("http://127.0.0.1:5000/api", errorStatus);
+    fetchMock
+      .mockGlobal()
+      .route("http://127.0.0.1:5000/data-source", errorStatus);
     const store = mockStore(initialState);
     return store.dispatch(requestDatasets()).then(() => {
       const actions = store.getActions();
