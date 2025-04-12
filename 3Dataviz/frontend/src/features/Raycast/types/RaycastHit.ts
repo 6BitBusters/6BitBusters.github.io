@@ -1,6 +1,6 @@
-import { Vector3 } from "@react-three/fiber"
+import { Vector3 } from "three";
 
 export type RaycastHit = {
-    previousSelectedBarId: number | null,
-    barTooltipPosition: Vector3 | null
-}
+  previousSelectedBarId: number | null;
+  barTooltipPosition: Vector3 | null;
+};

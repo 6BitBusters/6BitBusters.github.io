@@ -4,7 +4,7 @@ import RaycastHitSlice from "../features/Raycast/RaycastHitSlice";
 
 const rootReducer = combineReducers({
   appState: AppStatusSlice,
-  raycast: RaycastHitSlice
+  raycast: RaycastHitSlice,
 });
 
 export default rootReducer;

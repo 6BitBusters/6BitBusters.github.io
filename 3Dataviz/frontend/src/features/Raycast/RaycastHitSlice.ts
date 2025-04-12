@@ -1,22 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RaycastHit } from "./types/RaycastHit";
-import { SubtractEquation } from "three";
+import { Vector3 } from "three";
 
 const initialState: RaycastHit = {
-    previousSelectedBarId: null,
-    barTooltipPosition: null
-}
+  previousSelectedBarId: null,
+  barTooltipPosition: null,
+};
 
 const raycastHitSlice = createSlice({
-    name: "raycastHitSlice",
-    initialState,
-    reducers: {
-        
-    }
+  name: "raycastHitSlice",
+  initialState,
+  reducers: {
+    setHit: (state, action: PayloadAction<number>) => {
+      state.previousSelectedBarId = action.payload;
+    },
+    setTooltipPosition: (state, action: PayloadAction<Vector3 | null>) => {
+      state.barTooltipPosition = action.payload;
+    },
+  },
 });
 
-export const {} = raycastHitSlice.actions;
+export const { setHit, setTooltipPosition } = raycastHitSlice.actions;
 
-export const selectorRaycastHit = (state: RaycastHit ) => state;
+export const selectorRaycastHit = (state: RaycastHit) => state;
 
 export default raycastHitSlice.reducer;
