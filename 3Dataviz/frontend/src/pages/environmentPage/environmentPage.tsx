@@ -1,11 +1,12 @@
 import "./environmentPage.css";
+import Footer from "../../components/footer/footer";
 
 function EnvironmentPage() {
   return (
     <>
       <h1 id="APItitle">Nome API</h1>
       <a id="quitButton" href="/">
-        Esci
+        ESCI
       </a>
       <div className="grid-container">
         <div className="ui">
@@ -17,6 +18,7 @@ function EnvironmentPage() {
           componente grafico
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 }

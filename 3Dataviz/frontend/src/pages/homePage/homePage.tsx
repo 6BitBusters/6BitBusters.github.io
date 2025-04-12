@@ -1,12 +1,14 @@
 import "./homePage.css";
 import Footer from "../../components/footer/footer";
+import ApiSelector from "../../components/apiSelector/apiSelector";
 
 function HomePage() {
   return (
     <>
       <div className="containerHome">
         <h1 id="homepageTitle">3DataViz</h1>
-        Inserire componente APISelector qui
+        <p>Seleziona un DataSet per visualizzarne i dati:</p>
+        <ApiSelector></ApiSelector>
       </div>
       <div className="teamInfo">
         <h2>Informazioni sul progetto</h2>
