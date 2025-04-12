@@ -49,7 +49,9 @@ describe("DataSlice", () => {
       z: [],
       x: [],
     };
-    fetchMock.mockGlobal().route("http://127.0.0.1:5000/api/1", mockDataset);
+    fetchMock
+      .mockGlobal()
+      .route("http://127.0.0.1:5000/data-visualization/1", mockDataset);
 
     const expectedState: DataState = {
       data: [{ id: 0, show: true, x: 0, y: 1, z: 0 }],
@@ -83,7 +85,9 @@ describe("DataSlice", () => {
       z: [],
       x: [],
     };
-    fetchMock.mockGlobal().route("http://127.0.0.1:5000/api/1", errorStatus);
+    fetchMock
+      .mockGlobal()
+      .route("http://127.0.0.1:5000/data-visualization/1", errorStatus);
 
     const store = mockStore(initialState);
     return store.dispatch(requestData(1)).then(() => {
@@ -98,7 +102,7 @@ describe("DataSlice", () => {
   });
 
   it("Dataset selezionato non esiste", () => {
-    const errorStatus: number = 500;
+    const errorStatus: number = 404;
     const initialState: DataState = {
       data: [],
       legend: null,
@@ -106,7 +110,9 @@ describe("DataSlice", () => {
       z: [],
       x: [],
     };
-    fetchMock.mockGlobal().route("http://127.0.0.1:5000/api/-1", errorStatus);
+    fetchMock
+      .mockGlobal()
+      .route("http://127.0.0.1:5000/data-visualization/-1", errorStatus);
 
     const store = mockStore(initialState);
     return store.dispatch(requestData(-1)).then(() => {

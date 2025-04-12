@@ -1,5 +1,5 @@
-import { Entity } from "./Entity";
+import { Entry } from "./Entry";
 
-export interface Data extends Entity {
+export interface Data extends Entry {
   show: boolean;
 }

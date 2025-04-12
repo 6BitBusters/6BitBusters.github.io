@@ -1,4 +1,4 @@
-import { Entity } from "../interfaces/Entity";
+import { Entity } from "../interfaces/Entry";
 import { Legend } from "./Legend";
 
 export type Dataset = {
