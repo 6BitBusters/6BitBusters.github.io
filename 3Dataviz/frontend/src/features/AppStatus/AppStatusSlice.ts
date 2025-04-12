@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppState } from "./types/AppState";
-import { RootState } from "../../app/Store";
 import { MaxRequestError } from "./Errors/MaxRequestError";
 import { ServerError } from "./Errors/ServerError";
 import { NetworkError } from "./Errors/NetworkError";
@@ -40,6 +39,6 @@ const appStatusSlice = createSlice({
 
 export const { setLoading, setError } = appStatusSlice.actions;
 
-export const selectorAppState = (state: RootState) => state.appState;
+export const selectorAppState = (state: AppState) => state;
 
 export default appStatusSlice.reducer;

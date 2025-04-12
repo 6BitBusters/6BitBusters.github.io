@@ -83,6 +83,6 @@ describe("AppStateSlice", () => {
       isLoading: true,
       error: null,
     };
-    expect(selectorAppState({ appState: state })).toEqual(state);
+    expect(selectorAppState(state)).toEqual(state);
   });
 });
