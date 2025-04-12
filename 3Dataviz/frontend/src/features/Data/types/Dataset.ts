@@ -1,8 +1,8 @@
-import { Entity } from "../interfaces/Entry";
+import { Entry } from "../interfaces/Entry";
 import { Legend } from "./Legend";
 
 export type Dataset = {
-  data: Entity[];
+  data: Entry[];
   legend: Legend | null;
   zLabels: string[];
   xLabels: string[];
