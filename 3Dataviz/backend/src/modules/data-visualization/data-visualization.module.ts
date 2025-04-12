@@ -13,8 +13,8 @@ import { fetchersFactory } from "../fetchers/factories/fetchers.factory";
     {
       provide: "FETCHERS",
       useFactory: fetchersFactory,
-      inject: [ConfigService],
     },
+    ConfigService,
   ],
 })
 export class DataVisualizationModule {}
