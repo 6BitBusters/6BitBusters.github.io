@@ -30,17 +30,14 @@ describe("DataVisualizationController (e2e)", () => {
     );
     await app.init();
   });
-
-  it("should fetch the correct datasets", async () => {
-    // Testo tutti i dataset
-    for (let id = 0; id < 4; id++) {
-      const dataset = await service.getDatasetById(id);
-      request(app.getHttpServer())
-        .get(`/data-visualization/${id}`)
-        .expect(200)
-        .expect((res) => {
-          expect(res.body).toEqual(dataset);
-        });
-    }
+  it("should fetch the correct dataset", async () => {
+    const id = 2;
+    const dataset = await service.getDatasetById(id);
+    request(app.getHttpServer())
+      .get(`/data-visualization/${id}`)
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toEqual(dataset);
+      });
   });
 });

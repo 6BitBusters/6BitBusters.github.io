@@ -10,6 +10,16 @@ jobs:
   test-backend:
     runs-on: ubuntu-latest
     if : ${{ startsWith(github.head_ref, 'code/') }}
+    services:
+      memcached:
+        image: memcached:latest
+        ports:
+          - 11211:11211
+        options: >-
+          --health-cmd "echo stats | nc localhost 11211 || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
