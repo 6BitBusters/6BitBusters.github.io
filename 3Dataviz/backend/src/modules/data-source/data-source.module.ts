@@ -1,7 +1,6 @@
 import { Module } from "@nestjs/common";
 import { DataSourceController } from "./controllers/data-source.controller";
 import { DataSourceService } from "./services/data-source.service";
-import { ConfigService } from "@nestjs/config";
 import { fetchersFactory } from "../fetchers/factories/fetchers.factory";
 
 @Module({
@@ -12,7 +11,6 @@ import { fetchersFactory } from "../fetchers/factories/fetchers.factory";
       provide: "FETCHERS",
       useFactory: fetchersFactory,
     },
-    ConfigService,
   ],
 })
 export class DataSourceModule {}

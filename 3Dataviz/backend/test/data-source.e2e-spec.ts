@@ -5,7 +5,6 @@ import { App } from "supertest/types";
 import { DataSourceModule } from "../src/modules/data-source/data-source.module";
 import { DataSourceService } from "../src/modules/data-source/services/data-source.service";
 import { DataSourceDto } from "../src/modules/data-source/dto/data-source.dto";
-import { ConfigService } from "@nestjs/config";
 import { fetchersFactory } from "../src/modules/fetchers/factories/fetchers.factory";
 
 describe("DataSourceController (e2e)", () => {
@@ -20,9 +19,7 @@ describe("DataSourceController (e2e)", () => {
         {
           provide: "FETCHERS",
           useFactory: fetchersFactory,
-          inject: [ConfigService],
         },
-        ConfigService,
       ],
     }).compile();
 

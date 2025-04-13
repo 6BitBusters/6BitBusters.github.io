@@ -1,7 +1,6 @@
 import { Module } from "@nestjs/common";
 import { DataVisualizationController } from "./controllers/data-visualization.controller";
 import { DataVisualizationService } from "./services/data-visualization.service";
-import { ConfigService } from "@nestjs/config";
 import { CacheService } from "../cache/services/cache.service";
 import { fetchersFactory } from "../fetchers/factories/fetchers.factory";
 
@@ -14,7 +13,6 @@ import { fetchersFactory } from "../fetchers/factories/fetchers.factory";
       provide: "FETCHERS",
       useFactory: fetchersFactory,
     },
-    ConfigService,
   ],
 })
 export class DataVisualizationModule {}

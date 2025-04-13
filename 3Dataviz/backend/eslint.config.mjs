@@ -31,31 +31,31 @@ export default tseslint.config(
       "@typescript-eslint/no-floating-promises": "warn",
       "@typescript-eslint/unbound-method": "warn",
       "no-console": "warn",
-      '@typescript-eslint/naming-convention': [
-        'error',
+      "@typescript-eslint/naming-convention": [
+        "error",
         {
-          selector: 'variable',
-          format: ['camelCase'],
+          selector: "variable",
+          format: ["camelCase"],
         },
         {
-          selector: 'variable',
-          modifiers: ['const'],
-          format: ['camelCase', 'UPPER_CASE'],
+          selector: "variable",
+          modifiers: ["const"],
+          format: ["camelCase", "UPPER_CASE"],
         },
         {
-          selector: 'typeLike',
-          format: ['PascalCase'],
+          selector: "typeLike",
+          format: ["PascalCase"],
         },
         {
-          selector: 'classProperty',
-          format: ['camelCase'],
+          selector: "classProperty",
+          format: ["camelCase"],
         },
         {
-          selector: 'method',
-          format: ['camelCase'],
+          selector: "method",
+          format: ["camelCase"],
         },
       ],
-      'no-inline-comments': 'error'
+      "no-inline-comments": "error",
     },
   },
 );
