@@ -1,17 +1,13 @@
+import { DatasetInfo } from "../../features/DataSource/types/DatasetInfo";
 import "./datasetItem.css";
 
-type DatasetItemProps = {
-  name: string;
-  size: string;
-  description: string;
-};
-
-function DatasetItem({ name, size, description }: DatasetItemProps) {
+function DatasetItem({id, name, size, description }: DatasetInfo) {
   return (
     <div className="datasetItemContainer">
       <div>
-        <strong>{name}</strong> — <span>{size}</span>
+        <strong>{id} - {name}</strong>
       </div>
+      <div><span>{size[0]}x{size[1]}</span></div>
       <div id="datasetItemDesc">{description}</div>
     </div>
   );
