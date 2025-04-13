@@ -685,7 +685,7 @@ Questo diagramma mostra come sono organizzate le varie pagine dell'applicazione.
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item HomePage (composizione): componente React che offre all'utente l'interfaccia per la scelta del dataset desiderato;
+            \item HomePage (composizione): componente React che rappresenta la pagina iniziale dell'applicazione;
             \item EnvironmentPage (composizione): componente React che fornisce l'interfaccia per visualizzare un dataset in un ambiente 3D;
             \item ErrorPage (composizione): componente React responsabile della visualizzazione e della gestione degli errori generati dall'applicazione.
         \end{itemize} 
@@ -695,8 +695,16 @@ Questo diagramma mostra come sono organizzate le varie pagine dell'applicazione.
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item DatasetItem (composizione): componente React dedicato alla presentazione delle informazioni chiave di un dataset
+            \item APISelector (composizione): componente React che offre all'utente l'interfaccia per la scelta del dataset desiderato;
             \item Footer (composizione): componente React dedicato alla visualizzazione del footer dell'applicazione;
+        \end{itemize} 
+    \end{itemize}
+
+    \item \textbf{APISelector:}
+    \begin{itemize}
+        \item \textbf{Dipendenze:}
+        \begin{itemize}
+            \item DatasetItem (composizione): componente React dedicato alla presentazione delle informazioni chiave di un dataset
         \end{itemize} 
     \end{itemize}
 \end{itemize}
