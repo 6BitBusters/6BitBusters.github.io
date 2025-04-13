@@ -22,6 +22,7 @@ import { CURRENCY_API_CONFIG } from "../config";
 import { CurrencyData } from "../interfaces/currency-data.interface";
 import axios from "axios";
 import { Dataset } from "src/interfaces/dataset.interface";
+import { HttpStatus } from "@nestjs/common";
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
@@ -177,6 +178,19 @@ describe("CurrencyApiFetcher", () => {
 
     await expect(currencyApiFetcher.fetchData()).rejects.toThrow(
       "Errore nel recupero dei dati\nError: Formato dei dati non valido\nError: Atteso number, ricevuto object",
+    );
+  });
+
+  it("should throw an error if too many requests are made", async () => {
+    (mockedAxios.get as jest.Mock).mockRejectedValue({
+      response: {
+        status: HttpStatus.TOO_MANY_REQUESTS,
+      },
+    });
+    jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
+
+    await expect(currencyApiFetcher.fetchData()).rejects.toThrow(
+      "Too many requests",
     );
   });
 });

@@ -1,4 +1,8 @@
-import { Injectable, ServiceUnavailableException } from "@nestjs/common";
+import {
+  HttpStatus,
+  Injectable,
+  ServiceUnavailableException,
+} from "@nestjs/common";
 import { BaseFetcher } from "./base-fetcher";
 import axios from "axios";
 import { CURRENCY_API_CONFIG } from "../config";
@@ -7,6 +11,7 @@ import { Entry } from "../../../interfaces/entry.interface";
 import { Legend } from "../../../interfaces/legend.interface";
 import { CurrencyData } from "../interfaces/currency-data.interface";
 import * as dotenv from "dotenv";
+import { TooManyRequestsException } from "../../../exceptions/too-many-requests.exception";
 dotenv.config();
 
 @Injectable()
@@ -53,6 +58,12 @@ export class CurrencyApiFetcher extends BaseFetcher {
       const dataset = this.transformData(data);
       return dataset;
     } catch (error) {
+      if (
+        axios.isAxiosError(error) &&
+        error.response?.status === HttpStatus.TOO_MANY_REQUESTS
+      ) {
+        throw new TooManyRequestsException();
+      }
       throw new ServiceUnavailableException(
         `Errore nel recupero dei dati\n${error}`,
       );

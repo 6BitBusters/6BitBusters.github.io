@@ -1,4 +1,8 @@
-import { Injectable, ServiceUnavailableException } from "@nestjs/common";
+import {
+  HttpStatus,
+  Injectable,
+  ServiceUnavailableException,
+} from "@nestjs/common";
 import { BaseFetcher } from "./base-fetcher";
 import axios from "axios";
 import { FLIGHTS_API_CONFIG } from "../config";
@@ -50,7 +54,10 @@ export class FlightsApiFetcher extends BaseFetcher {
           .get<FlightsRecord[]>(url)
           .then((response): FlightsRecord[] => response.data)
           .catch((error): FlightsRecord[] => {
-            if (axios.isAxiosError(error) && error.response?.status === 404) {
+            if (
+              axios.isAxiosError(error) &&
+              error.response?.status === HttpStatus.NOT_FOUND
+            ) {
               // Se 404, restituisci array vuoto
               return [];
             } else {
