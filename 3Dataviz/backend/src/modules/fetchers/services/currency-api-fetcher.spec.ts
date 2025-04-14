@@ -22,30 +22,30 @@ import { CURRENCY_API_CONFIG } from "../config";
 import { CurrencyData } from "../interfaces/currency-data.interface";
 import axios from "axios";
 import { Dataset } from "src/interfaces/dataset.interface";
-import { ConfigService } from "@nestjs/config";
+import { HttpStatus } from "@nestjs/common";
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe("CurrencyApiFetcher", () => {
   let currencyApiFetcher: CurrencyApiFetcher;
-  let configService: ConfigService;
+  let originalApiKey: string | undefined;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [
-        CurrencyApiFetcher,
-        {
-          provide: ConfigService,
-          useValue: {
-            get: jest.fn().mockReturnValue("API_KEY"), // Mock del servizio
-          },
-        },
-      ],
+      providers: [CurrencyApiFetcher],
     }).compile();
 
     currencyApiFetcher = module.get<CurrencyApiFetcher>(CurrencyApiFetcher);
-    configService = module.get<ConfigService>(ConfigService);
     mockedAxios.get = jest.fn();
+
+    // Salva la chiave API originale
+    // in modo da poterla ripristinare dopo il test
+    originalApiKey = process.env.CURRENCY_API_KEY;
+  });
+
+  afterEach(() => {
+    // Ripristina la chiave API originale
+    process.env.CURRENCY_API_KEY = originalApiKey;
   });
 
   it("should be defined", () => {
@@ -150,7 +150,7 @@ describe("CurrencyApiFetcher", () => {
 
   it("should throw an error if API key is not found", async () => {
     // Simuliamo la mancanza della chiave API
-    (configService.get as jest.Mock).mockReturnValue(undefined);
+    delete process.env.CURRENCY_API_KEY;
 
     await expect(currencyApiFetcher.fetchData()).rejects.toThrow(
       "API key non trovata",
@@ -170,14 +170,27 @@ describe("CurrencyApiFetcher", () => {
 
   it("should throw an error if data format is invalid", async () => {
     // Simuliamo una risposta API con formato non valido
-    const mockCurrencyData = { rates: [{ USD: "0" }] };
+    const mockInvalidData = { rates: [{ USD: "0" }] };
 
     (mockedAxios.get as jest.Mock).mockResolvedValue({
-      data: mockCurrencyData,
+      data: mockInvalidData,
     });
 
     await expect(currencyApiFetcher.fetchData()).rejects.toThrow(
       "Errore nel recupero dei dati\nError: Formato dei dati non valido\nError: Atteso number, ricevuto object",
+    );
+  });
+
+  it("should throw an error if too many requests are made", async () => {
+    (mockedAxios.get as jest.Mock).mockRejectedValue({
+      response: {
+        status: HttpStatus.TOO_MANY_REQUESTS,
+      },
+    });
+    jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
+
+    await expect(currencyApiFetcher.fetchData()).rejects.toThrow(
+      "Too many requests",
     );
   });
 });

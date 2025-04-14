@@ -22,8 +22,9 @@ import { Test, TestingModule } from "@nestjs/testing";
 import { FlightsApiFetcher } from "./flights-api-fetcher";
 import { FLIGHTS_API_CONFIG } from "../config";
 import { FlightsData } from "../interfaces/flights-data.interface";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { Dataset } from "src/interfaces/dataset.interface";
+import { HttpStatus } from "@nestjs/common";
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
@@ -143,16 +144,11 @@ describe("FlightsApiFetcher", () => {
   });
 
   it("should handle 404 error and return empty array", async () => {
-    const error = {
-      name: "AxiosError",
-      isAxiosError: true,
+    (mockedAxios.get as jest.Mock).mockRejectedValue({
       response: {
-        status: 404,
-        data: "Not Found",
+        status: HttpStatus.NOT_FOUND,
       },
-    } as AxiosError;
-    // Simuliamo un errore 404
-    (mockedAxios.get as jest.Mock).mockRejectedValue(error);
+    });
     jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
 
     const result = await flightsApiFetcher.fetchData();

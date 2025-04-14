@@ -49,7 +49,8 @@ describe("WeatherApiService", () => {
 
   it("should return the correct size", () => {
     const size = weatherApiFetcher.getSize();
-    const numDays = 2; // 2023-01-01 to 2023-01-02
+    // 2023-01-01 to 2023-01-02
+    const numDays = 2;
     const expectedSize = [numDays * 24, WEATHER_API_CONFIG.CITIES.length];
     expect(size).toEqual(expectedSize);
   });

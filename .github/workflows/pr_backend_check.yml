@@ -10,6 +10,11 @@ jobs:
   test-backend:
     runs-on: ubuntu-latest
     if : ${{ startsWith(github.head_ref, 'code/') }}
+    services:
+      memcached:
+        image: memcached:latest
+        ports:
+          - 11211:11211
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -33,8 +38,8 @@ jobs:
         run: npm run lint:check
         working-directory: 3Dataviz/backend
 
-      - name: Run tests
-        run: npm run test
+      - name: Run tests and check coverage
+        run: npm run test:cov
         working-directory: 3Dataviz/backend
 
       - name: Build

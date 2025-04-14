@@ -72,7 +72,8 @@ export class PopulationApiFetcher extends BaseFetcher {
         const entry: Entry = {
           id: xIndex * zLabels.length + zIndex,
           x: xIndex,
-          y: record.value / 1000000, // Convert to millions
+          // Convert to millions
+          y: record.value / 1000000,
           z: zIndex,
         };
         entries.push(entry);
