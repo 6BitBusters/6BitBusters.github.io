@@ -5,7 +5,7 @@ import reducer, {
 } from "../../../src/features/AppStatus/AppStatusSlice";
 import { TooManyRequests } from "../../../src/features/AppStatus/Errors/TooManyRequests";
 import { ServerError } from "../../../src/features/AppStatus/Errors/ServerError";
-import { NetworkError } from "../../../src/features/AppStatus/Errors/NetworkError";
+import { NotFoundError } from "../../../src/features/AppStatus/Errors/NotFoundError";
 import { requestData } from "../../../src/features/Data/DataSlice";
 import {
   requestDatasets,
@@ -80,6 +80,10 @@ describe("AppStateSlice", () => {
         payload: errNo,
       }),
     ).toEqual(expectedState);
+    expect(expectedState.error?.getErrNo()).toEqual(errNo);
+    expect(expectedState.error?.getErrorMessage()).toEqual(
+      "Numero massimo di richieste API effettuate",
+    );
   });
   it("Reperimento dei dati del dataset fallito per 'server'", () => {
     // 500 => ServerError()
@@ -98,9 +102,13 @@ describe("AppStateSlice", () => {
         payload: errNo,
       }),
     ).toEqual(expectedState);
+    expect(expectedState.error?.getErrNo()).toEqual(errNo);
+    expect(expectedState.error?.getErrorMessage()).toEqual(
+      "Errore di connessione al server",
+    );
   });
   it("Reperimento dei dati del dataset fallito per 'network'", () => {
-    // 404 => NetworkError()
+    // 404 => NotFoundError()
     const errNo: number = 404;
     const initialState: AppState = {
       isLoading: true,
@@ -108,7 +116,7 @@ describe("AppStateSlice", () => {
     };
     const expectedState: AppState = {
       isLoading: false,
-      error: new NetworkError(),
+      error: new NotFoundError(),
     };
     expect(
       reducer(initialState, {
@@ -116,6 +124,8 @@ describe("AppStateSlice", () => {
         payload: errNo,
       }),
     ).toEqual(expectedState);
+    expect(expectedState.error?.getErrNo()).toEqual(errNo);
+    expect(expectedState.error?.getErrorMessage()).toEqual("Non trovato");
   });
   it("Reperimento dei dataset fallito per 'server'", () => {
     const errNo: number = 500;
@@ -141,7 +151,7 @@ describe("AppStateSlice", () => {
     };
     const expectedState: AppState = {
       isLoading: false,
-      error: new NetworkError(),
+      error: new NotFoundError(),
     };
     expect(reducer(initialState, setCurrentDataset(undefined))).toEqual(
       expectedState,

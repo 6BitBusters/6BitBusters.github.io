@@ -1,7 +1,8 @@
-export class TooManyRequests extends Error {
+import { CustomError } from "./CustomError";
+
+export class TooManyRequests extends CustomError {
   constructor() {
-    super("Numero massimo di richieste API effettuate");
+    super(429, "Numero massimo di richieste API effettuate");
     this.name = "TooManyRequests";
-    Object.setPrototypeOf(this, TooManyRequests.prototype);
   }
 }

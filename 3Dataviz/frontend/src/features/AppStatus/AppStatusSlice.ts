@@ -2,13 +2,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppState } from "./types/AppState";
 import { TooManyRequests } from "./Errors/TooManyRequests";
 import { ServerError } from "./Errors/ServerError";
-import { NetworkError } from "./Errors/NetworkError";
+import { NotFoundError } from "./Errors/NotFoundError";
 import { requestData } from "../Data/DataSlice";
 import {
   requestDatasets,
   setCurrentDataset,
 } from "../DataSource/DataSourceSlice";
 import { DatasetInfo } from "../DataSource/types/DatasetInfo";
+import { CustomError } from "./Errors/CustomError";
 
 const initialState: AppState = {
   isLoading: false,
@@ -65,7 +66,7 @@ const appStatusSlice = createSlice({
   },
 });
 
-function generateError(errNo: number): Error {
+function generateError(errNo: number): CustomError {
   switch (errNo) {
     case 429:
       return new TooManyRequests();
@@ -73,7 +74,7 @@ function generateError(errNo: number): Error {
       return new ServerError();
     case 404:
     default:
-      return new NetworkError();
+      return new NotFoundError();
   }
 }
 
