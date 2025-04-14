@@ -3,7 +3,7 @@ import { AppState } from "../../../src/features/AppStatus/types/AppState";
 import reducer, {
   selectorAppState,
 } from "../../../src/features/AppStatus/AppStatusSlice";
-import { MaxRequestError } from "../../../src/features/AppStatus/Errors/MaxRequestError";
+import { TooManyRequests } from "../../../src/features/AppStatus/Errors/TooManyRequests";
 import { ServerError } from "../../../src/features/AppStatus/Errors/ServerError";
 import { NetworkError } from "../../../src/features/AppStatus/Errors/NetworkError";
 import { requestData } from "../../../src/features/Data/DataSlice";
@@ -13,7 +13,7 @@ import {
 } from "../../../src/features/DataSource/DataSourceSlice";
 
 describe("AppStateSlice", () => {
-  it("Riperimento dei dati del dataset in corso", () => {
+  it("Reperimento dei dati del dataset in corso", () => {
     const initialState: AppState = {
       isLoading: false,
       error: null,
@@ -26,7 +26,7 @@ describe("AppStateSlice", () => {
       reducer(initialState, { type: requestData.pending.type, payload: null }),
     ).toEqual(expectedState);
   });
-  it("Riperimento dei dati del dataset completato con successo", () => {
+  it("Reperimento dei dati del dataset completato con successo", () => {
     const initialState: AppState = {
       isLoading: true,
       error: null,
@@ -63,8 +63,8 @@ describe("AppStateSlice", () => {
       }),
     ).toEqual(expectedState);
   });
-  it("Riperimento dei dati del dataset fallito per 'maxrequest'", () => {
-    // 429 => MaxRequestError()
+  it("Reperimento dei dati del dataset fallito per 'maxrequest'", () => {
+    // 429 => TooManyRequests()
     const errNo: number = 429;
     const initialState: AppState = {
       isLoading: true,
@@ -72,7 +72,7 @@ describe("AppStateSlice", () => {
     };
     const expectedState: AppState = {
       isLoading: false,
-      error: new MaxRequestError(),
+      error: new TooManyRequests(),
     };
     expect(
       reducer(initialState, {
@@ -81,7 +81,7 @@ describe("AppStateSlice", () => {
       }),
     ).toEqual(expectedState);
   });
-  it("Riperimento dei dati del dataset fallito per 'server'", () => {
+  it("Reperimento dei dati del dataset fallito per 'server'", () => {
     // 500 => ServerError()
     const errNo: number = 500;
     const initialState: AppState = {
@@ -99,7 +99,7 @@ describe("AppStateSlice", () => {
       }),
     ).toEqual(expectedState);
   });
-  it("Riperimento dei dati del dataset fallito per 'network'", () => {
+  it("Reperimento dei dati del dataset fallito per 'network'", () => {
     // 404 => NetworkError()
     const errNo: number = 404;
     const initialState: AppState = {
@@ -117,7 +117,7 @@ describe("AppStateSlice", () => {
       }),
     ).toEqual(expectedState);
   });
-  it("Riperimento dei dataset fallito per 'server'", () => {
+  it("Reperimento dei dataset fallito per 'server'", () => {
     const errNo: number = 500;
     const initialState: AppState = {
       isLoading: false,
