@@ -1,28 +1,38 @@
+import { describe, it, expect } from "vitest";
+import reducer, {
+  selectorIsGreater,
+  toggleIsGreater,
+} from "../../../src/features/FilterOption/FilterOptionSlice";
+import { FilterOptionState } from "../../../src/features/FilterOption/types/FilterOption";
 
-import { describe, it, expect } from 'vitest'
-import filterOptionReducer, {
-  toggleIsGrater,
-  FilterOptionState,
-} from '../../../src/features/FilterOption/FilterOptionSlice'
+describe("filterOptionSlice", () => {
+  it("should return the initial state when passed an empty action", () => {
+    const initialState: FilterOptionState = {
+      isGreater: false,
+    };
+    const result = reducer(undefined, { type: "" });
+    expect(result).toEqual(initialState);
+  });
 
-describe('filterOptionSlice', () => {
-  const initialState: FilterOptionState = {
-    isGrater: false,
-  }
+  it("should toggle isGreater from false to true", () => {
+    const initialState: FilterOptionState = {
+      isGreater: false,
+    };
+    const result = reducer(initialState, toggleIsGreater(true));
+    expect(result.isGreater).toBe(true);
+  });
 
-  it('should return the initial state when passed an empty action', () => {
-    const result = filterOptionReducer(undefined, { type: '' })
-    expect(result).toEqual(initialState)
-  })
-
-  it('should toggle isGrater from false to true', () => {
-    const result = filterOptionReducer(initialState, toggleIsGrater())
-    expect(result.isGrater).toBe(true)
-  })
-
-  it('should toggle isGrater back to false if called twice', () => {
-    const intermediateState = filterOptionReducer(initialState, toggleIsGrater())
-    const result = filterOptionReducer(intermediateState, toggleIsGrater())
-    expect(result.isGrater).toBe(false)
-  })
-})
+  it("should toggle isGreater back to false if called twice", () => {
+    const initialState: FilterOptionState = {
+      isGreater: true,
+    };
+    const result = reducer(initialState, toggleIsGreater(false));
+    expect(result.isGreater).toBe(false);
+  });
+  it("Get state", () => {
+    const initialState: FilterOptionState = {
+      isGreater: false,
+    };
+    expect(selectorIsGreater(initialState)).toBe(false);
+  });
+});

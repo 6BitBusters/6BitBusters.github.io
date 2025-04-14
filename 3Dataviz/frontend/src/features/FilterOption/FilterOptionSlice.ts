@@ -1,24 +1,21 @@
-
-import { createSlice } from '@reduxjs/toolkit';
-import { RootState } from '...'; //percorso RootState
-import { FilterOptionState } from 'types/FilterOption';
-
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { FilterOptionState } from "./types/FilterOption";
 
 const initialState: FilterOptionState = {
-  isGrater: false,
+  isGreater: false,
 };
 
 export const filterOptionSlice = createSlice({
-  name: 'filterOption',
+  name: "filterOptionSlice",
   initialState,
   reducers: {
-    toggleIsGrater: (state) => {
-      state.isGrater = !state.isGrater;
+    toggleIsGreater: (state, action: PayloadAction<boolean>) => {
+      state.isGreater = action.payload;
     },
   },
 });
 
-export const selectIsGrater = (state: RootState) => state.filterOption.isGrater;
+export const selectorIsGreater = (state: FilterOptionState) => state.isGreater;
 
-export const { toggleIsGrater } = filterOptionSlice.actions;
+export const { toggleIsGreater } = filterOptionSlice.actions;
 export default filterOptionSlice.reducer;
