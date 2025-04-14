@@ -17,6 +17,7 @@ const viewOptionSlice = createSlice({
 
 export const { toggleAveragePlane } = viewOptionSlice.actions;
 
-export const selectorViewOptionState = (state: ViewOptionState) => state;
+export const selectorViewOptionState = (state: ViewOptionState) =>
+  state.isPlaneActive;
 
 export default viewOptionSlice.reducer;

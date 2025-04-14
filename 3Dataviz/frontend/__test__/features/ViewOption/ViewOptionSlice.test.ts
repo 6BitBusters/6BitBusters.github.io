@@ -32,6 +32,6 @@ describe("ViewOptionSlice", () => {
     const state: ViewOptionState = {
       isPlaneActive: true,
     };
-    expect(selectorViewOptionState(state)).toEqual(state);
+    expect(selectorViewOptionState(state)).toBe(true);
   });
 });
