@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "totalcheck": "npm run test & npm run test:cov & npm run lint & npm run format",
     "format": "prettier --write \"./**/*.{ts,tsx,js}\"",
     "format:check": "prettier --check \"./**/*.{ts,tsx,js}\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.{ts,tsx}\" --fix",
     "lint:check": "eslint \"{src,apps,libs,test}/**/*.{ts,tsx}\" --max-warnings=10",
     "preview": "vite preview",
-    "test": "vitest",
+    "test": "vitest run",
     "test:watch": "vitest --watch",
     "test:cov": "vitest run --coverage"
   },
