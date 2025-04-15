@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppState } from "./types/AppState";
-import { TooManyRequests } from "./Errors/TooManyRequests";
+import { TooManyRequestsError } from "./Errors/TooManyRequestsError";
 import { ServerError } from "./Errors/ServerError";
 import { NotFoundError } from "./Errors/NotFoundError";
 import { requestData } from "../Data/DataSlice";
@@ -69,7 +69,7 @@ const appStatusSlice = createSlice({
 function generateError(errNo: number): CustomError {
   switch (errNo) {
     case 429:
-      return new TooManyRequests();
+      return new TooManyRequestsError();
     case 500:
       return new ServerError();
     case 404:
