@@ -77,6 +77,40 @@ abbreviazioni per identificare lo stato dei test:
     TU47 & Verificare che il metodo \texttt{fetchData} della classe \texttt{WeatherApiFetcher} restituisca il dataset nel formato corretto e con i valori corretti & S\tabularnewline
     TU48 & Verificare che il metodo \texttt{fetchData} della classe \texttt{WeatherApiFetcher} sollevi un'eccezione se si verifica un errore generico durante la chiamata API & S\tabularnewline
     TU49 & Verificare che il metodo \texttt{fetchData} della classe \texttt{WeatherApiFetcher} sollevi un'eccezione se il formato dei dati non è corretto & S\tabularnewline
+    TU50 & Verificare che lo stato in \texttt{AppSlice} sia quello atteso quando la richiesta è in corso & S\tabularnewline
+    TU51 & Verificare che lo stato in \texttt{AppSlice} sia quello atteso quando la richiesta è completata & S\tabularnewline
+    TU52 & Verificare che lo stato in \texttt{AppSlice} venga resettato quando viene effettuata una nuova rischiesta & S\tabularnewline
+    TU53 & Verificare che lo stato in \texttt{AppSlice} sia quello atteso quando si verifica un errore \texttt{TooManyRequestsError} & S\tabularnewline
+    TU54 & Verificare che lo stato in \texttt{AppSlice} sia quello atteso quando si verifica un errore \texttt{NotFoundError} & S\tabularnewline
+    TU55 & Verificare che lo stato in \texttt{AppSlice} sia quello atteso quando si verifica un errore \texttt{ServerError} & S\tabularnewline
+    TU56 & Verificare che lo stato in \texttt{AppSlice} sia quello atteso quando si seleziona un dataset inesistente \texttt{BadRequestError} & S\tabularnewline
+    TU57 & Verificare che il metodo \texttt{selectorAppState} funzioni correttamente & S\tabularnewline
+    TU58 & Verificare che lo stato in \texttt{DataSlice} sia quello atteso quando non è selezionato alcun dataset & S\tabularnewline
+    TU59 & Verificare che lo stato in \texttt{DataSlice} sia quello atteso quando il dataset selezionato viene caricato con successo & S\tabularnewline
+    TU60 & Verificare che lo stato in \texttt{DataSlice} sia quello atteso quando il dataset selezionato non viene caricato correttamente & S\tabularnewline
+    TU61 & Verificare che lo stato in \texttt{DataSlice} sia quello atteso quando il dataset selezionato non esiste & S\tabularnewline
+    TU62 & Verificare che lo stato in \texttt{DataSlice} sia quello atteso quando si effettua un filtraggio degli N valori più alti & S\tabularnewline
+    TU63 & Verificare che lo stato in \texttt{DataSlice} sia quello atteso quando si effettua un filtraggio degli N valori più bassi & S\tabularnewline
+    TU64 & Verificare che lo stato in \texttt{DataSlice} sia quello atteso quando si effettua un filtraggio dei valori superiori o uguali al valore medio & S\tabularnewline
+    TU65 & Verificare che lo stato in \texttt{DataSlice} sia quello atteso quando si effettua un filtraggio dei valori inferiori o uguali al valore medio & S\tabularnewline
+    TU66 & Verificare che lo stato in \texttt{DataSlice} sia quello atteso quando si effettua un filtraggio dei valori superiori o uguali a un valore fissato & S\tabularnewline
+    TU67 & Verificare che lo stato in \texttt{DataSlice} sia quello atteso quando si effettua un filtraggio dei valori inferiori o uguali a un valore fissato & S\tabularnewline
+    TU68 & Verificare che lo stato in \texttt{DataSlice} sia quello atteso quando si resettano i filtri & S\tabularnewline
+    TU69 & Verificare che il metodo \texttt{selectorDataState} funzioni correttamente & S\tabularnewline
+    TU70 & Verificare che lo stato in \texttt{DataSourceSlice} sia quello atteso quando non è selezionato alcun dataset & S\tabularnewline
+    TU71 & Verificare che lo stato in \texttt{DataSourceSlice} sia quello atteso quando le informazioni dei dataset vengono caricate con successo & S\tabularnewline
+    TU72 & Verificare che lo stato in \texttt{DataSourceSlice} sia quello atteso quando le informazioni dei dataset non vengono caricate correttamente & S\tabularnewline
+    TU73 & Verificare che lo stato in \texttt{DataSourceSlice} sia quello atteso quando viene selezionato un dataset & S\tabularnewline
+    TU74 & Verificare che lo stato in \texttt{DataSourceSlice} sia quello atteso quando viene selezionato un dataset inesistente & S\tabularnewline
+    TU75 & Verificare che il metodo \texttt{selectorDatasets} funzioni correttamente & S\tabularnewline
+    TU76 & Verificare che il metodo \texttt{selectorCurrentDataset} funzioni correttamente & S\tabularnewline
+    TU77 & Verificare che lo stato in \texttt{RaycastHitSlice} sia quello atteso quando il puntatore del mouse si trova sopra una barra del grafico 3D & S\tabularnewline
+    TU78 & Verificare che lo stato in \texttt{RaycastHitSlice} sia quello atteso quando il puntatore del mouse clicca su una barra del grafico 3D & S\tabularnewline
+    TU79 & Verificare che lo stato in \texttt{RaycastHitSlice} sia quello atteso quando il puntatore del mouse si trova sopra uno spazio vuoto & S\tabularnewline
+    TU80 & Verificare che lo stato in \texttt{RaycastHitSlice} sia quello atteso quando il puntatore del mouse clicca su uno spazio vuoto & S\tabularnewline
+    TU81 & Verificare che lo stato in \texttt{RaycastHitSlice} sia quello atteso quando il puntatore del mouse si trova sopra più barre consecutivamente & S\tabularnewline
+    TU82 & Verificare che lo stato in \texttt{RaycastHitSlice} sia quello atteso quando il puntatore del mouse clicca su più barre consecutivamente & S\tabularnewline
+    TU83 & Verificare che il metodo \texttt{selectorRaycastHit} funzioni correttamente & S\tabularnewline
 }
 \subsection{Test di integrazione}
 \testTable{
