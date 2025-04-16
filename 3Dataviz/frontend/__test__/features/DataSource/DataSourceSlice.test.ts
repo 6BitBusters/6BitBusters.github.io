@@ -11,7 +11,7 @@ import reducer, {
   selectorDatasets,
   trySetCurrentDataset,
 } from "../../../src/features/DataSource/DataSourceSlice";
-import { createMockRootState } from "../../utils/StatesMockCreator";
+import { CreateMockRootState } from "../../utils/StateMockCreator";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
@@ -143,7 +143,7 @@ describe("DataSourceSlice", () => {
       } as DataSourceState,
     };
 
-    const mockState = createMockRootState(overrides);
+    const mockState = CreateMockRootState(overrides);
     expect(selectorDatasets(mockState)).toEqual(overrides.dataSource.datasets);
   });
 
@@ -162,7 +162,7 @@ describe("DataSourceSlice", () => {
       } as DataSourceState,
     };
 
-    const mockState = createMockRootState(overrides);
+    const mockState = CreateMockRootState(overrides);
     expect(selectorCurrentDataset(mockState)).toEqual(
       overrides.dataSource.currentDataset,
     );

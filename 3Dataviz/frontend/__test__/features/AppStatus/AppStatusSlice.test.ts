@@ -11,7 +11,7 @@ import {
   requestDatasets,
   setCurrentDataset,
 } from "../../../src/features/DataSource/DataSourceSlice";
-import { createMockRootState } from "../../utils/StatesMockCreator";
+import { CreateMockRootState } from "../../utils/StateMockCreator";
 
 describe("AppStateSlice", () => {
   it("Reperimento dei dati del dataset in corso", () => {
@@ -165,7 +165,7 @@ describe("AppStateSlice", () => {
         error: null,
       } as AppState,
     };
-    const mockState = createMockRootState(overrides);
+    const mockState = CreateMockRootState(overrides);
     expect(selectorAppState(mockState)).toEqual(overrides.appState);
   });
 });

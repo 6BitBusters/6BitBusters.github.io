@@ -13,7 +13,7 @@ import reducer, {
   selectorData,
 } from "../../../src/features/Data/DataSlice";
 import fetchMock from "fetch-mock";
-import { createMockRootState } from "../../utils/StatesMockCreator";
+import { CreateMockRootState } from "../../utils/StateMockCreator";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
@@ -533,7 +533,7 @@ describe("DataSlice", () => {
         x: ["Label 1"],
       } as DataState,
     };
-    const mockState = createMockRootState(overrides);
+    const mockState = CreateMockRootState(overrides);
     expect(selectorData(mockState)).toEqual(overrides.data);
   });
 });

@@ -6,7 +6,7 @@ import reducer, {
   setTooltipPosition,
 } from "../../../src/features/Raycast/RaycastHitSlice";
 import { Vector3 } from "three";
-import { createMockRootState } from "../../utils/StatesMockCreator";
+import { CreateMockRootState } from "../../utils/StateMockCreator";
 
 describe("RaycastHitSlice", () => {
   it("Registra una intersezione (hover) su una barra", () => {
@@ -127,7 +127,7 @@ describe("RaycastHitSlice", () => {
         barTooltipPosition: [7, 3, 9],
       } as RaycastHitState,
     };
-    const mockState = createMockRootState(overrides);
+    const mockState = CreateMockRootState(overrides);
     expect(selectorRaycastHit(mockState)).toEqual(overrides.raycast);
   });
 });
