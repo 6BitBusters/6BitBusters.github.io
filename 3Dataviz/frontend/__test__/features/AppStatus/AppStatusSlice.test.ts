@@ -3,7 +3,7 @@ import { AppState } from "../../../src/features/AppStatus/types/AppState";
 import reducer, {
   selectorAppState,
 } from "../../../src/features/AppStatus/AppStatusSlice";
-import { TooManyRequests } from "../../../src/features/AppStatus/Errors/TooManyRequests";
+import { TooManyRequestsError } from "../../../src/features/AppStatus/Errors/TooManyRequestsError";
 import { ServerError } from "../../../src/features/AppStatus/Errors/ServerError";
 import { NotFoundError } from "../../../src/features/AppStatus/Errors/NotFoundError";
 import { requestData } from "../../../src/features/Data/DataSlice";
@@ -64,7 +64,7 @@ describe("AppStateSlice", () => {
     ).toEqual(expectedState);
   });
   it("Reperimento dei dati del dataset fallito per 'maxrequest'", () => {
-    // 429 => TooManyRequests()
+    // 429 => TooManyRequestsError()
     const errNo: number = 429;
     const initialState: AppState = {
       isLoading: true,
@@ -72,7 +72,7 @@ describe("AppStateSlice", () => {
     };
     const expectedState: AppState = {
       isLoading: false,
-      error: new TooManyRequests(),
+      error: new TooManyRequestsError(),
     };
     expect(
       reducer(initialState, {
