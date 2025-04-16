@@ -12,6 +12,7 @@ const dataSourceSlice = createSlice({
   name: "dataSource",
   initialState,
   reducers: {
+    // cerca se esiste il dataset e chiama setCurrentDataset
     trySetCurrentDataset: (state, action: PayloadAction<number>) => {
       const dataset: DatasetInfo | undefined = state.datasets.find(
         (dataset) => dataset.id == action.payload,
@@ -21,6 +22,7 @@ const dataSourceSlice = createSlice({
         payload: dataset,
       });
     },
+    // se il dataset non e` undefined e quindi e` stato trovato precedentemente aggiorna il currentDataset
     setCurrentDataset: (
       state,
       action: PayloadAction<DatasetInfo | undefined>,

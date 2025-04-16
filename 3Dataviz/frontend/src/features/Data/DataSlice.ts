@@ -81,9 +81,6 @@ const dataSlice = createSlice({
       state.x = action.payload.xLabels;
       state.z = action.payload.zLabels;
     });
-    // .addCase(requestData.rejected, (state, action) => {
-    //   //AppState error
-    // });
   },
 });
 
