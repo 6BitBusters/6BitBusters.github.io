@@ -1,12 +1,12 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import dataSlice from "../features/Data/DataSlice";
-import AppStatusSlice from "../features/AppStatus/AppStatusSlice";
+import DataSlice from "../features/Data/DataSlice";
+import AppSlice from "../features/AppStatus/AppSlice";
 import DataSourceSlice from "../features/DataSource/DataSourceSlice";
 import RaycastHitSlice from "../features/Raycast/RaycastHitSlice";
 
 const rootReducer = combineReducers({
-  data: dataSlice,
-  appState: AppStatusSlice,
+  data: DataSlice,
+  appState: AppSlice,
   dataSource: DataSourceSlice,
   raycast: RaycastHitSlice,
 });

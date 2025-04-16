@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach } from "vitest";
 import { AppState } from "../../../src/features/AppStatus/types/AppState";
 import reducer, {
   selectorAppState,
-} from "../../../src/features/AppStatus/AppStatusSlice";
+} from "../../../src/features/AppStatus/AppSlice";
 import { TooManyRequestsError } from "../../../src/features/AppStatus/Errors/TooManyRequestsError";
 import { ServerError } from "../../../src/features/AppStatus/Errors/ServerError";
 import { NotFoundError } from "../../../src/features/AppStatus/Errors/NotFoundError";
@@ -11,6 +11,7 @@ import {
   requestDatasets,
   setCurrentDataset,
 } from "../../../src/features/DataSource/DataSourceSlice";
+import { createMockRootState } from "../../utils/StatesMockCreator";
 
 describe("AppStateSlice", () => {
   it("Reperimento dei dati del dataset in corso", () => {
@@ -158,10 +159,13 @@ describe("AppStateSlice", () => {
     );
   });
   it("Prendere lo stato", () => {
-    const state: AppState = {
-      isLoading: true,
-      error: null,
-    };
-    expect(selectorAppState(state)).toEqual(state);
+    const overrides = {
+      appState: {
+        isLoading: true,
+        error: null,
+      } as AppState
+    }
+    const mockState = createMockRootState(overrides)
+    expect(selectorAppState(mockState)).toEqual(overrides.appState);
   });
 });

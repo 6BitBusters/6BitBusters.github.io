@@ -11,6 +11,7 @@ import reducer, {
   selectorDatasets,
   trySetCurrentDataset,
 } from "../../../src/features/DataSource/DataSourceSlice";
+import { createMockRootState } from "../../utils/StatesMockCreator";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
@@ -134,11 +135,16 @@ describe("DataSourceSlice", () => {
       { id: 2, name: "D3", size: [1, 1], description: "desc" },
       { id: 3, name: "D4", size: [1, 1], description: "desc" },
     ];
-    const initialState: DataSourceState = {
-      datasets: mockDatasets,
-      currentDataset: null,
-    };
-    expect(selectorDatasets(initialState)).toEqual(initialState.datasets);
+
+    const overrides = {
+      dataSource: {
+        datasets: mockDatasets,
+        currentDataset: null,
+      } as DataSourceState
+    }
+
+    const mockState = createMockRootState(overrides)
+    expect(selectorDatasets(mockState)).toEqual(overrides.dataSource.datasets);
   });
 
   it("Prendere il dataset selezionato", () => {
@@ -148,12 +154,15 @@ describe("DataSourceSlice", () => {
       { id: 2, name: "D3", size: [1, 1], description: "desc" },
       { id: 3, name: "D4", size: [1, 1], description: "desc" },
     ];
-    const initialState: DataSourceState = {
-      datasets: mockDatasets,
-      currentDataset: { id: 1, name: "D2", size: [1, 1], description: "desc" },
-    };
-    expect(selectorCurrentDataset(initialState)).toEqual(
-      initialState.currentDataset,
-    );
+
+    const overrides = {
+      dataSource: {
+        datasets: mockDatasets,
+        currentDataset: null,
+      } as DataSourceState
+    }
+
+    const mockState = createMockRootState(overrides)
+    expect(selectorCurrentDataset(mockState)).toEqual(overrides.dataSource.currentDataset);
   });
 });
