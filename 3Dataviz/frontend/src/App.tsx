@@ -1,7 +1,10 @@
 import "./App.css";
+import CustomCanvas from "./components/CustomCanvas/CustomCanvas"
 
 function App() {
-  return <>3DataViz</>;
+  return (
+    <CustomCanvas/>
+  )
 }
 
 export default App;

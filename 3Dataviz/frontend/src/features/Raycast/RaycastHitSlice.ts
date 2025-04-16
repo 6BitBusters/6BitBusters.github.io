@@ -14,7 +14,7 @@ const raycastHitSlice = createSlice({
     setHit: (state, action: PayloadAction<number>) => {
       state.previousSelectedBarId = action.payload;
     },
-    setTooltipPosition: (state, action: PayloadAction<Vector3 | null>) => {
+    setTooltipPosition: (state, action: PayloadAction<[number,number,number] | null>) => {
       state.barTooltipPosition = action.payload;
     },
   },
