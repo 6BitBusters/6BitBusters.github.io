@@ -1,0 +1,37 @@
+\section{Informazioni generali}
+\subsection{Dettagli sull'incontro}
+\begin{itemize}
+    \item \textbf{Luogo}: Google Meet
+    \item \textbf{Data}: 16-04-2025
+    \item \textbf{Ora di inizio}: 15:00
+    \item \textbf{Ora di fine}: 15:30
+    \item \textbf{Partecipante dell'azienda}: Beggiato Alex
+    \item \textbf{Partecipanti}:
+    \begin{itemize}
+        \item Bergamin Elia
+        \item Djossa Edgar
+        \item Pincin Matteo 
+        \item Soranzo Andrea  
+        \item Diviesti Filippo
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+\begin{itemize}
+\item Discussione sull'andamento del progetto;
+\item Chiarimento di dubbi relativi alla progettazione, in particolare riguardo ai diagrammi UML.
+\end{itemize}
+
+\section{Resoconto della riunione}
+\subsection{Discussione sull'andamento del progetto}
+Durante la riunione, il team ha discusso i progressi del progetto e le prossime attività da svolgere. In particolare, il team ha espresso la volontà di portare a termine il progetto entro la prossima riunione.
+
+\subsection{Progettazione architetturale}
+Sono stati richiesti dei chiarimenti riguardo ai diagrammi UML relativi alla progettazione del backend, le indicazioni fornite sono state utili per individuare e apportare delle migliorie alle scelte progettuali:
+\begin{itemize}
+    \item \textbf{BaseFetcher}: l'attuale classe astratta \textit{BaseFetcher} è stata oggetto di discussione in quanto il team non era sicuro della scelta effettuata per la sua implementazione. Si è quindi deciso di convertirla in un'interfaccia, con l'obiettivo di definire unicamente la firma dei metodi da esporre alle classi specializzate per ciascuna API, delegando a queste ultime la relativa implementazione;
+    \item \textbf{Dipendenze tra services}: è stata sollevata la questione riguardante il fatto che la definizione attuale dei services porta ad un'elevata dipendenza fra i componenti, perdendo quello che di fatto è il concetto di architettura a strati. Il proponente ci ha fornito un articolo che tratta di come i concetti di stabilità e astrazione influenzino la qualità e la manutenibilità di un'architettura software, proponendo metriche per valutarli e guidare decisioni progettuali più efficaci. Dopo questa discussione, il team si impegnerà a ricercare la soluzione più efficace.
+\end{itemize}
+
+\subsection{Riunione successiva}
+Il prossimo incontro è stato fissato per lunedì 28 maggio 2025 alle ore 17:00. In tale occasione, il team valuterà insieme al proponente se il progetto possa considerarsi concluso o se saranno necessarie ulteriori attività.
