@@ -23,15 +23,20 @@
 \end{itemize}
 
 \section{Resoconto della riunione}
-\subsection{Discussione sull'andamento del progetto}
-Durante la riunione, il team ha discusso i progressi del progetto e le prossime attività da svolgere. In particolare, il team ha espresso la volontà di portare a termine il progetto entro la prossima riunione.
+
+\subsection{Andamento del progetto}
+
+Durante la riunione, il team ha parlato dei progressi fatti e delle attività ancora da svolgere. L’obiettivo condiviso è completare il progetto entro il prossimo incontro.
 
 \subsection{Progettazione architetturale}
-Sono stati richiesti dei chiarimenti riguardo ai diagrammi UML relativi alla progettazione del backend, le indicazioni fornite sono state utili per individuare e apportare delle migliorie alle scelte progettuali:
-\begin{itemize}
-    \item \textbf{BaseFetcher}: l'attuale classe astratta \textit{BaseFetcher} è stata oggetto di discussione in quanto il team non era sicuro della scelta effettuata per la sua implementazione. Si è quindi deciso di convertirla in un'interfaccia, con l'obiettivo di definire unicamente la firma dei metodi da esporre alle classi specializzate per ciascuna API, delegando a queste ultime la relativa implementazione;
-    \item \textbf{Dipendenze tra services}: è stata sollevata la questione riguardante il fatto che la definizione attuale dei services porta ad un'elevata dipendenza fra i componenti, perdendo quello che di fatto è il concetto di architettura a strati. Il proponente ci ha fornito un articolo che tratta di come i concetti di stabilità e astrazione influenzino la qualità e la manutenibilità di un'architettura software, proponendo metriche per valutarli e guidare decisioni progettuali più efficaci. Dopo questa discussione, il team si impegnerà a ricercare la soluzione più efficace.
+
+Sono stati chiesti chiarimenti sui diagrammi UML riguardanti il backend. Le indicazioni ricevute sono state utili per migliorare alcune scelte progettuali:
+
+\begin{itemize} 
+    \item \textbf{BaseFetcher}: La classe astratta \textit{BaseFetcher} è stata al centro della discussione. Il team ha deciso di trasformarla in un’interfaccia, in modo da definire solo la firma dei metodi. L’implementazione concreta sarà lasciata alle classi specifiche per ogni API. 
+    \item \textbf{Dipendenze tra servizi}: È emersa una criticità legata all’eccessiva dipendenza tra i servizi, che compromette la struttura a strati dell’architettura. Il proponente ha suggerito un articolo che spiega come stabilità e astrazione influenzino la qualità del software. Il team approfondirà l’argomento per trovare la soluzione più adatta. 
 \end{itemize}
 
-\subsection{Riunione successiva}
-Il prossimo incontro è stato fissato per lunedì 28 maggio 2025 alle ore 17:00. In tale occasione, il team valuterà insieme al proponente se il progetto possa considerarsi concluso o se saranno necessarie ulteriori attività.
+\subsection{Prossimo incontro}
+
+Il prossimo incontro è previsto per lunedì 28 maggio 2025 alle ore 17:00. In quell’occasione, il team e il proponente valuteranno se il progetto può considerarsi concluso o se serviranno ulteriori interventi.
