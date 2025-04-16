@@ -14,7 +14,7 @@ describe("RaycastHitSlice", () => {
       previousSelectedBarId: null,
       barTooltipPosition: null,
     };
-    const mousePosition: [number,number,number] = [2,1,3];
+    const mousePosition: [number, number, number] = [2, 1, 3];
 
     const expectedState: RaycastHitState = {
       previousSelectedBarId: null,
@@ -29,7 +29,7 @@ describe("RaycastHitSlice", () => {
       previousSelectedBarId: null,
       barTooltipPosition: null,
     };
-    const mousePosition: [number,number,number] = [2,1,3];
+    const mousePosition: [number, number, number] = [2, 1, 3];
     const clickedBarId: number = 4;
 
     const midState = reducer(initialState, setTooltipPosition(mousePosition));
@@ -43,7 +43,7 @@ describe("RaycastHitSlice", () => {
   it("Registra una intersezione (hover) su uno spazio vuoto", () => {
     const initialState: RaycastHitState = {
       previousSelectedBarId: 4,
-      barTooltipPosition: [2,1,3],
+      barTooltipPosition: [2, 1, 3],
     };
     const expectedState: RaycastHitState = {
       previousSelectedBarId: 4,
@@ -56,7 +56,7 @@ describe("RaycastHitSlice", () => {
   it("Registra una intersezione (click) su uno spazio vuoto", () => {
     const initialState: RaycastHitState = {
       previousSelectedBarId: 4,
-      barTooltipPosition: [2,1,3],
+      barTooltipPosition: [2, 1, 3],
     };
     const expectedState: RaycastHitState = {
       previousSelectedBarId: 4,
@@ -71,7 +71,7 @@ describe("RaycastHitSlice", () => {
       previousSelectedBarId: null,
       barTooltipPosition: null,
     };
-    let mousePosition: [number,number,number] = [2,1,3];
+    let mousePosition: [number, number, number] = [2, 1, 3];
     const midState: RaycastHitState = {
       previousSelectedBarId: null,
       barTooltipPosition: mousePosition,
@@ -94,7 +94,7 @@ describe("RaycastHitSlice", () => {
       previousSelectedBarId: null,
       barTooltipPosition: null,
     };
-    let mousePosition: [number,number,number] = [2,1,3];
+    let mousePosition: [number, number, number] = [2, 1, 3];
     let clickedBarId: number = 4;
     const midState: RaycastHitState = {
       previousSelectedBarId: clickedBarId,
@@ -122,11 +122,11 @@ describe("RaycastHitSlice", () => {
   });
   it("Prendi lo stato", () => {
     const overrides = {
-      raycast : {
+      raycast: {
         previousSelectedBarId: 3,
         barTooltipPosition: [7, 3, 9],
-      } as RaycastHitState
-    }
+      } as RaycastHitState,
+    };
     const mockState = createMockRootState(overrides);
     expect(selectorRaycastHit(mockState)).toEqual(overrides.raycast);
   });

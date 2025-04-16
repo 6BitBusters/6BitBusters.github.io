@@ -163,9 +163,9 @@ describe("AppStateSlice", () => {
       appState: {
         isLoading: true,
         error: null,
-      } as AppState
-    }
-    const mockState = createMockRootState(overrides)
+      } as AppState,
+    };
+    const mockState = createMockRootState(overrides);
     expect(selectorAppState(mockState)).toEqual(overrides.appState);
   });
 });

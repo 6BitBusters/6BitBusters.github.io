@@ -140,10 +140,10 @@ describe("DataSourceSlice", () => {
       dataSource: {
         datasets: mockDatasets,
         currentDataset: null,
-      } as DataSourceState
-    }
+      } as DataSourceState,
+    };
 
-    const mockState = createMockRootState(overrides)
+    const mockState = createMockRootState(overrides);
     expect(selectorDatasets(mockState)).toEqual(overrides.dataSource.datasets);
   });
 
@@ -159,10 +159,12 @@ describe("DataSourceSlice", () => {
       dataSource: {
         datasets: mockDatasets,
         currentDataset: null,
-      } as DataSourceState
-    }
+      } as DataSourceState,
+    };
 
-    const mockState = createMockRootState(overrides)
-    expect(selectorCurrentDataset(mockState)).toEqual(overrides.dataSource.currentDataset);
+    const mockState = createMockRootState(overrides);
+    expect(selectorCurrentDataset(mockState)).toEqual(
+      overrides.dataSource.currentDataset,
+    );
   });
 });
