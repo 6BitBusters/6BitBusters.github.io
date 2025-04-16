@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ViewOptionState } from "./types/ViewOptionState";
+import { RootState } from "../../app/Store";
 
 const initialState: ViewOptionState = {
   isPlaneActive: false,
@@ -17,7 +18,7 @@ const viewOptionSlice = createSlice({
 
 export const { toggleAveragePlane } = viewOptionSlice.actions;
 
-export const selectorViewOptionState = (state: ViewOptionState) =>
-  state.isPlaneActive;
+export const selectorViewOptionState = (state: RootState) =>
+  state.viewOption.isPlaneActive;
 
 export default viewOptionSlice.reducer;
