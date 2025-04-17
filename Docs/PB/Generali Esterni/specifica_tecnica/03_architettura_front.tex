@@ -3,46 +3,46 @@
 \subsubsection{Design pattern architetturale}
 
 \paragraph{Redux-Toolkit}
-I componenti che costituiscono l’architettura frontend utilizzata seguono il pattern offerto dalla libreria Redux-
+I componenti che costituiscono l'architettura frontend utilizzata seguono il pattern offerto dalla libreria Redux-
 Toolkit.
 Redux-Toolkit è pensato per integrarsi con React e il principale vantaggio che offre è quello di poter
 gestire i dati condivisi tra i componenti React in modo centralizzato semplificando la gestione dello stato
-globale dell’applicazione.
+globale dell'applicazione.
 Inoltre Redux-Toolkit è un wrapper che semplifica l'utilizzo di Redux in modo tale da scrivere meno codice e commettere meno errori durante lo sviluppo.
 
-I componenti che formano l’architettura di Redux-Toolkit sono:
+I componenti che formano l'architettura di Redux-Toolkit sono:
 \begin{itemize}
-    \item \textbf{Store:} componente che contiene lo stato globale dell’applicazione.
-    All’avvio dell’applicazione viene configurato utilizzando RootReducer e i componenti che utilizzano
+    \item \textbf{Store:} componente che contiene lo stato globale dell'applicazione.
+    All'avvio dell'applicazione viene configurato utilizzando RootReducer e i componenti che utilizzano
     lo stato globale si mettono in ascolto dello store in modo da venire renderizzati ogni volta che un dato
     di interesse cambia valore. Questo modo di operare può essere visto come un pattern Observer in
     cui lo store è il Subject e gli Observer sono i componenti React che osservano i cambiamenti dello store;
     \item \textbf{RootReducer:} componente utilizzato per configurare lo store combinando le slice;
     \item \textbf{Slice:} componente che contiene un proprio stato che rappresenta una porzione dello stato globale
-    dell’applicazione, i reducer che operano su tale stato e i selector per consentire ai suoi client il
+    dell'applicazione, i reducer che operano su tale stato e i selector per consentire ai suoi client il
     reperimento dei dati;
     \item \textbf{Reducer:} componente che riceve come parametri uno stato iniziale (InitialState) e un'action
     (composta da un type e un payload) e restituisce lo stato dopo aver operato sui dati. 
     Il type rappresenta una stringa univoca che ha lo scopo di identificare la specifica action che si intende eseguire.
     Il payload è un oggetto che contiene i dati necessari per l'esecuzione dell'action.
     React-Toolkit gestisce le chiamate ai reducer in seguito ai dispatch delle action che avvengono
-    specificando solamente l’oggetto che rappresenta il payload;
+    specificando solamente l'oggetto che rappresenta il payload;
     Con il termine dispatch si intende una funzione che viene chiamata per inviare una action allo store di Redux e innescare un cambiamento dello stato.
     \item \textbf{Action:} oggetto composto da un type e da un payload di cui viene effettuato il dispatch quando
     opportuno.
     \item \textbf{State:} componente che contiene i dati di una slice su cui essa opera.
-    Importante sottolineare che Redux-Toolkit garantisce l’immutabilità dei dati in modo che i reducer restituiscano delle copie dello stato in modo che esso non possa venire
-    modificato dall’esterno è utilizzato in modo improprio.
-    L’unico modo per modificare i dati dello stato globale `e quindi con il dispatch di un’action;
+    Importante sottolineare che Redux-Toolkit garantisce l'immutabilità dei dati in modo che i reducer restituiscano delle copie dello stato in modo che esso non possa venire
+    modificato dall'esterno è utilizzato in modo improprio.
+    L'unico modo per modificare i dati dello stato globale è quindi con il dispatch di un'action;
     \item \textbf{Selector:} funzione che prende lo stato corrente di una slice come argomento e ritorna un sottoinsieme
     specifico del suo stato. In altre parole, un selector consente di selezionare una parte specifica
-    dello stato in modo da poterla utilizzare in modo isolato all’interno di un componente React.
+    dello stato in modo da poterla utilizzare in modo isolato all'interno di un componente React.
 \end{itemize}
 
 \subsubsection{Elenco dei componenti}
 Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello stato, l'applicazione sarà strutturata principalmente attraverso la suddivisione del codice in slice, state e action.
 \paragraph{Slice}
-    Le slice contengono una porzione dello stato globale dell’applicazione che è gestita da un reducer
+    Le slice contengono una porzione dello stato globale dell'applicazione che è gestita da un reducer
     specifico.
 \begin{itemize}
         \item \textbf{DataSlice:} componente che gestisce lo stato e contiene i dati relativi al dataset selezionato dall'utente;
@@ -93,12 +93,12 @@ Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello sta
         \item \textbf{Provider:} componente Redux che rende lo store accessibile a tutti i componenti dell'applicazione, "avvolgendo" il componente principale App e accettando lo store come prop;
         \item \textbf{Store:} componente Redux che traccia lo stato dell'applicazione, contiene il reducer principale per la gestione delle action e fornisce metodi per accedere allo stato,
         registra i listener per le modifiche di stato;
-        \item \textbf{RootReducer:} componente Redux che combina tutti i reducer dell’applicazione in uno stato
-        globale. Questa funzione viene passata allo store per gestire lo stato complessivo dell’applicazione;
+        \item \textbf{RootReducer:} componente Redux che combina tutti i reducer dell'applicazione in uno stato
+        globale. Questa funzione viene passata allo store per gestire lo stato complessivo dell'applicazione;
         \item \textbf{FontLoader:} classe utility di Three.js che permette di caricare dati di font in formato JSON per poi generare mesh di testo in ambienti tridimensionali;
         \item \textbf{Gsap:} classe utility della libreria gsap che permette di creare animazioni sia dell'interfaccia utente (UI) e sia all'interno dell'ambiente 3D con facilità e poco codice.
         \item \textbf{Canvas:} componente React Three Fiber che comprende gli elementi grafici che vanno a costituire la scena 3D. 
-        Fornisce una telecamera e una scena con una serie di props opzionali utili alla configurazione dell’ambiente 3D;
+        Fornisce una telecamera e una scena con una serie di props opzionali utili alla configurazione dell'ambiente 3D;
         \item \textbf{OrbitControls:} componente React Three Fiber che abilita la navigazione e la manipolazione della telecamera utilizzando gli input del mouse;
     \end{itemize}
     Classi definite dal team:
@@ -156,13 +156,13 @@ Sono presenti anche diagrammi che mostrano le dipendenze generali tra i componen
 I rettangoli che rappresentano le classi sono colorati per distinguere i diversi tipi di componenti.
 \begin{itemize}
     \item \textbf{Bianco:} normali classi;
-    \item \textbf{Giallo:} action di Redux;
+    \item \textbf{Giallo:} action Redux;
     \item \textbf{Blu:} componenti React.
 \end{itemize}
 
 \paragraph{DataSlice}
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.3]{template/images/uml_front/logic/dataslice.png}
+    \includegraphics[scale=0.15]{template/images/uml_front/logic/DataSlice.png}
     \caption{DataSlice}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
@@ -177,9 +177,9 @@ Questo diagramma include tutti i componenti utili per recuperare e filtrare i da
             \item Data (dipendenza semplice <<create>>): responsabile della creazione dei singoli oggetti Data che verranno inseriti nella lista di dati di DataState;
             \item DataSlice.requestData (dipendenza semplice <<use>>): cattura un'istanza di DataSlice.requestData e il reducer manda una richiesta al server per prendere i dati del dataset selezionato utilizzando il payload;
             \item DataSlice.filterTopN (dipendenza semplice <<use>>): cattura un'istanza di DataSlice.filterTopN e il reducer applica un filtro sui primi N valori più alti o più bassi, basandosi sui parametri di FilterPayload;
-            \item DataSlice.filterAverage (dipendenza semplice <<use>>): cattura un’istanza di DataSlice.filterAverage e il reducer applica un filtro sui valori maggiori o minori rispetto alla media globale, basandosi sui parametri di FilterPayload;
-            \item DataSlice.filterAboveValue (dipendenza semplice <<use>>): cattura un’istanza di DataSlice.filterAboveValue e il reducer applica un filtro sui valori maggiori o minori rispetto al valore della barra del grafico 3D selezionata, basandosi sui parametri di FilterPayload;
-            \item AppStateSlice.setError (dipendenza semplice <<send>>): crea ed emette un’istanza dell’azione AppStateSlice.setError.
+            \item DataSlice.filterAverage (dipendenza semplice <<use>>): cattura un'istanza di DataSlice.filterAverage e il reducer applica un filtro sui valori maggiori o minori rispetto alla media globale, basandosi sui parametri di FilterPayload;
+            \item DataSlice.filterAboveValue (dipendenza semplice <<use>>): cattura un'istanza di DataSlice.filterAboveValue e il reducer applica un filtro sui valori maggiori o minori rispetto al valore della barra del grafico 3D selezionata, basandosi sui parametri di FilterPayload;
+            \item AppStateSlice.setError (dipendenza semplice <<send>>): crea ed emette un'istanza dell'azione AppStateSlice.setError.
         \end{itemize} 
         \item \textbf{Interazioni:}
         \begin{itemize}
@@ -218,7 +218,7 @@ Questo diagramma include tutti i componenti utili per recuperare e filtrare i da
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item DataSlice.filterTopN (dipendenza semplice <<send>>): crea ed emette un’istanza dell’azione DataSlice.filterTopN;
+            \item DataSlice.filterTopN (dipendenza semplice <<send>>): crea ed emette un'istanza dell'azione DataSlice.filterTopN;
             \item FilterPayload (dipendenza semplice <<create>>): responsabile della creazione dei payload di tipo FilterPayload che verranno poi utilizzati per applicare un filtro nel modo corretto.
         \end{itemize} 
         \item \textbf{Action emesse:}
@@ -231,8 +231,8 @@ Questo diagramma include tutti i componenti utili per recuperare e filtrare i da
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item DataSlice.filterAverage (dipendenza semplice <<send>>): crea ed emette un’istanza dell’azione DataSlice.filterAverage;
-            \item DataSlice.filterAboveValue (dipendenza semplice <<send>>): crea ed emette un’istanza dell’azione DataSlice.filterAboveValue;
+            \item DataSlice.filterAverage (dipendenza semplice <<send>>): crea ed emette un'istanza dell'azione DataSlice.filterAverage;
+            \item DataSlice.filterAboveValue (dipendenza semplice <<send>>): crea ed emette un'istanza dell'azione DataSlice.filterAboveValue;
             \item FilterPayload (dipendenza semplice <<create>>): responsabile della creazione dei payload di tipo FilterPayload che verranno poi utilizzati per applicare un filtro nel modo corretto.
         \end{itemize} 
         \item \textbf{Action emesse:}
@@ -247,7 +247,7 @@ Questo diagramma include tutti i componenti utili per recuperare e filtrare i da
         \item \textbf{Dipendenze:}
         \begin{itemize}
             \item DataSlice (associazione): contiene implicitamente un'istanza di DataSlice;
-            \item DataSlice.filterAboveValue (dipendenza semplice <<send>>): crea ed emette un’istanza dell’azione DataSlice.DataSlice;
+            \item DataSlice.filterAboveValue (dipendenza semplice <<send>>): crea ed emette un'istanza dell'azione DataSlice.DataSlice;
             \item FilterPayload (dipendenza semplice <<create>>): responsabile della creazione dei payload di tipo FilterPayload che verranno poi utilizzati per applicare un filtro nel modo corretto.
         \end{itemize} 
         \item \textbf{Interazioni:}
@@ -276,7 +276,7 @@ Questo diagramma include tutti i componenti utili per recuperare e filtrare i da
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item DataSlice.requestData (dipendenza semplice <<send>>): crea ed emette un’istanza dell’azione DataSlice.requestData.
+            \item DataSlice.requestData (dipendenza semplice <<send>>): crea ed emette un'istanza dell'azione DataSlice.requestData.
         \end{itemize} 
         \item \textbf{Action emesse:}
         \begin{itemize}
@@ -289,7 +289,7 @@ Questo diagramma include tutti i componenti utili per recuperare e filtrare i da
 
 \paragraph{DataSourceSlice}
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.35]{template/images/uml_front/logic/datasourceslice.png}
+    \includegraphics[scale=0.18]{template/images/uml_front/logic/DataSourceSlice.png}
     \caption{DataSourceSlice}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
@@ -329,8 +329,8 @@ Questo diagramma illustra i componenti per recuperare le informazioni chiave dai
         \item \textbf{Dipendenze:}
         \begin{itemize}
             \item DataSourceSlice (associazione): contiene implicitamente un'istanza di DataSourceSlice;
-            \item DataLabelSlice.requestData (dipendenza semplice <<send>>): crea ed emette un’istanza dell’azione DataLabelSlice.requestData;
-            \item DataLabelSlice.setCurrentDataset (dipendenza semplice <<send>>): crea ed emette un’istanza dell’azione DataLabelSlice.setCurrentDataset.
+            \item DataLabelSlice.requestData (dipendenza semplice <<send>>): crea ed emette un'istanza dell'azione DataLabelSlice.requestData;
+            \item DataLabelSlice.setCurrentDataset (dipendenza semplice <<send>>): crea ed emette un'istanza dell'azione DataLabelSlice.setCurrentDataset.
         \end{itemize} 
         \item \textbf{Interazioni:}
         \begin{itemize}
@@ -358,7 +358,7 @@ Questo diagramma illustra i componenti per recuperare le informazioni chiave dai
 
 \paragraph{AppStateSlice}
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.4]{template/images/uml_front/logic/appstateslice.png}
+    \includegraphics[scale=0.2]{template/images/uml_front/logic/AppSlice.png}
     \caption{AppStateSlice}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
@@ -369,9 +369,9 @@ Questo diagramma mostra i componenti per la gestione dello stato dell'applicazio
         \item \textbf{Dipendenze:}
         \begin{itemize}
             \item AppState (composizione): gestisce la creazione e la distruzione dell'istanza di AppState, che non è condivisa con altri componenti;
-            \item AppState (dipendenza semplice <<create>>): responsabile della costruzione dell' oggetto AppState inserire all’interno dell AppState;
-            \item AppStateSlice.setLoading (dipendenza semplice <<use>>): cattura un’istanza di AppStateSlice.setLoading e il reducer aggiorna lo stato di caricamento dell'applicazione utilizzando il payload;
-            \item AppStateSlice.setError (dipendenza semplice <<use>>): cattura un’istanza di AppStateSlice.setError e il reducer aggiorna lo stato di errore dell'applicazione ne utilizza il payload.
+            \item AppState (dipendenza semplice <<create>>): responsabile della costruzione dell' oggetto AppState inserire all'interno dell AppState;
+            \item AppStateSlice.setLoading (dipendenza semplice <<use>>): cattura un'istanza di AppStateSlice.setLoading e il reducer aggiorna lo stato di caricamento dell'applicazione utilizzando il payload;
+            \item AppStateSlice.setError (dipendenza semplice <<use>>): cattura un'istanza di AppStateSlice.setError e il reducer aggiorna lo stato di errore dell'applicazione ne utilizza il payload.
         \end{itemize} 
         \item \textbf{Interazioni:}
         \begin{itemize}
@@ -398,7 +398,7 @@ Questo diagramma mostra i componenti per la gestione dello stato dell'applicazio
         \item \textbf{Dipendenze:}
         \begin{itemize}
             \item AppStateSlice (associazione): contiene implicitamente un'istanza di AppStateSlice;
-            \item AppStateSlice.setLoading (dipendenza semplice <<send>>): crea ed emette un’istanza dell’azione AppStateSlice.setLoading.
+            \item AppStateSlice.setLoading (dipendenza semplice <<send>>): crea ed emette un'istanza dell'azione AppStateSlice.setLoading.
         \end{itemize} 
         \item \textbf{Interazioni:}
         \begin{itemize}
@@ -414,7 +414,7 @@ Questo diagramma mostra i componenti per la gestione dello stato dell'applicazio
 
 \subparagraph{Error}
 \begin{center}
-    \includegraphics[scale=0.45]{template/images/uml_front/logic/error.png}
+    \includegraphics[scale=0.30]{template/images/uml_front/logic/Error.png}
     \captionof{figure}{Error}
 \end{center}
 \textbf{Descrizione del diagramma:}\\
@@ -452,7 +452,7 @@ Questo diagramma mostra tutte le classi di errore.
 
 \paragraph{FilterOptionSlice}
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.35]{template/images/uml_front/logic/filteroptionslice.png}
+    \includegraphics[scale=0.18]{template/images/uml_front/logic/FilterOptionSlice.png}
     \caption{FilterOptionSlice}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
@@ -463,7 +463,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
         \item \textbf{Dipendenze:}
         \begin{itemize}
             \item FilterOptionState (composizione): gestisce la creazione e la distruzione dell'istanza di FilterOptionState, che non è condivisa con altri componenti;
-            \item FilterOptionSlice.toggleIsGreater (dipendenza semplice <<use>>): cattura un’istanza di FilterOptionSlice.toggleIsGreater e il reducer imposta il tipo di filtraggio da effettuare utilizzando il payload.
+            \item FilterOptionSlice.toggleIsGreater (dipendenza semplice <<use>>): cattura un'istanza di FilterOptionSlice.toggleIsGreater e il reducer imposta il tipo di filtraggio da effettuare utilizzando il payload.
         \end{itemize} 
         \item \textbf{Interazioni:}
         \begin{itemize}
@@ -515,7 +515,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item FilterOptionSlice.toggleIsGreater (associazione semplice <<send>>): crea ed emette un’istanza dell’azione FilterOptions.toggleIsGreater.
+            \item FilterOptionSlice.toggleIsGreater (associazione semplice <<send>>): crea ed emette un'istanza dell'azione FilterOptions.toggleIsGreater.
         \end{itemize}
         \item \textbf{Action emesse:}
         \begin{itemize}
@@ -526,8 +526,8 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
 
 \paragraph{ViewOptionSlice}
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.35]{template/images/uml_front/logic/viewoptionslice.png}
-    \caption{FilterOptionSlice}
+    \includegraphics[scale=0.18]{template/images/uml_front/logic/ViewOptionSlice.png}
+    \caption{ViewOptionSlice}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
 Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di visibilità del piano medio.
@@ -537,7 +537,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
         \item \textbf{Dipendenze:}
         \begin{itemize}
             \item ViewOptionState (composizione): gestisce la creazione e la distruzione dell'istanza di FilterOptionState, che non è condivisa con altri componenti;
-            \item ViewOptionSlice.toggleAveragePlane (dipendenza semplice <<use>>): cattura un’istanza di ViewOptionSlice.toggleAveragePlane e il reducer imposta la visibilità del piano medio utilizzando il payload;   
+            \item ViewOptionSlice.toggleAveragePlane (dipendenza semplice <<use>>): cattura un'istanza di ViewOptionSlice.toggleAveragePlane e il reducer imposta la visibilità del piano medio utilizzando il payload;   
         \end{itemize} 
         \item \textbf{Interazioni:}
         \begin{itemize}
@@ -554,7 +554,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item ViewOptionSlice.toggleAveragePlane (associazione semplice <<send>>): crea ed emette un’istanza dell’azione ViewOptionSlice.toggleAveragePlane.
+            \item ViewOptionSlice.toggleAveragePlane (associazione semplice <<send>>): crea ed emette un'istanza dell'azione ViewOptionSlice.toggleAveragePlane.
         \end{itemize}
         \item \textbf{Action emesse:}
         \begin{itemize}
@@ -578,7 +578,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
 
 \paragraph{RaycastHitSlice}
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.35]{template/images/uml_front/logic/raycastslice.png}
+    \includegraphics[scale=0.20]{template/images/uml_front/logic/RaycastHitSlice.png}
     \caption{RaycastHitSlice}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
@@ -589,9 +589,9 @@ Questo diagramma mostra i componenti per aggiornare e condividere le informazion
         \item \textbf{Dipendenze:}
         \begin{itemize}
             \item RaycastHitState (composizione): gestisce la creazione e la distruzione dell'istanza di RaycastHitState, che non è condivisa con altri componenti;
-            \item RaycastHit (dipendenza semplice <<create>>): responsabile della costruzione del RaycastHit da inserire all’interno del RaycastHitState;
-            \item RaycastHitSlice.setHit (dipendenza semplice <<use>>): cattura un’istanza di RaycastHitSlice.setHit e il reducer memorizza la barra del grafico cliccata dall'utente utilizzando il payload;
-            \item RaycastHitSlice.setTooltipPosition (dipendenza semplice <<use>>): cattura un’istanza di AppStateSlice.setError e il reducer aggiorna la posizione del tooltip utilizzando il payload.
+            \item RaycastHit (dipendenza semplice <<create>>): responsabile della costruzione del RaycastHit da inserire all'interno del RaycastHitState;
+            \item RaycastHitSlice.setHit (dipendenza semplice <<use>>): cattura un'istanza di RaycastHitSlice.setHit e il reducer memorizza la barra del grafico cliccata dall'utente utilizzando il payload;
+            \item RaycastHitSlice.setTooltipPosition (dipendenza semplice <<use>>): cattura un'istanza di AppStateSlice.setError e il reducer aggiorna la posizione del tooltip utilizzando il payload.
         \end{itemize} 
         \item \textbf{Interazioni:}
         \begin{itemize}
@@ -618,8 +618,8 @@ Questo diagramma mostra i componenti per aggiornare e condividere le informazion
         \item \textbf{Dipendenze:}
         \begin{itemize}
             \item RaycastHitSlice (associazione): contiene implicitamente un'istanza di RaycastHitSlice;
-            \item RaycastHitSlice.setHit (dipendenza semplice <<send>>):  crea ed emette un’istanza dell’azione RaycastHitSlice.setHit;
-            \item RaycastHitSlice.setToolTipPosition (dipendenza semplice <<send>>):  crea ed emette un’istanza dell’azione RaycastHitSlice.setToolTipPosition.
+            \item RaycastHitSlice.setHit (dipendenza semplice <<send>>):  crea ed emette un'istanza dell'azione RaycastHitSlice.setHit;
+            \item RaycastHitSlice.setToolTipPosition (dipendenza semplice <<send>>):  crea ed emette un'istanza dell'azione RaycastHitSlice.setToolTipPosition.
         \end{itemize} 
         \item \textbf{Interazioni:}
         \begin{itemize}
@@ -635,18 +635,18 @@ Questo diagramma mostra i componenti per aggiornare e condividere le informazion
 
 \paragraph{Redux store}
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.3]{template/images/uml_front/logic/store.png}
+    \includegraphics[scale=0.17]{template/images/uml_front/logic/Store.png}
     \caption{Redux store}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
-Questo diagramma mostra lo store e gli slice che compongono lo stato globale dell'applicazione.
+Questo diagramma mostra lo store e le slice che compongono lo stato globale dell'applicazione.
 \begin{itemize}
     \item \textbf{Store:}
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
             \item RootReducer (associazione): possiede un attributo RootReducer che permette di combinare più slice
-            con cui lo store interagisce per modificare lo stato globale dell’applicazione.
+            con cui lo store interagisce per modificare lo stato globale dell'applicazione.
         \end{itemize}  
     \end{itemize}
 
@@ -654,12 +654,12 @@ Questo diagramma mostra lo store e gli slice che compongono lo stato globale del
     \begin{itemize}
         \item \textbf{Dipendenze:}
         \begin{itemize}
-            \item DataSlice (associazione): possiede un attributo DataSlice per offrire allo store l’accesso alla slice;
-            \item DataSourceSlice (associazione): possiede un attributo DataSourceSlice per offrire allo store l’accesso alla slice;
-            \item FilterOptionSlice (associazione): possiede un attributo FilterOptionSlice per offrire allo store l’accesso alla slice;
-            \item ViewOptionSlice (associazione): possiede un attributo ViewOptionSlice per offrire allo store l’accesso alla slice;
-            \item AppStateSlice (associazione): possiede un attributo AppStateSlice per offrire allo store l’accesso alla slice;
-            \item RaycastHitSlice (associazione): possiede un attributo RaycastHitSlice per offrire allo store l’accesso alla slice.
+            \item DataSlice (associazione): possiede un attributo DataSlice per offrire allo store l'accesso alla slice;
+            \item DataSourceSlice (associazione): possiede un attributo DataSourceSlice per offrire allo store l'accesso alla slice;
+            \item FilterOptionSlice (associazione): possiede un attributo FilterOptionSlice per offrire allo store l'accesso alla slice;
+            \item ViewOptionSlice (associazione): possiede un attributo ViewOptionSlice per offrire allo store l'accesso alla slice;
+            \item AppStateSlice (associazione): possiede un attributo AppStateSlice per offrire allo store l'accesso alla slice;
+            \item RaycastHitSlice (associazione): possiede un attributo RaycastHitSlice per offrire allo store l'accesso alla slice.
         \end{itemize}  
     \end{itemize}
 \end{itemize}
