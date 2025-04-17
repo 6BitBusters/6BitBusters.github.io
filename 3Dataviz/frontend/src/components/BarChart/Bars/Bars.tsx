@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { Data } from "../../../features/Data/interfaces/Data";
 import { ThreeEvent, useThree } from "@react-three/fiber";
-import { GetIntersection, GetIntersectionId } from "./RaycastUtils";
+import { GetIntersection, GetIntersectionId } from "./Utils/RaycastUtils";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../app/Store";
 import { useAppDispatch } from "../../../app/Hooks";
@@ -10,6 +10,9 @@ import {
   setHit,
   setTooltipPosition,
 } from "../../../features/Raycast/RaycastHitSlice";
+import { LoadShader } from "./Utils/ShaderUtils";
+import { UpdateMousePosition } from "./Utils/PointerInterectionUtils";
+import { Selection, RandomColors } from "./Utils/ColorsUtils";
 
 type BarsProps = {
   data: Data[];
@@ -19,6 +22,12 @@ type BarsProps = {
 
 function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   const { scene, camera } = useThree();
+
+  // redux
+  const raycastState = useSelector((state: RootState) => state.raycast);
+  const dispatch = useAppDispatch();
+
+  // instancedMesh
   const count = data.length;
   const mesh = useRef<THREE.InstancedMesh>(null!);
   const dummy = useMemo(() => new THREE.Object3D(), []);
@@ -34,40 +43,25 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
     [],
   );
 
-  const raycastState = useSelector((state: RootState) => state.raycast);
-  const dispatch = useAppDispatch();
-
-  const hoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const highlightColor = new THREE.Color("white");
-
-  const randomColors = () => {
-    const hue = Math.random(); // Tonalità (da 0 a 1)
-    // Saturazione (da 0.5 a 1, colori più vivaci)
-    const saturation = Math.random() * 0.5 + 0.5;
-    // Luminosità (da 0.3 a 0.8, evita estremi)
-    const lightness = Math.random() * 0.5 + 0.3;
-    return new THREE.Color().setHSL(hue, saturation, lightness);
-  };
-
-  const availableColors = Array.from(
-    { length: Math.max(...data.map((d) => d.x)) + 1 },
-    () => randomColors(),
-  );
-
-  // var [instanceOpacity, _] = useState(() => { // Inizializzazione con una funzione
-  //     const array = new Float32Array(count);
-  //     for (let i = 0; i < count; i++) {
-  //         array[i] = 1.0;
-  //     }
-  //     return array;
-  // });
+  // variabili per instancedMesh
+  const [vertexShader, setVertexShader] = useState("");
+  const [fragmentShader, setFragmentShader] = useState("");
   const [instanceOpacity, setInstanceOpacity] = useState(() =>
     new Float32Array(count).fill(1.0),
   );
+  const availableColors = Array.from(
+    { length: Math.max(...data.map((d) => d.x)) + 1 },
+    () => RandomColors(),
+  );
 
-  const instancedBarsMatrix = useMemo(() => {
+  // interazioni puntatore
+  const hoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const mouse = useRef(new THREE.Vector2());
+
+  // hooks per aggiornamento instanced mesh e shader
+  const instancedBarMatrices = useMemo(() => {
     const array = new Float32Array(count * 16);
-    const colors = new Float32Array(count * 3); // Array per i colori (RGB)
+    const colors = new Float32Array(count * 3);
 
     for (let i = 0; i < count; i++) {
       const height = data[i].y;
@@ -85,7 +79,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
 
   useEffect(() => {
     if (mesh.current) {
-      const { matrices, colors } = instancedBarsMatrix;
+      const { matrices, colors } = instancedBarMatrices;
       const instancedMesh = mesh.current;
 
       instancedMesh.instanceMatrix.array = matrices;
@@ -110,25 +104,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
         new THREE.InstancedBufferAttribute(instanceOpacity, 1),
       );
     }
-  }, [instancedBarsMatrix]);
-
-  const aura = (id: number | null, h: boolean) => {
-    if (mesh.current != undefined && id != null) {
-      mesh.current.geometry.attributes.color.setXYZ(
-        id,
-        h
-          ? highlightColor.r
-          : mesh.current.geometry.attributes.colorBase.getX(id),
-        h
-          ? highlightColor.g
-          : mesh.current.geometry.attributes.colorBase.getY(id),
-        h
-          ? highlightColor.b
-          : mesh.current.geometry.attributes.colorBase.getZ(id),
-      );
-      mesh.current.geometry.attributes.color.needsUpdate = true;
-    }
-  };
+  }, [instancedBarMatrices]);
 
   useEffect(() => {
     const newOpacity = new Float32Array(count);
@@ -147,43 +123,11 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
     }
   }, [instanceOpacity]);
 
-  const [vertexShader, setVertexShader] = useState("");
-  const [fragmentShader, setFragmentShader] = useState("");
-
   useEffect(() => {
-    const fileLoader = new THREE.FileLoader();
-
-    fileLoader.load(
-      "/Shaders/BarVertexShader.GLSL",
-      (vertexShaderData) => {
-        const shaderString =
-          typeof vertexShaderData === "string"
-            ? vertexShaderData
-            : new TextDecoder().decode(vertexShaderData);
-        setVertexShader(shaderString);
-      },
-      undefined,
-      (error) => {
-        console.error("Error loading vertex shader:", error);
-      },
-    );
-
-    fileLoader.load(
-      "/Shaders/BarFragmentShader.GLSL",
-      (fragmentShaderData) => {
-        const shaderString =
-          typeof fragmentShaderData === "string"
-            ? fragmentShaderData
-            : new TextDecoder().decode(fragmentShaderData);
-        setFragmentShader(shaderString);
-      },
-      undefined,
-      (error) => {
-        console.error("Error loading fragment shader:", error);
-      },
-    );
+    LoadShader("/Shaders/BarVertexShader.GLSL").then((shader)=>setVertexShader(shader))
+    LoadShader("/Shaders/BarFragmentShader.GLSL").then((shader)=>setFragmentShader(shader))
   }, []);
-
+  
   useEffect(() => {
     let ambient: THREE.AmbientLight | null = null;
     let point: THREE.PointLight | null = null;
@@ -220,82 +164,78 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
       fragmentShader: fragmentShader,
     });
     mesh.current.material = newMaterial;
-  }, [data, instancedBarsMatrix, vertexShader, fragmentShader]);
+  }, [data, instancedBarMatrices, vertexShader, fragmentShader]);
 
-  const mouse = useRef(new THREE.Vector2());
   useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      const canvas = event.target as HTMLCanvasElement;
-      if (canvas instanceof HTMLCanvasElement) {
-        const rect = canvas.getBoundingClientRect();
-        mouse.current.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-        mouse.current.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", (e: MouseEvent) => UpdateMousePosition(mouse.current,e));
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousemove", (e: MouseEvent) => UpdateMousePosition(mouse.current,e));
     };
   }, [camera, scene]);
-  // group onClick={()=>{}} utile per hotreloading in ambiente di sviluppo (possibile bug three/fiber)
+
+
+  // interazioni con le barre
+  const onClick = (e: ThreeEvent<PointerEvent>) => {
+    const bar = GetIntersectionId(
+      mesh.current,
+      mouse.current,
+      e.camera,
+    );
+    const prevId: number | null = raycastState.previousSelectedBarId;
+    if (bar !== null && bar != prevId) {
+      clickHandler(bar);
+      Selection(mesh.current,bar, true);
+      Selection(mesh.current,prevId, false);
+      dispatch(setHit(bar));
+    }
+  }
+
+  const onPointerOver = (e: ThreeEvent<PointerEvent>) => {
+    if (hoverTimeout.current !== null) {
+      clearTimeout(hoverTimeout.current);
+    }
+    hoverTimeout.current = setTimeout(() => {
+      const bar = GetIntersectionId(
+        mesh.current,
+        mouse.current,
+        e.camera,
+      );
+      const worldPointIntersection = GetIntersection(
+        mesh.current,
+        mouse.current,
+        e.camera,
+      );
+      if (bar !== null && worldPointIntersection != null) {
+        const tooltipPoint = worldPointIntersection.point.add(
+          new THREE.Vector3(0.5, -0.5, 0),
+        );
+        dispatch(
+          setTooltipPosition([
+            tooltipPoint.x,
+            tooltipPoint.y,
+            tooltipPoint.z,
+          ]),
+        );
+        hoverHandler(bar);
+      }
+    }, 500);
+  }
+
+  const onPointerLeave = () => {
+    if (hoverTimeout.current !== null) {
+      clearTimeout(hoverTimeout.current);
+    }
+    dispatch(setTooltipPosition(null));
+    hoverHandler(0);
+  }
+
   return (
     <>
-      <group onClick={() => {}}>
+      <group onClick={onClick} onPointerEnter={onPointerOver }  onPointerLeave={onPointerLeave}>
         <instancedMesh
           ref={mesh}
           args={[geometry, material, count]}
-          onClick={(e: ThreeEvent<PointerEvent>) => {
-            const bar = GetIntersectionId(
-              mesh.current,
-              mouse.current,
-              e.camera,
-            );
-            const prevId: number | null = raycastState.previousSelectedBarId;
-            if (bar !== null && bar != prevId) {
-              clickHandler(bar);
-              aura(bar, true);
-              aura(prevId, false);
-              dispatch(setHit(bar));
-            }
-          }}
-          onPointerOver={(e: ThreeEvent<PointerEvent>) => {
-            if (hoverTimeout.current !== null) {
-              clearTimeout(hoverTimeout.current);
-            }
-            hoverTimeout.current = setTimeout(() => {
-              const bar = GetIntersectionId(
-                mesh.current,
-                mouse.current,
-                e.camera,
-              );
-              const worldPointIntersection = GetIntersection(
-                mesh.current,
-                mouse.current,
-                e.camera,
-              );
-              if (bar !== null && worldPointIntersection != null) {
-                const tooltipPoint = worldPointIntersection.point.add(
-                  new THREE.Vector3(0.5, -0.5, 0),
-                );
-                dispatch(
-                  setTooltipPosition([
-                    tooltipPoint.x,
-                    tooltipPoint.y,
-                    tooltipPoint.z,
-                  ]),
-                );
-                hoverHandler(bar);
-              }
-            }, 500);
-          }}
-          onPointerLeave={() => {
-            if (hoverTimeout.current !== null) {
-              clearTimeout(hoverTimeout.current);
-            }
-            dispatch(setTooltipPosition(null));
-            hoverHandler(0);
-          }}>
+          >
           <primitive object={geometry} />
           <primitive object={material} />
         </instancedMesh>
