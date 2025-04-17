@@ -1,0 +1,75 @@
+#container {
+    width: 100%;
+    position: fixed;
+    bottom: -330px;
+}
+
+#table-container {
+    background-color: #303030;
+    overflow: scroll;
+    padding: 1rem 1rem 1.5rem 1rem;
+}
+
+table {
+    width: 100%;
+}
+
+table th,
+table td {
+    min-width: 5rem;
+    height: 2rem;
+    text-align: center;
+    border: 1px solid #434343;
+}
+
+table thead th:first-child {
+    background-color: transparent;
+}
+
+table th {
+    background-color: #930000;
+}
+
+table{
+    border-collapse:collapse;
+    color: white;
+    empty-cells: show;
+}
+    
+tbody tr:nth-child(odd) {
+    background-color: #5b5b5b;
+    color: #fff;
+}
+
+#expand-btn input {
+    appearance: none;
+    -webkit-appearance: none;
+    pointer-events: none;
+    display: block;
+    outline: none;
+}
+
+#expand-btn label {
+    background-color: #303030;
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    margin-left: 1rem;
+    
+}
+
+#expand-btn label::after {
+    content: '';
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    background-image: url("/svg/expand-arrow.svg");
+    background-repeat: no-repeat;
+    transform: rotateZ(180deg);
+    transition: transform 500ms cubic-bezier(.09,.87,.38,1);
+    background-size: cover;
+}
+
+#expand-btn input:checked ~ label::after {
+    transform: rotateZ(0deg);
+}
