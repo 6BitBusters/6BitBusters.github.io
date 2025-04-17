@@ -68,8 +68,20 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
       dummy.position.set(data[i].x * 6 + 4, height / 2, data[i].z * 6 + 6);
       dummy.scale.set(2, height, 2);
       dummy.rotation.set(0, 0, 0);
-      const color = availableColors[data[i].x];
-      colors.set([color.r, color.g, color.b], i * 3);
+
+      // colori riferiti all`altezza di ogni barra
+      const maxHeight = Math.max(...data.map(d=>d.y));
+      const normalizedHeight = height / maxHeight;
+      const red = 1.0 - normalizedHeight;
+      const green = normalizedHeight;
+      const blue = 0.0;
+      colors[i * 3 + 0] = red;
+      colors[i * 3 + 1] = green;
+      colors[i * 3 + 2] = blue;
+
+      // colori casuali
+      // const color = availableColors[data[i].x];
+      // colors.set([color.r, color.g, color.b], i * 3);
 
       dummy.updateMatrix();
       dummy.matrix.toArray(array, i * 16);
