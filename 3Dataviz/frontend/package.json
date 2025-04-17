@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "format": "prettier --write \"./**/*.{ts,tsx,js}\"",
-    "format:check": "prettier --check \"./**/*.{ts,tsx,js}\"",
+    "checkall": "cls & npm run lint & npm run format & npm run test:cov",
+    "format": "prettier --write \"./**/*.{ts,tsx,js,glsl}\"",
+    "format:check": "prettier --check \"./**/*.{ts,tsx,js,glsl}\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.{ts,tsx}\" --fix",
     "lint:check": "eslint \"{src,apps,libs,test}/**/*.{ts,tsx}\" --max-warnings=10",
     "preview": "vite preview",
