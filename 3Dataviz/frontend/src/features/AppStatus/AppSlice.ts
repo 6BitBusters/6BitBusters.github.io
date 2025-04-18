@@ -10,13 +10,14 @@ import {
 } from "../DataSource/DataSourceSlice";
 import { DatasetInfo } from "../DataSource/types/DatasetInfo";
 import { CustomError } from "./Errors/CustomError";
+import { RootState } from "../../app/Store";
 
 const initialState: AppState = {
   isLoading: false,
   error: null,
 };
 
-const appStatusSlice = createSlice({
+const appSlice = createSlice({
   name: "appStatus",
   initialState,
   reducers: {},
@@ -78,6 +79,6 @@ function generateError(errNo: number): CustomError {
   }
 }
 
-export const selectorAppState = (state: AppState) => state;
+export const selectorAppState = (state: RootState) => state.appState;
 
-export default appStatusSlice.reducer;
+export default appSlice.reducer;

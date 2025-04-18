@@ -3,6 +3,7 @@ import { DataState } from "./types/DataState";
 import { FilterPayload } from "./types/FilterPayload";
 import { Data } from "./interfaces/Data";
 import { fetchDataset } from "./RequestHandler";
+import { RootState } from "../../app/Store";
 
 const initialState: DataState = {
   data: [],
@@ -35,6 +36,8 @@ const dataSlice = createSlice({
         // rendo invisibili i dati che non sono stati presi nella precedente operazione
         if (!sortedData.includes(data.id)) {
           data.show = false;
+        } else {
+          data.show = true;
         }
       });
     },
@@ -43,6 +46,8 @@ const dataSlice = createSlice({
         state.data.forEach((data) => {
           if (data.y < action.payload.value) {
             data.show = false;
+          } else {
+            data.show = true;
           }
         });
       }
@@ -50,6 +55,8 @@ const dataSlice = createSlice({
         state.data.forEach((data) => {
           if (data.y > action.payload.value) {
             data.show = false;
+          } else {
+            data.show = true;
           }
         });
       }
@@ -99,6 +106,6 @@ export const requestData = createAsyncThunk(
 export const { filterTopN, filterAboveValue, filterAverage, reset } =
   dataSlice.actions;
 
-export const selectorData = (state: DataState) => state;
+export const selectorData = (state: RootState) => state.data;
 
 export default dataSlice.reducer;
