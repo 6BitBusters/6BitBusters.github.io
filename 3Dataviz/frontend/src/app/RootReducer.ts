@@ -2,6 +2,7 @@ import { combineReducers } from "@reduxjs/toolkit";
 import DataSlice from "../features/Data/DataSlice";
 import AppSlice from "../features/AppStatus/AppSlice";
 import DataSourceSlice from "../features/DataSource/DataSourceSlice";
+import ViewOptionSlice from "../features/ViewOption/ViewOptionSlice";
 import RaycastHitSlice from "../features/Raycast/RaycastHitSlice";
 
 const rootReducer = combineReducers({
@@ -9,6 +10,7 @@ const rootReducer = combineReducers({
   appState: AppSlice,
   dataSource: DataSourceSlice,
   raycast: RaycastHitSlice,
+  viewOption: ViewOptionSlice,
 });
 
 export default rootReducer;
