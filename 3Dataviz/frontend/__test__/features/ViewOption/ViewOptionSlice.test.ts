@@ -4,6 +4,7 @@ import reducer, {
   toggleAveragePlane,
 } from "../../../src/features/ViewOption/ViewOptionSlice";
 import { ViewOptionState } from "../../../src/features/ViewOption/types/ViewOptionState";
+import { CreateMockRootState } from "../../utils/StateMockCreator";
 
 describe("ViewOptionSlice", () => {
   it("Rendi il piano visibile", () => {
@@ -32,6 +33,12 @@ describe("ViewOptionSlice", () => {
     const state: ViewOptionState = {
       isPlaneActive: true,
     };
-    expect(selectorViewOptionState(state)).toBe(true);
+    const overrides = {
+      viewOption: {
+        isPlaneActive: true,
+      } as ViewOptionState,
+    };
+    const mockState = CreateMockRootState(overrides);
+    expect(selectorViewOptionState(mockState)).toBe(true);
   });
 });
