@@ -9,18 +9,18 @@ Un modulo raggruppa provider, controller ed eventuali dipendenze condivise tra p
     \item \textbf{AppModule}: modulo principale dell'applicazione, importa altri moduli, definisce i controller da esporre e fornisce i servizi necessari, raggruppa e organizza il backend in componenti riutilizzabili;
     \item \textbf{DataSourceModule}: responsabile della logica per il recupero dei dati necessari per fornire all'utente la descrizione dei dataset che saranno disponibili nell'applicazione;
     \begin{figure}[h!] \centering       
-        \includegraphics[scale = 0.5]{template/images/DataSourceModule.png}
+        \includegraphics[scale = 0.5]{template/images/uml_back/DataSourceModule.png}
         \caption{DataSourceModule}
     \end{figure}
     \item \textbf{DataVisualizationModule}: incapsula la logica relativa alla trasformazione dei dati ricevuti dalle fonti e li prepara per la visualizzazione nel grafico 3D. Include il controller e il service relativi alla gestione dei dati per la visualizzazione;
     \begin{figure}[h!] \centering       
-        \includegraphics[scale = 0.3]{template/images/DataVisualizationModule.png}
+        \includegraphics[scale = 0.3]{template/images/uml_back/DataVisualizationModule.png}
         \caption{DataVisualizationModule}
     \end{figure}
     \newpage
     \item \textbf{CacheModule}: responsabile della gestione della cache lato server, utilizza Memcached per memorizzare temporaneamente i dati richiesti da fetcher al fine di ridurre il carico sulle API esterne e migliorare le performance.
     \begin{figure}[h!] \centering       
-        \includegraphics[scale = 0.3]{template/images/CacheModule.png}
+        \includegraphics[scale = 0.3]{template/images/uml_back/CacheModule.png}
         \caption{CacheModule}
     \end{figure}
 \end{itemize}
@@ -125,7 +125,7 @@ Questa organizzazione a strati offre diversi vantaggi:
 \newpage
 \subsubsection{Strategy}
 \begin{figure}[h!] \centering       
-    \includegraphics[scale = 0.55]{template/images/Strategy.png}
+    \includegraphics[scale = 0.55]{template/images/uml_back/Strategy.png}
     \caption{Pattern Strategy}
 \end{figure}
 Il \textbf{Design Pattern Strategy} è un pattern comportamentale che consente di definire una famiglia di algoritmi, incapsularli ciascuno in una propria classe e renderli intercambiabili all'interno di un contesto.
