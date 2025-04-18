@@ -1,7 +1,8 @@
-export class ServerError extends Error {
+import { CustomError } from "./CustomError";
+
+export class ServerError extends CustomError {
   constructor() {
-    super("Errore di connessione al server");
+    super(500, "Errore di connessione al server");
     this.name = "ServerError";
-    Object.setPrototypeOf(this, ServerError.prototype);
   }
 }
