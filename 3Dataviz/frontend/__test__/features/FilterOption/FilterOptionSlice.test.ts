@@ -4,6 +4,7 @@ import reducer, {
   toggleIsGreater,
 } from "../../../src/features/FilterOption/FilterOptionSlice";
 import { FilterOptionState } from "../../../src/features/FilterOption/types/FilterOption";
+import { CreateMockRootState } from "../../utils/StateMockCreator";
 
 describe("filterOptionSlice", () => {
   it("should return the initial state when passed an empty action", () => {
@@ -30,9 +31,12 @@ describe("filterOptionSlice", () => {
     expect(result.isGreater).toBe(false);
   });
   it("Get state", () => {
-    const initialState: FilterOptionState = {
-      isGreater: false,
+    const overrides = {
+      filterOption: {
+        isGreater: false,
+      } as FilterOptionState,
     };
-    expect(selectorIsGreater(initialState)).toBe(false);
+    const mockState = CreateMockRootState(overrides);
+    expect(selectorIsGreater(mockState)).toBe(false);
   });
 });
