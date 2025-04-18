@@ -54,9 +54,6 @@ function CustomCanvas({
 
   return (
     <>
-      <button id="resetCamera" onClick={resetCamera}>
-        Reset camera
-      </button>
       <Canvas
         id="canvas"
         dpr={window.devicePixelRatio}
