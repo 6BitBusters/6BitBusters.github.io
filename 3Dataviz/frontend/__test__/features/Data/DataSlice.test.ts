@@ -6,9 +6,9 @@ import { RootState, AppDispatch } from "../../../src/app/Store";
 import { DataState } from "../../../src/features/Data/types/DataState";
 import reducer, {
   requestData,
-  filterTopN,
-  filterAboveValue,
-  filterAverage,
+  filterFirstN,
+  filterByValue,
+  filterByAverage,
   reset,
   selectorData,
 } from "../../../src/features/Data/DataSlice";
@@ -153,7 +153,7 @@ describe("DataSlice", () => {
       x: ["Label 1"],
     };
     expect(
-      reducer(initialState, filterTopN({ value: 2, isGreater: true })),
+      reducer(initialState, filterFirstN({ value: 2, isGreater: true })),
     ).toEqual(expectedState);
   });
 
@@ -183,7 +183,7 @@ describe("DataSlice", () => {
       x: ["Label 1"],
     };
     expect(
-      reducer(initialState, filterTopN({ value: 2, isGreater: false })),
+      reducer(initialState, filterFirstN({ value: 2, isGreater: false })),
     ).toEqual(expectedState);
   });
 
@@ -213,7 +213,7 @@ describe("DataSlice", () => {
       x: ["Label 1"],
     };
     expect(
-      reducer(initialState, filterTopN({ value: 2, isGreater: false })),
+      reducer(initialState, filterFirstN({ value: 2, isGreater: false })),
     ).toEqual(intermediateState);
     const expectedState: DataState = {
       data: [
@@ -228,7 +228,7 @@ describe("DataSlice", () => {
       x: ["Label 1"],
     };
     expect(
-      reducer(intermediateState, filterTopN({ value: 2, isGreater: true })),
+      reducer(intermediateState, filterFirstN({ value: 2, isGreater: true })),
     ).toEqual(expectedState);
   });
 
@@ -258,7 +258,7 @@ describe("DataSlice", () => {
       x: ["Label 1"],
     };
     expect(
-      reducer(initialState, filterAboveValue({ value: 3, isGreater: true })),
+      reducer(initialState, filterByValue({ value: 3, isGreater: true })),
     ).toEqual(expectedState);
   });
 
@@ -288,7 +288,7 @@ describe("DataSlice", () => {
       x: ["Label 1"],
     };
     expect(
-      reducer(initialState, filterAboveValue({ value: 3, isGreater: false })),
+      reducer(initialState, filterByValue({ value: 3, isGreater: false })),
     ).toEqual(expectedState);
   });
 
@@ -318,7 +318,7 @@ describe("DataSlice", () => {
       x: ["Label 1"],
     };
     expect(
-      reducer(initialState, filterAboveValue({ value: 3, isGreater: true })),
+      reducer(initialState, filterByValue({ value: 3, isGreater: true })),
     ).toEqual(intermediateState);
     const expectedState: DataState = {
       data: [
@@ -333,10 +333,7 @@ describe("DataSlice", () => {
       x: ["Label 1"],
     };
     expect(
-      reducer(
-        intermediateState,
-        filterAboveValue({ value: 2, isGreater: true }),
-      ),
+      reducer(intermediateState, filterByValue({ value: 2, isGreater: true })),
     ).toEqual(expectedState);
   });
 
@@ -366,7 +363,7 @@ describe("DataSlice", () => {
       x: ["Label 1"],
     };
     expect(
-      reducer(initialState, filterAboveValue({ value: 3, isGreater: true })),
+      reducer(initialState, filterByValue({ value: 3, isGreater: true })),
     ).toEqual(intermediateState);
     const expectedState: DataState = {
       data: [
@@ -381,10 +378,7 @@ describe("DataSlice", () => {
       x: ["Label 1"],
     };
     expect(
-      reducer(
-        intermediateState,
-        filterAboveValue({ value: 2, isGreater: false }),
-      ),
+      reducer(intermediateState, filterByValue({ value: 2, isGreater: false })),
     ).toEqual(expectedState);
   });
 
@@ -413,7 +407,7 @@ describe("DataSlice", () => {
       z: ["Label 1"],
       x: ["Label 1"],
     };
-    expect(reducer(initialState, filterAverage(true))).toEqual(expectedState);
+    expect(reducer(initialState, filterByAverage(true))).toEqual(expectedState);
   });
 
   it("Filtraggio dei valori inferiori al valor medio", () => {
@@ -441,7 +435,9 @@ describe("DataSlice", () => {
       z: ["Label 1"],
       x: ["Label 1"],
     };
-    expect(reducer(initialState, filterAverage(false))).toEqual(expectedState);
+    expect(reducer(initialState, filterByAverage(false))).toEqual(
+      expectedState,
+    );
   });
 
   it("Filtraggio dei valori superiori al valor medio seguito da un filtraggio dei valori inferiori al valor medio", () => {
@@ -469,7 +465,7 @@ describe("DataSlice", () => {
       z: ["Label 1"],
       x: ["Label 1"],
     };
-    expect(reducer(initialState, filterAverage(true))).toEqual(
+    expect(reducer(initialState, filterByAverage(true))).toEqual(
       intermediateState,
     );
     const expectedState: DataState = {
@@ -484,7 +480,7 @@ describe("DataSlice", () => {
       z: ["Label 1"],
       x: ["Label 1"],
     };
-    expect(reducer(intermediateState, filterAverage(false))).toEqual(
+    expect(reducer(intermediateState, filterByAverage(false))).toEqual(
       expectedState,
     );
   });
@@ -514,7 +510,9 @@ describe("DataSlice", () => {
       z: ["Label 1"],
       x: ["Label 1"],
     };
-    expect(reducer(initialState, filterAverage(false))).toEqual(expectedState);
+    expect(reducer(initialState, filterByAverage(false))).toEqual(
+      expectedState,
+    );
     expect(reducer(initialState, reset())).toEqual(initialState);
   });
 
