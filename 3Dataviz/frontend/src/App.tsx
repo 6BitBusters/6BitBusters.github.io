@@ -5,7 +5,7 @@ import UI from "./components/UI/UI";
 function App() {
   return (
     <>
-      {/* <CustomCanvas /> */}
+      <CustomCanvas />
       <UI />
     </>
   );
