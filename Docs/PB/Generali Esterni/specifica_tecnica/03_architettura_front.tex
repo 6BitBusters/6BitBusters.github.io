@@ -53,7 +53,7 @@ gestita da un reducer specifico.
       \item \textbf{DataSourceSlice:} componente che gestisce lo stato e contiene l'elenco dei dataset selezionabili dall'utente e il dataset selezionato;
       \item \textbf{FilterOptionSlice:} componente che gestisce lo stato e contiene le opzioni di filtraggio dei valori;
       \item \textbf{ViewOptionSlice:} componente che gestisce lo stato e contiene le opzioni di visibilità del piano medio;
-      \item \textbf{RaycastHitSlice:} componente che gestisce lo stato e contiene le informazioni relative al raycast.
+      \item \textbf{RaycastHitSlice:} componente che gestisce lo stato e contiene le informazioni relative al raycasting.
 \end{itemize}
 \paragraph{State}
 Gli state, definiti all'interno di ciascuna slice, si combinano per formare lo
@@ -654,7 +654,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
       \caption{RaycastHitSlice}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
-Questo diagramma mostra i componenti per aggiornare e condividere le informazioni del raycast.
+Questo diagramma mostra i componenti per aggiornare e condividere le informazioni relative al raycasting.
 \begin{itemize}
       \item \textbf{RaycastHitSlice:}
             \begin{itemize}
@@ -695,7 +695,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le informazion
                   \item \textbf{Interazioni:}
                         \begin{itemize}
                               \item RaycastHitSlice: viene utilizzato il metodo selectorRaycastHit per reperire le
-                                    informazioni del raycast.
+                                    informazioni relative al raycasting.
                         \end{itemize}
                   \item \textbf{Action emesse:}
                         \begin{itemize}
@@ -714,7 +714,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le informazion
                   \item \textbf{Interazioni:}
                         \begin{itemize}
                               \item RaycastHitSlice: viene utilizzato il metodo selectorRaycastHit per reperire le
-                                    informazioni del raycast.
+                                    informazioni relative al raycasting.
                         \end{itemize}
             \end{itemize}
 \end{itemize}
