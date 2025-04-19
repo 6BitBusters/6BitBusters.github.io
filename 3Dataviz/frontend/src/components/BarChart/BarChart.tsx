@@ -35,7 +35,7 @@ function BarChart() {
         unitFactor={unitFactor}
       />
       <AveragePlane
-        isVisible={true}
+        isVisible={viewPlane}
         position={
           new THREE.Vector3(
             (data.x.length * unitFactor) / 2,
