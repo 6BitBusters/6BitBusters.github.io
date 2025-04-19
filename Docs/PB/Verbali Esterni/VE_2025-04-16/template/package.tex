@@ -1,0 +1,118 @@
+%Tutti gli usepackage vanno qui
+\usepackage[table]{xcolor}
+\usepackage{geometry}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array} 
+\usepackage{booktabs}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage[toc]{appendix}
+\usepackage{caption}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=blue,
+}
+% Numerazione figure
+\let\counterwithout\relax
+\let\counterwithin\relax
+\usepackage{chngcntr}
+
+% distanziare elenco delle figure e delle tabelle
+\usepackage{tocbasic}
+\DeclareTOCStyleEntry[numwidth=3.5em]{tocline}{figure}% for figure entries
+\DeclareTOCStyleEntry[numwidth=3.5em]{tocline}{table}% for table entries
+
+
+%\counterwithout{table}{section}
+%\counterwithout{figure}{section}
+\captionsetup[table]{font=small,skip=5pt} 
+
+\usepackage[bottom]{footmisc}
+\usepackage{fancyhdr}
+\setcounter{secnumdepth}{4}
+\usepackage{amsmath, amssymb}
+\usepackage{array}
+\usepackage{graphicx}
+
+\usepackage{ifthen}
+
+\usepackage{float}
+\restylefloat{table}
+
+\usepackage{layouts}
+\usepackage{url}
+\usepackage{comment}
+\usepackage{eurosym}
+
+\usepackage{lastpage}
+\usepackage{layouts}
+\usepackage{eurosym}
+
+\geometry{a4paper,top=3cm,bottom=4cm,left=2.5cm,right=2.5cm}
+
+%Comandi di impaginazione uguale per tutti i documenti
+\pagestyle{fancy}
+\lhead{\includegraphics[scale=0.25]{template/images/logo-inline.png}}
+
+%Titolo del documento
+%\rfoot{\thepage}
+\cfoot{Pagina \thepage\ di \pageref{LastPage}}
+\setlength{\headheight}{35pt}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% multirow per tabelle
+\usepackage{multirow}
+
+% Permette tabelle su più pagine
+%\usepackage{longtable}
+
+
+%COMANDI TABELLE
+\newcommand{\rowcolorhead}{\rowcolor[HTML]{731733}}
+\newcommand{\captionline}{\rowcolor[HTML]{FFFFFF}} %comando per le caption delle tabelle
+\newcommand{\cellcolorhead}{\cellcolor[HTML]{007c95}}
+\newcommand{\hlinetable}{\arrayrulecolor[HTML]{007c95}\hline}
+
+%intestazione
+% check for missing commands
+\newcommand{\headertitle}[1]{\textbf{\color{white}#1}} %titolo colonna
+\definecolor{pari}{HTML}{dcbac2}
+\definecolor{dispari}{HTML}{f5f5f5}
+
+% comandi \textit{Glossario}
+\newcommand{\glo}{$_{G}$}
+\newcommand{\glosp}{$_{G}$ }
+
+%comando signature
+\newcommand\signature[2]{% Name; Department
+\noindent\begin{minipage}{5cm}
+    \noindent\vspace{3cm}\par
+    \noindent\rule{5cm}{1pt}\par
+    \noindent\textbf{#1}\par
+    \noindent#2%
+\end{minipage}}
+
+
+%label custom
+\makeatletter
+\newcommand{\uclabel}[2]{%
+	\protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+	\hypertarget{#1}{#2}
+}
+\makeatother
+
+%riportare pezzi di codice
+\definecolor{codegray}{gray}{0.9}
+\newcommand{\code}[1]{\colorbox{codegray}{\texttt{#1}}}
+
+%permette di inserire pdf
+\usepackage{pdfpages}
