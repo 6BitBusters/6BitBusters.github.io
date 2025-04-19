@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import DatasetItem from "../datasetItem/datasetItem";
 import { useNavigate } from "react-router";
 import { DatasetInfo } from "../../features/DataSource/types/DatasetInfo";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   requestDatasets,
   selectorDatasets,
@@ -14,6 +14,7 @@ import {
 import { selectorAppState } from "../../features/AppStatus/AppSlice";
 import { AppState } from "../../features/AppStatus/types/AppState";
 import type { AppDispatch } from "../../app/Store";
+import { useAppDispatch } from "../../app/Hooks";
 
 type OptionType = {
   value: number;
@@ -46,7 +47,7 @@ const FakeItems: DatasetInfo[] = [
 
 function ApiSelector() {
   let navigate = useNavigate();
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
 
   // Redux get datasets
   //const items: DatasetInfo[] = useSelector(selectorDatasets);

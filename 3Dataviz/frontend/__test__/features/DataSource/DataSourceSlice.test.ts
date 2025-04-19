@@ -64,8 +64,8 @@ describe("DataSourceSlice", () => {
     });
   });
 
-  it("Reperimento dataset non andato a buon fine", () => {
-    const errorStatus: number = 400;
+  it("Reperimento dataset non andato a buon fine per nessuna risposta dal server", () => {
+    const errorStatus: number = 500;
     const initialState: DataSourceState = {
       datasets: [],
       currentDataset: null,
