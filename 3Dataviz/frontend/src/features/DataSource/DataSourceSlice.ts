@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { DataSourceState } from "./types/DataSourceState";
 import { fetchDatasets } from "./RequestHandler";
 import { DatasetInfo } from "./types/DatasetInfo";
+import { RootState } from "../../app/Store";
 
 const initialState: DataSourceState = {
   datasets: [],
@@ -57,8 +58,8 @@ export const requestDatasets = createAsyncThunk(
 export const { trySetCurrentDataset, setCurrentDataset } =
   dataSourceSlice.actions;
 
-export const selectorDatasets = (state: DataSourceState) => state.datasets;
-export const selectorCurrentDataset = (state: DataSourceState) =>
-  state.currentDataset;
+export const selectorDatasets = (state: RootState) => state.dataSource.datasets;
+export const selectorCurrentDataset = (state: RootState) =>
+  state.dataSource.currentDataset;
 
 export default dataSourceSlice.reducer;

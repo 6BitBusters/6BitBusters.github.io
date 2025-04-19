@@ -11,7 +11,7 @@ export const CreateMockRootState = (
     barTooltipPosition: null,
     ...overrides.raycast,
   },
-  // viewOption: {isPlaneVisible: false,...overrides.viewOption},
-  // filterOption: {isGreater:false,...overrides.filterOption},
+  viewOption: { isPlaneActive: false, ...overrides.viewOption },
+  filterOption: { isGreater: false, ...overrides.filterOption },
   ...overrides,
 });
