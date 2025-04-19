@@ -17,7 +17,7 @@ const dataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
-    filterTopN: (state, action: PayloadAction<FilterPayload>) => {
+    filterFirstN: (state, action: PayloadAction<FilterPayload>) => {
       // array dei dati da filtrare
       let sortedData: number[];
       if (action.payload.isGreater) {
@@ -41,7 +41,7 @@ const dataSlice = createSlice({
         }
       });
     },
-    filterAboveValue: (state, action: PayloadAction<FilterPayload>) => {
+    filterByValue: (state, action: PayloadAction<FilterPayload>) => {
       if (action.payload.isGreater) {
         state.data.forEach((data) => {
           if (data.y < action.payload.value) {
@@ -61,8 +61,8 @@ const dataSlice = createSlice({
         });
       }
     },
-    filterAverage: (state, action: PayloadAction<boolean>) => {
-      dataSlice.caseReducers.filterAboveValue(state, {
+    filterByAverage: (state, action: PayloadAction<boolean>) => {
+      dataSlice.caseReducers.filterByValue(state, {
         payload: { value: state.average, isGreater: action.payload },
         type: action.type,
       });
@@ -103,7 +103,7 @@ export const requestData = createAsyncThunk(
   },
 );
 
-export const { filterTopN, filterAboveValue, filterAverage, reset } =
+export const { filterFirstN, filterByValue, filterByAverage, reset } =
   dataSlice.actions;
 
 export const selectorData = (state: RootState) => state.data;

@@ -12,6 +12,6 @@ export const CreateMockRootState = (
     ...overrides.raycast,
   },
   viewOption: { isPlaneActive: false, ...overrides.viewOption },
-  // filterOption: {isGreater:false,...overrides.filterOption},
+  filterOption: { isGreater: false, ...overrides.filterOption },
   ...overrides,
 });
