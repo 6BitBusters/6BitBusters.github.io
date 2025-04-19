@@ -23,6 +23,8 @@ type BarsProps = {
 function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   const { scene, camera } = useThree();
 
+  const [shaderError, setShaderError] = useState(true);
+
   // redux
   const raycastState = useSelector(selectorRaycastHit);
   const dispatch = useAppDispatch();
@@ -75,15 +77,11 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
       colors[i * 3 + 1] = green;
       colors[i * 3 + 2] = blue;
 
-      // colori casuali
-      // const color = availableColors[data[i].x];
-      // colors.set([color.r, color.g, color.b], i * 3);
-
       dummy.updateMatrix();
       dummy.matrix.toArray(array, i * 16);
     }
     return { matrices: array, colors };
-  }, [count]);
+  }, [count,data,dummy]);
 
   useEffect(() => {
     if (mesh.current) {
@@ -112,7 +110,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
         new THREE.InstancedBufferAttribute(instanceOpacity, 1),
       );
     }
-  }, [instancedBarMatrices]);
+  }, [instancedBarMatrices,instanceOpacity]);
 
   useEffect(() => {
     const newOpacity = new Float32Array(count);
@@ -120,7 +118,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
       newOpacity[i] = d.show ? 1.0 : 0.2;
     });
     setInstanceOpacity(newOpacity);
-  }, [data, raycastState.previousSelectedBarId]);
+  }, [data, count]);
 
   useEffect(() => {
     if (mesh.current && mesh.current.geometry.attributes.instanceOpacity) {
@@ -132,15 +130,19 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   }, [instanceOpacity]);
 
   useEffect(() => {
-    LoadShader("/Shaders/BarVertexShader.GLSL").then((shader) =>
-      setVertexShader(shader),
-    );
-    LoadShader("/Shaders/BarFragmentShader.GLSL").then((shader) =>
-      setFragmentShader(shader),
-    );
+    Promise.all([LoadShader("/Shaders/BarVertexShader.GLSL"),LoadShader("/Shaders/BarFragmentShader.GLSL")])
+    .then(([vertex,fragment])=>{
+      setShaderError(false);
+      setVertexShader(vertex);
+      setFragmentShader(fragment);
+    }).catch((e)=>{
+      console.error("Shader error:",e);
+      setShaderError(true);
+    });
   }, []);
 
   useEffect(() => {
+    if (shaderError) return
     let ambient: THREE.AmbientLight | null = null;
     let point: THREE.PointLight | null = null;
     scene.traverse((object) => {
@@ -176,16 +178,16 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
       fragmentShader: fragmentShader,
     });
     mesh.current.material = newMaterial;
-  }, [data, instancedBarMatrices, vertexShader, fragmentShader]);
+  }, [data,scene, instancedBarMatrices, vertexShader, fragmentShader,shaderError]);
 
   useEffect(() => {
-    window.addEventListener("mousemove", (e: MouseEvent) =>
-      UpdateMousePosition(mouse.current, e),
-    );
+    const currentMouse = mouse.current;
+    const handleMouseMove = (e: MouseEvent) => {
+      UpdateMousePosition(currentMouse, e);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
     return () => {
-      window.removeEventListener("mousemove", (e: MouseEvent) =>
-        UpdateMousePosition(mouse.current, e),
-      );
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [camera, scene]);
 
