@@ -34,18 +34,17 @@ function BarChart() {
         z={data.z}
         unitFactor={unitFactor}
       />
-      {viewPlane && (
-        <AveragePlane
-          position={
-            new THREE.Vector3(
-              (data.x.length * unitFactor) / 2,
-              data.average,
-              (data.z.length * unitFactor) / 2,
-            )
-          }
-          size={[data.x.length * unitFactor, data.z.length * unitFactor]}
-        />
-      )}
+      <AveragePlane
+        isVisible={true}
+        position={
+          new THREE.Vector3(
+            (data.x.length * unitFactor) / 2,
+            data.average,
+            (data.z.length * unitFactor) / 2,
+          )
+        }
+        size={[data.x.length * unitFactor, data.z.length * unitFactor]}
+      />
       <Tooltip
         data={data.data[selectedBar]}
         legend={data!.legend}

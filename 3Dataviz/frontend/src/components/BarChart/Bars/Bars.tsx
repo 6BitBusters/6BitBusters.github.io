@@ -240,7 +240,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
         onClick={onClick}
         onPointerEnter={onPointerOver}
         onPointerLeave={onPointerLeave}>
-        <instancedMesh ref={mesh} args={[geometry, material, count]}>
+        <instancedMesh ref={mesh} args={[geometry, material, count]} renderOrder={1}>
           <primitive object={geometry} />
           <primitive object={material} />
         </instancedMesh>

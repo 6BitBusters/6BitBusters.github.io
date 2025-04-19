@@ -46,11 +46,12 @@ function Axis({
       />
       {labelSprites.map((text, index) => (
         <sprite
+          renderOrder={1}
           key={text.text}
           position={text.position}
           scale={[8 * labelScale, 2 * labelScale, 2 * labelScale]}
           ref={(el) => (spriteRefs.current[index] = el)}>
-          <spriteMaterial map={text.texture} depthTest={true} />
+          <spriteMaterial map={text.texture} depthTest={false} />
         </sprite>
       ))}
     </>

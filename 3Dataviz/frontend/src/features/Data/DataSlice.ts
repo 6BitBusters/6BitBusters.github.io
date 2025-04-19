@@ -15,7 +15,7 @@ const initialState: DataState = {
     { id: 5, show: true, x: 6, y: 43, z: 3 },
   ],
   legend: { x: "Citta", z: "Ora", y: "Temperatura" },
-  average: 0,
+  average: 5,
   x: [
     "Madrid",
     "Parigi",
