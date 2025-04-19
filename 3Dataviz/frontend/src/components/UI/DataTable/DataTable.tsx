@@ -4,9 +4,12 @@ import { RootState } from "../../../app/Store";
 import { useAppDispatch } from "../../../app/Hooks";
 import { ChangeEvent, useMemo, useState } from "react";
 import { gsap } from "gsap";
+import { filterByValue, selectorData } from "../../../features/Data/DataSlice";
+import { selectorIsGreater } from "../../../features/FilterOption/FilterOptionSlice";
 
 function DataTable() {
-  const data = useSelector((state: RootState) => state.data);
+  const data = useSelector(selectorData);
+  const isGreater = useSelector(selectorIsGreater)
   const dispatch = useAppDispatch();
 
   //usememo viene utilizzata per calcolare tabledata, array bidimensionale che rappresenta i valori della tabella, eseguito solo quando data cambia
@@ -14,11 +17,11 @@ function DataTable() {
     const result: number[][] = [];
     const nLabel = data.x.length;
     for (let i = 0; i < nLabel; i++) {
-      result.push([]);
+      result.push(new Array(data.z.length).fill(undefined));
       data.data
-        .filter((d) => d.x === i) //ogni label corrisponde a una riga della tabella
-        .sort((a, b) => a.z - b.z) //i valori sono ordinati e aggiunti alla riga corrispondente
-        .forEach((d) => result[i].push(d.y));
+        .filter((d) => d.x === i)
+        .sort((a, b) => a.z - b.z)
+        .forEach((d) => result[i][d.z]=d.y);
     }
     return result;
   }, [data.data]);
@@ -39,6 +42,9 @@ function DataTable() {
     }
   };
 
+  const handleCellClick = (value:number) => {
+    dispatch(filterByValue({value: value,isGreater:isGreater}))
+  }
   return (
     <>
       <div id="container">
@@ -54,24 +60,26 @@ function DataTable() {
                 {data.z.map((label) => (
                   <th key={label}>{label}</th>
                 ))}
-                {data.z.map((label) => (
-                  <th key={label}>{label}</th>
-                ))}
               </tr>
             </thead>
             <tbody>
               {tableData.map((row, i) => (
                 <tr key={i}>
                   <th>{data.x[i]}</th>
-                  {row.map((value, i) => {
-                    const high = false;
-                    const id = i * row.length + i;
+                  {row.map((value, j) => {
+                    const isVisible = data.data.some(
+                      (d) => d.x === i && d.z === j && d.y === value && d.show
+                    );
+                    const id = i * row.length + j;
                     return (
+                      value==undefined ?
+                      <td key={id}></td>
+                      :
                       <td
                         key={id}
                         id={id.toString()}
-                        onClick={() => {}}
-                        className={high ? "hcell" : "nhcell"}>
+                        onClick={() => handleCellClick(value)}
+                        className={isVisible ? "hcell" : "nhcell"}>
                         {value}
                       </td>
                     );

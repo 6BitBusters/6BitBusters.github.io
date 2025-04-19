@@ -37,7 +37,7 @@ table{
 }
     
 tbody tr:nth-child(odd) {
-    background-color: #5b5b5b;
+    background-color: #474747;
     color: #fff;
 }
 
@@ -72,4 +72,19 @@ tbody tr:nth-child(odd) {
 
 #expand-btn input:checked ~ label::after {
     transform: rotateZ(0deg);
+}
+
+.hcell {
+    background-color: green;
+    border: 2px solid rgb(0, 173, 0);
+}
+.nhcell {
+    opacity: .5;
+    background: repeating-linear-gradient(
+    45deg,
+    #4c4c4c,
+    #4c4c4c 10px,
+    #333333 10px,
+    #333333 20px
+    );
 }

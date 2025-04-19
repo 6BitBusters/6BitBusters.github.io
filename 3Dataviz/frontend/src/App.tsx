@@ -15,6 +15,7 @@ function App() {
   return (
     <>
       <CustomCanvas ref={customCanvasRef} />
+      <UI/>
     </>
   );
 }
