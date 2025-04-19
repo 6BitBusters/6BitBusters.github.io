@@ -1,18 +1,16 @@
 import { Canvas } from "@react-three/fiber";
 import { GizmoHelper, GizmoViewport, OrbitControls } from "@react-three/drei";
-import { useRef } from "react";
+import { useImperativeHandle, useRef } from "react";
 import { OrbitControls as OrbitControlsType } from "three-stdlib";
 import { gsap } from "gsap";
 import "./CustomCanvas.css";
 import BarChart from "../BarChart/BarChart";
 import { CustomCanvasProps } from "./props/CustomCanvasProp";
 import Lights from "./Lights";
+import React from "react";
 
-function CustomCanvas({
-  initialCameraPosition = [25, 25, 25],
-  initialTarget: initialTarget = [10, 0, 10],
-  initialZoom = 1,
-}: CustomCanvasProps) {
+const customCanvas = React.forwardRef<{ resetCamera: () => void },CustomCanvasProps>(
+  ({initialCameraPosition = [25, 25, 25],initialTarget: initialTarget = [10, 0, 10],initialZoom = 1,}, ref) => {
   const controls = useRef<OrbitControlsType>(null);
 
   const resetCamera = () => {
@@ -52,10 +50,12 @@ function CustomCanvas({
     }
   };
 
+  useImperativeHandle(ref, () => ({
+    resetCamera: resetCamera,
+  }));
   return (
     <>
       <Canvas
-        id="canvas"
         dpr={window.devicePixelRatio}
         shadows
         gl={{ preserveDrawingBuffer: true }}
@@ -88,6 +88,6 @@ function CustomCanvas({
       </Canvas>
     </>
   );
-}
+});
 
-export default CustomCanvas;
+export default customCanvas;

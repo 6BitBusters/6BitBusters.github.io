@@ -4,9 +4,9 @@ import { Data } from "../../../features/Data/interfaces/Data";
 import { ThreeEvent, useThree } from "@react-three/fiber";
 import { GetIntersection, GetIntersectionId } from "./Utils/RaycastUtils";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../app/Store";
 import { useAppDispatch } from "../../../app/Hooks";
 import {
+  selectorRaycastHit,
   setHit,
   setTooltipPosition,
 } from "../../../features/Raycast/RaycastHitSlice";
@@ -24,7 +24,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   const { scene, camera } = useThree();
 
   // redux
-  const raycastState = useSelector((state: RootState) => state.raycast);
+  const raycastState = useSelector(selectorRaycastHit);
   const dispatch = useAppDispatch();
 
   // instancedMesh

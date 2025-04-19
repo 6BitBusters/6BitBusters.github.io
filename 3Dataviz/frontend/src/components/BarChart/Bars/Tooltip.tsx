@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../../../app/Store";
 import { Html } from "@react-three/drei";
 import * as THREE from "three";
 import { Data } from "../../../features/Data/interfaces/Data";
 import { Legend } from "../../../features/Data/types/Legend";
+import { selectorRaycastHit } from "../../../features/Raycast/RaycastHitSlice";
 
 type ToolTipProps = {
   data: Data;
@@ -13,7 +13,7 @@ type ToolTipProps = {
 };
 
 function Tooltip({ data, legend, Xlabel, Zlabel }: ToolTipProps) {
-  const raycastState = useSelector((state: RootState) => state.raycast);
+  const raycastState = useSelector(selectorRaycastHit);
 
   return (
     raycastState.barTooltipPosition !== null && (

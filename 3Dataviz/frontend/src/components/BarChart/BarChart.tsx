@@ -1,16 +1,17 @@
 import { useSelector } from "react-redux";
 import Axes from "../Axes/Axes";
 import Bars from "./Bars/Bars";
-import { filterByValue } from "../../features/Data/DataSlice";
+import { filterByValue, selectorData } from "../../features/Data/DataSlice";
 import { useAppDispatch } from "../../app/Hooks";
-import { RootState } from "../../app/Store";
 import AveragePlane from "../Planes/AveragePlane";
 import * as THREE from "three";
 import Tooltip from "./Bars/Tooltip";
 import { useState } from "react";
+import { selectorViewOptionState } from "../../features/ViewOption/ViewOptionSlice";
 
 function BarChart() {
-  const data = useSelector((state: RootState) => state.data);
+  const data = useSelector(selectorData);
+  const viewPlane = useSelector(selectorViewOptionState)
   const dispatch = useAppDispatch();
 
   const unitFactor = 6;
@@ -33,7 +34,7 @@ function BarChart() {
         z={data.z}
         unitFactor={unitFactor}
       />
-      {false && (
+      {viewPlane && (
         <AveragePlane
           position={
             new THREE.Vector3(
