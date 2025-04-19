@@ -1,4 +1,3 @@
-import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
 export function GetIntersectionId(
@@ -41,7 +40,8 @@ export function ScreenToWorldPosition(
   const planeNormal = new THREE.Vector3(0, 0, -1).transformDirection(
     cam.matrixWorld,
   );
-  const plane = new THREE.Plane(planeNormal, -cam.position.z); // Distanza dalla camera
+  // Distanza dalla camera
+  const plane = new THREE.Plane(planeNormal, -cam.position.z);
 
   const worldPoint = new THREE.Vector3();
   raycaster.ray.intersectPlane(plane, worldPoint);

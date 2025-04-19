@@ -12,7 +12,7 @@ import {
 } from "../../../features/Raycast/RaycastHitSlice";
 import { LoadShader } from "./Utils/ShaderUtils";
 import { UpdateMousePosition } from "./Utils/PointerInterectionUtils";
-import { Selection, RandomColors } from "./Utils/ColorsUtils";
+import { Selection } from "./Utils/ColorsUtils";
 
 type BarsProps = {
   data: Data[];
@@ -49,10 +49,6 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   const [instanceOpacity, setInstanceOpacity] = useState(() =>
     new Float32Array(count).fill(1.0),
   );
-  const availableColors = Array.from(
-    { length: Math.max(...data.map((d) => d.x)) + 1 },
-    () => RandomColors(),
-  );
 
   // interazioni puntatore
   const hoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -70,7 +66,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
       dummy.rotation.set(0, 0, 0);
 
       // colori riferiti all`altezza di ogni barra
-      const maxHeight = Math.max(...data.map(d=>d.y));
+      const maxHeight = Math.max(...data.map((d) => d.y));
       const normalizedHeight = height / maxHeight;
       const red = 1.0 - normalizedHeight;
       const green = normalizedHeight;
@@ -105,7 +101,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
       );
       instancedMesh.instanceColor.needsUpdate = true;
 
-      var colorBase = new Float32Array(colors);
+      const colorBase = new Float32Array(colors);
       instancedMesh.geometry.setAttribute(
         "colorBase",
         new THREE.BufferAttribute(colorBase, 3),
@@ -136,10 +132,14 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   }, [instanceOpacity]);
 
   useEffect(() => {
-    LoadShader("/Shaders/BarVertexShader.GLSL").then((shader)=>setVertexShader(shader))
-    LoadShader("/Shaders/BarFragmentShader.GLSL").then((shader)=>setFragmentShader(shader))
+    LoadShader("/Shaders/BarVertexShader.GLSL").then((shader) =>
+      setVertexShader(shader),
+    );
+    LoadShader("/Shaders/BarFragmentShader.GLSL").then((shader) =>
+      setFragmentShader(shader),
+    );
   }, []);
-  
+
   useEffect(() => {
     let ambient: THREE.AmbientLight | null = null;
     let point: THREE.PointLight | null = null;
@@ -179,39 +179,34 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   }, [data, instancedBarMatrices, vertexShader, fragmentShader]);
 
   useEffect(() => {
-    window.addEventListener("mousemove", (e: MouseEvent) => UpdateMousePosition(mouse.current,e));
+    window.addEventListener("mousemove", (e: MouseEvent) =>
+      UpdateMousePosition(mouse.current, e),
+    );
     return () => {
-      window.removeEventListener("mousemove", (e: MouseEvent) => UpdateMousePosition(mouse.current,e));
+      window.removeEventListener("mousemove", (e: MouseEvent) =>
+        UpdateMousePosition(mouse.current, e),
+      );
     };
   }, [camera, scene]);
 
-
   // interazioni con le barre
   const onClick = (e: ThreeEvent<PointerEvent>) => {
-    const bar = GetIntersectionId(
-      mesh.current,
-      mouse.current,
-      e.camera,
-    );
+    const bar = GetIntersectionId(mesh.current, mouse.current, e.camera);
     const prevId: number | null = raycastState.previousSelectedBarId;
     if (bar !== null && bar != prevId) {
       clickHandler(bar);
-      Selection(mesh.current,bar, true);
-      Selection(mesh.current,prevId, false);
+      Selection(mesh.current, bar, true);
+      Selection(mesh.current, prevId, false);
       dispatch(setHit(bar));
     }
-  }
+  };
 
   const onPointerOver = (e: ThreeEvent<PointerEvent>) => {
     if (hoverTimeout.current !== null) {
       clearTimeout(hoverTimeout.current);
     }
     hoverTimeout.current = setTimeout(() => {
-      const bar = GetIntersectionId(
-        mesh.current,
-        mouse.current,
-        e.camera,
-      );
+      const bar = GetIntersectionId(mesh.current, mouse.current, e.camera);
       const worldPointIntersection = GetIntersection(
         mesh.current,
         mouse.current,
@@ -222,16 +217,12 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
           new THREE.Vector3(0.5, -0.5, 0),
         );
         dispatch(
-          setTooltipPosition([
-            tooltipPoint.x,
-            tooltipPoint.y,
-            tooltipPoint.z,
-          ]),
+          setTooltipPosition([tooltipPoint.x, tooltipPoint.y, tooltipPoint.z]),
         );
         hoverHandler(bar);
       }
     }, 500);
-  }
+  };
 
   const onPointerLeave = () => {
     if (hoverTimeout.current !== null) {
@@ -239,15 +230,15 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
     }
     dispatch(setTooltipPosition(null));
     hoverHandler(0);
-  }
+  };
 
   return (
     <>
-      <group onClick={onClick} onPointerEnter={onPointerOver }  onPointerLeave={onPointerLeave}>
-        <instancedMesh
-          ref={mesh}
-          args={[geometry, material, count]}
-          >
+      <group
+        onClick={onClick}
+        onPointerEnter={onPointerOver}
+        onPointerLeave={onPointerLeave}>
+        <instancedMesh ref={mesh} args={[geometry, material, count]}>
           <primitive object={geometry} />
           <primitive object={material} />
         </instancedMesh>

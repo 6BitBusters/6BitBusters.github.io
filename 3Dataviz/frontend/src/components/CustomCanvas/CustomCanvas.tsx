@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { GizmoHelper, GizmoViewport, OrbitControls } from "@react-three/drei";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { OrbitControls as OrbitControlsType } from "three-stdlib";
 import { gsap } from "gsap";
 import "./CustomCanvas.css";
@@ -54,9 +54,6 @@ function CustomCanvas({
 
   return (
     <>
-      <button id="resetCamera" onClick={resetCamera}>
-        Reset camera
-      </button>
       <Canvas
         id="canvas"
         dpr={window.devicePixelRatio}

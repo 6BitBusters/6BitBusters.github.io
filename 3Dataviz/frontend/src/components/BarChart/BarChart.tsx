@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Axes from "../Axes/Axes";
 import Bars from "./Bars/Bars";
-import { filterAboveValue, selectorData } from "../../features/Data/DataSlice";
+import { filterByValue } from "../../features/Data/DataSlice";
 import { useAppDispatch } from "../../app/Hooks";
 import { RootState } from "../../app/Store";
 import AveragePlane from "../Planes/AveragePlane";
@@ -15,17 +15,17 @@ function BarChart() {
 
   const unitFactor = 6;
 
-  let [selectedBar, SetSelectedBar] = useState(0);
+  const [selectedBar, setSelectedBar] = useState(0);
 
   const barClickHandler = (barId: number) => {
-    dispatch(filterAboveValue({ value: data.data[barId].y, isGreater: true }));
+    dispatch(filterByValue({ value: data.data[barId].y, isGreater: true }));
   };
   return (
     <>
       <Bars
         data={data.data}
         clickHandler={barClickHandler}
-        hoverHandler={SetSelectedBar}
+        hoverHandler={setSelectedBar}
       />
       <Axes
         x={data.x}
