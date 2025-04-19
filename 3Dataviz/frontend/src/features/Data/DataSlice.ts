@@ -3,6 +3,7 @@ import { DataState } from "./types/DataState";
 import { FilterPayload } from "./types/FilterPayload";
 import { Data } from "./interfaces/Data";
 import { fetchDataset } from "./RequestHandler";
+import { RootState } from "../../app/Store";
 
 const initialState: DataState = {
   data: [
@@ -32,7 +33,7 @@ const dataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
-    filterTopN: (state, action: PayloadAction<FilterPayload>) => {
+    filterFirstN: (state, action: PayloadAction<FilterPayload>) => {
       // array dei dati da filtrare
       let sortedData: number[];
       if (action.payload.isGreater) {
@@ -51,14 +52,18 @@ const dataSlice = createSlice({
         // rendo invisibili i dati che non sono stati presi nella precedente operazione
         if (!sortedData.includes(data.id)) {
           data.show = false;
+        } else {
+          data.show = true;
         }
       });
     },
-    filterAboveValue: (state, action: PayloadAction<FilterPayload>) => {
+    filterByValue: (state, action: PayloadAction<FilterPayload>) => {
       if (action.payload.isGreater) {
         state.data.forEach((data) => {
           if (data.y < action.payload.value) {
             data.show = false;
+          } else {
+            data.show = true;
           }
           if (data.y >= action.payload.value) {
             data.show = true;
@@ -69,12 +74,14 @@ const dataSlice = createSlice({
         state.data.forEach((data) => {
           if (data.y > action.payload.value) {
             data.show = false;
+          } else {
+            data.show = true;
           }
         });
       }
     },
-    filterAverage: (state, action: PayloadAction<boolean>) => {
-      dataSlice.caseReducers.filterAboveValue(state, {
+    filterByAverage: (state, action: PayloadAction<boolean>) => {
+      dataSlice.caseReducers.filterByValue(state, {
         payload: { value: state.average, isGreater: action.payload },
         type: action.type,
       });
@@ -115,9 +122,9 @@ export const requestData = createAsyncThunk(
   },
 );
 
-export const { filterTopN, filterAboveValue, filterAverage, reset } =
+export const { filterFirstN, filterByValue, filterByAverage, reset } =
   dataSlice.actions;
 
-export const selectorData = (state: DataState) => state;
+export const selectorData = (state: RootState) => state.data;
 
 export default dataSlice.reducer;

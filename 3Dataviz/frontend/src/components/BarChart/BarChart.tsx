@@ -1,31 +1,32 @@
 import { useSelector } from "react-redux";
 import Axes from "../Axes/Axes";
 import Bars from "./Bars/Bars";
-import { filterAboveValue, selectorData } from "../../features/Data/DataSlice";
+import { filterByValue, selectorData } from "../../features/Data/DataSlice";
 import { useAppDispatch } from "../../app/Hooks";
-import { RootState } from "../../app/Store";
 import AveragePlane from "../Planes/AveragePlane";
 import * as THREE from "three";
 import Tooltip from "./Bars/Tooltip";
 import { useState } from "react";
+import { selectorViewOptionState } from "../../features/ViewOption/ViewOptionSlice";
 
 function BarChart() {
-  const data = useSelector((state: RootState) => state.data);
+  const data = useSelector(selectorData);
+  const viewPlane = useSelector(selectorViewOptionState)
   const dispatch = useAppDispatch();
 
   const unitFactor = 6;
 
-  let [selectedBar, SetSelectedBar] = useState(0);
+  const [selectedBar, setSelectedBar] = useState(0);
 
   const barClickHandler = (barId: number) => {
-    dispatch(filterAboveValue({ value: data.data[barId].y, isGreater: true }));
+    dispatch(filterByValue({ value: data.data[barId].y, isGreater: true }));
   };
   return (
     <>
       <Bars
         data={data.data}
         clickHandler={barClickHandler}
-        hoverHandler={SetSelectedBar}
+        hoverHandler={setSelectedBar}
       />
       <Axes
         x={data.x}
@@ -33,7 +34,7 @@ function BarChart() {
         z={data.z}
         unitFactor={unitFactor}
       />
-      {false && (
+      {viewPlane && (
         <AveragePlane
           position={
             new THREE.Vector3(

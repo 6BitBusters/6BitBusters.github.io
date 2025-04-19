@@ -6,13 +6,14 @@ import { RootState, AppDispatch } from "../../../src/app/Store";
 import { DataState } from "../../../src/features/Data/types/DataState";
 import reducer, {
   requestData,
-  filterTopN,
-  filterAboveValue,
-  filterAverage,
+  filterFirstN,
+  filterByValue,
+  filterByAverage,
   reset,
   selectorData,
 } from "../../../src/features/Data/DataSlice";
 import fetchMock from "fetch-mock";
+import { CreateMockRootState } from "../../utils/StateMockCreator";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
@@ -152,7 +153,7 @@ describe("DataSlice", () => {
       x: ["Label 1"],
     };
     expect(
-      reducer(initialState, filterTopN({ value: 2, isGreater: true })),
+      reducer(initialState, filterFirstN({ value: 2, isGreater: true })),
     ).toEqual(expectedState);
   });
 
@@ -182,7 +183,52 @@ describe("DataSlice", () => {
       x: ["Label 1"],
     };
     expect(
-      reducer(initialState, filterTopN({ value: 2, isGreater: false })),
+      reducer(initialState, filterFirstN({ value: 2, isGreater: false })),
+    ).toEqual(expectedState);
+  });
+
+  it("Filtraggio dei top 2 valori seguito da un filtraggio dei bottom 2 valori", () => {
+    const initialState: DataState = {
+      data: [
+        { id: 0, show: true, x: 0, y: 1, z: 0 },
+        { id: 1, show: true, x: 0, y: 2, z: 0 },
+        { id: 2, show: true, x: 0, y: 3, z: 0 },
+        { id: 3, show: true, x: 0, y: 4, z: 0 },
+      ],
+      legend: { x: "X", y: "Y", z: "Z" },
+      average: 2.5,
+      z: ["Label 1"],
+      x: ["Label 1"],
+    };
+    const intermediateState: DataState = {
+      data: [
+        { id: 0, show: true, x: 0, y: 1, z: 0 },
+        { id: 1, show: true, x: 0, y: 2, z: 0 },
+        { id: 2, show: false, x: 0, y: 3, z: 0 },
+        { id: 3, show: false, x: 0, y: 4, z: 0 },
+      ],
+      legend: { x: "X", y: "Y", z: "Z" },
+      average: 2.5,
+      z: ["Label 1"],
+      x: ["Label 1"],
+    };
+    expect(
+      reducer(initialState, filterFirstN({ value: 2, isGreater: false })),
+    ).toEqual(intermediateState);
+    const expectedState: DataState = {
+      data: [
+        { id: 0, show: false, x: 0, y: 1, z: 0 },
+        { id: 1, show: false, x: 0, y: 2, z: 0 },
+        { id: 2, show: true, x: 0, y: 3, z: 0 },
+        { id: 3, show: true, x: 0, y: 4, z: 0 },
+      ],
+      legend: { x: "X", y: "Y", z: "Z" },
+      average: 2.5,
+      z: ["Label 1"],
+      x: ["Label 1"],
+    };
+    expect(
+      reducer(intermediateState, filterFirstN({ value: 2, isGreater: true })),
     ).toEqual(expectedState);
   });
 
@@ -212,7 +258,7 @@ describe("DataSlice", () => {
       x: ["Label 1"],
     };
     expect(
-      reducer(initialState, filterAboveValue({ value: 3, isGreater: true })),
+      reducer(initialState, filterByValue({ value: 3, isGreater: true })),
     ).toEqual(expectedState);
   });
 
@@ -242,7 +288,97 @@ describe("DataSlice", () => {
       x: ["Label 1"],
     };
     expect(
-      reducer(initialState, filterAboveValue({ value: 3, isGreater: false })),
+      reducer(initialState, filterByValue({ value: 3, isGreater: false })),
+    ).toEqual(expectedState);
+  });
+
+  it("Filtraggio dei valori superiori o uguali a 3 seguito da filtraggio dei valori superiori o uguali a 2", () => {
+    const initialState: DataState = {
+      data: [
+        { id: 0, show: true, x: 0, y: 1, z: 0 },
+        { id: 1, show: true, x: 0, y: 2, z: 0 },
+        { id: 2, show: true, x: 0, y: 3, z: 0 },
+        { id: 3, show: true, x: 0, y: 4, z: 0 },
+      ],
+      legend: { x: "X", y: "Y", z: "Z" },
+      average: 2.5,
+      z: ["Label 1"],
+      x: ["Label 1"],
+    };
+    const intermediateState: DataState = {
+      data: [
+        { id: 0, show: false, x: 0, y: 1, z: 0 },
+        { id: 1, show: false, x: 0, y: 2, z: 0 },
+        { id: 2, show: true, x: 0, y: 3, z: 0 },
+        { id: 3, show: true, x: 0, y: 4, z: 0 },
+      ],
+      legend: { x: "X", y: "Y", z: "Z" },
+      average: 2.5,
+      z: ["Label 1"],
+      x: ["Label 1"],
+    };
+    expect(
+      reducer(initialState, filterByValue({ value: 3, isGreater: true })),
+    ).toEqual(intermediateState);
+    const expectedState: DataState = {
+      data: [
+        { id: 0, show: false, x: 0, y: 1, z: 0 },
+        { id: 1, show: true, x: 0, y: 2, z: 0 },
+        { id: 2, show: true, x: 0, y: 3, z: 0 },
+        { id: 3, show: true, x: 0, y: 4, z: 0 },
+      ],
+      legend: { x: "X", y: "Y", z: "Z" },
+      average: 2.5,
+      z: ["Label 1"],
+      x: ["Label 1"],
+    };
+    expect(
+      reducer(intermediateState, filterByValue({ value: 2, isGreater: true })),
+    ).toEqual(expectedState);
+  });
+
+  it("Filtraggio dei valori superiori o uguali a 3 seguito da filtraggio dei valori inferiori o uguali a 2", () => {
+    const initialState: DataState = {
+      data: [
+        { id: 0, show: true, x: 0, y: 1, z: 0 },
+        { id: 1, show: true, x: 0, y: 2, z: 0 },
+        { id: 2, show: true, x: 0, y: 3, z: 0 },
+        { id: 3, show: true, x: 0, y: 4, z: 0 },
+      ],
+      legend: { x: "X", y: "Y", z: "Z" },
+      average: 2.5,
+      z: ["Label 1"],
+      x: ["Label 1"],
+    };
+    const intermediateState: DataState = {
+      data: [
+        { id: 0, show: false, x: 0, y: 1, z: 0 },
+        { id: 1, show: false, x: 0, y: 2, z: 0 },
+        { id: 2, show: true, x: 0, y: 3, z: 0 },
+        { id: 3, show: true, x: 0, y: 4, z: 0 },
+      ],
+      legend: { x: "X", y: "Y", z: "Z" },
+      average: 2.5,
+      z: ["Label 1"],
+      x: ["Label 1"],
+    };
+    expect(
+      reducer(initialState, filterByValue({ value: 3, isGreater: true })),
+    ).toEqual(intermediateState);
+    const expectedState: DataState = {
+      data: [
+        { id: 0, show: true, x: 0, y: 1, z: 0 },
+        { id: 1, show: true, x: 0, y: 2, z: 0 },
+        { id: 2, show: false, x: 0, y: 3, z: 0 },
+        { id: 3, show: false, x: 0, y: 4, z: 0 },
+      ],
+      legend: { x: "X", y: "Y", z: "Z" },
+      average: 2.5,
+      z: ["Label 1"],
+      x: ["Label 1"],
+    };
+    expect(
+      reducer(intermediateState, filterByValue({ value: 2, isGreater: false })),
     ).toEqual(expectedState);
   });
 
@@ -271,7 +407,7 @@ describe("DataSlice", () => {
       z: ["Label 1"],
       x: ["Label 1"],
     };
-    expect(reducer(initialState, filterAverage(true))).toEqual(expectedState);
+    expect(reducer(initialState, filterByAverage(true))).toEqual(expectedState);
   });
 
   it("Filtraggio dei valori inferiori al valor medio", () => {
@@ -299,7 +435,54 @@ describe("DataSlice", () => {
       z: ["Label 1"],
       x: ["Label 1"],
     };
-    expect(reducer(initialState, filterAverage(false))).toEqual(expectedState);
+    expect(reducer(initialState, filterByAverage(false))).toEqual(
+      expectedState,
+    );
+  });
+
+  it("Filtraggio dei valori superiori al valor medio seguito da un filtraggio dei valori inferiori al valor medio", () => {
+    const initialState: DataState = {
+      data: [
+        { id: 0, show: true, x: 0, y: 1, z: 0 },
+        { id: 1, show: true, x: 0, y: 2, z: 0 },
+        { id: 2, show: true, x: 0, y: 3, z: 0 },
+        { id: 3, show: true, x: 0, y: 4, z: 0 },
+      ],
+      legend: { x: "X", y: "Y", z: "Z" },
+      average: 2.5,
+      z: ["Label 1"],
+      x: ["Label 1"],
+    };
+    const intermediateState: DataState = {
+      data: [
+        { id: 0, show: false, x: 0, y: 1, z: 0 },
+        { id: 1, show: false, x: 0, y: 2, z: 0 },
+        { id: 2, show: true, x: 0, y: 3, z: 0 },
+        { id: 3, show: true, x: 0, y: 4, z: 0 },
+      ],
+      legend: { x: "X", y: "Y", z: "Z" },
+      average: 2.5,
+      z: ["Label 1"],
+      x: ["Label 1"],
+    };
+    expect(reducer(initialState, filterByAverage(true))).toEqual(
+      intermediateState,
+    );
+    const expectedState: DataState = {
+      data: [
+        { id: 0, show: true, x: 0, y: 1, z: 0 },
+        { id: 1, show: true, x: 0, y: 2, z: 0 },
+        { id: 2, show: false, x: 0, y: 3, z: 0 },
+        { id: 3, show: false, x: 0, y: 4, z: 0 },
+      ],
+      legend: { x: "X", y: "Y", z: "Z" },
+      average: 2.5,
+      z: ["Label 1"],
+      x: ["Label 1"],
+    };
+    expect(reducer(intermediateState, filterByAverage(false))).toEqual(
+      expectedState,
+    );
   });
 
   it("Reset filtri", () => {
@@ -327,23 +510,28 @@ describe("DataSlice", () => {
       z: ["Label 1"],
       x: ["Label 1"],
     };
-    expect(reducer(initialState, filterAverage(false))).toEqual(expectedState);
+    expect(reducer(initialState, filterByAverage(false))).toEqual(
+      expectedState,
+    );
     expect(reducer(initialState, reset())).toEqual(initialState);
   });
 
   it("Prendere i dati del dataset", () => {
-    const initialState: DataState = {
-      data: [
-        { id: 0, show: true, x: 0, y: 1, z: 0 },
-        { id: 1, show: true, x: 0, y: 2, z: 0 },
-        { id: 2, show: true, x: 0, y: 3, z: 0 },
-        { id: 3, show: true, x: 0, y: 4, z: 0 },
-      ],
-      legend: { x: "X", y: "Y", z: "Z" },
-      average: 2.5,
-      z: ["Label 1"],
-      x: ["Label 1"],
+    const overrides = {
+      data: {
+        data: [
+          { id: 0, show: true, x: 0, y: 1, z: 0 },
+          { id: 1, show: true, x: 0, y: 2, z: 0 },
+          { id: 2, show: true, x: 0, y: 3, z: 0 },
+          { id: 3, show: true, x: 0, y: 4, z: 0 },
+        ],
+        legend: { x: "X", y: "Y", z: "Z" },
+        average: 2.5,
+        z: ["Label 1"],
+        x: ["Label 1"],
+      } as DataState,
     };
-    expect(selectorData(initialState)).toEqual(initialState);
+    const mockState = CreateMockRootState(overrides);
+    expect(selectorData(mockState)).toEqual(overrides.data);
   });
 });

@@ -3,5 +3,9 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "types": ["cypress", "@percy/cypress", "node", "vitest"]
+  },
+  "types": ["@simonsmith/cypress-image-snapshot/types"]
 }
