@@ -1,12 +1,19 @@
+import { SerializedError } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
+import { selectorAppState } from "../../features/AppStatus/AppSlice";
 import "./errorPage.css";
 
 function ErrorPage() {
+  // Redux get error
+  const appStateError: SerializedError | null =
+    useSelector(selectorAppState).error;
+
   return (
     <>
       <div className="containerError">
-        <h1 id="titleError">404</h1>
-        <h2>Pagina non trovata</h2>
-        <p>La pagina che hai cercato non esiste.</p>
+        <h1 id="titleError">{appStateError?.code}</h1>
+        <h2>{appStateError?.name}</h2>
+        <p>{appStateError?.message}</p>
         <a href="/">Torna alla HomePage</a>
       </div>
     </>
