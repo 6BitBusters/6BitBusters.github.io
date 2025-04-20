@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { BarsProps } from "../../../src/components/BarChart/Bars/types/BarsProps";
+import { BarsProps } from "../../../src/components/BarChart/Bars/props/BarsProps";
 import { mockStore } from "../../setupTests";
 import Bars from "../../../src/components/BarChart/Bars/Bars";
 import ReactThreeTestRenderer from "@react-three/test-renderer";

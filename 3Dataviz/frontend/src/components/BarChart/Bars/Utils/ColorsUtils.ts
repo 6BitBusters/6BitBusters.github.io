@@ -16,13 +16,3 @@ export function Selection(
     mesh.geometry.attributes.color.needsUpdate = true;
   }
 }
-
-export function RandomColors(): THREE.Color {
-  const hue = Math.random();
-  // Saturazione (da 0.5 a 1, colori più vivaci)
-  const saturation = Math.random() * 0.5 + 0.5;
-  // Luminosità (da 0.3 a 0.8, evita estremi)
-  const lightness = Math.random() * 0.5 + 0.3;
-
-  return new THREE.Color().setHSL(hue, saturation, lightness);
-}
