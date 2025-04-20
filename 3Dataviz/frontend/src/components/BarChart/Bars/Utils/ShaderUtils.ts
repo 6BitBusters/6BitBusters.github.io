@@ -8,9 +8,9 @@ export function LoadShader(shaderPath: string): Promise<string> {
       shaderPath,
       (shaderData) => {
         const shaderString =
-        typeof shaderData === "string"
-        ? shaderData
-        : new TextDecoder().decode(shaderData);
+          typeof shaderData === "string"
+            ? shaderData
+            : new TextDecoder().decode(shaderData);
         if (shaderString.startsWith("<!doctype html>")) {
           reject("File is not a shader");
         } else {

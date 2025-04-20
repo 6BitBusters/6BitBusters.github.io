@@ -10,13 +10,11 @@ function Tooltip({ data, legend, Xlabel, Zlabel }: ToolTipProps) {
   return (
     raycastState?.barTooltipPosition !== null && (
       <Html
-        position={
-          new THREE.Vector3(
-            raycastState?.barTooltipPosition[0],
-            raycastState?.barTooltipPosition[1],
-            raycastState?.barTooltipPosition[2],
-          ).toArray()
-        }
+        position={new THREE.Vector3(
+          raycastState?.barTooltipPosition[0],
+          raycastState?.barTooltipPosition[1],
+          raycastState?.barTooltipPosition[2],
+        ).toArray()}
         key={data.id}>
         <div
           style={{

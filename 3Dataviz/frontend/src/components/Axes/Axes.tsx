@@ -10,9 +10,18 @@ function Axes({ x, y, z, unitFactor }: AxesProp) {
     multiplesOfFive.push(i.toString());
   }
 
-  const xPlacementFunction = useCallback((i:number) => new THREE.Vector3(unitFactor * i + 5, -1, 0),[unitFactor]);
-  const yPlacementFunction = useCallback((i:number) => new THREE.Vector3(-0.5, i * 5 - 0.2, -0.5),[]);
-  const zPlacementFunction = useCallback((i:number) => new THREE.Vector3(0, -1, unitFactor * i + 5),[unitFactor]);
+  const xPlacementFunction = useCallback(
+    (i: number) => new THREE.Vector3(unitFactor * i + 5, -1, 0),
+    [unitFactor],
+  );
+  const yPlacementFunction = useCallback(
+    (i: number) => new THREE.Vector3(-0.5, i * 5 - 0.2, -0.5),
+    [],
+  );
+  const zPlacementFunction = useCallback(
+    (i: number) => new THREE.Vector3(0, -1, unitFactor * i + 5),
+    [unitFactor],
+  );
 
   return (
     <>

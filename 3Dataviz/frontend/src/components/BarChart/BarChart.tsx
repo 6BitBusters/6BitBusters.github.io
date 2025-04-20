@@ -11,7 +11,7 @@ import { selectorViewOptionState } from "../../features/ViewOption/ViewOptionSli
 
 function BarChart() {
   const data = useSelector(selectorData);
-  const viewPlane = useSelector(selectorViewOptionState)
+  const viewPlane = useSelector(selectorViewOptionState);
   const dispatch = useAppDispatch();
 
   const unitFactor = 6;

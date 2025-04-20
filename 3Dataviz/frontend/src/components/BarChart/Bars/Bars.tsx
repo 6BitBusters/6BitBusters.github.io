@@ -75,7 +75,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
       dummy.matrix.toArray(array, i * 16);
     }
     return { matrices: array, colors };
-  }, [count,data,dummy]);
+  }, [count, data, dummy]);
 
   useEffect(() => {
     if (mesh.current) {
@@ -104,7 +104,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
         new THREE.InstancedBufferAttribute(instanceOpacity, 1),
       );
     }
-  }, [instancedBarMatrices,instanceOpacity]);
+  }, [instancedBarMatrices, instanceOpacity]);
 
   useEffect(() => {
     const newOpacity = new Float32Array(count);
@@ -124,19 +124,23 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   }, [instanceOpacity]);
 
   useEffect(() => {
-    Promise.all([LoadShader("/Shaders/BarVertexShader.GLSL"),LoadShader("/Shaders/BarFragmentShader.GLSL")])
-    .then(([vertex,fragment])=>{
-      setShaderError(false);
-      setVertexShader(vertex);
-      setFragmentShader(fragment);
-    }).catch((e)=>{
-      console.error("Shader error:",e);
-      setShaderError(true);
-    });
+    Promise.all([
+      LoadShader("/Shaders/BarVertexShader.GLSL"),
+      LoadShader("/Shaders/BarFragmentShader.GLSL"),
+    ])
+      .then(([vertex, fragment]) => {
+        setShaderError(false);
+        setVertexShader(vertex);
+        setFragmentShader(fragment);
+      })
+      .catch((e) => {
+        console.error("Shader error:", e);
+        setShaderError(true);
+      });
   }, []);
 
   useEffect(() => {
-    if (shaderError) return
+    if (shaderError) return;
     let ambient: THREE.AmbientLight | null = null;
     let point: THREE.PointLight | null = null;
     scene.traverse((object) => {
@@ -172,7 +176,14 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
       fragmentShader: fragmentShader,
     });
     mesh.current.material = newMaterial;
-  }, [data,scene, instancedBarMatrices, vertexShader, fragmentShader,shaderError]);
+  }, [
+    data,
+    scene,
+    instancedBarMatrices,
+    vertexShader,
+    fragmentShader,
+    shaderError,
+  ]);
 
   useEffect(() => {
     const currentMouse = mouse.current;
@@ -234,7 +245,10 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
         onClick={onClick}
         onPointerEnter={onPointerOver}
         onPointerLeave={onPointerLeave}>
-        <instancedMesh ref={mesh} args={[geometry, material, count]} renderOrder={1}>
+        <instancedMesh
+          ref={mesh}
+          args={[geometry, material, count]}
+          renderOrder={1}>
           <primitive object={geometry} />
           <primitive object={material} />
         </instancedMesh>

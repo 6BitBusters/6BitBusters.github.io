@@ -30,7 +30,7 @@ function Axis({
       const rotation = new THREE.Euler(0, Math.PI, 0, "XYZ");
       return { text, position, rotation, texture };
     });
-  }, [labels,placementFunction]);
+  }, [labels, placementFunction]);
 
   return (
     <>
