@@ -1,5 +1,6 @@
 import { Injectable, ServiceUnavailableException } from "@nestjs/common";
-import { BaseFetcher } from "./base-fetcher";
+import { BaseFetcher } from "../interfaces/base-fetcher.interface";
+import { BaseApiFetcher } from "./base-api-fetcher";
 import axios from "axios";
 import { POPULATION_API_CONFIG } from "../config";
 import { Dataset } from "../../../interfaces/dataset.interface";
@@ -8,7 +9,10 @@ import { Legend } from "../../../interfaces/legend.interface";
 import { PopulationData } from "../interfaces/population-data.interface";
 
 @Injectable()
-export class PopulationApiFetcher extends BaseFetcher {
+export class PopulationApiFetcher
+  extends BaseApiFetcher<PopulationData[]>
+  implements BaseFetcher
+{
   private buildUrl(): string {
     const countryCode = POPULATION_API_CONFIG.COUNTRIES.map(
       (country) => country.countryCode,
@@ -38,13 +42,23 @@ export class PopulationApiFetcher extends BaseFetcher {
     return POPULATION_API_CONFIG.DESCRIPTION;
   }
 
-  async fetchData(): Promise<Dataset> {
+  async getDataset(): Promise<Dataset> {
+    try {
+      const data = await this.fetchData();
+      return this.transformData(data);
+    } catch (error) {
+      throw new ServiceUnavailableException(
+        `Errore nel recupero dei dati\n${error}`,
+      );
+    }
+  }
+
+  protected async fetchData(): Promise<PopulationData[]> {
     try {
       const url = this.buildUrl();
       const response = await axios.get<PopulationData[]>(url);
       const data = response.data;
-      const dataset = this.transformData(data);
-      return dataset;
+      return data;
     } catch (error) {
       throw new ServiceUnavailableException(
         `Errore nel recupero dei dati\n${error}`,

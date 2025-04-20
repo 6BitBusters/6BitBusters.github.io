@@ -1,7 +1,7 @@
 import { Test, TestingModule } from "@nestjs/testing";
 import { DataVisualizationService } from "./data-visualization.service";
 import { Dataset } from "src/interfaces/dataset.interface";
-import { BaseFetcher } from "../../../modules/fetchers/services/base-fetcher";
+import { BaseFetcher } from "../../../modules/fetchers/interfaces/base-fetcher.interface";
 import { CacheService } from "../../../modules/cache/services/cache.service";
 
 // Creazione di una classe mock per BaseFetcher
@@ -11,10 +11,11 @@ const mockDataset: Dataset = {
   xLabels: ["Label 1"],
   zLabels: ["Label 1"],
 };
-class MockFetcher extends BaseFetcher {
+class MockFetcher implements BaseFetcher {
   getName = jest.fn(() => "Mock Name");
   getSize = jest.fn(() => [10, 5] as [number, number]);
   getDescription = jest.fn(() => "Mock Description");
+  getDataset = jest.fn(() => Promise.resolve(mockDataset));
 
   fetchData = jest.fn(() => Promise.resolve(mockDataset));
   transformData = jest.fn(() => mockDataset);
@@ -70,7 +71,7 @@ describe("DataVisualizationService", () => {
     cacheService.set = jest.fn();
     const dataset = await service.getDatasetById(0);
     expect(dataset).toEqual(mockDataset);
-    expect(mockFetcher0.fetchData).toHaveBeenCalled();
+    expect(mockFetcher0.getDataset).toHaveBeenCalled();
   });
 
   it("should save the dataset to cache", async () => {

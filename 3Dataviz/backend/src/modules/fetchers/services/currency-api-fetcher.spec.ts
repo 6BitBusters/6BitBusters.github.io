@@ -97,7 +97,7 @@ describe("CurrencyApiFetcher", () => {
         data: mockCurrencyData[1],
       });
     // Chiamata al metodo pubblico fetchData()
-    const result = await currencyApiFetcher.fetchData();
+    const result = await currencyApiFetcher.getDataset();
 
     // Verifica che il risultato sia stato trasformato (controllo generico)
     expect(result).toBeDefined();
@@ -152,7 +152,7 @@ describe("CurrencyApiFetcher", () => {
     // Simuliamo la mancanza della chiave API
     delete process.env.CURRENCY_API_KEY;
 
-    await expect(currencyApiFetcher.fetchData()).rejects.toThrow(
+    await expect(currencyApiFetcher.getDataset()).rejects.toThrow(
       "API key non trovata",
     );
   });
@@ -163,7 +163,7 @@ describe("CurrencyApiFetcher", () => {
       new Error("Network Error"),
     );
 
-    await expect(currencyApiFetcher.fetchData()).rejects.toThrow(
+    await expect(currencyApiFetcher.getDataset()).rejects.toThrow(
       "Errore nel recupero dei dati\nError: Network Error",
     );
   });
@@ -176,7 +176,7 @@ describe("CurrencyApiFetcher", () => {
       data: mockInvalidData,
     });
 
-    await expect(currencyApiFetcher.fetchData()).rejects.toThrow(
+    await expect(currencyApiFetcher.getDataset()).rejects.toThrow(
       "Errore nel recupero dei dati\nError: Formato dei dati non valido\nError: Atteso number, ricevuto object",
     );
   });
@@ -189,7 +189,7 @@ describe("CurrencyApiFetcher", () => {
     });
     jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
 
-    await expect(currencyApiFetcher.fetchData()).rejects.toThrow(
+    await expect(currencyApiFetcher.getDataset()).rejects.toThrow(
       "Too many requests",
     );
   });

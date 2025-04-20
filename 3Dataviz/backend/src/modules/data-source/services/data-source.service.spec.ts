@@ -1,6 +1,6 @@
 import { Test, TestingModule } from "@nestjs/testing";
 import { DataSourceService } from "./data-source.service";
-import { BaseFetcher } from "../../fetchers/services/base-fetcher";
+import { BaseFetcher } from "../../fetchers/interfaces/base-fetcher.interface";
 
 // Creazione di una classe mock per BaseFetcher
 const mockDataset = {
@@ -9,10 +9,11 @@ const mockDataset = {
   xLabels: ["Label 1"],
   zLabels: ["Label 1"],
 };
-class MockFetcher extends BaseFetcher {
+class MockFetcher implements BaseFetcher {
   getName = jest.fn(() => "Mock Name");
   getSize = jest.fn(() => [10, 5] as [number, number]);
   getDescription = jest.fn(() => "Mock Description");
+  getDataset = jest.fn(() => Promise.resolve(mockDataset));
 
   fetchData = jest.fn(() => Promise.resolve(mockDataset));
   transformData = jest.fn(() => mockDataset);

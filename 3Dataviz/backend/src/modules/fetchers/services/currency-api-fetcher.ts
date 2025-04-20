@@ -3,7 +3,8 @@ import {
   Injectable,
   ServiceUnavailableException,
 } from "@nestjs/common";
-import { BaseFetcher } from "./base-fetcher";
+import { BaseFetcher } from "../interfaces/base-fetcher.interface";
+import { BaseApiFetcher } from "./base-api-fetcher";
 import axios from "axios";
 import { CURRENCY_API_CONFIG } from "../config";
 import { Dataset } from "../../../interfaces/dataset.interface";
@@ -15,7 +16,10 @@ import { TooManyRequestsException } from "../../../exceptions/too-many-requests.
 dotenv.config();
 
 @Injectable()
-export class CurrencyApiFetcher extends BaseFetcher {
+export class CurrencyApiFetcher
+  extends BaseApiFetcher<CurrencyData[]>
+  implements BaseFetcher
+{
   private buildUrl(year: number): string {
     const baseUrl = CURRENCY_API_CONFIG.BASE_URL;
     const apiKey = process.env.CURRENCY_API_KEY;
@@ -43,7 +47,18 @@ export class CurrencyApiFetcher extends BaseFetcher {
     return CURRENCY_API_CONFIG.DESCRIPTION;
   }
 
-  async fetchData(): Promise<Dataset> {
+  async getDataset(): Promise<Dataset> {
+    try {
+      const data = await this.fetchData();
+      return this.transformData(data);
+    } catch (error) {
+      throw new ServiceUnavailableException(
+        `Errore nel recupero dei dati\n${error}`,
+      );
+    }
+  }
+
+  protected async fetchData(): Promise<CurrencyData[]> {
     const data: CurrencyData[] = [];
     try {
       for (
@@ -55,8 +70,7 @@ export class CurrencyApiFetcher extends BaseFetcher {
         const response = await axios.get<CurrencyData>(url);
         data.push(response.data);
       }
-      const dataset = this.transformData(data);
-      return dataset;
+      return data;
     } catch (error) {
       if (
         axios.isAxiosError(error) &&
