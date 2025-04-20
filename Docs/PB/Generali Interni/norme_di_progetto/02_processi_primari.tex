@@ -14,7 +14,8 @@ Il processo di fornitura si occupa di gestire le
 relazioni con il cliente o committente, assicurando che i requisiti del
 progetto siano compresi, rispettati e soddisfatti.
 
-\subsubsection{Rapporto con il proponente}
+\subsubsection{Struttura}
+\subsubsubsection{Rapporto con il proponente}
 Per garantire un allineamento costante con le aspettative del proponente ed
 evitare eventuali incomprensioni, il gruppo \textit{Six Bit Busters} si impegna
 a mantenere un contatto regolare con il proponente. A tal fine verranno
@@ -22,7 +23,7 @@ organizzati incontri sincroni con cadenza bisettimanale tramite la piattaforma
 Google Meet. Inoltre sarà disponibile un canale di comunicazione asincrona
 attraverso Google Chat oppure via email.\\
 
-Le discussioni con il proponente si concentreranno principalmente sui seguenti
+\noindent Le discussioni con il proponente si concentreranno principalmente sui seguenti
 aspetti:
 
 \begin{itemize}
@@ -51,25 +52,27 @@ seguenti metriche:
 \end{itemize}
 
 \subsection{Sviluppo}
-\subsubsection{Scopo}
-Lo sviluppo rappresenta uno degli elementi centrali nella produzione di un
-software. Il suo scopo è quello di trasformare i requisiti raccolti in un
-prodotto software che soddisfi le aspettative del proponente. Esso mira a garantire
-una realizzazione progressiva delle funzionalità richieste e a mantenere 
-standard di qualità e di manutenibilità elevati attraverso test di verifica e
-validazione.
-
 \subsubsection{Descrizione}
-Il processo di sviluppo è composto da tre principali attività:
+Il processo di sviluppo rappresenta uno degli elementi centrali nella produzione di un
+prodotto software. 
+Tale processo è composto da tre principali attività:
 \begin{itemize}
     \item Analisi dei requisiti;
     \item Progettazione;
     \item Codifica.
 \end{itemize}
 
-\subsubsection{Analisi dei requisiti}
-L'analisi dei requisiti costituisce la fase iniziale dello sviluppo. Questa
-attività ha la funzione di:
+\subsubsection{Scopo}
+Il suo scopo è quello di trasformare i requisiti raccolti in un
+prodotto software che soddisfi le aspettative del proponente. Esso mira a garantire
+una realizzazione progressiva delle funzionalità richieste e a mantenere 
+standard di qualità e di manutenibilità elevati attraverso test di verifica e
+validazione.
+
+\subsubsection{Attività}
+\subsubsubsection{Analisi dei requisiti}
+L'analisi dei requisiti costituisce la fase iniziale dello sviluppo.\\
+Questa attività ha la funzione di:
 
 \begin{itemize}
     \item Fornire una descrizione dettagliata del prodotto;
@@ -81,16 +84,15 @@ attività ha la funzione di:
           validazione.
 \end{itemize}
 
-Questo processo si concretizza nel documento \textit{Analisi dei requisiti v1.2.0},
+\noindent Questa attività si concretizza nel documento \textit{Analisi dei requisiti v1.2.0},
 che include:
 \begin{itemize}
-    \item Introduzione;
     \item Casi d'uso;
     \item Requisiti.
 \end{itemize}
-\subsubsubsection{Casi d'uso}\label{inf:UC}
-I casi d'uso definiscono uno scenario in cui uno o più attori interagiscono con il sistema. Ogni caso d'uso è
-identificato nel modo seguente:
+\textbf{Casi d'uso}\label{inf:UC}\\
+I casi d'uso definiscono uno scenario in cui uno o più attori interagiscono con il sistema. \\
+Ogni caso d'uso è identificato nel modo seguente:
 \textbf{
 \[
     UC[\text{Numero caso d'uso}].[\text{Sottocaso}] - [\text{Titolo caso d'uso}]
@@ -107,7 +109,7 @@ Ogni caso d'uso, oltre all'identificativo, deve contenere:
     \item \textbf{Scenario principale}: sequenza di interazioni tra l'attore primario e il sistema;
     \item \textbf{Estensione}: eventuale scenario alternativo, in cui le postcondizioni possono non essere verificate.
 \end{itemize}
-\subsubsubsection{Requisiti}\label{inf:reqs}
+\textbf{Requisiti}\label{inf:reqs}\\
 I requisiti rappresentano specifiche dettagliate che definiscono funzionalità, prestazioni e vincoli che il
 software deve soddisfare. Questi requisiti servono da riferimento per lo sviluppo, il testing e la valutazione,
 garantendo che il prodotto risponda alle necessità degli utenti e agli obiettivi prefissati.\\
@@ -143,7 +145,8 @@ Ogni requisito, oltre all'identificativo, deve contenere:
           \end{itemize}
     \item \textbf{Fonte}: indica la fonte da cui è stato ricavato il requisito.
 \end{itemize}
-\subsubsection{Progettazione}
+
+\subsubsubsection{Progettazione}
 L'attività di progettazione è assegnata al progettista sotto le linee guida
 indicate nell'\textit{Analisi dei requisiti v1.2.0}. L'obiettivo finale è la
 definizione di un'architettura di sistema capace di soddisfare i requisiti
@@ -168,14 +171,14 @@ La progettazione si compone di due parti:
           \end{itemize}
 \end{itemize}
 
-\subsubsection{Codifica}
+\subsubsubsection{Codifica}
 L'attività di codifica è assegnata al programmatore. Lo scopo della codifica è quello di 
 implementare le specifiche individuate, seguendo quanto descritto nel
 diagramma delle classi, al fine di realizzare un prodotto utilizzabile. \\
 La codifica dovrà rispettare delle norme ben definite per garantire la leggibilità
-e la manutenibilità del codice.
+e la manutenibilità del codice.\\
 
-\subsubsubsection{Stile di codifica}\label{ref:stile}
+\noindent \textbf{Stile di codifica}\label{ref:stile}\\
 In questo paragrafo si va a definire le norme di scrittura di tutto ciò che riguarda il codice.
 \begin{itemize}
     \item \textbf{Indentazione:} i blocchi di codice innestati dovranno avere un’indentazione di due spazi;
@@ -195,9 +198,10 @@ In questo paragrafo si va a definire le norme di scrittura di tutto ciò che rig
     italiana e indentati di uno spazio. Inoltre sono obbligatori in parti di codice che non sono immediatamente comprensibili.
     Ogni volta che viene aggiornato un metodo va verificata la validità del commento;
     \item \textbf{File:} il nome dei file creati dovrà essere formattato in \textbf{Camel Case}
-\end{itemize}
+\end{itemize} 
+\vspace{1em}
 
-\subsubsubsection{Norme linguaggi adottati}
+\noindent \textbf{Norme per i linguaggi adottati}\\
 In questo paragrafo andremo a definire le norme che il gruppo ha deciso di adottare per ogni specifico
 linguaggio utilizzato nel progetto.
 \begin{itemize}
@@ -227,8 +231,9 @@ linguaggio utilizzato nel progetto.
     Le direttive specificate nella sezione \nameref{ref:stile} prevalgono su alcune delle norme definite nel collegamento precedente,
     in particolare per quanto riguarda la formattazione dei nomi.
 \end{itemize}
+\vspace{1em}
 
-\subsubsubsection{Norme React.js}
+\noindent \textbf{Norme React.js}\\
 Per quanto riguarda i costrutti che la libreria React.js ci consente di creare il team ha concordato le seguenti normative:
 \begin{itemize}
     \item Il nome del componente deve essere uguale al nome del modulo con la prima lettera maiuscola;
@@ -241,11 +246,11 @@ Per quanto riguarda i costrutti che la libreria React.js ci consente di creare i
     \item Utilizzare sempre \textbf{Camel Case} per i nomi delle prop;
     \item Utilizzare sempre i doppi apici invece che i singoli;
     \item Utilizzare una self-close se i tag non hanno figli;
-    \item Utilizzare className per assegnare classi CSS agli elementi;
+    \item Utilizzare className per assegnare classi CSS agli elementi.
 \end{itemize}
+\vspace{1em}
 
-\subsubsubsection{Organizzazione codice}  % SOGGETTO A VARIAZIONE %
-
+\noindent \textbf{Organizzazione codice}\\  % SOGGETTO A VARIAZIONE %
 In seguito riportiamo la struttura che il gruppo ha deciso di utilizzare per il progetto:
 \begin{itemize}
     \item \textbf{client} Parte frontend;
@@ -262,9 +267,9 @@ In seguito riportiamo la struttura che il gruppo ha deciso di utilizzare per il 
         \textbf{Nota:} La cartella "modules" contiene i moduli suddivisi in cartelle e al loro interno dovranno esserci i corrispettivi controller, provider e service.
     \end{itemize}
 \end{itemize}
+\vspace{1em}
 
-
-\subsubsubsection{Strumenti di sviluppo}
+\noindent \textbf{Strumenti di sviluppo}\\
 Di seguito gli strumenti utilizzati durante il processo di sviluppo:
 \begin{itemize}
     \item \textbf{React.js:} libreria open-source per la creazione di interfacce utente in JavaScript;
@@ -280,8 +285,9 @@ Di seguito gli strumenti utilizzati durante il processo di sviluppo:
     \item \textbf{Redux Toolkit:} libreria che semplifica l'utilizzo di Redux e riduce la quantità di codice da scrivere;
     \item \textbf{Docker:} piattaforma open-source che permette di "containerizzare" e rendere portabili le applicazioni.
 \end{itemize}
+\vspace{1em}
 
-\subsubsubsection{Ambiente di lavoro}
+\noindent \textbf{Ambiente di lavoro}\\
 Di seguito riportiamo gli strumenti che hanno definito il nostro ambiente di lavoro durante il processo di
 sviluppo.
 
@@ -290,8 +296,9 @@ sviluppo.
     Compatibile con Windows, MacOS e Linux;
     \item \textbf{Docker desktop (facoltativo):} applicazione intuitiva che semplifica l'utilizzo dei container Docker.
 \end{itemize}
+\vspace{1em}
 
-\subsubsubsection{Configurazione ambiente di lavoro}
+\noindent \textbf{Configurazione ambiente di lavoro} \\
 La configurazione dell’ambiente di lavoro viene fatta da un componente del gruppo, che carica la cartella
 di lavoro configurata nel repo. Successivamente gli altri componenti devono eseguire le seguenti istruzioni
 per mettersi in condizioni di lavorare. Per prima cosa ogni componente del gruppo deve installare Node.js, NPM e Docker
@@ -313,8 +320,6 @@ Se si desidera ricostruire le immagini è necessario eseguire il seguente comand
     \item \texttt{docker-compose -f dc-dep.yaml up --build} se si vuole ricostruire l' ambiente di deploy.
 \end{itemize}
 In questo modo docker ricostruirà le immagini e avvierà direttamente i container.
-
-
 
 
 \subsubsection{Metriche}
