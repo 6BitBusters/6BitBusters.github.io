@@ -1,29 +1,21 @@
 import { useSelector } from "react-redux";
 import { Html } from "@react-three/drei";
 import * as THREE from "three";
-import { Data } from "../../../features/Data/interfaces/Data";
-import { Legend } from "../../../features/Data/types/Legend";
 import { selectorRaycastHit } from "../../../features/Raycast/RaycastHitSlice";
-
-type ToolTipProps = {
-  data: Data;
-  legend: Legend | null;
-  Xlabel: string;
-  Zlabel: string;
-};
+import { ToolTipProps } from "./props/ToolTipProps";
 
 function Tooltip({ data, legend, Xlabel, Zlabel }: ToolTipProps) {
   const raycastState = useSelector(selectorRaycastHit);
 
   return (
-    raycastState.barTooltipPosition !== null && (
+    raycastState?.barTooltipPosition !== null && (
       <Html
         position={
           new THREE.Vector3(
-            raycastState.barTooltipPosition[0],
-            raycastState.barTooltipPosition[1],
-            raycastState.barTooltipPosition[2],
-          )
+            raycastState?.barTooltipPosition[0],
+            raycastState?.barTooltipPosition[1],
+            raycastState?.barTooltipPosition[2],
+          ).toArray()
         }
         key={data.id}>
         <div

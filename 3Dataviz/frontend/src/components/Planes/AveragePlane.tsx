@@ -5,7 +5,7 @@ function AveragePlane({ position, size,isVisible }: AveragePlaneProps) {
   return (
     <mesh
     renderOrder={1}
-      position={position}
+      position={position.toArray()}
       rotation={[-Math.PI / 2, 0, 0]}
       userData={{ id: "average" }}>
       <planeGeometry args={size} />

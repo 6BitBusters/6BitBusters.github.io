@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
-import { Data } from "../../../features/Data/interfaces/Data";
 import { ThreeEvent, useThree } from "@react-three/fiber";
 import { GetIntersection, GetIntersectionId } from "./Utils/RaycastUtils";
 import { useSelector } from "react-redux";
@@ -13,12 +12,7 @@ import {
 import { LoadShader } from "./Utils/ShaderUtils";
 import { UpdateMousePosition } from "./Utils/PointerInterectionUtils";
 import { Selection } from "./Utils/ColorsUtils";
-
-type BarsProps = {
-  data: Data[];
-  clickHandler: (value: number) => void;
-  hoverHandler: (barId: number) => void;
-};
+import { BarsProps } from "./props/BarsProps";
 
 function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   const { scene, camera } = useThree();

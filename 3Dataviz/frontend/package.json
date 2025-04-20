@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@react-three/test-renderer": "^9.0.1",
     "@simonsmith/cypress-image-snapshot": "^9.1.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
