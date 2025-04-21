@@ -11,6 +11,7 @@ import {
 import { DatasetInfo } from "../DataSource/types/DatasetInfo";
 import { CustomError } from "./Errors/CustomError";
 import { RootState } from "../../app/Store";
+import { serializeError } from "./Utils/ErrorSerializer";
 
 const initialState: AppState = {
   isLoading: false,
@@ -79,14 +80,6 @@ function generateError(errNo: number): CustomError {
   }
 }
 
-function serializeError(error: any) {
-  return {
-    name: error.name,
-    message: error.message,
-    stack: error.stack,
-    code: error.errNo,
-  };
-}
 
 export const selectorAppState = (state: RootState) => state.appState;
 

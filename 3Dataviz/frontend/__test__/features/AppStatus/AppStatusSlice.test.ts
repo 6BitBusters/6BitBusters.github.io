@@ -12,6 +12,7 @@ import {
   setCurrentDataset,
 } from "../../../src/features/DataSource/DataSourceSlice";
 import { CreateMockRootState } from "../../utils/StateMockCreator";
+import { serializeError } from "../../../src/features/AppStatus/Utils/ErrorSerializer";
 
 describe("AppStateSlice", () => {
   it("Reperimento dei dati del dataset in corso", () => {
@@ -73,7 +74,7 @@ describe("AppStateSlice", () => {
     };
     const expectedState: AppState = {
       isLoading: false,
-      error: new TooManyRequestsError(),
+      error: serializeError(new TooManyRequestsError()),
     };
     expect(
       reducer(initialState, {
@@ -81,8 +82,8 @@ describe("AppStateSlice", () => {
         payload: errNo,
       }),
     ).toEqual(expectedState);
-    expect(expectedState.error?.getErrNo()).toEqual(errNo);
-    expect(expectedState.error?.getErrorMessage()).toEqual(
+    expect(expectedState.error?.code).toEqual(errNo.toString());
+    expect(expectedState.error?.message).toEqual(
       "Numero massimo di richieste API effettuate",
     );
   });
@@ -95,7 +96,7 @@ describe("AppStateSlice", () => {
     };
     const expectedState: AppState = {
       isLoading: false,
-      error: new ServerError(),
+      error: serializeError(new ServerError()),
     };
     expect(
       reducer(initialState, {
@@ -103,8 +104,8 @@ describe("AppStateSlice", () => {
         payload: errNo,
       }),
     ).toEqual(expectedState);
-    expect(expectedState.error?.getErrNo()).toEqual(errNo);
-    expect(expectedState.error?.getErrorMessage()).toEqual(
+    expect(expectedState.error?.code).toEqual(errNo.toString());
+    expect(expectedState.error?.message).toEqual(
       "Errore di connessione al server",
     );
   });
@@ -117,7 +118,7 @@ describe("AppStateSlice", () => {
     };
     const expectedState: AppState = {
       isLoading: false,
-      error: new NotFoundError(),
+      error: serializeError(new NotFoundError()),
     };
     expect(
       reducer(initialState, {
@@ -125,8 +126,8 @@ describe("AppStateSlice", () => {
         payload: errNo,
       }),
     ).toEqual(expectedState);
-    expect(expectedState.error?.getErrNo()).toEqual(errNo);
-    expect(expectedState.error?.getErrorMessage()).toEqual("Non trovato");
+    expect(expectedState.error?.code).toEqual(errNo.toString());
+    expect(expectedState.error?.message).toEqual("Non trovato");
   });
   it("Reperimento dei dataset fallito per 'server'", () => {
     const errNo: number = 500;
@@ -136,7 +137,7 @@ describe("AppStateSlice", () => {
     };
     const expectedState: AppState = {
       isLoading: false,
-      error: new ServerError(),
+      error: serializeError(new ServerError()),
     };
     expect(
       reducer(initialState, {
@@ -152,7 +153,7 @@ describe("AppStateSlice", () => {
     };
     const expectedState: AppState = {
       isLoading: false,
-      error: new NotFoundError(),
+      error: serializeError(new NotFoundError()),
     };
     expect(reducer(initialState, setCurrentDataset(undefined))).toEqual(
       expectedState,
