@@ -28,22 +28,3 @@ export function GetIntersection(
   }
   return null;
 }
-
-export function ScreenToWorldPosition(
-  mouse: THREE.Vector2,
-  cam: THREE.Camera,
-): [number, number] {
-  const raycaster = new THREE.Raycaster();
-
-  raycaster.setFromCamera(mouse, cam);
-  // Crea un piano invisibile parallelo alla camera a una certa distanza
-  const planeNormal = new THREE.Vector3(0, 0, -1).transformDirection(
-    cam.matrixWorld,
-  );
-  // Distanza dalla camera
-  const plane = new THREE.Plane(planeNormal, -cam.position.z);
-
-  const worldPoint = new THREE.Vector3();
-  raycaster.ray.intersectPlane(plane, worldPoint);
-  return [worldPoint.x, worldPoint.y];
-}

@@ -8,6 +8,7 @@ import BarChart from "../BarChart/BarChart";
 import { CustomCanvasProps } from "./props/CustomCanvasProp";
 import Lights from "./Lights";
 import React from "react";
+import * as THREE from "three";
 
 const customCanvas = React.forwardRef<
   { resetCamera: () => void },
@@ -60,6 +61,29 @@ const customCanvas = React.forwardRef<
       }
     };
 
+    const cameraFocus = (
+      cameraPosition: THREE.Vector3,
+      lookAt: THREE.Vector3,
+    ) => {
+      if (!controls.current) return;
+      const camera = controls.current.object;
+
+      gsap.to(camera.position, {
+        x: cameraPosition.x,
+        y: cameraPosition.y,
+        z: cameraPosition.z,
+        duration: 1,
+        ease: "power2.out",
+      });
+      gsap.to(controls.current.target, {
+        x: lookAt.x,
+        y: lookAt.y,
+        z: lookAt.z,
+        duration: 1,
+        ease: "power2.out",
+      });
+    };
+
     useImperativeHandle(ref, () => ({
       resetCamera: resetCamera,
     }));
@@ -79,7 +103,7 @@ const customCanvas = React.forwardRef<
           <fog attach="fog" args={[0x121212, 0.1, 150]} />
           <Lights intensity={1} distance={500} lightPosition={[10, 30, 10]} />
           <gridHelper args={[500, 500, "#303030", "#303030"]} />
-          <BarChart />
+          <BarChart onSelectedBar={cameraFocus} />
           <OrbitControls
             makeDefault
             ref={controls}

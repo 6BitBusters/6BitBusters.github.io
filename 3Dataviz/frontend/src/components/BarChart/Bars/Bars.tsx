@@ -75,7 +75,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
       dummy.matrix.toArray(array, i * 16);
     }
     return { matrices: array, colors };
-  }, [count, data, dummy]);
+  }, [count, dummy]);
 
   useEffect(() => {
     if (mesh.current) {
@@ -104,7 +104,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
         new THREE.InstancedBufferAttribute(instanceOpacity, 1),
       );
     }
-  }, [instancedBarMatrices, instanceOpacity]);
+  }, [instancedBarMatrices]);
 
   useEffect(() => {
     const newOpacity = new Float32Array(count);
