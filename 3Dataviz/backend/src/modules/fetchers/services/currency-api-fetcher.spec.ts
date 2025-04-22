@@ -21,7 +21,8 @@ import { CurrencyApiFetcher } from "./currency-api-fetcher";
 import { CURRENCY_API_CONFIG } from "../config";
 import { CurrencyData } from "../interfaces/currency-data.interface";
 import axios from "axios";
-import { Dataset } from "src/interfaces/raw-dataset.interface";
+import { RawDataset } from "src/interfaces/raw-dataset.interface";
+import { Legend } from "src/interfaces/legend.interface";
 import { HttpStatus } from "@nestjs/common";
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -70,6 +71,11 @@ describe("CurrencyApiFetcher", () => {
     expect(description).toBe(CURRENCY_API_CONFIG.DESCRIPTION);
   });
 
+  it("should return the correct legend", () => {
+    const legend: Legend = currencyApiFetcher.getLegend();
+    expect(legend).toEqual(CURRENCY_API_CONFIG.LEGEND);
+  });
+
   it("should fetch data and return transformed dataset", async () => {
     // Simuliamo la risposta API con dati fittizi
     const mockCurrencyData: CurrencyData[] = [
@@ -102,7 +108,7 @@ describe("CurrencyApiFetcher", () => {
     // Verifica che il risultato sia stato trasformato (controllo generico)
     expect(result).toBeDefined();
 
-    const expectedResult: Dataset = {
+    const expectedResult: RawDataset = {
       data: [
         {
           id: 0,
@@ -141,7 +147,6 @@ describe("CurrencyApiFetcher", () => {
           z: 2,
         },
       ],
-      legend: CURRENCY_API_CONFIG.LEGEND,
       xLabels: ["2000", "2001"],
       zLabels: ["USD", "GBP", "JPY"],
     };

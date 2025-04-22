@@ -22,7 +22,8 @@ import { PopulationApiFetcher } from "./population-api-fetcher";
 import { POPULATION_API_CONFIG } from "../config";
 import { PopulationData } from "../interfaces/population-data.interface";
 import axios from "axios";
-import { Dataset } from "src/interfaces/raw-dataset.interface";
+import { RawDataset } from "src/interfaces/raw-dataset.interface";
+import { Legend } from "src/interfaces/legend.interface";
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
@@ -61,6 +62,11 @@ describe("PopulationApiFetcher", () => {
     expect(description).toBe(POPULATION_API_CONFIG.DESCRIPTION);
   });
 
+  it("should return the correct legend", () => {
+    const legend: Legend = populationApiFetcher.getLegend();
+    expect(legend).toEqual(POPULATION_API_CONFIG.LEGEND);
+  });
+
   it("should fetch data and return transformed dataset", async () => {
     // Simuliamo la risposta API con dati fittizi
     const mockPopulationData: PopulationData[] = [
@@ -83,7 +89,7 @@ describe("PopulationApiFetcher", () => {
     // Verifica che il risultato sia stato trasformato (controllo generico)
     expect(result).toBeDefined();
 
-    const expectedResult: Dataset = {
+    const expectedResult: RawDataset = {
       data: [
         {
           id: 1,
@@ -110,7 +116,6 @@ describe("PopulationApiFetcher", () => {
           z: 1,
         },
       ],
-      legend: POPULATION_API_CONFIG.LEGEND,
       xLabels: ["2022", "2023"],
       zLabels: ["Germania", "Francia"],
     };
