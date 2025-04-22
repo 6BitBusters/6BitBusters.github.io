@@ -3,14 +3,16 @@ import DataTable from "./DataTable/DataTable";
 import "./UI.css";
 
 type UIProps = {
-  datasetName: string,
+  datasetName: string;
   resetCamera: () => void;
 };
 
-function UI({ datasetName,resetCamera }: UIProps) {
+function UI({ datasetName, resetCamera }: UIProps) {
   return (
     <>
-      <p id="current-dataset" data-testid="current-dataset">{datasetName}</p>
+      <p id="current-dataset" data-testid="current-dataset">
+        {datasetName}
+      </p>
       <DataTable />
       <Options />
       <button
