@@ -9,7 +9,8 @@ import { Legend } from "../../../interfaces/legend.interface";
 import { WeatherData } from "../interfaces/weather-data.interface";
 
 @Injectable()
-export class WeatherApiFetcher extends BaseApiFetcher<WeatherData[]>
+export class WeatherApiFetcher
+  extends BaseApiFetcher<WeatherData[]>
   implements BaseFetcher
 {
   private daysBetween(start: Date, end: Date): number {

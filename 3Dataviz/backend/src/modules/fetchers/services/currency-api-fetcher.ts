@@ -16,7 +16,9 @@ import { TooManyRequestsException } from "../../../exceptions/too-many-requests.
 dotenv.config();
 
 @Injectable()
-export class CurrencyApiFetcher extends BaseApiFetcher<CurrencyData[]> implements BaseFetcher
+export class CurrencyApiFetcher
+  extends BaseApiFetcher<CurrencyData[]>
+  implements BaseFetcher
 {
   private buildUrl(year: number): string {
     const baseUrl = CURRENCY_API_CONFIG.BASE_URL;

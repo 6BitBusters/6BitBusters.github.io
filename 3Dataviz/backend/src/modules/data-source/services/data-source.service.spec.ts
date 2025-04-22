@@ -13,6 +13,11 @@ class MockFetcher implements BaseFetcher {
   getName = jest.fn(() => "Mock Name");
   getSize = jest.fn(() => [10, 5] as [number, number]);
   getDescription = jest.fn(() => "Mock Description");
+  getLegend = jest.fn(() => ({
+    x: "X",
+    y: "Y",
+    z: "Z",
+  }));
   getDataset = jest.fn(() => Promise.resolve(mockDataset));
 
   fetchData = jest.fn(() => Promise.resolve(mockDataset));
