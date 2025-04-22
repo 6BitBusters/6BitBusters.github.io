@@ -93,6 +93,7 @@ const customCanvas = React.forwardRef<
     return (
       <>
         <Canvas
+          data-testid="canvas"
           dpr={window.devicePixelRatio}
           shadows
           gl={{ preserveDrawingBuffer: true }}

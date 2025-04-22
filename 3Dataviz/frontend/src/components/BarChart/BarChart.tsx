@@ -26,13 +26,12 @@ function BarChart({ onSelectedBar }: BarChartProps) {
   const [selectedBar, setSelectedBar] = useState(-1);
   const [hoverBar, setHoverBar] = useState(0);
 
-  useEffect(() => {
-    if (selectedBar >= 0) {
-      dispatch(
-        filterByValue({ value: data.data[selectedBar].y, isGreater: true }),
-      );
-    }
-  }, [selectedBar, dispatch, data.data]);
+  const handleClick = (id:number) => {
+    setSelectedBar(id)
+    dispatch(
+      filterByValue({ value: data.data[id].y, isGreater: true }),
+    );
+  }
 
   useEffect(() => {
     if (selectedBar >= 0) {
@@ -54,7 +53,7 @@ function BarChart({ onSelectedBar }: BarChartProps) {
     <>
       <Bars
         data={data.data}
-        clickHandler={setSelectedBar}
+        clickHandler={handleClick}
         hoverHandler={setHoverBar}
       />
       <Axes

@@ -1,5 +1,12 @@
-.hide {
-    /* position: absolute; */
-    /* text-indent: -9999px; */
+#loading {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 3rem;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
 }
-
