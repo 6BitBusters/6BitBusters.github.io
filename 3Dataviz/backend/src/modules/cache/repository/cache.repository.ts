@@ -1,8 +1,11 @@
 import { Injectable, OnModuleDestroy, OnModuleInit } from "@nestjs/common";
 import { Client } from "memjs";
+import { ICacheRepository } from "src/interfaces/cache-repository.interface";
 
 @Injectable()
-export class CacheService implements OnModuleInit, OnModuleDestroy {
+export class CacheRepository
+  implements ICacheRepository, OnModuleInit, OnModuleDestroy
+{
   private cache: Client;
 
   onModuleInit() {

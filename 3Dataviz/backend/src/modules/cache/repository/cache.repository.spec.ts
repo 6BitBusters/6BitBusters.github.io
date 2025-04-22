@@ -1,5 +1,5 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { CacheService } from "./cache.service";
+import { CacheRepository } from "./cache.repository";
 import { Client } from "memjs";
 
 jest.mock("memjs", () => {
@@ -26,14 +26,14 @@ jest.mock("memjs", () => {
 });
 
 describe("CacheService", () => {
-  let service: CacheService;
+  let service: CacheRepository;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [CacheService],
+      providers: [CacheRepository],
     }).compile();
 
-    service = module.get<CacheService>(CacheService);
+    service = module.get<CacheRepository>(CacheRepository);
     service.onModuleInit();
   });
 

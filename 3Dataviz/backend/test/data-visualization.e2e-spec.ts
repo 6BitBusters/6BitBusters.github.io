@@ -5,7 +5,6 @@ import { App } from "supertest/types";
 import { DataVisualizationModule } from "../src/modules/data-visualization/data-visualization.module";
 import { DataVisualizationService } from "../src/modules/data-visualization/services/data-visualization.service";
 import { fetchersFactory } from "../src/modules/fetchers/factories/fetchers.factory";
-import { CacheService } from "../src/modules/cache/services/cache.service";
 
 describe("DataVisualizationController (e2e)", () => {
   let app: INestApplication<App>;
@@ -16,7 +15,13 @@ describe("DataVisualizationController (e2e)", () => {
       imports: [DataVisualizationModule],
       providers: [
         DataVisualizationService,
-        CacheService,
+        {
+          provide: "CACHE_REPOSITORY",
+          useValue: {
+            get: jest.fn(),
+            set: jest.fn(),
+          },
+        },
         {
           provide: "FETCHERS",
           useFactory: fetchersFactory,

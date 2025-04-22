@@ -2,7 +2,7 @@ import { Test, TestingModule } from "@nestjs/testing";
 import { DataVisualizationService } from "./data-visualization.service";
 import { Dataset } from "src/interfaces/dataset.interface";
 import { BaseFetcher } from "../../../modules/fetchers/interfaces/base-fetcher.interface";
-import { CacheService } from "../../../modules/cache/services/cache.service";
+import { CacheRepository } from "../../cache/repository/cache.repository";
 
 // Creazione di una classe mock per BaseFetcher
 const mockDataset: Dataset = {
@@ -23,17 +23,26 @@ class MockFetcher implements BaseFetcher {
 
 describe("DataVisualizationService", () => {
   let service: DataVisualizationService;
-  let cacheService: CacheService;
+  let cacheRepository: CacheRepository;
   let mockFetcher0: MockFetcher;
   let mockFetcher1: MockFetcher;
 
   beforeEach(async () => {
     mockFetcher0 = new MockFetcher();
     mockFetcher1 = new MockFetcher();
+
+    const mockCacheRepository = {
+      get: jest.fn(),
+      set: jest.fn(),
+    };
+
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         DataVisualizationService,
-        CacheService,
+        {
+          provide: "CACHE_REPOSITORY",
+          useValue: mockCacheRepository,
+        },
         {
           provide: "FETCHERS",
           useValue: [mockFetcher0, mockFetcher1],
@@ -42,7 +51,7 @@ describe("DataVisualizationService", () => {
     }).compile();
 
     service = module.get<DataVisualizationService>(DataVisualizationService);
-    cacheService = module.get<CacheService>(CacheService);
+    cacheRepository = module.get<CacheRepository>("CACHE_REPOSITORY");
   });
 
   it("should be defined", () => {
@@ -60,23 +69,24 @@ describe("DataVisualizationService", () => {
   });
 
   it("should get the dataset if cached", async () => {
-    cacheService.get = jest.fn().mockResolvedValue(mockDataset);
+    cacheRepository.get = jest.fn().mockResolvedValue(mockDataset);
     const id = 0;
     const dataset = await service.getDatasetById(id);
     expect(dataset).toEqual(mockDataset);
+    expect(cacheRepository.get).toHaveBeenCalledWith(id.toString());
   });
 
   it("should fetch data from the correct fetcher if not cached", async () => {
-    cacheService.get = jest.fn().mockResolvedValue(null);
-    cacheService.set = jest.fn();
+    cacheRepository.get = jest.fn().mockResolvedValue(null);
+    cacheRepository.set = jest.fn();
     const dataset = await service.getDatasetById(0);
     expect(dataset).toEqual(mockDataset);
     expect(mockFetcher0.getDataset).toHaveBeenCalled();
   });
 
   it("should save the dataset to cache", async () => {
-    cacheService.get = jest.fn().mockResolvedValue(null);
-    const spy = jest.spyOn(cacheService, "set").mockImplementation(() => {
+    cacheRepository.get = jest.fn().mockResolvedValue(null);
+    const spy = jest.spyOn(cacheRepository, "set").mockImplementation(() => {
       return Promise.resolve();
     });
     const id = 0;

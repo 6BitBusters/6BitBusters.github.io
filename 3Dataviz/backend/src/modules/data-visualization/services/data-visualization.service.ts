@@ -1,21 +1,23 @@
 import { Inject, Injectable, NotFoundException } from "@nestjs/common";
 import { Dataset } from "src/interfaces/dataset.interface";
-import { CacheService } from "../../../modules/cache/services/cache.service";
+import { ICacheRepository } from "src/interfaces/cache-repository.interface";
 import { BaseFetcher } from "../../../modules/fetchers/interfaces/base-fetcher.interface";
 
 @Injectable()
 export class DataVisualizationService {
   constructor(
-    private cacheService: CacheService,
+    @Inject("CACHE_REPOSITORY") private cacheRepository: ICacheRepository,
     @Inject("FETCHERS") private fetchers: BaseFetcher[],
   ) {}
 
-  async getDatasetById(id: number): Promise<Dataset> {
+  async getDatasetById(id: number): Promise<Dataset>{
     if (id < 0 || id >= this.fetchers.length) {
       throw new NotFoundException("Invalid fetcher ID");
     }
     // Controlla se il dataset è già  in cache
-    const cachedDataset = await this.cacheService.get<Dataset>(id.toString());
+    const cachedDataset = await this.cacheRepository.get<Dataset>(
+      id.toString(),
+    );
     if (cachedDataset) {
       return cachedDataset;
     }
@@ -23,7 +25,7 @@ export class DataVisualizationService {
     // e memorizzalo nella cache
     const fetcher = this.fetchers[id];
     const dataset = await fetcher.getDataset();
-    await this.cacheService.set(id.toString(), dataset);
+    await this.cacheRepository.set(id.toString(), dataset);
     return dataset;
   }
 }
