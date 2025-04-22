@@ -10,7 +10,7 @@ export class DataVisualizationService {
     @Inject("FETCHERS") private fetchers: BaseFetcher[],
   ) {}
 
-  async getDatasetById(id: number): Promise<Dataset>{
+  async getDatasetById(id: number): Promise<Dataset> {
     if (id < 0 || id >= this.fetchers.length) {
       throw new NotFoundException("Invalid fetcher ID");
     }
