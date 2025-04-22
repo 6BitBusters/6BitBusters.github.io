@@ -1,7 +1,7 @@
 import { Inject, Injectable, NotFoundException } from "@nestjs/common";
 import { Dataset } from "src/interfaces/dataset.interface";
 import { CacheService } from "../../../modules/cache/services/cache.service";
-import { BaseFetcher } from "../../../modules/fetchers/services/base-fetcher";
+import { BaseFetcher } from "../../../modules/fetchers/interfaces/base-fetcher.interface";
 
 @Injectable()
 export class DataVisualizationService {
@@ -22,7 +22,7 @@ export class DataVisualizationService {
     // Altrimenti, chiama il fetcher per ottenere il dataset
     // e memorizzalo nella cache
     const fetcher = this.fetchers[id];
-    const dataset = await fetcher.fetchData();
+    const dataset = await fetcher.getDataset();
     await this.cacheService.set(id.toString(), dataset);
     return dataset;
   }

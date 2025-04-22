@@ -1,5 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { BaseFetcher } from "../../fetchers/services/base-fetcher";
+import { BaseFetcher } from "../../fetchers/interfaces/base-fetcher.interface";
 import { DataSourceDto } from "../dto/data-source.dto";
 
 @Injectable()

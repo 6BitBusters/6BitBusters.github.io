@@ -1,5 +1,6 @@
 import { Injectable, ServiceUnavailableException } from "@nestjs/common";
-import { BaseFetcher } from "./base-fetcher";
+import { BaseFetcher } from "../interfaces/base-fetcher.interface";
+import { BaseApiFetcher } from "./base-api-fetcher";
 import axios from "axios";
 import { WEATHER_API_CONFIG } from "../config";
 import { Dataset } from "../../../interfaces/dataset.interface";
@@ -8,7 +9,10 @@ import { Legend } from "../../../interfaces/legend.interface";
 import { WeatherData } from "../interfaces/weather-data.interface";
 
 @Injectable()
-export class WeatherApiFetcher extends BaseFetcher {
+export class WeatherApiFetcher
+  extends BaseApiFetcher<WeatherData[]>
+  implements BaseFetcher
+{
   private daysBetween(start: Date, end: Date): number {
     const oneDay = 24 * 60 * 60 * 1000;
     return Math.round((end.getTime() - start.getTime()) / oneDay) + 1;
@@ -50,13 +54,23 @@ export class WeatherApiFetcher extends BaseFetcher {
     return WEATHER_API_CONFIG.DESCRIPTION;
   }
 
-  async fetchData(): Promise<Dataset> {
+  async getDataset(): Promise<Dataset> {
+    try {
+      const data = await this.fetchData();
+      return this.transformData(data);
+    } catch (error) {
+      throw new ServiceUnavailableException(
+        `Errore nel recupero dei dati\n${error}`,
+      );
+    }
+  }
+
+  protected async fetchData(): Promise<WeatherData[]> {
     try {
       const url = this.buildUrl();
       const response = await axios.get<WeatherData[]>(url);
       const data = response.data;
-      const dataset = this.transformData(data);
-      return dataset;
+      return data;
     } catch (error) {
       throw new ServiceUnavailableException(
         `Errore nel recupero dei dati\n${error}`,

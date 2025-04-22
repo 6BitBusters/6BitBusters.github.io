@@ -85,8 +85,8 @@ describe("FlightsApiFetcher", () => {
         data: mockFlightsData["LIMC"],
       });
 
-    // Chiamata al metodo pubblico fetchData()
-    const result = await flightsApiFetcher.fetchData();
+    // Chiamata al metodo pubblico getDataset()
+    const result = await flightsApiFetcher.getDataset();
 
     // Verifica che il risultato sia stato trasformato (controllo generico)
     expect(result).toBeDefined();
@@ -125,7 +125,7 @@ describe("FlightsApiFetcher", () => {
       new Error("Network Error"),
     );
 
-    await expect(flightsApiFetcher.fetchData()).rejects.toThrow(
+    await expect(flightsApiFetcher.getDataset()).rejects.toThrow(
       "Errore nel recupero dei dati\nError: Network Error",
     );
   });
@@ -138,7 +138,7 @@ describe("FlightsApiFetcher", () => {
       data: mockFlightsData,
     });
 
-    await expect(flightsApiFetcher.fetchData()).rejects.toThrow(
+    await expect(flightsApiFetcher.getDataset()).rejects.toThrow(
       "Errore nel recupero dei dati\nError: Formato dei dati non valido\nTypeError: data[airport.airportCode].filter is not a function",
     );
   });
@@ -151,7 +151,7 @@ describe("FlightsApiFetcher", () => {
     });
     jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
 
-    const result = await flightsApiFetcher.fetchData();
+    const result = await flightsApiFetcher.getDataset();
 
     expectedResult.data = [
       {

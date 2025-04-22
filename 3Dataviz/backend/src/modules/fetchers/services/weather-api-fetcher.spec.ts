@@ -80,8 +80,8 @@ describe("WeatherApiService", () => {
     // Simuliamo la risposta di Axios
     (mockedAxios.get as jest.Mock).mockResolvedValue({ data: mockWeatherData });
 
-    // Chiamata al metodo pubblico fetchData()
-    const result = await weatherApiFetcher.fetchData();
+    // Chiamata al metodo protteto fetchData()
+    const result = await weatherApiFetcher.getDataset();
 
     // Verifica che il risultato sia stato trasformato (controllo generico)
     expect(result).toBeDefined();
@@ -126,7 +126,7 @@ describe("WeatherApiService", () => {
       new Error("Network Error"),
     );
 
-    await expect(weatherApiFetcher.fetchData()).rejects.toThrow(
+    await expect(weatherApiFetcher.getDataset()).rejects.toThrow(
       "Errore nel recupero dei dati\nError: Network Error",
     );
   });
@@ -143,7 +143,7 @@ describe("WeatherApiService", () => {
 
     (mockedAxios.get as jest.Mock).mockResolvedValue({ data: mockWeatherData });
 
-    await expect(weatherApiFetcher.fetchData()).rejects.toThrow(
+    await expect(weatherApiFetcher.getDataset()).rejects.toThrow(
       "Errore nel recupero dei dati\nError: Formato dei dati non valido",
     );
   });

@@ -3,7 +3,8 @@ import {
   Injectable,
   ServiceUnavailableException,
 } from "@nestjs/common";
-import { BaseFetcher } from "./base-fetcher";
+import { BaseFetcher } from "../interfaces/base-fetcher.interface";
+import { BaseApiFetcher } from "./base-api-fetcher";
 import axios from "axios";
 import { FLIGHTS_API_CONFIG } from "../config";
 import { Dataset } from "../../../interfaces/dataset.interface";
@@ -16,7 +17,10 @@ import {
 import { formatDate, formatTime } from "../../../common/utils/date-utils";
 
 @Injectable()
-export class FlightsApiFetcher extends BaseFetcher {
+export class FlightsApiFetcher
+  extends BaseApiFetcher<FlightsData>
+  implements BaseFetcher
+{
   private buildUrl(airportCode: string): string {
     const startDatetime = FLIGHTS_API_CONFIG.START_DATETIME;
     const endDatetime =
@@ -45,7 +49,18 @@ export class FlightsApiFetcher extends BaseFetcher {
     return FLIGHTS_API_CONFIG.DESCRIPTION;
   }
 
-  async fetchData(): Promise<Dataset> {
+  async getDataset(): Promise<Dataset> {
+    try {
+      const data = await this.fetchData();
+      return this.transformData(data);
+    } catch (error) {
+      throw new ServiceUnavailableException(
+        `Errore nel recupero dei dati\n${error}`,
+      );
+    }
+  }
+
+  protected async fetchData(): Promise<FlightsData> {
     const data: FlightsData = {};
     try {
       for (const airport of FLIGHTS_API_CONFIG.AIRPORTS) {
@@ -66,8 +81,7 @@ export class FlightsApiFetcher extends BaseFetcher {
           });
         data[airport.airportCode] = responseData;
       }
-      const dataset = this.transformData(data);
-      return dataset;
+      return data;
     } catch (error) {
       throw new ServiceUnavailableException(
         `Errore nel recupero dei dati\n${error}`,

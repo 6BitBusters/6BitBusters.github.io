@@ -78,7 +78,7 @@ describe("PopulationApiFetcher", () => {
     });
 
     // Chiamata al metodo pubblico fetchData()
-    const result = await populationApiFetcher.fetchData();
+    const result = await populationApiFetcher.getDataset();
 
     // Verifica che il risultato sia stato trasformato (controllo generico)
     expect(result).toBeDefined();
@@ -123,7 +123,7 @@ describe("PopulationApiFetcher", () => {
       new Error("Network Error"),
     );
 
-    await expect(populationApiFetcher.fetchData()).rejects.toThrow(
+    await expect(populationApiFetcher.getDataset()).rejects.toThrow(
       "Errore nel recupero dei dati\nError: Network Error",
     );
   });
@@ -136,7 +136,7 @@ describe("PopulationApiFetcher", () => {
       data: mockPopulationData,
     });
 
-    await expect(populationApiFetcher.fetchData()).rejects.toThrow(
+    await expect(populationApiFetcher.getDataset()).rejects.toThrow(
       "Errore nel recupero dei dati\nError: Formato dei dati non valido\nTypeError: Cannot read properties of undefined (reading 'name')",
     );
   });

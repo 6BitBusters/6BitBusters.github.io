@@ -23,7 +23,7 @@ export const FLIGHTS_API_CONFIG = {
     "https://opensky-network.org/api/flights/departure?airport=" +
     "@AIRPORT@&begin=@START_DATETIME@&end=@END_DATETIME@",
   // 2 aprile 2025 00:00:00
-  START_DATETIME: 1743552000,
+  START_DATETIME: 1743724800,
   // 7 giorni
   NUM_INTERVALS: 168,
   // 1 ora
