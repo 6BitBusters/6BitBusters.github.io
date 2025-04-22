@@ -25,7 +25,7 @@ jest.mock("memjs", () => {
   };
 });
 
-describe("CacheService", () => {
+describe("CacheRepository", () => {
   let service: CacheRepository;
 
   beforeEach(async () => {
