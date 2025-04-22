@@ -4,7 +4,6 @@ import { selectorAppState } from "../../features/AppStatus/AppSlice";
 import "./errorPage.css";
 
 function ErrorPage() {
-  //METTERE DEFAULT 404
   // Redux get error
   const appStateError: SerializedError | null =
     useSelector(selectorAppState).error;
@@ -12,9 +11,13 @@ function ErrorPage() {
   return (
     <>
       <div className="containerError">
-        <h1 id="titleError">{appStateError?.code}</h1>
-        <h2>{appStateError?.name}</h2>
-        <p>{appStateError?.message}</p>
+        <h1 id="titleError">{appStateError ? appStateError?.code : 404}</h1>
+        <h2>{appStateError ? appStateError?.name : "Server Error"}</h2>
+        <p>
+          {appStateError
+            ? appStateError?.message
+            : "Il contenuto che stai cercando non è stato trovato."}
+        </p>
         <a href="/">Torna alla HomePage</a>
       </div>
     </>
