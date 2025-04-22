@@ -1,9 +1,7 @@
 import { Entry } from "./entry.interface";
-import { Legend } from "./legend.interface";
 
-export interface Dataset {
+export interface RawDataset {
   data: Entry[];
-  legend: Legend;
   xLabels: string[];
   zLabels: string[];
 }

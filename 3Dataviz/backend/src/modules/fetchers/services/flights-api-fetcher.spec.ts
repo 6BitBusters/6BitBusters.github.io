@@ -23,7 +23,7 @@ import { FlightsApiFetcher } from "./flights-api-fetcher";
 import { FLIGHTS_API_CONFIG } from "../config";
 import { FlightsData } from "../interfaces/flights-data.interface";
 import axios from "axios";
-import { Dataset } from "src/interfaces/dataset.interface";
+import { Dataset } from "src/interfaces/raw-dataset.interface";
 import { HttpStatus } from "@nestjs/common";
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;

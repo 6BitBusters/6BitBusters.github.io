@@ -1,4 +1,4 @@
-import { Dataset } from "src/interfaces/dataset.interface";
+import { Dataset } from "src/interfaces/raw-dataset.interface";
 import { Entry } from "src/interfaces/entry.interface";
 import { Legend } from "src/interfaces/legend.interface";
 

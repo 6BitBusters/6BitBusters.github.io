@@ -7,7 +7,7 @@ import { BaseFetcher } from "../interfaces/base-fetcher.interface";
 import { BaseApiFetcher } from "./base-api-fetcher";
 import axios from "axios";
 import { FLIGHTS_API_CONFIG } from "../config";
-import { Dataset } from "../../../interfaces/dataset.interface";
+import { RawDataset } from "../../../interfaces/raw-dataset.interface";
 import { Entry } from "../../../interfaces/entry.interface";
 import { Legend } from "../../../interfaces/legend.interface";
 import {
@@ -49,15 +49,8 @@ export class FlightsApiFetcher
     return FLIGHTS_API_CONFIG.DESCRIPTION;
   }
 
-  async getDataset(): Promise<Dataset> {
-    try {
-      const data = await this.fetchData();
-      return this.transformData(data);
-    } catch (error) {
-      throw new ServiceUnavailableException(
-        `Errore nel recupero dei dati\n${error}`,
-      );
-    }
+  getLegend(): Legend {
+    return FLIGHTS_API_CONFIG.LEGEND;
   }
 
   protected async fetchData(): Promise<FlightsData> {
@@ -89,9 +82,8 @@ export class FlightsApiFetcher
     }
   }
 
-  protected transformData(data: FlightsData): Dataset {
+  protected transformData(data: FlightsData): RawDataset {
     const entries: Entry[] = [];
-    const legend: Legend = FLIGHTS_API_CONFIG.LEGEND;
     const xLabels = Array.from(
       { length: FLIGHTS_API_CONFIG.NUM_INTERVALS },
       (_, index) => {
@@ -135,9 +127,8 @@ export class FlightsApiFetcher
           entries.push(entry);
         }
       });
-      const dataset: Dataset = {
+      const dataset: RawDataset = {
         data: entries,
-        legend: legend,
         xLabels: xLabels,
         zLabels: zLabels,
       };

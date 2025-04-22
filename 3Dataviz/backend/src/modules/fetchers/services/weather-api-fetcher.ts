@@ -3,14 +3,13 @@ import { BaseFetcher } from "../interfaces/base-fetcher.interface";
 import { BaseApiFetcher } from "./base-api-fetcher";
 import axios from "axios";
 import { WEATHER_API_CONFIG } from "../config";
-import { Dataset } from "../../../interfaces/dataset.interface";
+import { RawDataset } from "../../../interfaces/raw-dataset.interface";
 import { Entry } from "../../../interfaces/entry.interface";
 import { Legend } from "../../../interfaces/legend.interface";
 import { WeatherData } from "../interfaces/weather-data.interface";
 
 @Injectable()
-export class WeatherApiFetcher
-  extends BaseApiFetcher<WeatherData[]>
+export class WeatherApiFetcher extends BaseApiFetcher<WeatherData[]>
   implements BaseFetcher
 {
   private daysBetween(start: Date, end: Date): number {
@@ -54,15 +53,8 @@ export class WeatherApiFetcher
     return WEATHER_API_CONFIG.DESCRIPTION;
   }
 
-  async getDataset(): Promise<Dataset> {
-    try {
-      const data = await this.fetchData();
-      return this.transformData(data);
-    } catch (error) {
-      throw new ServiceUnavailableException(
-        `Errore nel recupero dei dati\n${error}`,
-      );
-    }
+  getLegend(): Legend {
+    return WEATHER_API_CONFIG.LEGEND;
   }
 
   protected async fetchData(): Promise<WeatherData[]> {
@@ -78,9 +70,8 @@ export class WeatherApiFetcher
     }
   }
 
-  protected transformData(data: WeatherData[]): Dataset {
+  protected transformData(data: WeatherData[]): RawDataset {
     const entries: Entry[] = [];
-    const legend: Legend = WEATHER_API_CONFIG.LEGEND;
 
     const xLabels = data[0].hourly.time;
     const zLabels = WEATHER_API_CONFIG.CITIES.map((city) => city.name);
@@ -101,9 +92,8 @@ export class WeatherApiFetcher
         entries.push(entry);
       }
     }
-    const dataset: Dataset = {
+    const dataset: RawDataset = {
       data: entries,
-      legend: legend,
       xLabels: xLabels,
       zLabels: zLabels,
     };

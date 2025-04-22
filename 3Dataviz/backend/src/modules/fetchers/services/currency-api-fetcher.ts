@@ -7,7 +7,7 @@ import { BaseFetcher } from "../interfaces/base-fetcher.interface";
 import { BaseApiFetcher } from "./base-api-fetcher";
 import axios from "axios";
 import { CURRENCY_API_CONFIG } from "../config";
-import { Dataset } from "../../../interfaces/dataset.interface";
+import { RawDataset } from "../../../interfaces/raw-dataset.interface";
 import { Entry } from "../../../interfaces/entry.interface";
 import { Legend } from "../../../interfaces/legend.interface";
 import { CurrencyData } from "../interfaces/currency-data.interface";
@@ -16,9 +16,7 @@ import { TooManyRequestsException } from "../../../exceptions/too-many-requests.
 dotenv.config();
 
 @Injectable()
-export class CurrencyApiFetcher
-  extends BaseApiFetcher<CurrencyData[]>
-  implements BaseFetcher
+export class CurrencyApiFetcher extends BaseApiFetcher<CurrencyData[]> implements BaseFetcher
 {
   private buildUrl(year: number): string {
     const baseUrl = CURRENCY_API_CONFIG.BASE_URL;
@@ -47,17 +45,6 @@ export class CurrencyApiFetcher
     return CURRENCY_API_CONFIG.DESCRIPTION;
   }
 
-  async getDataset(): Promise<Dataset> {
-    try {
-      const data = await this.fetchData();
-      return this.transformData(data);
-    } catch (error) {
-      throw new ServiceUnavailableException(
-        `Errore nel recupero dei dati\n${error}`,
-      );
-    }
-  }
-
   protected async fetchData(): Promise<CurrencyData[]> {
     const data: CurrencyData[] = [];
     try {
@@ -83,10 +70,12 @@ export class CurrencyApiFetcher
       );
     }
   }
+  getLegend(): Legend {
+    return CURRENCY_API_CONFIG.LEGEND;
+  }
 
-  protected transformData(data: CurrencyData[]): Dataset {
+  protected transformData(data: CurrencyData[]): RawDataset {
     const entries: Entry[] = [];
-    const legend: Legend = CURRENCY_API_CONFIG.LEGEND;
 
     const numYears = this.getSize()[0];
     const xLabels = Array.from({ length: numYears }, (_, offset) => {
@@ -118,9 +107,8 @@ export class CurrencyApiFetcher
           entries.push(entry);
         }
       }
-      const dataset: Dataset = {
+      const dataset: RawDataset = {
         data: entries,
-        legend: legend,
         xLabels: xLabels,
         zLabels: zLabels,
       };

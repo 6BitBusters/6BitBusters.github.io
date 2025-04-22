@@ -1,12 +1,12 @@
 import { Inject, Injectable, NotFoundException } from "@nestjs/common";
-import { Dataset } from "src/interfaces/dataset.interface";
-import { ICacheRepository } from "src/interfaces/cache-repository.interface";
+import { Dataset } from "src/interfaces/raw-dataset.interface";
+import { IRepository } from "src/interfaces/repository.interface";
 import { BaseFetcher } from "../../../modules/fetchers/interfaces/base-fetcher.interface";
 
 @Injectable()
 export class DataVisualizationService {
   constructor(
-    @Inject("CACHE_REPOSITORY") private cacheRepository: ICacheRepository,
+    @Inject("CACHE_REPOSITORY") private cacheRepository: IRepository,
     @Inject("FETCHERS") private fetchers: BaseFetcher[],
   ) {}
 

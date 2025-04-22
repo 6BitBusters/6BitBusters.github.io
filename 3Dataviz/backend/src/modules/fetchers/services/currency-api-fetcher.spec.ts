@@ -21,7 +21,7 @@ import { CurrencyApiFetcher } from "./currency-api-fetcher";
 import { CURRENCY_API_CONFIG } from "../config";
 import { CurrencyData } from "../interfaces/currency-data.interface";
 import axios from "axios";
-import { Dataset } from "src/interfaces/dataset.interface";
+import { Dataset } from "src/interfaces/raw-dataset.interface";
 import { HttpStatus } from "@nestjs/common";
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;

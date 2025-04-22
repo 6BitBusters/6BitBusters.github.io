@@ -1,6 +1,6 @@
 import { Test, TestingModule } from "@nestjs/testing";
 import { DataVisualizationService } from "./data-visualization.service";
-import { Dataset } from "src/interfaces/dataset.interface";
+import { Dataset } from "src/interfaces/raw-dataset.interface";
 import { BaseFetcher } from "../../../modules/fetchers/interfaces/base-fetcher.interface";
 import { CacheRepository } from "../../cache/repository/cache.repository";
 

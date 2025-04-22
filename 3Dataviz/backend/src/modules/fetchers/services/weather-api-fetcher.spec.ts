@@ -22,7 +22,7 @@ import { WeatherApiFetcher } from "./weather-api-fetcher";
 import { WEATHER_API_CONFIG } from "../config";
 import { WeatherData } from "../interfaces/weather-data.interface";
 import axios from "axios";
-import { Dataset } from "src/interfaces/dataset.interface";
+import { Dataset } from "src/interfaces/raw-dataset.interface";
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
