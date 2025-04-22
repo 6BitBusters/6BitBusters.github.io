@@ -1,11 +1,11 @@
 import { Test, TestingModule } from "@nestjs/testing";
 import { DataVisualizationService } from "./data-visualization.service";
-import { Dataset } from "src/interfaces/raw-dataset.interface";
+import { DatasetDto } from "../dto/dataset.dto";
 import { BaseFetcher } from "../../../modules/fetchers/interfaces/base-fetcher.interface";
 import { CacheRepository } from "../../cache/repository/cache.repository";
 
 // Creazione di una classe mock per BaseFetcher
-const mockDataset: Dataset = {
+const mockDatasetDto: DatasetDto = {
   data: [{ id: 0, x: 0, y: 0, z: 0 }],
   legend: { x: "X", y: "Y", z: "Z" },
   xLabels: ["Label 1"],
@@ -15,10 +15,15 @@ class MockFetcher implements BaseFetcher {
   getName = jest.fn(() => "Mock Name");
   getSize = jest.fn(() => [10, 5] as [number, number]);
   getDescription = jest.fn(() => "Mock Description");
-  getDataset = jest.fn(() => Promise.resolve(mockDataset));
+  getLegend = jest.fn(() => ({
+    x: "X",
+    y: "Y",
+    z: "Z",
+  }));
+  getDataset = jest.fn(() => Promise.resolve(mockDatasetDto));
 
-  fetchData = jest.fn(() => Promise.resolve(mockDataset));
-  transformData = jest.fn(() => mockDataset);
+  fetchData = jest.fn(() => Promise.resolve(mockDatasetDto));
+  transformData = jest.fn(() => mockDatasetDto);
 }
 
 describe("DataVisualizationService", () => {
@@ -69,10 +74,10 @@ describe("DataVisualizationService", () => {
   });
 
   it("should get the dataset if cached", async () => {
-    cacheRepository.get = jest.fn().mockResolvedValue(mockDataset);
+    cacheRepository.get = jest.fn().mockResolvedValue(mockDatasetDto);
     const id = 0;
     const dataset = await service.getDatasetById(id);
-    expect(dataset).toEqual(mockDataset);
+    expect(dataset).toEqual(mockDatasetDto);
     expect(cacheRepository.get).toHaveBeenCalledWith(id.toString());
   });
 
@@ -80,7 +85,7 @@ describe("DataVisualizationService", () => {
     cacheRepository.get = jest.fn().mockResolvedValue(null);
     cacheRepository.set = jest.fn();
     const dataset = await service.getDatasetById(0);
-    expect(dataset).toEqual(mockDataset);
+    expect(dataset).toEqual(mockDatasetDto);
     expect(mockFetcher0.getDataset).toHaveBeenCalled();
   });
 
@@ -91,6 +96,6 @@ describe("DataVisualizationService", () => {
     });
     const id = 0;
     await service.getDatasetById(id);
-    expect(spy).toHaveBeenCalledWith(id.toString(), mockDataset);
+    expect(spy).toHaveBeenCalledWith(id.toString(), mockDatasetDto);
   });
 });
