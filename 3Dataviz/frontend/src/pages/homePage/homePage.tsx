@@ -1,8 +1,28 @@
 import "./homePage.css";
 import Footer from "../../components/footer/footer";
 import ApiSelector from "../../components/apiSelector/apiSelector";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
+import { AppState } from "../../features/AppStatus/types/AppState";
+import { selectorAppState } from "../../features/AppStatus/AppSlice";
 
 function HomePage() {
+  let navigate = useNavigate();
+  // Redux get error
+  const appState: AppState = useSelector(selectorAppState);
+  useEffect(() => {
+    if (appState.error != null) {
+      // REDIRECT A PAGINA ERRORE
+      /*
+        Senza prop reindirizzo alla pagina di errore che appena viene caricata si prende dall'App Status 
+        l'errore e uso i medoti get. Però se non ci sono errori nell'app status allora vuol dire che la 
+        pagina di errore è dovuta alla navigazione errata e quindi di default imposto 404
+      */
+      //navigate("/error");
+    }
+  }, [appState.error, navigate]);
+
   return (
     <>
       <div className="containerHome">

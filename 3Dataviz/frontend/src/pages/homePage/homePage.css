@@ -1,17 +1,19 @@
 .containerHome{
     margin: 4em auto auto auto;
-    background-color: #ededed;
     text-align: center;
     border-radius: 15px;
     padding: 2em;
     min-width: fit-content;
     max-width: 50%;
+    background-color: var(--ui-bg-color);
+    color: white;
 }
 
 .teamInfo{
     margin: 4em auto 4em auto;
     width: fit-content;
     text-align: center;
+    color: white;
 }
 .teamInfo ul{
     list-style: none;
@@ -20,5 +22,9 @@
 
 #homepageTitle{
     font-size: 2.5em;
-    color: #005ce5;
+    color: var(--accent);
+}
+
+a{
+    color: var(--accent);
 }

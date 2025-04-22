@@ -1,33 +1,14 @@
 #APItitle{
     font-size: 2em;
-    color: #005ce5;
+    color: var(--accent);
     text-align: center;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: 40% 60%;
-    grid-template-areas: "a c";
-    gap: 20px;
-    padding: 20px;
-    margin-right: 1.5em;
-}
-
-.ui{
-    grid-area: a;
-    border: 1px solid #005ce5;
-}
-
-.chart{
-    grid-area: c;
-    border: 1px solid #005ce5;
 }
 
 #quitButton{
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #e50000;
+    background-color: var(--accent);
     border-radius: 10px;
     padding: 0.5em 1.5em;
     text-decoration: none;
@@ -35,6 +16,6 @@
 }
 
 #quitButton:hover{
-    background-color: #b50000;
+    background-color: #b30000;
 }
 

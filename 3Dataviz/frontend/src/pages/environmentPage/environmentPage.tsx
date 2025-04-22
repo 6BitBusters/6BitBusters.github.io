@@ -1,28 +1,17 @@
 import "./environmentPage.css";
-import Footer from "../../components/footer/footer";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/Store";
 
 function EnvironmentPage() {
-  const dataset = useSelector((state:RootState) => state.dataSource.currentDataset);
-  console.log("dataset", dataset);
+  const dataset = useSelector(
+    (state: RootState) => state.dataSource.currentDataset,
+  );
   return (
     <>
-      <h1 id="APItitle">Nome API</h1>
+      <h1 id="APItitle">Nome API : {dataset?.name}</h1>
       <a id="quitButton" href="/">
         ESCI
       </a>
-      <div className="grid-container">
-        <div className="ui">
-          <h2>Filtri</h2>
-          componente UI (tabella e filtri)
-        </div>
-        <div className="chart">
-          <h2>grafico</h2>
-          componente grafico
-        </div>
-      </div>
-      <Footer></Footer>
     </>
   );
 }

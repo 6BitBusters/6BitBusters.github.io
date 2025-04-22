@@ -1,6 +1,6 @@
 footer {
     text-align: center;
-    background-color: black;
+    background-color: var(--ui-bg-color);
     color: white;
     width: 100%;
 }

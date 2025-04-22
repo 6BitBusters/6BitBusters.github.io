@@ -4,6 +4,7 @@ import { selectorAppState } from "../../features/AppStatus/AppSlice";
 import "./errorPage.css";
 
 function ErrorPage() {
+  //METTERE DEFAULT 404
   // Redux get error
   const appStateError: SerializedError | null =
     useSelector(selectorAppState).error;
