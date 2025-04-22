@@ -1,9 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import Filter from "./Filter";
-
-type NFilterProps = {
-  onClick: (n: number) => void;
-};
+import { NFilterProps } from "./props/NFilterProps";
 
 function NFilter({ onClick }: NFilterProps) {
   const [inputValue, setInputValue] = useState(0);

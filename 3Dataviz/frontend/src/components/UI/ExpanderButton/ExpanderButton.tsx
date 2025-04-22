@@ -1,13 +1,7 @@
 import { ChangeEvent } from "react";
 import { gsap } from "gsap";
 import "./ExpanderButton.css";
-
-type ExpanderButtonProps = {
-  target: string;
-  id: string;
-  fromToX?: [number, number];
-  fromToY?: [number, number];
-};
+import { ExpanderButtonProps } from "./props/ExpanderButtonProps";
 
 function ExpanderButton({
   id,

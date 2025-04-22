@@ -48,6 +48,7 @@ describe("Bars", () => {
       hoverHandler: vi.fn(),
       data: CreateMockRootState().data.data,
     };
+    const selection = vi.spyOn(colors, "Selection");
     const renderer = await ReactThreeTestRenderer.create(
       <Provider
         store={mockStore(
@@ -61,15 +62,15 @@ describe("Bars", () => {
         <Bars {...mockProp} />,
       </Provider>,
     );
+
     const intersection = vi
       .spyOn(raycaster, "GetIntersectionId")
       .mockReturnValueOnce(1);
-    const selection = vi.spyOn(colors, "Selection");
     const mesh = renderer.scene.children[0];
     await renderer.fireEvent(mesh, "click");
     expect(intersection).toHaveBeenCalled();
-    expect(selection).toHaveBeenCalled();
     expect(mockProp.clickHandler).toHaveBeenCalled();
+    expect(selection).toHaveBeenCalled();
   });
   it("quando il mouse si sposta e non interseca una delle barre il tooltop non deve apparire", async () => {
     const mockProp: BarsProps = {

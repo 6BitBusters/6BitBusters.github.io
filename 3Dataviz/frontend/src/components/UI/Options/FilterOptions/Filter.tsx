@@ -1,11 +1,6 @@
 import "./Filter.css";
+import { FilterProps } from "./props/FilterProps";
 
-type FilterProps = {
-  title: string;
-  description: string;
-  children?: React.ReactNode;
-  onClick: () => void;
-};
 function Filter({ title, description, onClick, children }: FilterProps) {
   return (
     <>

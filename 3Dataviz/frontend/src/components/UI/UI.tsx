@@ -1,11 +1,7 @@
 import Options from "./Options/Options";
 import DataTable from "./DataTable/DataTable";
 import "./UI.css";
-
-type UIProps = {
-  datasetName: string;
-  resetCamera: () => void;
-};
+import { UIProps } from "./UIProps";
 
 function UI({ datasetName, resetCamera }: UIProps) {
   return (

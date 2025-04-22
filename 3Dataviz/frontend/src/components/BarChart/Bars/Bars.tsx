@@ -18,6 +18,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   const { scene, camera } = useThree();
 
   const [shaderError, setShaderError] = useState(true);
+  const [previeousSelectedBar, setPreviousSelectedBar] = useState(-1);
 
   // redux
   const raycastState = useSelector(selectorRaycastHit);
@@ -196,20 +197,28 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
     };
   }, [camera, scene]);
 
+  useEffect(() => {
+    console.log();
+    const currentBar = raycastState.previousSelectedBarId;
+    Selection(mesh.current, currentBar, true);
+    if (previeousSelectedBar >= 0) {
+      Selection(mesh.current, previeousSelectedBar, false);
+    }
+    if (currentBar == null) return;
+    setPreviousSelectedBar(currentBar);
+  }, [raycastState.previousSelectedBarId]);
+
   // interazioni con le barre
   const onClick = (e: ThreeEvent<PointerEvent>) => {
     const bar = GetIntersectionId(mesh.current, mouse.current, e.camera);
     const prevId: number | null = raycastState.previousSelectedBarId;
     if (bar !== null && bar != prevId) {
       clickHandler(bar);
-      Selection(mesh.current, bar, true);
-      Selection(mesh.current, prevId, false);
       dispatch(setHit(bar));
     }
   };
 
   const onPointerOver = (e: ThreeEvent<PointerEvent>) => {
-    console.log("enter");
     if (hoverTimeout.current !== null) {
       clearTimeout(hoverTimeout.current);
     }

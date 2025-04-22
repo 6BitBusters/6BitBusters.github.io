@@ -12,6 +12,7 @@ import {
   filterFirstN,
   reset,
 } from "../../../features/Data/DataSlice";
+import { setHit } from "../../../features/Raycast/RaycastHitSlice";
 
 function Options() {
   const isGreater = useSelector(selectorIsGreater);
@@ -19,13 +20,16 @@ function Options() {
 
   const onFilterAverage = () => {
     dispatch(filterByAverage(isGreater));
+    dispatch(setHit(null));
   };
   const onFilterN = (n: number) => {
     dispatch(filterFirstN({ value: n, isGreater: isGreater }));
+    dispatch(setHit(null));
   };
 
   const onReset = () => {
     dispatch(reset());
+    dispatch(setHit(null));
   };
 
   return (

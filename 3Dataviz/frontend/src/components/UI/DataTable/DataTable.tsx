@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { filterByValue, selectorData } from "../../../features/Data/DataSlice";
 import { selectorIsGreater } from "../../../features/FilterOption/FilterOptionSlice";
 import ExpanderButton from "../ExpanderButton/ExpanderButton";
+import { setHit } from "../../../features/Raycast/RaycastHitSlice";
 
 function DataTable() {
   const data = useSelector(selectorData);
@@ -25,8 +26,9 @@ function DataTable() {
     return result;
   }, [data.data, data.x.length, data.z.length]);
 
-  const handleCellClick = (value: number) => {
+  const handleCellClick = (value: number, id: number) => {
     dispatch(filterByValue({ value: value, isGreater: isGreater }));
+    dispatch(setHit(id));
   };
 
   return (
@@ -55,15 +57,23 @@ function DataTable() {
                     const isVisible = data.data.some(
                       (d) => d.x === i && d.z === j && d.y === value && d.show,
                     );
+                    const dataId = data.data.find(
+                      (d) => d.x === i && d.z === j && d.y === value,
+                    );
                     const id = i * row.length + j;
-                    return value == undefined ? (
+                    return value == undefined || dataId == undefined ? (
                       <td key={id} data-testid={id.toString()}></td>
                     ) : (
                       <td
                         key={id}
                         data-testid={id.toString()}
+                        data-mianonna={
+                          data.data.find(
+                            (d) => d.x === i && d.z === j && d.y === value,
+                          )?.id
+                        }
                         id={id.toString()}
-                        onClick={() => handleCellClick(value)}
+                        onClick={() => handleCellClick(value, dataId.id)}
                         className={isVisible ? "hcell" : "nhcell"}>
                         {value}
                       </td>
