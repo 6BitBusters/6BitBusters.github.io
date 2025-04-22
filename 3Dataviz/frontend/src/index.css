@@ -1,14 +1,21 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: monospace, monospace;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #121212;
+    --ui-bg-color :#303030;
+    --accent:#930000;
 }
 
 html {
-    background-color: #121212;
+    background-color: var(--bg-color);
 }
 
 body,#root {
     height: 100vh;
     width: 100%;
 }
-

@@ -1,0 +1,25 @@
+#resetCamera {
+    position: absolute;
+    top: 120px;
+    left: 35px;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    cursor: pointer;
+    border-style: none;
+    background-color: var(--ui-bg-color);
+    background-image: url("/svg/camera-reset.svg");
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center center;
+}
+
+button {
+    cursor: pointer;
+    border-style: none;
+    display: block;
+}
+
+input[type="radio"] {
+    accent-color: var(--accent)
+}

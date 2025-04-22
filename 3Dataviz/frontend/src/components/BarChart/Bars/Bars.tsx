@@ -209,6 +209,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   };
 
   const onPointerOver = (e: ThreeEvent<PointerEvent>) => {
+    console.log("enter");
     if (hoverTimeout.current !== null) {
       clearTimeout(hoverTimeout.current);
     }

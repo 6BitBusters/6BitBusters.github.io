@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { BarsProps } from "../../../src/components/BarChart/Bars/props/BarsProps";
-import { mockStore } from "../../setupTests";
 import Bars from "../../../src/components/BarChart/Bars/Bars";
 import ReactThreeTestRenderer from "@react-three/test-renderer";
 import React from "react";
+import { CreateMockRootState } from "../../utils/StateMockCreator";
 
 vi.mock("react-redux", () => ({
   ...vi.importActual("react-redux"),
@@ -19,7 +19,7 @@ describe("Bars", () => {
     const mockProp: BarsProps = {
       clickHandler: vi.fn(),
       hoverHandler: vi.fn(),
-      data: mockStore.getState().data.data,
+      data: CreateMockRootState().data.data,
     };
     const renderer = await ReactThreeTestRenderer.create(
       <Bars {...mockProp} />,

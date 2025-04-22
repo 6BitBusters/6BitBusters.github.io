@@ -1,10 +1,7 @@
 import { useSelector } from "react-redux";
 import Axes from "../Axes/Axes";
 import Bars from "./Bars/Bars";
-import {
-  filterByValue,
-  selectorData,
-} from "../../features/Data/DataSlice";
+import { filterByValue, selectorData } from "../../features/Data/DataSlice";
 import { useAppDispatch } from "../../app/Hooks";
 import AveragePlane from "../Planes/AveragePlane";
 import * as THREE from "three";
@@ -35,7 +32,7 @@ function BarChart({ onSelectedBar }: BarChartProps) {
         filterByValue({ value: data.data[selectedBar].y, isGreater: true }),
       );
     }
-  }, [selectedBar,dispatch,data.data]);
+  }, [selectedBar, dispatch, data.data]);
 
   useEffect(() => {
     if (selectedBar >= 0) {
@@ -51,7 +48,7 @@ function BarChart({ onSelectedBar }: BarChartProps) {
       );
       onSelectedBar(barPosition, lookAt);
     }
-  }, [selectedBar, camera,data.data,onSelectedBar]);
+  }, [selectedBar, camera, data.data, onSelectedBar]);
 
   return (
     <>

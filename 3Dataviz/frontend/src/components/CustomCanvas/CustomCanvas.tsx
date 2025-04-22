@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { GizmoHelper, GizmoViewport, OrbitControls } from "@react-three/drei";
-import { useImperativeHandle, useRef } from "react";
+import { useImperativeHandle } from "react";
 import { OrbitControls as OrbitControlsType } from "three-stdlib";
 import { gsap } from "gsap";
 import "./CustomCanvas.css";
@@ -22,7 +22,7 @@ const customCanvas = React.forwardRef<
     },
     ref,
   ) => {
-    const controls = useRef<OrbitControlsType>(null);
+    const controls = React.useRef<OrbitControlsType>(null);
 
     const resetCamera = () => {
       // Ottieni la camera da OrbitControls
@@ -81,6 +81,9 @@ const customCanvas = React.forwardRef<
         z: lookAt.z,
         duration: 1,
         ease: "power2.out",
+        onUpdate: () => {
+          controls.current!.update();
+        },
       });
     };
 

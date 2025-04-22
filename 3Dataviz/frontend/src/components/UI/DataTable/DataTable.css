@@ -1,0 +1,89 @@
+#table-container {
+    width: 100%;
+    position: fixed;
+    bottom: -330px;
+}
+
+#table-wrap {
+    background-color: var(--ui-bg-color);
+    overflow: scroll;
+    padding: 1rem 1rem 1.5rem 1rem;
+}
+
+table {
+    width: 100%;
+}
+
+table th,
+table td {
+    min-width: 5rem;
+    height: 2rem;
+    text-align: center;
+    border: 1px solid #434343;
+}
+
+table thead th:first-child {
+    background-color: transparent;
+}
+
+table th {
+    background-color: var(--accent);
+}
+
+table{
+    border-collapse:collapse;
+    color: white;
+    empty-cells: show;
+}
+    
+tbody tr:nth-child(odd) {
+    background-color: #474747;
+}
+
+#expand-btn input {
+    appearance: none;
+    -webkit-appearance: none;
+    pointer-events: none;
+    display: block;
+    outline: none;
+}
+
+#expand-btn label {
+    background-color: var(--ui-bg-color);
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    margin-left: 1rem;
+    
+}
+
+#expand-btn label::after {
+    content: '';
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    background-image: url("/svg/expand-arrow.svg");
+    background-repeat: no-repeat;
+    transform: rotateZ(180deg);
+    transition: transform 500ms cubic-bezier(.09,.87,.38,1);
+    background-size: cover;
+}
+
+#expand-btn input:checked ~ label::after {
+    transform: rotateZ(0deg);
+}
+
+.hcell {
+    background-color: green;
+    border: 2px solid rgb(0, 173, 0);
+}
+.nhcell {
+    opacity: .5;
+    background: repeating-linear-gradient(
+    45deg,
+    #4c4c4c,
+    #4c4c4c 10px,
+    #333333 10px,
+    #333333 20px
+    );
+}
