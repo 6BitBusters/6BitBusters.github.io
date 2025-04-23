@@ -2,11 +2,11 @@ import { Module } from "@nestjs/common";
 import { DataVisualizationController } from "./controllers/data-visualization.controller";
 import { DataVisualizationService } from "./services/data-visualization.service";
 import { fetchersFactory } from "../fetchers/factories/fetchers.factory";
-import { CacheModule } from "../cache/cache.module";
+import { RepositoryModule } from "../repository/repository.module";
 import { FetchersModule } from "../fetchers/fetchers.module";
 
 @Module({
-  imports: [CacheModule, FetchersModule],
+  imports: [RepositoryModule, FetchersModule],
   controllers: [DataVisualizationController],
   providers: [
     DataVisualizationService,

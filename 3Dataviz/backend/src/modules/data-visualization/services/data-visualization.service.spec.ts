@@ -2,7 +2,7 @@ import { Test, TestingModule } from "@nestjs/testing";
 import { DataVisualizationService } from "./data-visualization.service";
 import { DatasetDto } from "../dto/dataset.dto";
 import { BaseFetcher } from "../../../modules/fetchers/interfaces/base-fetcher.interface";
-import { CacheRepository } from "../../cache/repository/cache.repository";
+import { CacheRepository } from "../../repository/cache/cache.repository";
 
 // Creazione di una classe mock per BaseFetcher
 const mockDatasetDto: DatasetDto = {

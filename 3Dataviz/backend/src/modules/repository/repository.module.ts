@@ -1,5 +1,5 @@
 import { Module } from "@nestjs/common";
-import { CacheRepository } from "./repository/cache.repository";
+import { CacheRepository } from "./cache/cache.repository";
 
 @Module({
   providers: [
@@ -10,4 +10,4 @@ import { CacheRepository } from "./repository/cache.repository";
   ],
   exports: ["CACHE_REPOSITORY"],
 })
-export class CacheModule {}
+export class RepositoryModule {}
