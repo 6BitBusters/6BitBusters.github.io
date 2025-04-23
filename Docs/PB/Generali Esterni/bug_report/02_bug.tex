@@ -1,1 +1,30 @@
 \section{Lista dei bug}
+\subsection{Reset dei filtri}
+\textbf{Stato:} risolto\\
+Nella prima implementazione, il reset del filtro per valore del dataset,
+attivato selezionando una barra del grafico o una cella della tabella,
+non riportava tutte le barre al loro stato originale: la barra che era
+stata selezionata manteneva il colore di selezione.
+
+\subsection{Trasparenza delle barre}
+\textbf{Stato:} non risolto\\
+Come noto, in caso di filtraggio del dataset, le barre del grafico
+che non soddisfano i criteri di selezione vengono rese parzialmente trasparenti.
+È lecito aspettarsi che, se due barre sono sovrapposte e la barra più vicina all'osservatore
+è parzialmente trasparente, la barra più lontana sia visibile. Tuttavia, in alcuni casi,
+una barra parzialmente trasparente può nascondere completamente una barra più lontana.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{template/images/logo-circle.png}
+    \caption{Esempio di barre parzialmente trasparenti}
+    \label{fig:trasparenza}
+\end{figure}
+
+\subsection{Rotazione del grafico}
+\textbf{Stato:} non risolto\\
+La rotazione del grafico avviene in modo fluido e senza evidenti problemi. Tuttavia,
+se nella posizione iniziale il cursore del mouse si trova sopra una barra, e
+nella nuova posizione il cursore si trova sopra un'altra (o la stessa) barra,
+quest'ultima barra viene selezionata al momento del rilascio del mouse.
+Questo comportamento, purtroppo, è intrinsecamente legato alla
+gestione dell'evento "onClick" del mouse, che viene attivato al momento del rilascio.
