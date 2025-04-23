@@ -4,7 +4,6 @@ import { selectorCurrentDataset } from "../../features/DataSource/DataSourceSlic
 
 function EnvironmentPage() {
   const dataset = useSelector(selectorCurrentDataset);
-  console.log("dataset", dataset);
   return (
     <>
       <h1 id="APItitle">{dataset?.name}</h1>
