@@ -19,7 +19,7 @@ function HomePage() {
         l'errore e uso i medoti get. Però se non ci sono errori nell'app status allora vuol dire che la 
         pagina di errore è dovuta alla navigazione errata e quindi di default imposto 404
       */
-      navigate("/error");
+      //navigate("/error");
     }
   }, [appState.error, navigate]);
 
