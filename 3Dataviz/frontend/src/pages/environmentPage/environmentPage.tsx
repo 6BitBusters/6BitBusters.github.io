@@ -1,14 +1,13 @@
 import "./environmentPage.css";
 import { useSelector } from "react-redux";
-import { RootState } from "../../app/Store";
+import { selectorCurrentDataset } from "../../features/DataSource/DataSourceSlice";
 
 function EnvironmentPage() {
-  const dataset = useSelector(
-    (state: RootState) => state.dataSource.currentDataset,
-  );
+  const dataset = useSelector(selectorCurrentDataset);
+  console.log("dataset", dataset);
   return (
     <>
-      <h1 id="APItitle">Nome API : {dataset?.name}</h1>
+      <h1 id="APItitle">{dataset?.name}</h1>
       <a id="quitButton" href="/">
         ESCI
       </a>
