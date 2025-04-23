@@ -15,7 +15,7 @@ export const fetchDataset = async (datasetId: number) => {
     const data = (await response.json()) as Dataset;
     return data;
   } catch (error) {
-    if (typeof error === 'number') {
+    if (typeof error === "number") {
       throw error;
     }
     throw 500;

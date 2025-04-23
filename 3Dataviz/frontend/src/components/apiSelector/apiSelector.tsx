@@ -41,13 +41,13 @@ type OptionType = {
 // ];
 
 function ApiSelector() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   // Redux get datasets
   //const items: DatasetInfo[] = useSelector(selectorDatasets);
   useEffect(() => {
-    dispatch(requestDatasets());
+    void dispatch(requestDatasets());
   }, [dispatch]);
   const items: DatasetInfo[] = useSelector(selectorDatasets);
 
@@ -73,7 +73,7 @@ function ApiSelector() {
     if (selected) {
       dispatch(trySetCurrentDataset(selected.data.id));
       //dispatch(setCurrentDataset(selected.data)); //PER IL TESTING - ALTRMENTI SENZA BACKEND NELLO STATO NON CI SONO DATASET
-      navigate("/environment");
+      void navigate("/environment");
     }
   };
 

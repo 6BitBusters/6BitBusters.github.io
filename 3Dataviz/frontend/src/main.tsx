@@ -8,7 +8,7 @@ import EnvironmentPage from "./pages/environmentPage/environmentPage";
 import ErrorPage from "./pages/errorPage/errorPage";
 
 // Sono valide solo le routes "/" e "/environment". Per tutti gli altri URL l'utente verrà reindirizzato a ErrorPage.
-const ROUTER = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     Component: HomePage,
@@ -25,6 +25,6 @@ const ROUTER = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
-    <RouterProvider router={ROUTER} />
-  </Provider>  
+    <RouterProvider router={router} />
+  </Provider>,
 );

@@ -8,7 +8,7 @@ import { AppState } from "../../features/AppStatus/types/AppState";
 import { selectorAppState } from "../../features/AppStatus/AppSlice";
 
 function HomePage() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   // Redux get error
   const appState: AppState = useSelector(selectorAppState);
   useEffect(() => {
@@ -19,7 +19,7 @@ function HomePage() {
         l'errore e uso i medoti get. Però se non ci sono errori nell'app status allora vuol dire che la 
         pagina di errore è dovuta alla navigazione errata e quindi di default imposto 404
       */
-      navigate("/error");
+      void navigate("/error");
     }
   }, [appState.error, navigate]);
 

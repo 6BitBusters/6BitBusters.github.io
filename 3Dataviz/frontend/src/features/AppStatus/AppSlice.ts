@@ -80,7 +80,6 @@ function generateError(errNo: number): CustomError {
   }
 }
 
-
 export const selectorAppState = (state: RootState) => state.appState;
 
 export default appSlice.reducer;
