@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import ApiSelector from "../../../src/components/apiSelector/apiSelector";
+import { render, screen } from "@testing-library/react";
+import HomePage from "../../../src/pages/HomePage/HomePage";
 import { thunk } from "redux-thunk";
 import configureMockStore from "redux-mock-store";
 import { AppDispatch, RootState } from "../../../src/app/Store";
@@ -12,14 +12,18 @@ import { DataSourceState } from "../../../src/features/DataSource/types/DataSour
 import { DatasetInfo } from "../../../src/features/DataSource/types/DatasetInfo";
 import "@testing-library/jest-dom";
 import React from "react";
-import { findByText } from "@testing-library/react";
+import EnvironmentPage from "../../../src/pages/EnvironmentPage/EnvironmentPage";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
 const ROUTER_test = createBrowserRouter([
   {
     path: "/",
-    Component: ApiSelector,
+    Component: HomePage,
+  },
+  {
+    path: "/environment",
+    Component: EnvironmentPage,
   },
 ]);
 
@@ -63,18 +67,6 @@ describe("ApiSelector", () => {
       </Provider>,
     );
 
-    // await waitFor(() => {
-    //   screen.getByText("Scegli una API...");
-    // });
-    // fireEvent.click(screen.getByText("Scegli una API..."));
-    // await waitFor(() => {
-    //   screen.getByTestId("datasetItem");
-    // });
-
-    // expect(screen.getAllByTestId("datasetItem")).toHaveLength(
-    //   mockDatasets.length,
-    // );
+    expect(screen.getByTestId("form")).toHaveLength(mockDatasets.length);
   });
-
-  it("dovrebbe impostare correttamente il dataset selezionato", () => {});
 });

@@ -6,7 +6,7 @@ function DatasetItem({ id, name, size, description }: DatasetInfo) {
     <div className="datasetItemContainer" data-testid="datasetItem">
       <div>
         <strong>
-          {id} - {name}
+          <span>{id}</span> - <span>{name}</span>
         </strong>
       </div>
       <div>

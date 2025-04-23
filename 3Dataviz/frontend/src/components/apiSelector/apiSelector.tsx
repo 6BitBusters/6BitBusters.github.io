@@ -79,7 +79,7 @@ function ApiSelector() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="form">
         <Select<OptionType>
           options={options}
           value={selected}
@@ -93,6 +93,9 @@ function ApiSelector() {
             />
           )}
           placeholder="Scegli una API..."
+          name="dataset"
+          inputId="dataset"
+          data-testid="select"
         />
 
         <input id="submitButton" type="submit" value="Avanti" />
