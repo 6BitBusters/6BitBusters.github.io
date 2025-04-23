@@ -280,8 +280,6 @@
     }
 
 
-\newpage
-
 \UseCase{Visualizza errore nel caricamento}
     \UCdsc
     { % ATTORE
@@ -291,9 +289,10 @@
     }
     { % DESCRIZIONE
         \begin{itemize}
-            \item Visualizzazione di un messaggio di errore "Dataset non disponibile" con una motivazione a seguire.
-                    Il caricamento potrebbe fallire perchè il dataset selezionato potrebbe essere
-                    non disponibile in quel momento o ci potrebbe essere un errore di connessione.
+            \item Il caricamento del dataset potrebbe fallire a causa della sua
+             temporanea indisponibilità o di un errore di connessione.
+              In tal caso, verrà visualizzato un messaggio di errore ("Dataset non disponibile" o "Errore di connessione")
+            accompagnato da un codice identificativo.
         \end{itemize}
     }
     { % PRECONDIZIONI
@@ -305,7 +304,7 @@
     { % POSTCONDIZIONI
         \begin{itemize}
             \item Il dataset non viene caricato nel sistema;
-            \item L'utente torna alla vista della lista di dataset.
+            \item L'utente viene reindirizzato alla pagina di errore.
         \end{itemize}
     }
     { % SCENARIO PRIMARIO
@@ -314,7 +313,7 @@
         \end{itemize}
     }
 
-
+\pagebreak
 
 \UseCase{Visualizza dataset in forma tabellare}
 \begin{figure}[h!]
@@ -1384,40 +1383,11 @@
 }
 
 
-\UseCase{Visualizza piano del valor medio}
+\UseCase{Visualizza piano del valor medio globale}
 \begin{figure}[H]\centering
     \includegraphics[scale=0.7]{template/images/UC19.png}
     \caption{\nameref*{UC:\arabic{UC}}}
 \end{figure}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item Visualizzazione di un piano parallelo alla base nel grafico 3D per evidenziare il valor medio.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item Il piano che rappresenta il valor medio è visibile.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente seleziona l'opzione per visualizzare il valor medio.
-    \end{itemize}
-}
-
-
-\SubUseCase{Visualizza piano del valor medio globale}
 \UCdsc
 { % ATTORE
     \begin{itemize}
@@ -1445,40 +1415,3 @@
         \item L'utente seleziona l'opzione del valor medio globale.
     \end{itemize}
 }
-
-\SubUseCase{Visualizza piano della media dei valori relativi a un etichetta}
-\UCdsc
-{ % ATTORE
-    \begin{itemize}
-        \item Utente in ambiente 3D.
-    \end{itemize}
-}
-{ % DESCRIZIONE
-    \begin{itemize}
-        \item Viene visualizzato un piano parallelo alla base che rappresenta la media dei valori relativi a una determinata etichetta di un asse.
-    \end{itemize}
-}
-{ % PRECONDIZIONI
-    \begin{itemize}
-        \item Il grafico è visibile.
-    \end{itemize}
-}
-{ % POSTCONDIZIONI
-    \begin{itemize}
-        \item Il piano che rappresenta il valor medio di un singolo elemento è visibile.
-    \end{itemize}
-}
-{ % SCENARIO PRIMARIO
-    \begin{itemize}
-        \item L'utente seleziona l'opzione per visualizzare il valor medio;
-        \item L'utente seleziona l'etichetta su quale genererare il valor medio.
-    \end{itemize}
-}
-
-
-
-
-
-
-
-
