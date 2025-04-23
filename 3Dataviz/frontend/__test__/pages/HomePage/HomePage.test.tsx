@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import HomePage from "../../../src/pages/HomePage/HomePage";
 import { thunk } from "redux-thunk";
 import configureMockStore from "redux-mock-store";
@@ -8,11 +8,8 @@ import fetchMock from "fetch-mock";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { CreateMockRootState } from "../../utils/StateMockCreator";
-import { DataSourceState } from "../../../src/features/DataSource/types/DataSourceState";
-import { DatasetInfo } from "../../../src/features/DataSource/types/DatasetInfo";
 import "@testing-library/jest-dom";
 import React from "react";
-import { findByText } from "@testing-library/react";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
