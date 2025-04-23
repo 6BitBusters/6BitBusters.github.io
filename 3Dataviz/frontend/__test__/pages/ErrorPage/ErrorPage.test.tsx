@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import ErrorPage from "../../../src/pages/ErrorPage/ErrorPage";
+import ErrorPage from "../../../src/pages/errorPage/errorPage";
 import { thunk } from "redux-thunk";
 import configureMockStore from "redux-mock-store";
 import { AppDispatch, RootState } from "../../../src/app/Store";

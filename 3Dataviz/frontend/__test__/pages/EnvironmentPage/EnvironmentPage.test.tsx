@@ -9,7 +9,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import { CreateMockRootState } from "../../utils/StateMockCreator";
 import "@testing-library/jest-dom";
 import React from "react";
-import EnvironmentPage from "../../../src/pages/EnvironmentPage/EnvironmentPage";
+import EnvironmentPage from "../../../src/pages/environmentPage/environmentPage";
 import { DatasetInfo } from "../../../src/features/DataSource/types/DatasetInfo";
 import { DataSourceState } from "../../../src/features/DataSource/types/DataSourceState";
 

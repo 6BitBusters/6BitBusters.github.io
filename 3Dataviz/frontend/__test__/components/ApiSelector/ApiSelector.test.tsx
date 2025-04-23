@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import HomePage from "../../../src/pages/HomePage/HomePage";
+import HomePage from "../../../src/pages/homePage/homePage";
 import { thunk } from "redux-thunk";
 import configureMockStore from "redux-mock-store";
 import { AppDispatch, RootState } from "../../../src/app/Store";
@@ -12,7 +12,7 @@ import { DataSourceState } from "../../../src/features/DataSource/types/DataSour
 import { DatasetInfo } from "../../../src/features/DataSource/types/DatasetInfo";
 import "@testing-library/jest-dom";
 import React from "react";
-import EnvironmentPage from "../../../src/pages/EnvironmentPage/EnvironmentPage";
+import EnvironmentPage from "../../../src/pages/environmentPage/environmentPage";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
