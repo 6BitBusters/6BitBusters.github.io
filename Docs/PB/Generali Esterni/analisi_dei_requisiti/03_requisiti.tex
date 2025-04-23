@@ -101,6 +101,12 @@ Sono stati definiti dei requisiti codificati in base all’ambito di competenza 
 tenerne meglio traccia. Nelle tabelle sottostanti sono forniti descrizione e classificazione di ciascun
 requisito. 
 Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di progetto}.
+\\
+Con la seguente nomenclatura si vuole indicare se un requisito è stato soddisfatto o no.
+\begin{itemize}
+    \item \text{S}: Soddisfatto; 
+    \item \text{NS}: Non soddisfatto; 
+\end{itemize}
 
 %\subsection{Requisiti minimi hardware}
 
@@ -108,68 +114,67 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
 \subsection{Requisiti funzionali}
 \requirementsTable{
     % VISUALIZZAZIONE DATASET
-    \RFM & L’utente deve poter visualizzare i dataset  & Obbligatorio & UC1 \tabularnewline
-    \RFM & L’utente deve poter visualizzare le informazioni primarie dei dataset  & Obbligatorio & UC1.1\par UC1.1.1\par UC1.1.2 \tabularnewline
-    \RFM & L’utente deve poter visualizzare i dettagli dei dataset  & Obbligatorio  & UC2\par UC2.1 \tabularnewline
+    \RFM & L’utente deve poter visualizzare i dataset  & Obbligatorio & UC1 & S \tabularnewline
+    \RFM & L’utente deve poter visualizzare le informazioni primarie dei dataset  & Obbligatorio & UC1.1\par UC1.1.1\par UC1.1.2 & S \tabularnewline
+    \RFM & L’utente deve poter visualizzare i dettagli dei dataset  & Obbligatorio  & UC2\par UC2.1 & S \tabularnewline
 
     % CARICAMENTO DATASET
-    \RFM & L’utente deve poter caricare il dataset &  Obbligatorio &UC3\tabularnewline
-    \RFM & L’utente deve ricevere un errore se il caricamento di un dataset fallisce  & Obbligatorio& UC4\tabularnewline
+    \RFM & L’utente deve poter caricare il dataset &  Obbligatorio &UC3 & S\tabularnewline
+    \RFM & L’utente deve ricevere un errore se il caricamento di un dataset fallisce  & Obbligatorio& UC4 & S\tabularnewline
 
     % VISUALIZZAZIONE DEI DATI IN TABELLA
-    \RFM & L’utente deve poter visualizzare i dati del dataset selezionato in forma tabellare & Obbligatorio   & UC5\tabularnewline
-    \RFM & L’utente deve poter visualizzare le intestazioni della tabella  & Obbligatorio  & UC5.1 \tabularnewline
-    \RFM & L’utente deve poter visualizzare il valore del dato in una cella della tabella  & Obbligatorio  & UC5.2 \tabularnewline
+    \RFM & L’utente deve poter visualizzare i dati del dataset selezionato in forma tabellare & Obbligatorio   & UC5 & S\tabularnewline
+    \RFM & L’utente deve poter visualizzare le intestazioni della tabella  & Obbligatorio  & UC5.1 & S \tabularnewline
+    \RFM & L’utente deve poter visualizzare il valore del dato in una cella della tabella  & Obbligatorio  & UC5.2 & S \tabularnewline
     
     % VISUALIZZAZIONE DEI DATI SUL GRAFICO
-    \RFM & L’utente deve poter visualizzare i dati del dataset selezionato in forma di grafico tridimensionale a barre verticali  & Obbligatorio  &  UC6\tabularnewline
-    \RFM & L’utente deve poter visualizzare gli assi del grafico tridimensionale  & Obbligatorio   &  UC6.1\tabularnewline
-    \RFM & L’utente deve poter visualizzare l'asse X del grafico tridimensionale   & Obbligatorio  & UC6.1.1 \tabularnewline
-    \RFM & L’utente deve poter visualizzare l'asse Y del grafico tridimensionale   & Obbligatorio  & UC6.1.2 \tabularnewline
-    \RFM & L’utente deve poter visualizzare l'asse Z del grafico tridimensionale   & Obbligatorio  & UC6.1.3 \tabularnewline
+    \RFM & L’utente deve poter visualizzare i dati del dataset selezionato in forma di grafico tridimensionale a barre verticali  & Obbligatorio  &  UC6 & S\tabularnewline
+    \RFM & L’utente deve poter visualizzare gli assi del grafico tridimensionale  & Obbligatorio   &  UC6.1 & S\tabularnewline
+    \RFM & L’utente deve poter visualizzare l'asse X del grafico tridimensionale   & Obbligatorio  & UC6.1.1 & S \tabularnewline
+    \RFM & L’utente deve poter visualizzare l'asse Y del grafico tridimensionale   & Obbligatorio  & UC6.1.2 & S \tabularnewline
+    \RFM & L’utente deve poter visualizzare l'asse Z del grafico tridimensionale   & Obbligatorio  & UC6.1.3 & S \tabularnewline
 
     
     % TELECAMERA
-    \RFM & L’utente deve poter muovere la telecamera orizzontalmente & Obbligatorio  &  UC7\tabularnewline
-    \RFM & L’utente deve poter muovere la telecamera verticalmente  & Obbligatorio &  UC8\tabularnewline
+    \RFM & L’utente deve poter muovere la telecamera orizzontalmente & Obbligatorio  &  UC7 & S\tabularnewline
+    \RFM & L’utente deve poter muovere la telecamera verticalmente  & Obbligatorio &  UC8 & S\tabularnewline
     
     % TELECAMERA
-    \RFM & L’utente deve poter ruotare il grafico attorno all'asse X   & Obbligatorio & UC9\tabularnewline
-    \RFM & L’utente deve poter ruotare il grafico attorno all'asse Y  & Obbligatorio  & UC10\tabularnewline
-    \RFM & L’utente deve poter ruotare il grafico attorno all'asse Z   & Obbligatorio & UC11\tabularnewline
+    \RFM & L’utente deve poter ruotare il grafico attorno all'asse X   & Obbligatorio & UC9 & S\tabularnewline
+    \RFM & L’utente deve poter ruotare il grafico attorno all'asse Y  & Obbligatorio  & UC10 & S\tabularnewline
+    \RFM & L’utente deve poter ruotare il grafico attorno all'asse Z   & Obbligatorio & UC11 & S\tabularnewline
     
     %ZOOM
-    \RFM & L’utente deve poter eseguire un’azione di zoom-in indipendentemente dalla posizione della telecamera & Obbligatorio & UC12\par UC12.1\tabularnewline
-    \RFM & L’utente deve poter eseguire un’azione di zoom-out indipendentemente dalla posizione della telecamera & Obbligatorio & UC12\par UC12.2\tabularnewline
+    \RFM & L’utente deve poter eseguire un’azione di zoom-in indipendentemente dalla posizione della telecamera & Obbligatorio & UC12\par UC12.1 & S\tabularnewline
+    \RFM & L’utente deve poter eseguire un’azione di zoom-out indipendentemente dalla posizione della telecamera & Obbligatorio & UC12\par UC12.2 & S\tabularnewline
 
     %RIPOSIONNAMENTO
-    \RFM & L’utente deve poter riposizionare la telecamera alla sua posizione iniziale  & Obbligatorio  & UC13\tabularnewline
+    \RFM & L’utente deve poter riposizionare la telecamera alla sua posizione iniziale  & Obbligatorio  & UC13 & S\tabularnewline
 
     %VISUALIZZAZIONE PRIMO PIANO
-    \RFM & L’utente deve poter visualizzare una singola barra del grafico in primo piano  & Obbligatorio & UC14\tabularnewline
+    \RFM & L’utente deve poter visualizzare una singola barra del grafico in primo piano  & Obbligatorio & UC14 & S\tabularnewline
 
     %VISUALIZZAZIONE DETTAGLI
-    \RFM & L’utente deve poter visualizzare i dettagli di una barra del grafico  & Obbligatorio & UC15\par UC15.1\par UC15.2\tabularnewline
+    \RFM & L’utente deve poter visualizzare i dettagli di una barra del grafico  & Obbligatorio & UC15\par UC15.1\par UC15.2 & S\tabularnewline
 
     %FILTRI
-    \RFM & L’utente deve poter filtrare un numero N dei valori più alti & Obbligatorio & UC16\par UC16.1\tabularnewline
-    \RFM & L’utente deve poter filtrare un numero N dei valori più bassi & Obbligatorio & UC16\par UC16.2\tabularnewline
-    \RFM & L’utente deve poter inserire un numero per effettuare un filtraggio & Obbligatorio & UC16\par UC16.3\tabularnewline
-    \RFM & L’utente deve poter filtrare i valori inferiori o uguali rispetto a un valore del grafico & Obbligatorio & UC17\par UC17.1\par UC17.1.1\tabularnewline
-    \RFM & L’utente deve poter filtrare i valori inferiori o uguali rispetto al valore medio globale, ossia la media dei valori del grafico & Obbligatorio & UC17\par UC17.1\par UC17.1.2\tabularnewline
-    \RFM & L’utente deve poter filtrare i valori superiori o uguali rispetto a un valore del grafico & Obbligatorio & UC17\par UC17.2\par UC17.2.1\tabularnewline
-    \RFM & L’utente deve poter filtrare i valori superiori o uguali rispetto al valore medio globale & Obbligatorio & UC17\par UC17.2\par UC17.2.2\tabularnewline
+    \RFM & L’utente deve poter filtrare un numero N dei valori più alti & Obbligatorio & UC16\par UC16.1 & S\tabularnewline
+    \RFM & L’utente deve poter filtrare un numero N dei valori più bassi & Obbligatorio & UC16\par UC16.2 & S\tabularnewline
+    \RFM & L’utente deve poter inserire un numero per effettuare un filtraggio & Obbligatorio & UC16\par UC16.3 & S\tabularnewline
+    \RFM & L’utente deve poter filtrare i valori inferiori o uguali rispetto a un valore del grafico & Obbligatorio & UC17\par UC17.1\par UC17.1.1 & S\tabularnewline
+    \RFM & L’utente deve poter filtrare i valori inferiori o uguali rispetto al valore medio globale, ossia la media dei valori del grafico & Obbligatorio & UC17\par UC17.1\par UC17.1.2 & S\tabularnewline
+    \RFM & L’utente deve poter filtrare i valori superiori o uguali rispetto a un valore del grafico & Obbligatorio & UC17\par UC17.2\par UC17.2.1 & S\tabularnewline
+    \RFM & L’utente deve poter filtrare i valori superiori o uguali rispetto al valore medio globale & Obbligatorio & UC17\par UC17.2\par UC17.2.2 & S\tabularnewline
 
     %RESET
     \RFM & L’utente deve poter ripristinare lo stato del grafico
-    rispetto ai precedenti filtri applicati   & Obbligatorio & UC18\tabularnewline
+    rispetto ai precedenti filtri applicati   & Obbligatorio & UC18 & S\tabularnewline
 
     %VALOR MEDIO
-    \RFM & L’utente deve poter visualizzare un piano parallelo alla base che rappresenti il valor medio globale & Obbligatorio & UC19\par UC19.1\tabularnewline
-    \RFD & L’utente deve poter visualizzare un piano parallelo alla base che rappresenti la media dei valori relativi a un etichetta & Desiderabile & UC19\par UC19.2\tabularnewline
+    \RFM & L’utente deve poter visualizzare un piano parallelo alla base che rappresenti il valor medio globale & Obbligatorio & UC19 & S\tabularnewline
 
     %COLORE
-    \RFO & Le barre del grafico 3D devono avere una colorazione appropriata che renda i relativi valori facilmente e velocemente comprensibili  & Opzionale & VE 2024-12-19 \tabularnewline
+    \RFO & Le barre del grafico 3D devono avere una colorazione appropriata che renda i relativi valori facilmente e velocemente comprensibili  & Opzionale & VE 2024-12-19  & S\tabularnewline
 
     }
 
@@ -177,38 +182,38 @@ Per la codifica dei requisiti si faccia riferimento alle \textit{Norme di proget
 \subsection{Requisiti qualitativi}
    
 \requirementsTable{
-    \RQM & Il software deve essere sviluppato seguendo le metriche e il modello di qualità descritti nel documento \textit{Norme di progetto}  & Obbligatorio  & Decisione interna \tabularnewline
-    \RQM & Il software deve essere sviluppato pubblicando il codice sorgente nel repository Github dedicato  & Obbligatorio  & Decisione interna \tabularnewline
-    \RQM & La consegna del progetto deve includere i diagrammi UML relativi ai casi d'uso identificati & Obbligatorio & Decisione interna \tabularnewline
-    \RQM & Il software deve essere testato attraverso test di tipo e2e, concentrando l'attenzione sulle funzionalità chiave che impattano sull'esperienza utente (almeno 3 funzionalità) & Desiderabile  & Capitolato \tabularnewline 
-    \RQM & Deve essere consegnata la documentazione relativa ai test effettuati con i relativi risultati & Obbligatorio & Decisione interna \tabularnewline
+    \RQM & Il software deve essere sviluppato seguendo le metriche e il modello di qualità descritti nel documento \textit{Norme di progetto}  & Obbligatorio  & Decisione interna & S \tabularnewline
+    \RQM & Il software deve essere sviluppato pubblicando il codice sorgente nel repository Github dedicato  & Obbligatorio  & Decisione interna  & S\tabularnewline
+    \RQM & La consegna del progetto deve includere i diagrammi UML relativi ai casi d'uso identificati & Obbligatorio & Decisione interna & S \tabularnewline
+    \RQM & Il software deve essere testato attraverso test di tipo e2e, concentrando l'attenzione sulle funzionalità chiave che impattano sull'esperienza utente (almeno 3 funzionalità) & Desiderabile  & Capitolato & S\tabularnewline 
+    \RQM & Deve essere consegnata la documentazione relativa ai test effettuati con i relativi risultati & Obbligatorio & Decisione interna & S \tabularnewline
 }
  \pagebreak
 \subsection{Requisiti di vincolo}
 \requirementsTable{
-    \RVM & Il software deve essere sviluppato utilizzando Typescript come linguaggio di programmazione primario  & Obbligatorio  & Decisione interna \tabularnewline
-    \RVM & Il software deve supportare un massimo di 500 elementi per le coordinate X e Z mantenendo il limite di 5000 dati (es. con 500 righe, il massimo numero di colonne sarà pari a 10) & Obbligatorio & Decisione interna \tabularnewline
-    \RVM & Il software deve essere sviluppato utilizzando la libreria React per la creazione di un'interfaccia visiva semplice  & Obbligatorio  & Decisione interna \tabularnewline
-    \RVM & Il software deve essere sviluppato utilizzando la libreria Three.js   & Obbligatorio & Decisione interna \tabularnewline
-    \RVM & Il software deve essere compatibile dalla versione 131 del browser Chrome  & Obbligatorio & Decisione interna \tabularnewline
-    \RVM & Il software deve essere compatibile dalla versione 133 del browser Firefox  & Obbligatorio & Decisione interna \tabularnewline
-    \RVM & Il software deve essere compatibile dalla versione 115 del browser Opera  & Obbligatorio & Decisione interna \tabularnewline
-    \RVM & Il software deve essere compatibile dalla versione 131 del browser Microsoft Edge  & Obbligatorio & Decisione interna \tabularnewline
-    \RVM & Il backend del software deve essere sviluppato utilizzando Node.js & Obbligatorio & Decisione interna \tabularnewline
-    \RVM & Il framework Express.js deve essere utilizzato per la gestione delle API & Obbligatorio & Decisione interna \tabularnewline
-    \RVM & Il sistema di caching deve essere eseguito in un container Docker per garantire isolamento e facilità di gestione & Obbligatorio & Decisione interna \tabularnewline
+    \RVM & Il software deve essere sviluppato utilizzando Typescript come linguaggio di programmazione primario  & Obbligatorio  & Decisione interna & S \tabularnewline
+    \RVM & Il software deve supportare un massimo di 500 elementi per le coordinate X e Z mantenendo il limite di 5000 dati (es. con 500 righe, il massimo numero di colonne sarà pari a 10) & Obbligatorio & Decisione interna & S \tabularnewline
+    \RVM & Il software deve essere sviluppato utilizzando la libreria React per la creazione di un'interfaccia visiva semplice  & Obbligatorio  & Decisione interna & S \tabularnewline
+    \RVM & Il software deve essere sviluppato utilizzando la libreria Three.js   & Obbligatorio & Decisione interna & S \tabularnewline
+    \RVM & Il software deve essere compatibile dalla versione 131 del browser Chrome  & Obbligatorio & Decisione interna & S \tabularnewline
+    \RVM & Il software deve essere compatibile dalla versione 133 del browser Firefox  & Obbligatorio & Decisione interna & S \tabularnewline
+    \RVM & Il software deve essere compatibile dalla versione 115 del browser Opera  & Obbligatorio & Decisione interna & S \tabularnewline
+    \RVM & Il software deve essere compatibile dalla versione 131 del browser Microsoft Edge  & Obbligatorio & Decisione interna & S \tabularnewline
+    \RVM & Il backend del software deve essere sviluppato utilizzando Node.js & Obbligatorio & Decisione interna & S \tabularnewline
+    \RVM & Il framework NestJS deve essere utilizzato per la creazione del backend & Obbligatorio & Decisione interna & S \tabularnewline
+    \RVM & Il sistema di caching deve essere eseguito in un container Docker per garantire isolamento e facilità di gestione & Obbligatorio & Decisione interna & S \tabularnewline
     }
 \newpage
 
 \subsection{Requisiti prestazionali}
 \requirementsTable{
-    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 2000 non deve avere un tempo di caricamento superiore a 1 secondo  & Obbligatorio & Decisione interna \tabularnewline
-    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 2000 non deve avere un tempo di rendering superiore a 1 secondo  & Obbligatorio & Decisione interna \tabularnewline
-    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 3500 non deve avere un tempo di caricamento superiore a 2 secondi  & Obbligatorio & Decisione interna \tabularnewline
-    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 3500 non deve avere un tempo di rendering superiore a 1 secondo & Obbligatorio & Decisione interna \tabularnewline
-    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 5000 non deve avere un tempo di caricamento superiore a 3 secondi  & Obbligatorio & Decisione interna \tabularnewline
-    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 5000 non deve avere un tempo di rendering superiore a 1 secondo  & Obbligatorio & Decisione interna \tabularnewline
-    \RPM & Il software non deve avere un tempo di risposta superiore a 5 secondi & Obbligatorio & Decisione interna \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 2000 non deve avere un tempo di caricamento superiore a 1 secondo  & Obbligatorio & Decisione interna & S \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 2000 non deve avere un tempo di rendering superiore a 1 secondo  & Obbligatorio & Decisione interna & S \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 3500 non deve avere un tempo di caricamento superiore a 2 secondi  & Obbligatorio & Decisione interna & S \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 3500 non deve avere un tempo di rendering superiore a 1 secondo & Obbligatorio & Decisione interna & S \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 5000 non deve avere un tempo di caricamento superiore a 3 secondi  & Obbligatorio & Decisione interna & S \tabularnewline
+    \RPM & Il software quando carica un dataset di dimensioni minori o uguali a 5000 non deve avere un tempo di rendering superiore a 1 secondo  & Obbligatorio & Decisione interna & S \tabularnewline
+    \RPM & Il software non deve avere un tempo di risposta superiore a 5 secondi & Obbligatorio & Decisione interna & S \tabularnewline
 }
 
 \subsection{Requisiti hardware}
@@ -287,13 +292,11 @@ I requisiti hardware minimi per utilizzare in modo fluido l'applicazione web son
     UC17.2.1    & RF29 \tabularnewline
     UC17.2.2    & RF30 \tabularnewline
     UC18   & RF31 \tabularnewline
-    UC19   & RF32\par RF33 \tabularnewline
-    UC19.1    & RF32 \tabularnewline
-    UC19.2    & RF33 \tabularnewline
-    VE 2024-12-19  & RF34 \tabularnewline
+    UC19   & RF32 \tabularnewline
+    VE 2024-12-19  & RF33 \tabularnewline
 
     }
-
+\pagebreak
 \subsubsection{Requisiti - Fonti}
 \ReqToUCTable{
 
@@ -328,9 +331,8 @@ I requisiti hardware minimi per utilizzare in modo fluido l'applicazione web son
     RF29 & UC17\par UC17.2\par UC17.2.1 \tabularnewline
     RF30 & UC17\par UC17.2\par UC17.2.2 \tabularnewline
     RF31 & UC18 \tabularnewline
-    RF32 & UC19\par UC19.1 \tabularnewline
-    RF33 & UC19\par UC19.2 \tabularnewline
-    RF34 & VE 2024-12-19  \tabularnewline
+    RF32 & UC19 \tabularnewline
+    RF33 & VE 2024-12-19  \tabularnewline
 
     RQ1 & Decisione interna\tabularnewline
     RQ2 & Decisione interna\tabularnewline
@@ -365,7 +367,7 @@ I requisiti hardware minimi per utilizzare in modo fluido l'applicazione web son
 \addtocounter{T}{\value{D}}
 \addtocounter{T}{\value{O}}
 
-
+\pagebreak
 
 \subsubsection{Riepilogo requisiti}
 \requirementsSummaryTable{
