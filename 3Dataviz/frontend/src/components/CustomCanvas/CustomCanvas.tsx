@@ -113,8 +113,6 @@ const customCanvas = React.forwardRef<
             ref={controls}
             target={initialTarget}
             dampingFactor={0.07}
-            minPolarAngle={0}
-            maxPolarAngle={Math.PI / 2 - 0.1}
             maxDistance={100}
           />
           <GizmoHelper alignment="top-left" margin={[60, 60]}>
