@@ -13,9 +13,16 @@ che non soddisfano i criteri di selezione vengono rese parzialmente trasparenti.
 È lecito aspettarsi che, se due barre sono sovrapposte e la barra più vicina all'osservatore
 è parzialmente trasparente, la barra più lontana sia visibile. Tuttavia, in alcuni casi,
 una barra parzialmente trasparente può nascondere completamente una barra più lontana.
+In figura \ref{fig:trasparenza} sono mostrati due esempi di barre parzialmente trasparenti.
+A sinistra, la barra più vicina è parzialmente trasparente e non nasconde
+completamente la barra più lontana (comportamento desiderato). A destra, invece,
+la barra più vicina è parzialmente trasparente e nasconde completamente la barra 
+più lontana (comportamento ottenuto in certi casi).
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\textwidth]{template/images/logo-circle.png}
+    \includegraphics[width=0.4\textwidth]{template/images/barreok.png}
+    \hspace{0.5cm}
+    \includegraphics[width=0.4\textwidth]{template/images/barre.png}
     \caption{Esempio di barre parzialmente trasparenti}
     \label{fig:trasparenza}
 \end{figure}
@@ -25,6 +32,6 @@ una barra parzialmente trasparente può nascondere completamente una barra più 
 La rotazione del grafico avviene in modo fluido e senza evidenti problemi. Tuttavia,
 se nella posizione iniziale il cursore del mouse si trova sopra una barra, e
 nella nuova posizione il cursore si trova sopra un'altra (o la stessa) barra,
-quest'ultima barra viene selezionata al momento del rilascio del mouse.
-Questo comportamento, purtroppo, è intrinsecamente legato alla
+quest'ultima viene selezionata al momento del rilascio del mouse.
+Questo comportamento è intrinsecamente legato alla
 gestione dell'evento "onClick" del mouse, che viene attivato al momento del rilascio.
