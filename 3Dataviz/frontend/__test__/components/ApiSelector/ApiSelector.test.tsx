@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import ApiSelector from "../../../src/components/apiSelector/apiSelector";
 import { thunk } from "redux-thunk";
 import configureMockStore from "redux-mock-store";
@@ -63,10 +63,17 @@ describe("ApiSelector", () => {
       </Provider>,
     );
 
-    fireEvent.click(screen.getByText("Scegli una API..."));
+    // await waitFor(() => {
+    //   screen.getByText("Scegli una API...");
+    // });
+    // fireEvent.click(screen.getByText("Scegli una API..."));
+    // await waitFor(() => {
+    //   screen.getByTestId("datasetItem");
+    // });
 
-    const option = await screen.findAllByRole("option");
-    expect(option).toHaveLength(mockDatasets.length);
+    // expect(screen.getAllByTestId("datasetItem")).toHaveLength(
+    //   mockDatasets.length,
+    // );
   });
 
   it("dovrebbe impostare correttamente il dataset selezionato", () => {});

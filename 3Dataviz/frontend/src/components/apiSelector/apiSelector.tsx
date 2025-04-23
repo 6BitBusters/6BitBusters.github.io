@@ -52,18 +52,18 @@ function ApiSelector() {
   const items: DatasetInfo[] = useSelector(selectorDatasets);
 
   // CODICE DI TEST
-  // const options: OptionType[] = FakeItems.map((item) => ({
-  //   value: item.id,
-  //   label: item.name,
-  //   data: item,
-  // }));
-
-  // CODICE VERO
   const options: OptionType[] = FakeItems.map((item) => ({
     value: item.id,
     label: item.name,
     data: item,
   }));
+
+  // CODICE VERO
+  // const options: OptionType[] = items.map((item) => ({
+  //   value: item.id,
+  //   label: item.name,
+  //   data: item,
+  // }));
 
   // Custom select
   const [selected, setSelected] = useState<SingleValue<OptionType>>(null);
