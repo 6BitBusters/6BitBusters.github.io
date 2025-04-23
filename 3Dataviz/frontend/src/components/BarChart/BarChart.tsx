@@ -9,7 +9,11 @@ import * as THREE from "three";
 import Tooltip from "./Bars/Tooltip";
 import { useEffect, useState } from "react";
 import { useThree } from "@react-three/fiber";
-import { selectorRaycastHit } from "../../features/Raycast/RaycastHitSlice";
+import {
+  selectorRaycastHit,
+  setHit,
+  setTooltipPosition,
+} from "../../features/Raycast/RaycastHitSlice";
 import { BarChartProps } from "./Bars/props/BarChartProps";
 
 function BarChart({ onSelectedBar }: BarChartProps) {
@@ -29,6 +33,15 @@ function BarChart({ onSelectedBar }: BarChartProps) {
     dispatch(
       filterByValue({ value: data.data[id].y, isGreater: filterOption }),
     );
+    dispatch(setHit(id));
+  };
+
+  const handleHover = (
+    id: number,
+    hitPosition: [number, number, number] | null,
+  ) => {
+    dispatch(setTooltipPosition(hitPosition));
+    setHoverBar(id);
   };
 
   useEffect(() => {
@@ -52,7 +65,7 @@ function BarChart({ onSelectedBar }: BarChartProps) {
       <Bars
         data={data.data}
         clickHandler={handleClick}
-        hoverHandler={setHoverBar}
+        hoverHandler={handleHover}
       />
       <Axes
         x={data.x}

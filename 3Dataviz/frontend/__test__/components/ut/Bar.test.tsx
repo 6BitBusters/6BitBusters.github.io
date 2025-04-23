@@ -104,7 +104,8 @@ describe("Bars", () => {
     expect(intersectionPoint).toHaveBeenCalled();
     expect(mockProp.hoverHandler).not.toHaveBeenCalled();
   });
-  it("quando il mouse si sposta e non interseca una delle barre il tooltop non deve apparire", async () => {
+
+  it("quando il mouse da una barra il tootltop deve scomparire", async () => {
     const mockProp: BarsProps = {
       clickHandler: vi.fn(),
       hoverHandler: vi.fn(),
@@ -127,6 +128,6 @@ describe("Bars", () => {
     const mesh = renderer.scene.children[0];
     await renderer.fireEvent(mesh, "pointerLeave");
     await delay(1000);
-    expect(mockProp.hoverHandler).toHaveBeenCalledWith(0);
+    expect(mockProp.hoverHandler).toHaveBeenCalledWith(0, null);
   });
 });

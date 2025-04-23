@@ -2,12 +2,14 @@
     width: 100%;
     position: fixed;
     bottom: -330px;
+    z-index: 1;
 }
 
 #table-wrap {
     background-color: var(--ui-bg-color);
     overflow: scroll;
     padding: 1rem 1rem 1.5rem 1rem;
+    box-shadow: 1px 13px 10px 10px black;
 }
 
 table {

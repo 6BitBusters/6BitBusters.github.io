@@ -3,12 +3,7 @@ import * as THREE from "three";
 import { ThreeEvent, useThree } from "@react-three/fiber";
 import { GetIntersection, GetIntersectionId } from "./Utils/RaycastUtils";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../../app/Hooks";
-import {
-  selectorRaycastHit,
-  setHit,
-  setTooltipPosition,
-} from "../../../features/Raycast/RaycastHitSlice";
+import { selectorRaycastHit } from "../../../features/Raycast/RaycastHitSlice";
 import { LoadShader } from "./Utils/ShaderUtils";
 import { UpdateMousePosition } from "./Utils/PointerInterectionUtils";
 import { Selection } from "./Utils/ColorsUtils";
@@ -22,7 +17,6 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
 
   // redux
   const raycastState = useSelector(selectorRaycastHit);
-  const dispatch = useAppDispatch();
 
   // instancedMesh
   const count = data.length;
@@ -198,7 +192,6 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   }, [camera, scene]);
 
   useEffect(() => {
-    console.log();
     const currentBar = raycastState.previousSelectedBarId;
     Selection(mesh.current, currentBar, true);
     if (previeousSelectedBar >= 0) {
@@ -214,7 +207,6 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
     const prevId: number | null = raycastState.previousSelectedBarId;
     if (bar !== null && bar != prevId) {
       clickHandler(bar);
-      dispatch(setHit(bar));
     }
   };
 
@@ -233,10 +225,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
         const tooltipPoint = worldPointIntersection.point.add(
           new THREE.Vector3(0.5, -0.5, 0),
         );
-        dispatch(
-          setTooltipPosition([tooltipPoint.x, tooltipPoint.y, tooltipPoint.z]),
-        );
-        hoverHandler(bar);
+        hoverHandler(bar, tooltipPoint.toArray());
       }
     }, 500);
   };
@@ -245,8 +234,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
     if (hoverTimeout.current !== null) {
       clearTimeout(hoverTimeout.current);
     }
-    dispatch(setTooltipPosition(null));
-    hoverHandler(0);
+    hoverHandler(0, null);
   };
 
   return (
