@@ -10,8 +10,6 @@ import {
   selectorDatasets,
   trySetCurrentDataset,
 } from "../../features/DataSource/DataSourceSlice";
-import { selectorAppState } from "../../features/AppStatus/AppSlice";
-import { AppState } from "../../features/AppStatus/types/AppState";
 import { useAppDispatch } from "../../app/Hooks";
 
 type OptionType = {
