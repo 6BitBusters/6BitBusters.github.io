@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import Axes from "../axes/Axes";
+import Axes from "../axes/axes";
 import Bars from "./bars/bars";
 import { filterByValue, selectorData } from "../../features/data/dataSlice";
 import { selectorIsGreater } from "../../features/filterOption/filterOptionSlice";
