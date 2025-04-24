@@ -120,8 +120,8 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
 
   useEffect(() => {
     Promise.all([
-      LoadShader("/Shaders/BarVertexShader.GLSL"),
-      LoadShader("/Shaders/BarFragmentShader.GLSL"),
+      LoadShader("/shaders/barVertexShader.GLSL"),
+      LoadShader("/shaders/barFragmentShader.GLSL"),
     ])
       .then(([vertex, fragment]) => {
         setShaderError(false);
