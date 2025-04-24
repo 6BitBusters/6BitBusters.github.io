@@ -32,7 +32,8 @@ export class CacheRepository
     const stringValue = JSON.stringify(value);
     try {
       await this.cache.set(key, stringValue, { expires: ttlSeconds });
-    } catch {
+    } catch (error) {
+      console.error("Errore durante il salvataggio in cache:", error);
       // Il fallimento del salvataggio in cache non deve interrompere il flusso
     }
   }
