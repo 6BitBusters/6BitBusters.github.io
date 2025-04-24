@@ -41,6 +41,7 @@ const appSlice = createSlice({
           state.isLoading = false;
           // sara` sicuramente un numero in quanto ritorno sempre un response.status
           state.error = serializeError(generateError(action.payload as number));
+          state.error = serializeError(generateError(action.payload as number));
         },
       )
       // se mentre sto reperendo i dataset resetto lo stato degli errori
@@ -54,6 +55,7 @@ const appSlice = createSlice({
         requestDatasets.rejected,
         (state, action: PayloadAction<unknown>) => {
           state.error = serializeError(generateError(action.payload as number));
+          state.error = serializeError(generateError(action.payload as number));
         },
       )
       // se l`utente seleziona un dataset non presente in lista
@@ -61,6 +63,7 @@ const appSlice = createSlice({
         setCurrentDataset,
         (state, action: PayloadAction<DatasetInfo | undefined>) => {
           if (action.payload === undefined) {
+            state.error = serializeError(generateError(404));
             state.error = serializeError(generateError(404));
           }
         },
