@@ -1,14 +1,14 @@
 import { test, expect } from "@playwright/test";
 
 test("canvas visible", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/environment");
 
   const canvas = await page.locator("canvas");
   await expect(canvas).toBeVisible();
 });
 
 test("camera can pan on Y axis", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/environment");
 
   const canvas = await page.locator("canvas");
   await canvas.waitFor({ state: "visible", timeout: 10000 });
@@ -30,7 +30,7 @@ test("camera can pan on Y axis", async ({ page }) => {
 });
 
 test("camera can pan on X axis", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/environment");
 
   const canvas = await page.locator("canvas");
   await canvas.waitFor({ state: "visible", timeout: 10000 });
@@ -52,7 +52,7 @@ test("camera can pan on X axis", async ({ page }) => {
 });
 
 test("camera can rotation on Y axis", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/environment");
 
   const canvas = await page.locator("canvas");
   await canvas.waitFor({ state: "visible", timeout: 10000 });
@@ -74,7 +74,7 @@ test("camera can rotation on Y axis", async ({ page }) => {
 });
 
 test("camera can rotation on X axis", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/environment");
 
   const canvas = await page.locator("canvas");
   await canvas.waitFor({ state: "visible", timeout: 10000 });
@@ -96,7 +96,7 @@ test("camera can rotation on X axis", async ({ page }) => {
 });
 
 test("camera zoom in", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/environment");
 
   const canvas = await page.locator("canvas");
   await canvas.waitFor({ state: "visible", timeout: 10000 });
@@ -117,7 +117,7 @@ test("camera zoom in", async ({ page }) => {
 });
 
 test("camera zoom out", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/environment");
 
   const canvas = await page.locator("canvas");
   await canvas.waitFor({ state: "visible", timeout: 10000 });
