@@ -1,11 +1,11 @@
 import "./homePage.css";
-import Footer from "../../components/footer/footer";
-import ApiSelector from "../../components/apiSelector/apiSelector";
+import Footer from "../../components/UI/footer/footer";
+import ApiSelector from "../../components/UI/apiSelector/apiSelector";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
-import { AppState } from "../../features/AppStatus/types/AppState";
-import { selectorAppState } from "../../features/AppStatus/AppSlice";
+import { AppState } from "../../features/appStatus/types/appState";
+import { selectorAppState } from "../../features/appStatus/appSlice";
 
 function HomePage() {
   const navigate = useNavigate();

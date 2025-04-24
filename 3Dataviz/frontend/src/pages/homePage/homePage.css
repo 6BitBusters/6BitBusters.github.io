@@ -1,5 +1,5 @@
 .containerHome{
-    margin: 4em auto auto auto;
+    margin: auto;
     text-align: center;
     border-radius: 15px;
     padding: 2em;
@@ -10,10 +10,13 @@
 }
 
 .teamInfo{
-    margin: 4em auto 4em auto;
+    margin: 0 auto 3rem auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
     width: fit-content;
     text-align: center;
     color: white;
+
 }
 .teamInfo ul{
     list-style: none;
