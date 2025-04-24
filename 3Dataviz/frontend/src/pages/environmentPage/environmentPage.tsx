@@ -5,7 +5,8 @@ import UI from "../../components/UI/ui";
 import { useSelector } from "react-redux";
 import { selectorCurrentDataset } from "../../features/dataSource/dataSourceSlice";
 import { selectorAppState } from "../../features/appStatus/appSlice";
-function App() {
+
+function EnvironmentPage() {
   const datasetName = useSelector(selectorCurrentDataset)?.name || "";
   const isLoading = useSelector(selectorAppState).isLoading;
   const customCanvasRef = useRef<{ resetCamera: () => void } | null>(null);
@@ -32,4 +33,4 @@ function App() {
   );
 }
 
-export default App;
+export default EnvironmentPage;

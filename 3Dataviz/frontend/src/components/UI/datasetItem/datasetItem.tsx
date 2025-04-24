@@ -1,4 +1,4 @@
-import { DatasetInfo } from "../../features/DataSource/types/DatasetInfo";
+import { DatasetInfo } from "../../../features/dataSource/types/datasetInfo";
 import "./datasetItem.css";
 
 function DatasetItem({ id, name, size, description }: DatasetInfo) {
