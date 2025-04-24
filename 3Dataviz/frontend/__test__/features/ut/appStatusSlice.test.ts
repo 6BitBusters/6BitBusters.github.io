@@ -75,7 +75,6 @@ describe("AppStateSlice", () => {
     const expectedState: AppState = {
       isLoading: false,
       error: serializeError(new TooManyRequestsError()),
-      error: serializeError(new TooManyRequestsError()),
     };
     expect(
       reducer(initialState, {
@@ -83,8 +82,6 @@ describe("AppStateSlice", () => {
         payload: errNo,
       }),
     ).toEqual(expectedState);
-    expect(expectedState.error?.code).toEqual(errNo.toString());
-    expect(expectedState.error?.message).toEqual(
     expect(expectedState.error?.code).toEqual(errNo.toString());
     expect(expectedState.error?.message).toEqual(
       "Numero massimo di richieste API effettuate",
@@ -100,7 +97,6 @@ describe("AppStateSlice", () => {
     const expectedState: AppState = {
       isLoading: false,
       error: serializeError(new ServerError()),
-      error: serializeError(new ServerError()),
     };
     expect(
       reducer(initialState, {
@@ -108,8 +104,6 @@ describe("AppStateSlice", () => {
         payload: errNo,
       }),
     ).toEqual(expectedState);
-    expect(expectedState.error?.code).toEqual(errNo.toString());
-    expect(expectedState.error?.message).toEqual(
     expect(expectedState.error?.code).toEqual(errNo.toString());
     expect(expectedState.error?.message).toEqual(
       "Errore di connessione al server",
@@ -125,7 +119,6 @@ describe("AppStateSlice", () => {
     const expectedState: AppState = {
       isLoading: false,
       error: serializeError(new NotFoundError()),
-      error: serializeError(new NotFoundError()),
     };
     expect(
       reducer(initialState, {
@@ -133,8 +126,6 @@ describe("AppStateSlice", () => {
         payload: errNo,
       }),
     ).toEqual(expectedState);
-    expect(expectedState.error?.code).toEqual(errNo.toString());
-    expect(expectedState.error?.message).toEqual("Non trovato");
     expect(expectedState.error?.code).toEqual(errNo.toString());
     expect(expectedState.error?.message).toEqual("Non trovato");
   });
@@ -146,7 +137,6 @@ describe("AppStateSlice", () => {
     };
     const expectedState: AppState = {
       isLoading: false,
-      error: serializeError(new ServerError()),
       error: serializeError(new ServerError()),
     };
     expect(
@@ -163,7 +153,6 @@ describe("AppStateSlice", () => {
     };
     const expectedState: AppState = {
       isLoading: false,
-      error: serializeError(new NotFoundError()),
       error: serializeError(new NotFoundError()),
     };
     expect(reducer(initialState, setCurrentDataset(undefined))).toEqual(
