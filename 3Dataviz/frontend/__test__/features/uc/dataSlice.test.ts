@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { thunk } from "redux-thunk";
 import configureMockStore from "redux-mock-store";
-import { Dataset } from "../../../src/features/Data/types/Dataset";
-import { RootState, AppDispatch } from "../../../src/app/Store";
-import { DataState } from "../../../src/features/Data/types/DataState";
+import { Dataset } from "../../../src/features/data/types/dataset";
+import { RootState, AppDispatch } from "../../../src/app/store";
+import { DataState } from "../../../src/features/data/types/dataState";
 import reducer, {
   requestData,
   filterFirstN,
@@ -11,9 +11,9 @@ import reducer, {
   filterByAverage,
   reset,
   selectorData,
-} from "../../../src/features/Data/DataSlice";
+} from "../../../src/features/data/dataSlice";
 import fetchMock from "fetch-mock";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
+import { createMockRootState } from "../../utils/stateMockCreator";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
@@ -531,7 +531,7 @@ describe("DataSlice", () => {
         x: ["Label 1"],
       } as DataState,
     };
-    const mockState = CreateMockRootState(overrides);
+    const mockState = createMockRootState(overrides);
     expect(selectorData(mockState)).toEqual(overrides.data);
   });
 });

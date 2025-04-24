@@ -1,15 +1,15 @@
 import { describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import DataTable from "../../../src/components/UI/DataTable/DataTable";
+import DataTable from "../../../src/components/UI/dataTable/dataTable";
 import React from "react";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import { thunk } from "redux-thunk";
-import { AppDispatch, RootState } from "../../../src/app/Store";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
-import dataSlice from "../../../src/features/Data/DataSlice";
+import { AppDispatch, RootState } from "../../../src/app/store";
+import { createMockRootState } from "../../utils/stateMockCreator";
+import dataSlice from "../../../src/features/data/dataSlice";
 import { configureStore } from "@reduxjs/toolkit";
-import filterOptionSlice from "../../../src/features/FilterOption/FilterOptionSlice";
+import filterOptionSlice from "../../../src/features/filterOption/filterOptionSlice";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
@@ -19,7 +19,7 @@ describe("DataTable", () => {
     render(
       <Provider
         store={mockStore(
-          CreateMockRootState({
+          createMockRootState({
             data: {
               data: [{ id: 1, show: true, x: 0, y: 1, z: 0 }],
               average: 1,
@@ -42,7 +42,7 @@ describe("DataTable", () => {
     render(
       <Provider
         store={mockStore(
-          CreateMockRootState({
+          createMockRootState({
             data: {
               data: [{ id: 1, show: false, x: 0, y: 1, z: 0 }],
               average: 1,
@@ -62,7 +62,7 @@ describe("DataTable", () => {
   });
 
   it("una cella con il valore piu` alto rispetto a quella cliccata deve cambiare stile in quanto filtrata", async () => {
-    const states = CreateMockRootState({
+    const states = createMockRootState({
       data: {
         data: [
           { id: 1, show: true, x: 0, y: 1, z: 0 },
@@ -94,7 +94,7 @@ describe("DataTable", () => {
   });
 
   it("una cella con il valore piu` basso rispetto a quella cliccata deve cambiare stile in quanto filtrata", async () => {
-    const states = CreateMockRootState({
+    const states = createMockRootState({
       data: {
         data: [
           { id: 1, show: true, x: 0, y: 1, z: 0 },

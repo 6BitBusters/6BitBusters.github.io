@@ -1,12 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { RaycastHitState } from "../../../src/features/Raycast/types/RaycastHitState";
+import { RaycastHitState } from "../../../src/features/raycast/types/raycastHitState";
 import reducer, {
   selectorRaycastHit,
   setHit,
   setTooltipPosition,
-} from "../../../src/features/Raycast/RaycastHitSlice";
-import { Vector3 } from "three";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
+} from "../../../src/features/raycast/raycastHitSlice";
+import { createMockRootState } from "../../utils/stateMockCreator";
 
 describe("RaycastHitSlice", () => {
   it("Registra una intersezione (hover) su una barra", () => {
@@ -127,7 +126,7 @@ describe("RaycastHitSlice", () => {
         barTooltipPosition: [7, 3, 9],
       } as RaycastHitState,
     };
-    const mockState = CreateMockRootState(overrides);
+    const mockState = createMockRootState(overrides);
     expect(selectorRaycastHit(mockState)).toEqual(overrides.raycast);
   });
 });

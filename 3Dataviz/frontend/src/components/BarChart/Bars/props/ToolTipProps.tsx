@@ -1,7 +1,7 @@
 import { Data } from "../../../../features/data/interfaces/data";
 import { Legend } from "../../../../features/data/types/legend";
 
-export type ToolTipProps = {
+export type tooltipProps = {
   data: Data;
   legend: Legend | null;
   Xlabel: string;

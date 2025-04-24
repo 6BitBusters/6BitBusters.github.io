@@ -1,5 +1,5 @@
 import { describe, test, expect, vi, beforeEach } from "vitest";
-import { LoadShader } from "../../../src/components/BarChart/Bars/Utils/ShaderUtils";
+import { LoadShader } from "../../../src/components/barChart/bars/utils/shaderUtils";
 
 // Mock di THREE.FileLoader
 const mockLoad = vi.fn();

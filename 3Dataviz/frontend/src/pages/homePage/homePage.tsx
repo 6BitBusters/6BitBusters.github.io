@@ -4,7 +4,7 @@ import ApiSelector from "../../components/UI/apiSelector/apiSelector";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
-import { AppState } from "../../features/appStatus/types/AppState";
+import { AppState } from "../../features/appStatus/types/appState";
 import { selectorAppState } from "../../features/appStatus/appSlice";
 
 function HomePage() {

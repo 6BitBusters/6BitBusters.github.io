@@ -1,18 +1,18 @@
 import { describe, it, expect, beforeEach } from "vitest";
-import { AppState } from "../../../src/features/AppStatus/types/AppState";
+import { AppState } from "../../../src/features/appStatus/types/appState";
 import reducer, {
   selectorAppState,
-} from "../../../src/features/AppStatus/AppSlice";
-import { TooManyRequestsError } from "../../../src/features/AppStatus/Errors/TooManyRequestsError";
-import { ServerError } from "../../../src/features/AppStatus/Errors/ServerError";
-import { NotFoundError } from "../../../src/features/AppStatus/Errors/NotFoundError";
-import { requestData } from "../../../src/features/Data/DataSlice";
+} from "../../../src/features/appStatus/appSlice";
+import { TooManyRequestsError } from "../../../src/features/appStatus/errors/tooManyRequestsError";
+import { ServerError } from "../../../src/features/appStatus/errors/serverError";
+import { NotFoundError } from "../../../src/features/appStatus/errors/notFoundError";
+import { requestData } from "../../../src/features/data/dataSlice";
 import {
   requestDatasets,
   setCurrentDataset,
-} from "../../../src/features/DataSource/DataSourceSlice";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
-import { serializeError } from "../../../src/features/AppStatus/Utils/ErrorSerializer";
+} from "../../../src/features/dataSource/dataSourceSlice";
+import { createMockRootState } from "../../utils/stateMockCreator";
+import { serializeError } from "../../../src/features/appStatus/utils/errorSerializer";
 
 describe("AppStateSlice", () => {
   it("Reperimento dei dati del dataset in corso", () => {
@@ -166,7 +166,7 @@ describe("AppStateSlice", () => {
         error: null,
       } as AppState,
     };
-    const mockState = CreateMockRootState(overrides);
+    const mockState = createMockRootState(overrides);
     expect(selectorAppState(mockState)).toEqual(overrides.appState);
   });
 });

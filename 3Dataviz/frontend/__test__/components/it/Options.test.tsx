@@ -1,16 +1,16 @@
 import { describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import Options from "../../../src/components/UI/Options/Options";
+import Options from "../../../src/components/UI/options/options";
 import React from "react";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import { thunk } from "redux-thunk";
-import { AppDispatch, RootState } from "../../../src/app/Store";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
-import DataTable from "../../../src/components/UI/DataTable/DataTable";
+import { AppDispatch, RootState } from "../../../src/app/store";
+import { createMockRootState } from "../../utils/stateMockCreator";
+import DataTable from "../../../src/components/UI/dataTable/dataTable";
 import { configureStore } from "@reduxjs/toolkit";
-import filterOptionSlice from "../../../src/features/FilterOption/FilterOptionSlice";
-import dataSlice from "../../../src/features/Data/DataSlice";
+import filterOptionSlice from "../../../src/features/filterOption/filterOptionSlice";
+import dataSlice from "../../../src/features/data/dataSlice";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
@@ -18,7 +18,7 @@ const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
 describe("DataTable", () => {
   describe("Filter", () => {
     it("quando eseguo un filtraggio per i valori inferiori al valor medio le celle della tabella devono avere la classe css corretta", async () => {
-      const states = CreateMockRootState({
+      const states = createMockRootState({
         data: {
           data: [
             { id: 1, show: true, x: 0, y: 1, z: 0 },
@@ -53,7 +53,7 @@ describe("DataTable", () => {
     });
 
     it("quando eseguo un filtraggio per i valori superiori al valor medio le celle della tabella devono avere la classe css corretta", async () => {
-      const states = CreateMockRootState({
+      const states = createMockRootState({
         data: {
           data: [
             { id: 1, show: true, x: 0, y: 1, z: 0 },
@@ -96,7 +96,7 @@ describe("DataTable", () => {
 
   describe("NFilter", () => {
     it("quando eseguo un filtraggio per i bottom 2 valori le celle della tabella devono avere la classe css corretta", async () => {
-      const states = CreateMockRootState({
+      const states = createMockRootState({
         data: {
           data: [
             { id: 1, show: true, x: 0, y: 1, z: 0 },
@@ -135,7 +135,7 @@ describe("DataTable", () => {
     });
 
     it("quando eseguo un filtraggio per i top 2 valori le celle della tabella devono avere la classe css corretta", async () => {
-      const states = CreateMockRootState({
+      const states = createMockRootState({
         data: {
           data: [
             { id: 1, show: true, x: 0, y: 1, z: 0 },
@@ -182,7 +182,7 @@ describe("DataTable", () => {
 
   describe("ResetFilter", () => {
     it("quando eseguo il reset dei filtri le celle della tabella devono avere la classe css corretta", async () => {
-      const states = CreateMockRootState({
+      const states = createMockRootState({
         data: {
           data: [
             { id: 1, show: true, x: 0, y: 1, z: 0 },

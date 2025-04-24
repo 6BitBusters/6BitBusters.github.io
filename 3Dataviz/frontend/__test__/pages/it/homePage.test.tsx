@@ -3,11 +3,11 @@ import { render, screen } from "@testing-library/react";
 import HomePage from "../../../src/pages/homePage/homePage";
 import { thunk } from "redux-thunk";
 import configureMockStore from "redux-mock-store";
-import { AppDispatch, RootState } from "../../../src/app/Store";
+import { AppDispatch, RootState } from "../../../src/app/store";
 import fetchMock from "fetch-mock";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
+import { createMockRootState } from "../../utils/stateMockCreator";
 import "@testing-library/jest-dom";
 import React from "react";
 
@@ -27,7 +27,7 @@ describe("HomePage", () => {
   });
 
   it("Non dovrebbero esserci errori nell'AppStatus", () => {
-    const store = mockStore(CreateMockRootState());
+    const store = mockStore(createMockRootState());
     render(
       <Provider store={store}>
         <RouterProvider router={ROUTER_test} />
@@ -39,7 +39,7 @@ describe("HomePage", () => {
 
   it("dovrebbe caricare correttamente la HomePage", () => {
     render(
-      <Provider store={mockStore(CreateMockRootState())}>
+      <Provider store={mockStore(createMockRootState())}>
         <RouterProvider router={ROUTER_test} />
       </Provider>,
     );
@@ -49,7 +49,7 @@ describe("HomePage", () => {
 
   it("dovrebbe caricare correttamente ApiSelector", () => {
     render(
-      <Provider store={mockStore(CreateMockRootState())}>
+      <Provider store={mockStore(createMockRootState())}>
         <RouterProvider router={ROUTER_test} />
       </Provider>,
     );
@@ -58,7 +58,7 @@ describe("HomePage", () => {
 
   it("dovrebbe caricare correttamente Footer", () => {
     render(
-      <Provider store={mockStore(CreateMockRootState())}>
+      <Provider store={mockStore(createMockRootState())}>
         <RouterProvider router={ROUTER_test} />
       </Provider>,
     );

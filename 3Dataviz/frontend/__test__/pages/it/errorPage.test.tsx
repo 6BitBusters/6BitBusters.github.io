@@ -7,7 +7,7 @@ import { AppDispatch, RootState } from "../../../src/app/Store";
 import fetchMock from "fetch-mock";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
+import { createMockRootState } from "../../utils/stateMockCreator";
 import "@testing-library/jest-dom";
 import React from "react";
 import { SerializedError } from "@reduxjs/toolkit";
@@ -40,7 +40,7 @@ describe("ErrorPage", () => {
         isLoading: false,
       } as AppState,
     };
-    const store = mockStore(CreateMockRootState(overrides));
+    const store = mockStore(createMockRootState(overrides));
     render(
       <Provider store={store}>
         <RouterProvider router={ROUTER_test} />

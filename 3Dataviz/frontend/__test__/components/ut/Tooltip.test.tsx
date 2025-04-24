@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import ReactThreeTestRenderer from "@react-three/test-renderer";
 import React from "react";
-import { ToolTipProps } from "../../../src/components/BarChart/Bars/props/TooltipProps";
-import Tooltip from "../../../src/components/BarChart/Bars/Tooltip";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
+import { tooltipProps } from "../../../src/components/barChart/bars/props/tooltipProps";
+import Tooltip from "../../../src/components/barChart/bars/tooltip";
+import { createMockRootState } from "../../utils/stateMockCreator";
 
 vi.mock("react-redux", () => ({
   ...vi.importActual("react-redux"),
@@ -16,7 +16,7 @@ describe("ToolTip", () => {
     vi.clearAllMocks();
   });
   it("Renderizza un tooltip senza crashare", async () => {
-    const mockState = CreateMockRootState({
+    const mockState = createMockRootState({
       data: {
         data: [
           { id: 0, show: true, x: 1, y: 54, z: 1 },
@@ -50,7 +50,7 @@ describe("ToolTip", () => {
         ],
       },
     });
-    const mockProp: ToolTipProps = {
+    const mockProp: tooltipProps = {
       data: mockState.data.data[0],
       legend: mockState.data.legend,
       Xlabel: mockState.data.x[1],

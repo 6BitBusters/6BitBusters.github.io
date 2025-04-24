@@ -1,18 +1,17 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { BarsProps } from "../../../src/components/BarChart/Bars/props/BarsProps";
-import Bars from "../../../src/components/BarChart/Bars/Bars";
+import { BarsProps } from "../../../src/components/barChart/bars/props/barsProps";
+import Bars from "../../../src/components/barChart/bars/bars";
 import ReactThreeTestRenderer from "@react-three/test-renderer";
 import React from "react";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
+import { createMockRootState } from "../../utils/stateMockCreator";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import { thunk } from "redux-thunk";
 import { RootState } from "@react-three/fiber";
-import { AppDispatch } from "../../../src/app/Store";
-import * as raycaster from "../../../src/components/BarChart/Bars/Utils/RaycastUtils";
-import * as colors from "../../../src/components/BarChart/Bars/Utils/ColorsUtils";
+import { AppDispatch } from "../../../src/app/store";
+import * as raycaster from "../../../src/components/barChart/bars/utils/raycastUtils";
+import * as colors from "../../../src/components/barChart/bars/utils/colorsUtils";
 import { delay } from "../../setupTests";
-import * as THREE from "three";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
@@ -25,12 +24,12 @@ describe("Bars", () => {
     const mockProp: BarsProps = {
       clickHandler: vi.fn(),
       hoverHandler: vi.fn(),
-      data: CreateMockRootState().data.data,
+      data: createMockRootState().data.data,
     };
     const renderer = await ReactThreeTestRenderer.create(
       <Provider
         store={mockStore(
-          CreateMockRootState({
+          createMockRootState({
             raycast: {
               barTooltipPosition: null,
               previousSelectedBarId: null,
@@ -46,13 +45,13 @@ describe("Bars", () => {
     const mockProp: BarsProps = {
       clickHandler: vi.fn(),
       hoverHandler: vi.fn(),
-      data: CreateMockRootState().data.data,
+      data: createMockRootState().data.data,
     };
     const selection = vi.spyOn(colors, "Selection");
     const renderer = await ReactThreeTestRenderer.create(
       <Provider
         store={mockStore(
-          CreateMockRootState({
+          createMockRootState({
             raycast: {
               barTooltipPosition: null,
               previousSelectedBarId: null,
@@ -76,12 +75,12 @@ describe("Bars", () => {
     const mockProp: BarsProps = {
       clickHandler: vi.fn(),
       hoverHandler: vi.fn(),
-      data: CreateMockRootState().data.data,
+      data: createMockRootState().data.data,
     };
     const renderer = await ReactThreeTestRenderer.create(
       <Provider
         store={mockStore(
-          CreateMockRootState({
+          createMockRootState({
             raycast: {
               barTooltipPosition: null,
               previousSelectedBarId: null,
@@ -109,12 +108,12 @@ describe("Bars", () => {
     const mockProp: BarsProps = {
       clickHandler: vi.fn(),
       hoverHandler: vi.fn(),
-      data: CreateMockRootState().data.data,
+      data: createMockRootState().data.data,
     };
     const renderer = await ReactThreeTestRenderer.create(
       <Provider
         store={mockStore(
-          CreateMockRootState({
+          createMockRootState({
             raycast: {
               barTooltipPosition: null,
               previousSelectedBarId: null,

@@ -1,6 +1,6 @@
-import { RootState } from "../../src/app/Store";
+import { RootState } from "../../src/app/store";
 
-export const CreateMockRootState = (
+export const createMockRootState = (
   overrides: Partial<RootState> = {},
 ): RootState => ({
   data: { data: [], average: 0, legend: null, x: [], z: [], ...overrides.data },

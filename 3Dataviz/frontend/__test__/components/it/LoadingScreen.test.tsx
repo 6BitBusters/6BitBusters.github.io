@@ -1,12 +1,12 @@
 import { describe, expect, it, vi } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
-import App from "../../../src/App";
+import EnvironmentPage from "../../../src/pages/environmentPage/environmentPage";
 import React from "react";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import { thunk } from "redux-thunk";
-import { AppDispatch, RootState } from "../../../src/app/Store";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
+import { AppDispatch, RootState } from "../../../src/app/store";
+import { createMockRootState } from "../../utils/stateMockCreator";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
@@ -15,14 +15,14 @@ describe("CurrentDatasetLabel", () => {
     render(
       <Provider
         store={mockStore(
-          CreateMockRootState({
+          createMockRootState({
             appState: {
               isLoading: true,
               error: null,
             },
           }),
         )}>
-        <App />
+        <EnvironmentPage />
       </Provider>,
     );
     await waitFor(() => screen.getByTestId("loading"));
@@ -33,14 +33,14 @@ describe("CurrentDatasetLabel", () => {
     render(
       <Provider
         store={mockStore(
-          CreateMockRootState({
+          createMockRootState({
             appState: {
               isLoading: false,
               error: null,
             },
           }),
         )}>
-        <App />
+        <EnvironmentPage />
       </Provider>,
     );
     await waitFor(() => {

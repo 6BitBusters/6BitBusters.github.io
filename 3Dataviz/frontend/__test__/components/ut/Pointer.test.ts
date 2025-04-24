@@ -1,6 +1,6 @@
 import { describe, test, expect, vi } from "vitest";
 import * as THREE from "three";
-import { UpdateMousePosition } from "../../../src/components/BarChart/Bars/Utils/PointerInterectionUtils";
+import { UpdateMousePosition } from "../../../src/components/barChart/bars/utils/pointerInterectionUtils";
 
 describe("PointerInterractionUtils", () => {
   describe("UpdateMousePosition", () => {

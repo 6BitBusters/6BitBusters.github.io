@@ -1,16 +1,16 @@
 import { describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import App from "../../../src/App";
+import EnvironmentPage from "../../../src/pages/environmentPage/environmentPage";
 import React from "react";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import { thunk } from "redux-thunk";
-import { AppDispatch, RootState } from "../../../src/app/Store";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
+import { AppDispatch, RootState } from "../../../src/app/store";
+import { createMockRootState } from "../../utils/stateMockCreator";
 import gsap from "gsap";
 import * as THREE from "three";
-import CustomCanvas from "../../../src/components/CustomCanvas/CustomCanvas";
-import UI from "../../../src/components/UI/UI";
+import CustomCanvas from "../../../src/components/customCanvas/customCanvas";
+import UI from "../../../src/components/UI/ui";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
@@ -19,8 +19,8 @@ describe("UI", () => {
   describe("CameraResetButton", () => {
     it("Il bottone di reset camera deve essere visibile al caricamento del dataset", async () => {
       render(
-        <Provider store={mockStore(CreateMockRootState())}>
-          <App />
+        <Provider store={mockStore(createMockRootState())}>
+          <EnvironmentPage />
         </Provider>,
       );
       await waitFor(() => screen.getByTestId("resetCamera"));
@@ -49,7 +49,7 @@ describe("UI", () => {
       const initialZoom = 1;
 
       render(
-        <Provider store={mockStore(CreateMockRootState())}>
+        <Provider store={mockStore(createMockRootState())}>
           <CustomCanvas
             ref={mockCustomCanvasRef}
             initialCameraPosition={initialCameraPosition}
@@ -115,7 +115,7 @@ describe("UI", () => {
       render(
         <Provider
           store={mockStore(
-            CreateMockRootState({
+            createMockRootState({
               dataSource: {
                 datasets: [],
                 currentDataset: {
@@ -127,7 +127,7 @@ describe("UI", () => {
               },
             }),
           )}>
-          <App />
+          <EnvironmentPage />
         </Provider>,
       );
       await waitFor(() => screen.getByTestId("current-dataset"));

@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { ThreeEvent, useThree } from "@react-three/fiber";
-import { GetIntersection, GetIntersectionId } from "./Utils/RaycastUtils";
+import { GetIntersection, GetIntersectionId } from "./utils/raycastUtils";
 import { useSelector } from "react-redux";
 import { selectorRaycastHit } from "../../../features/raycast/raycastHitSlice";
-import { LoadShader } from "./Utils/ShaderUtils";
-import { UpdateMousePosition } from "./Utils/PointerInterectionUtils";
-import { Selection } from "./Utils/ColorsUtils";
+import { LoadShader } from "./utils/shaderUtils";
+import { UpdateMousePosition } from "./utils/pointerInterectionUtils";
+import { Selection } from "./utils/colorsUtils";
 import { BarsProps } from "./props/barsProps";
 
 function Bars({ data, clickHandler, hoverHandler }: BarsProps) {

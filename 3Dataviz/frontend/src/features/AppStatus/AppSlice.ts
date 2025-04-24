@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AppState } from "./types/AppState";
+import { AppState } from "./types/appState";
 import { TooManyRequestsError } from "./errors/tooManyRequestsError";
 import { ServerError } from "./errors/serverError";
 import { NotFoundError } from "./errors/notFoundError";

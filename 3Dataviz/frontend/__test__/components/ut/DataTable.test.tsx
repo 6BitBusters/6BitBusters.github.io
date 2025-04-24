@@ -1,12 +1,12 @@
 import { describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import DataTable from "../../../src/components/UI/DataTable/DataTable";
+import DataTable from "../../../src/components/UI/dataTable/dataTable";
 import React from "react";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import { thunk } from "redux-thunk";
-import { AppDispatch, RootState } from "../../../src/app/Store";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
+import { AppDispatch, RootState } from "../../../src/app/store";
+import { createMockRootState } from "../../utils/stateMockCreator";
 import gsap from "gsap";
 
 const middlewares = [thunk];
@@ -15,7 +15,7 @@ const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
 describe("DataTable", () => {
   it("La tebella deve essere visibile al caricamento del dataset", async () => {
     render(
-      <Provider store={mockStore(CreateMockRootState())}>
+      <Provider store={mockStore(createMockRootState())}>
         <DataTable />
       </Provider>,
     );
@@ -25,7 +25,7 @@ describe("DataTable", () => {
 
   it("La tabella deve aprirsi quando si clicca sul bottone apposito", async () => {
     render(
-      <Provider store={mockStore(CreateMockRootState())}>
+      <Provider store={mockStore(createMockRootState())}>
         <DataTable />
       </Provider>,
     );
@@ -46,7 +46,7 @@ describe("DataTable", () => {
 
   it("La tabella deve chiudersi quando si clicca sul bottone apposito", async () => {
     render(
-      <Provider store={mockStore(CreateMockRootState())}>
+      <Provider store={mockStore(createMockRootState())}>
         <DataTable />
       </Provider>,
     );
@@ -69,7 +69,7 @@ describe("DataTable", () => {
   it("La la cella cliccata deve generare un dispatch di tipo filterByValue per i valori inferiori", async () => {
     const dispatch = vi.fn();
     const store = mockStore(
-      CreateMockRootState({
+      createMockRootState({
         data: {
           data: [{ id: 1, show: true, x: 0, y: 1, z: 0 }],
           average: 1,
@@ -96,7 +96,7 @@ describe("DataTable", () => {
   it("La la cella cliccata deve generare un dispatch di tipo filterByValue per i valori superiori", async () => {
     const dispatch = vi.fn();
     const store = mockStore(
-      CreateMockRootState({
+      createMockRootState({
         data: {
           data: [{ id: 1, show: true, x: 0, y: 1, z: 0 }],
           average: 1,

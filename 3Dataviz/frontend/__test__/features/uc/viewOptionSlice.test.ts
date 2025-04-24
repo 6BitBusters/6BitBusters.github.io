@@ -2,9 +2,9 @@ import { describe, expect, it } from "vitest";
 import reducer, {
   selectorViewOptionState,
   toggleAveragePlane,
-} from "../../../src/features/ViewOption/ViewOptionSlice";
-import { ViewOptionState } from "../../../src/features/ViewOption/types/ViewOptionState";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
+} from "../../../src/features/viewOption/viewOptionSlice";
+import { ViewOptionState } from "../../../src/features/viewOption/types/viewOptionState";
+import { createMockRootState } from "../../utils/stateMockCreator";
 
 describe("ViewOptionSlice", () => {
   it("Rendi il piano visibile", () => {
@@ -38,7 +38,7 @@ describe("ViewOptionSlice", () => {
         isPlaneActive: true,
       } as ViewOptionState,
     };
-    const mockState = CreateMockRootState(overrides);
+    const mockState = createMockRootState(overrides);
     expect(selectorViewOptionState(mockState)).toBe(true);
   });
 });

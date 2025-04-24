@@ -1,39 +1,44 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import HomePage from "../../../src/pages/homePage/homePage";
 import { thunk } from "redux-thunk";
 import configureMockStore from "redux-mock-store";
 import { AppDispatch, RootState } from "../../../src/app/Store";
 import fetchMock from "fetch-mock";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
-import { DataSourceState } from "../../../src/features/DataSource/types/DataSourceState";
-import { DatasetInfo } from "../../../src/features/DataSource/types/DatasetInfo";
+import { createMockRootState } from "../../utils/stateMockCreator";
 import "@testing-library/jest-dom";
 import React from "react";
 import EnvironmentPage from "../../../src/pages/environmentPage/environmentPage";
+import { DatasetInfo } from "../../../src/features/DataSource/types/DatasetInfo";
+import { DataSourceState } from "../../../src/features/DataSource/types/DataSourceState";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
 const ROUTER_test = createBrowserRouter([
   {
     path: "/",
-    Component: HomePage,
-  },
-  {
-    path: "/environment",
     Component: EnvironmentPage,
   },
 ]);
 
-describe("ApiSelector", () => {
+describe("EnvironmentPage", () => {
   beforeEach(() => {
     fetchMock.unmockGlobal();
     fetchMock.removeRoutes();
   });
 
-  it("carica correttamente i dataset disponibili", async () => {
+  it("Non dovrebbero esserci errori nell'AppStatus", () => {
+    const store = mockStore(createMockRootState());
+    render(
+      <Provider store={store}>
+        <RouterProvider router={ROUTER_test} />
+      </Provider>,
+    );
+    const state = store.getState();
+    expect(state.appState.error).toEqual(null);
+  });
+  it("dovrebbe essere stato caricato correttamente il dataset", () => {
     const mockDatasets: DatasetInfo[] = [
       {
         id: 1,
@@ -57,16 +62,21 @@ describe("ApiSelector", () => {
 
     const overrides = {
       dataSource: {
-        datasets: mockDatasets,
-        currentDataset: null,
+        datasets: [],
+        currentDataset: mockDatasets[0],
       } as DataSourceState,
     };
+
+    const store = mockStore(createMockRootState(overrides));
     render(
-      <Provider store={mockStore(CreateMockRootState(overrides))}>
+      <Provider store={store}>
         <RouterProvider router={ROUTER_test} />
       </Provider>,
     );
+    const state = store.getState();
 
-    expect(screen.getByTestId("form")).toHaveLength(mockDatasets.length);
+    expect(
+      screen.getByText(state.dataSource.currentDataset?.name),
+    ).toBeInTheDocument();
   });
 });

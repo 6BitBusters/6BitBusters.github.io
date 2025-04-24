@@ -2,16 +2,16 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { thunk } from "redux-thunk";
 import configureMockStore from "redux-mock-store";
 import fetchMock from "fetch-mock";
-import { AppDispatch, RootState } from "../../../src/app/Store";
-import { DataSourceState } from "../../../src/features/DataSource/types/DataSourceState";
-import { DatasetInfo } from "../../../src/features/DataSource/types/DatasetInfo";
+import { AppDispatch, RootState } from "../../../src/app/store";
+import { DataSourceState } from "../../../src/features/dataSource/types/dataSourceState";
+import { DatasetInfo } from "../../../src/features/dataSource/types/datasetInfo";
 import reducer, {
   requestDatasets,
   selectorCurrentDataset,
   selectorDatasets,
   trySetCurrentDataset,
-} from "../../../src/features/DataSource/DataSourceSlice";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
+} from "../../../src/features/dataSource/dataSourceSlice";
+import { createMockRootState } from "../../utils/stateMockCreator";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
@@ -143,7 +143,7 @@ describe("DataSourceSlice", () => {
       } as DataSourceState,
     };
 
-    const mockState = CreateMockRootState(overrides);
+    const mockState = createMockRootState(overrides);
     expect(selectorDatasets(mockState)).toEqual(overrides.dataSource.datasets);
   });
 
@@ -162,7 +162,7 @@ describe("DataSourceSlice", () => {
       } as DataSourceState,
     };
 
-    const mockState = CreateMockRootState(overrides);
+    const mockState = createMockRootState(overrides);
     expect(selectorCurrentDataset(mockState)).toEqual(
       overrides.dataSource.currentDataset,
     );

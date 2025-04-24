@@ -2,9 +2,9 @@ import { describe, it, expect } from "vitest";
 import reducer, {
   selectorIsGreater,
   toggleIsGreater,
-} from "../../../src/features/FilterOption/FilterOptionSlice";
-import { FilterOptionState } from "../../../src/features/FilterOption/types/FilterOption";
-import { CreateMockRootState } from "../../utils/StateMockCreator";
+} from "../../../src/features/filterOption/filterOptionSlice";
+import { FilterOptionState } from "../../../src/features/filterOption/types/filterOption";
+import { createMockRootState } from "../../utils/stateMockCreator";
 
 describe("filterOptionSlice", () => {
   it("should return the initial state when passed an empty action", () => {
@@ -36,7 +36,7 @@ describe("filterOptionSlice", () => {
         isGreater: false,
       } as FilterOptionState,
     };
-    const mockState = CreateMockRootState(overrides);
+    const mockState = createMockRootState(overrides);
     expect(selectorIsGreater(mockState)).toBe(false);
   });
 });
