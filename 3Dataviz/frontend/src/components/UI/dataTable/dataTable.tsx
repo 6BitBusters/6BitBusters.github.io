@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import "./DataTable.css";
+import "./dataTable.css";
 import { useAppDispatch } from "../../../app/hooks";
 import { useMemo } from "react";
 import { filterByValue, selectorData } from "../../../features/data/dataSlice";

@@ -2,7 +2,7 @@ import Filter from "./filterOptions/filter";
 import FilterModOptions from "./filterOptions/filterModOption";
 import NFilter from "./filterOptions/nFilter";
 import AveragePlaneOption from "./viewOptions/planeOptions/averagePlaneOption";
-import "./Options.css";
+import "./options.css";
 import ExpanderButton from "../expanderButton/expanderButton";
 import { useSelector } from "react-redux";
 import { selectorIsGreater } from "../../../features/filterOption/filterOptionSlice";
