@@ -5,6 +5,7 @@ import UI from "../../components/UI/ui";
 import { useSelector } from "react-redux";
 import { selectorCurrentDataset } from "../../features/dataSource/dataSourceSlice";
 import { selectorAppState } from "../../features/appStatus/appSlice";
+import LoaderView from "../../components/UI/loaderView/loaderView";
 
 function EnvironmentPage() {
   const datasetName = useSelector(selectorCurrentDataset)?.name || "";
@@ -20,9 +21,7 @@ function EnvironmentPage() {
   return (
     <>
       {isLoading ? (
-        <p id="loading" data-testid="loading">
-          caricamento del dataset...
-        </p>
+        <LoaderView/>
       ) : (
         <>
           <CustomCanvas ref={customCanvasRef} />

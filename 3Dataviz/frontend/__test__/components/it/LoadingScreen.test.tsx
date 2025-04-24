@@ -25,9 +25,9 @@ describe("CurrentDatasetLabel", () => {
         <EnvironmentPage />
       </Provider>,
     );
-    await waitFor(() => screen.getByTestId("loading"));
-    const label = screen.getByText("caricamento del dataset...");
-    expect(label).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByTestId("loader")).toBeInTheDocument()
+    });
   });
   it("quando il dataset e` stato caricato il testo di caricamento il testo non deve essere presente", async () => {
     render(
@@ -44,7 +44,7 @@ describe("CurrentDatasetLabel", () => {
       </Provider>,
     );
     await waitFor(() => {
-      expect(screen.queryByText("caricamento del dataset...")).toBeNull();
+      expect(screen.queryByTestId("loader")).toBeNull();
       expect(screen.getByTestId("canvas")).toBeInTheDocument();
     });
   });

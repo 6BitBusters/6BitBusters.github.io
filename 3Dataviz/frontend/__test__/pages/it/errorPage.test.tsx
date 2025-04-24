@@ -11,7 +11,7 @@ import { createMockRootState } from "../../utils/stateMockCreator";
 import "@testing-library/jest-dom";
 import React from "react";
 import { SerializedError } from "@reduxjs/toolkit";
-import { AppState } from "../../../src/features/AppStatus/types/AppState";
+import { AppState } from "../../../src/features/appStatus/types/appState";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);

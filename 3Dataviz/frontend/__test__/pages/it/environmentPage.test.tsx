@@ -10,8 +10,8 @@ import { createMockRootState } from "../../utils/stateMockCreator";
 import "@testing-library/jest-dom";
 import React from "react";
 import EnvironmentPage from "../../../src/pages/environmentPage/environmentPage";
-import { DatasetInfo } from "../../../src/features/DataSource/types/DatasetInfo";
-import { DataSourceState } from "../../../src/features/DataSource/types/DataSourceState";
+import { DatasetInfo } from "../../../src/features/dataSource/types/datasetInfo";
+import { DataSourceState } from "../../../src/features/dataSource/types/dataSourceState";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
