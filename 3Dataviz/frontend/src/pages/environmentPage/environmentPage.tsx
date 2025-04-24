@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import "./environmentPage.css";
-import CustomCanvas from "../../components/customCanvas/customCanvas";
+import CustomCanvas from "../../components/CustomCanvas/customCanvas";
 import UI from "../../components/UI/ui";
 import { useSelector } from "react-redux";
 import { selectorCurrentDataset } from "../../features/dataSource/dataSourceSlice";
