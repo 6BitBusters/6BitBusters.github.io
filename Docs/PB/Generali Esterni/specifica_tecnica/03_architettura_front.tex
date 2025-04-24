@@ -412,7 +412,7 @@ Questo diagramma illustra i componenti per recuperare le informazioni relative a
                         \end{itemize}
             \end{itemize}
 
-      \item \textbf{HomePage:}
+      \item \textbf{ApiSelector:}
             \begin{itemize}
                   \item \textbf{Dipendenze:}
                         \begin{itemize}
@@ -452,7 +452,7 @@ Questo diagramma illustra i componenti per recuperare le informazioni relative a
 
 \paragraph{AppSlice}
 \begin{figure}[h!] \centering
-      \includegraphics[scale=0.4]{template/images/uml_front/logic/AppSlice.png}
+AppSlice      \includegraphics[scale=0.4]{template/images/uml_front/logic/AppSlice.png}
       \caption{AppSlice}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
@@ -508,6 +508,19 @@ Questo diagramma mostra i componenti per la gestione dello stato dell'applicazio
                                     dell'applicazione.
                         \end{itemize}
             \end{itemize}
+
+      \item \textbf{HomePage:}
+      \begin{itemize}
+            \item \textbf{Dipendenze:}
+                  \begin{itemize}
+                        \item AppSlice (associazione): contiene implicitamente un'istanza di AppSlice.
+                  \end{itemize}
+            \item \textbf{Interazioni:}
+                  \begin{itemize}
+                        \item AppSlice: viene utilizzato il metodo selectorApp per reperire lo stato
+                              dell'applicazione.
+                  \end{itemize}
+      \end{itemize}
 
       \item \textbf{ErrorPage:}
             \begin{itemize}
@@ -861,7 +874,7 @@ Questo diagramma mostra lo store e le slice che compongono lo stato globale dell
 
 \paragraph{Pages}
 \begin{figure}[h!] \centering
-      \includegraphics[scale=0.3]{template/images/uml_front/ui/pages.png}
+      \includegraphics[scale=0.6]{template/images/uml_front/ui/pages.png}
       \caption{Pages}
 \end{figure}
 \textbf{Descrizione del diagramma:}
@@ -873,10 +886,23 @@ Questo diagramma mostra come sono organizzate le varie pagine dell'applicazione.
                         \begin{itemize}
                               \item Store (associazione): utile al Provider di Redux per consentire l'accesso allo
                                     store (e quindi allo stato globale) a tutti i componenti nella gerarchia;
-                              \item RouterProvider (associazione): componente React che gestisce le pagine
-                                    dell'applicazione e le loro relative rotte.
+                              \item PersistGate (associazione): componente React che gestisce il caricamento
+                                    dell'applicazione e il ripristino dello stato persistente;
                         \end{itemize}
             \end{itemize}
+
+      \item \textbf{PersistGate:}
+      \begin{itemize}
+            \item \textbf{Dipendenze:}
+                  \begin{itemize}
+                        \item Store (associazione): utile per consentire l'accesso allo
+                              store (e quindi allo stato globale);
+                        \item LoadingView (composizione): componente React dedicato alla visualizzazione di un indi-
+                              catore di caricamento;
+                        \item RouterProvider (associazione): componente React che gestisce le pagine
+                        dell'applicazione e le loro relative rotte.
+                  \end{itemize}
+      \end{itemize}
 
       \item \textbf{RouterProvider:}
             \begin{itemize}
@@ -925,7 +951,7 @@ Questo diagramma presenta l'organizzazione degli elementi all'interno della pagi
 
 \paragraph{EnvironmentPage}
 \begin{figure}[h!] \centering
-      \includegraphics[scale=0.3]{template/images/uml_front/ui/EnvironmentPage.png}
+      \includegraphics[scale=0.6]{template/images/uml_front/ui/EnvironmentPage.png}
       \caption{EnvironmentPage}
 \end{figure}
 \textbf{Descrizione del diagramma:}
@@ -939,8 +965,8 @@ Questo diagramma presenta l'organizzazione degli elementi all'interno della pagi
                                     dell'applicazione;
                               \item CustomCanvas (composizione): componente React responsabile della
                                     visualizzazione e del rendering dell'ambiente 3D;
-                              \item Footer (composizione): componente React dedicato alla visualizzazione del
-                                    footer dell'applicazione.
+                              \item LoadingView (composizione): componente React dedicato alla visualizzazione di un indicatore di
+                                    caricamento;
                         \end{itemize}
             \end{itemize}
 \end{itemize}
