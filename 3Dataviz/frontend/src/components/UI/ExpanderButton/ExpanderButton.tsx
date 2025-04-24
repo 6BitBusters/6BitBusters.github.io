@@ -1,14 +1,14 @@
 import { ChangeEvent } from "react";
 import { gsap } from "gsap";
 import "./ExpanderButton.css";
-import { expanderButtonProps } from "./props/expanderButtonProps";
+import { ExpanderButtonProps } from "./props/expanderButtonProps";
 
 function ExpanderButton({
   id,
   target,
   fromToX = [0, 0],
   fromToY = [0, 0],
-}: expanderButtonProps) {
+}: ExpanderButtonProps) {
   const toggleExpand = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       gsap.to(target, {

@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import CustomCanvas from "../../../src/components/customCanvas/customCanvas";
 import React from "react";
 import Lights from "../../../src/components/customCanvas/lights";
-import { lightsProp } from "../../../src/components/customCanvas/props/lightsProp";
+import { LightsProp } from "../../../src/components/customCanvas/props/lightsProp";
 import ReactThreeTestRenderer from "@react-three/test-renderer";
 
 describe("CustomCanvas", () => {
@@ -13,7 +13,7 @@ describe("CustomCanvas", () => {
 
   describe("Lights", () => {
     it("Renderizza le luci senza crashare", async () => {
-      const mockProp: lightsProp = {
+      const mockProp: LightsProp = {
         distance: 1,
         intensity: 1,
         lightPosition: [0, 0, 0],

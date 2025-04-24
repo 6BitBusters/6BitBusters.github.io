@@ -1,4 +1,4 @@
-export type expanderButtonProps = {
+export type ExpanderButtonProps = {
   target: string;
   id: string;
   fromToX?: [number, number];

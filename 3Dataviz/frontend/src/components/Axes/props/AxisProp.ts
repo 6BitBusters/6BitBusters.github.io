@@ -2,7 +2,7 @@ import * as THREE from "three";
 
 type PlacementFunction = (input: number) => THREE.Vector3;
 
-export type axisProp = {
+export type AxisProp = {
   labels: string[];
   color: THREE.Color;
   endPoint: THREE.Vector3;

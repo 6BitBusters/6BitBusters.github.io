@@ -6,7 +6,6 @@ import { useNavigate } from "react-router";
 import { DatasetInfo } from "../../../features/dataSource/types/datasetInfo";
 import { useSelector } from "react-redux";
 import {
-  requestDatasets,
   selectorDatasets,
   trySetCurrentDataset,
 } from "../../../features/dataSource/dataSourceSlice";
@@ -26,7 +25,6 @@ function ApiSelector() {
     // void dispatch(requestDatasets());
   }, [dispatch]);
   const items: DatasetInfo[] = useSelector(selectorDatasets);
-
 
   const options: OptionType[] = items.map((item) => ({
     value: item.id,

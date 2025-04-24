@@ -1,7 +1,7 @@
 import "./Filter.css";
-import { filterProps } from "./props/filterProps";
+import { FilterProps } from "./props/filterProps";
 
-function Filter({ title, description, onClick, children }: filterProps) {
+function Filter({ title, description, onClick, children }: FilterProps) {
   return (
     <>
       <div className="filter" data-testid="average-filter">

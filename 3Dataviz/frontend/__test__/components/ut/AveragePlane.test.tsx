@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import ReactThreeTestRenderer from "@react-three/test-renderer";
 import React from "react";
 import * as THREE from "three";
-import { averagePlaneProps } from "../../../src/components/planes/props/averagePlaneProps";
+import { AveragePlaneProps } from "../../../src/components/planes/props/averagePlaneProps";
 import AveragePlane from "../../../src/components/planes/averagePlane";
 
 vi.mock("react-redux", () => ({
@@ -16,7 +16,7 @@ describe("AveragePlane", () => {
     vi.clearAllMocks();
   });
   it("Renderizza average plane senza crashare", async () => {
-    const mockProp: averagePlaneProps = {
+    const mockProp: AveragePlaneProps = {
       position: new THREE.Vector3(0, 0, 0),
       size: [1, 1],
     };

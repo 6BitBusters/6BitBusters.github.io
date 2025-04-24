@@ -26,7 +26,7 @@ describe("CurrentDatasetLabel", () => {
       </Provider>,
     );
     await waitFor(() => {
-      expect(screen.getByTestId("loader")).toBeInTheDocument()
+      expect(screen.getByTestId("loader")).toBeInTheDocument();
     });
   });
   it("quando il dataset e` stato caricato il testo di caricamento il testo non deve essere presente", async () => {

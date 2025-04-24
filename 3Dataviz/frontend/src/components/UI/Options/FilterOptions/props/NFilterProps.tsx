@@ -1,3 +1,3 @@
-export type nFilterProps = {
+export type NFilterProps = {
   onClick: (n: number) => void;
 };

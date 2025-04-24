@@ -21,7 +21,7 @@ function EnvironmentPage() {
   return (
     <>
       {isLoading ? (
-        <LoaderView/>
+        <LoaderView />
       ) : (
         <>
           <CustomCanvas ref={customCanvasRef} />

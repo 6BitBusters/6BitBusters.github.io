@@ -5,14 +5,14 @@ import { OrbitControls as OrbitControlsType } from "three-stdlib";
 import { gsap } from "gsap";
 import "./CustomCanvas.css";
 import BarChart from "../barChart/barChart";
-import { customCanvasProps } from "./props/customCanvasProp";
+import { CustomCanvasProps } from "./props/customCanvasProp";
 import Lights from "./lights";
 import React from "react";
 import * as THREE from "three";
 
 const customCanvas = React.forwardRef<
   { resetCamera: () => void },
-  customCanvasProps
+  CustomCanvasProps
 >(
   (
     {

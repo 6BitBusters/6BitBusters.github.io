@@ -1,6 +1,6 @@
-import { lightsProp } from "./props/lightsProp";
+import { LightsProp } from "./props/lightsProp";
 
-function Lights({ intensity, lightPosition, distance }: lightsProp) {
+function Lights({ intensity, lightPosition, distance }: LightsProp) {
   return (
     <>
       <ambientLight intensity={intensity} />

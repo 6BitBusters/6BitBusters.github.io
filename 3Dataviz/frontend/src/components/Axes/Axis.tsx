@@ -1,5 +1,5 @@
 import { useMemo, useRef } from "react";
-import { axisProp } from "./props/axisProp";
+import { AxisProp } from "./props/axisProp";
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
 
@@ -10,7 +10,7 @@ function Axis({
   endPoint,
   placementFunction,
   labelScale = 1,
-}: axisProp) {
+}: AxisProp) {
   const spriteRefs = useRef<(THREE.Sprite | null)[]>([]);
 
   const labelSprites = useMemo(() => {

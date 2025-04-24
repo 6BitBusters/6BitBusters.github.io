@@ -1,9 +1,9 @@
 import Options from "./options/options";
 import DataTable from "./dataTable/dataTable";
 import "./UI.css";
-import { uiProps } from "./uiProps";
+import { UIProps } from "./uiProps";
 
-function UI({ datasetName, resetCamera }: uiProps) {
+function UI({ datasetName, resetCamera }: UIProps) {
   return (
     <>
       <p id="current-dataset" data-testid="current-dataset">

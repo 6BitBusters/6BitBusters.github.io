@@ -2,7 +2,7 @@ import type { Action, ThunkAction } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./rootReducer";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from 'redux-persist/lib/storage/session';
+import storage from "redux-persist/lib/storage/session";
 
 const persistConfig = {
   key: "root",
@@ -26,9 +26,9 @@ type AppStore = typeof store;
 export type RootState = ReturnType<AppStore["getState"]>;
 export type AppDispatch = AppStore["dispatch"];
 export type AppThunk<ThunkReturnType = void> = ThunkAction<
-ThunkReturnType,
-RootState,
-unknown,
-Action
+  ThunkReturnType,
+  RootState,
+  unknown,
+  Action
 >;
 export const persistor = persistStore(store);

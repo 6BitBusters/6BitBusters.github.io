@@ -1,4 +1,4 @@
-export type uiProps = {
+export type UIProps = {
   datasetName: string;
   resetCamera: () => void;
 };
