@@ -1,6 +1,6 @@
-import { CustomError } from "../Errors/CustomError";
+import { SerializedError } from "@reduxjs/toolkit";
 
 export type AppState = {
   isLoading: boolean;
-  error: CustomError | null;
+  error: SerializedError | null;
 };

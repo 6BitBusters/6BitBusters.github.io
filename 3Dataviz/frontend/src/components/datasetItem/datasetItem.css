@@ -1,0 +1,10 @@
+.datasetItemContainer{
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+#datasetItemDesc{
+    font-size: 0.8em;
+    color: #666666;
+}

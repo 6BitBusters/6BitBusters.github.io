@@ -11,6 +11,7 @@ import {
 import { DatasetInfo } from "../DataSource/types/DatasetInfo";
 import { CustomError } from "./Errors/CustomError";
 import { RootState } from "../../app/Store";
+import { serializeError } from "./Utils/ErrorSerializer";
 
 const initialState: AppState = {
   isLoading: false,
@@ -39,7 +40,7 @@ const appSlice = createSlice({
         (state, action: PayloadAction<unknown>) => {
           state.isLoading = false;
           // sara` sicuramente un numero in quanto ritorno sempre un response.status
-          state.error = generateError(action.payload as number);
+          state.error = serializeError(generateError(action.payload as number));
         },
       )
       // se mentre sto reperendo i dataset resetto lo stato degli errori
@@ -52,7 +53,7 @@ const appSlice = createSlice({
       .addCase(
         requestDatasets.rejected,
         (state, action: PayloadAction<unknown>) => {
-          state.error = generateError(action.payload as number);
+          state.error = serializeError(generateError(action.payload as number));
         },
       )
       // se l`utente seleziona un dataset non presente in lista
@@ -60,7 +61,7 @@ const appSlice = createSlice({
         setCurrentDataset,
         (state, action: PayloadAction<DatasetInfo | undefined>) => {
           if (action.payload === undefined) {
-            state.error = generateError(404);
+            state.error = serializeError(generateError(404));
           }
         },
       );

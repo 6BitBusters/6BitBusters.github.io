@@ -1,0 +1,11 @@
+footer {
+    text-align: center;
+    background-color: var(--ui-bg-color);
+    color: white;
+    width: 100%;
+}
+
+footer p {
+    padding: 1em 0 1em 0;
+    font-style: italic;
+}
