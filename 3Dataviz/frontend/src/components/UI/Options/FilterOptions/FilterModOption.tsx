@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
-import { useAppDispatch } from "../../../../app/Hooks";
-import { toggleIsGreater } from "../../../../features/FilterOption/FilterOptionSlice";
+import { useAppDispatch } from "../../../../app/hooks";
+import { toggleIsGreater } from "../../../../features/filterOption/filterOptionSlice";
 
 function FilterModOptions() {
   const dispatch = useAppDispatch();

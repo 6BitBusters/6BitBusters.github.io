@@ -1,18 +1,18 @@
-import Filter from "./FilterOptions/Filter";
-import FilterModOptions from "./FilterOptions/FilterModOption";
-import NFilter from "./FilterOptions/NFilter";
-import AveragePlaneOption from "./ViewOptions/PlaneOptions/AveragePlaneOption";
+import Filter from "./filterOptions/filter";
+import FilterModOptions from "./filterOptions/filterModOption";
+import NFilter from "./filterOptions/nFilter";
+import AveragePlaneOption from "./viewOptions/planeOptions/averagePlaneOption";
 import "./Options.css";
-import ExpanderButton from "../ExpanderButton/ExpanderButton";
+import ExpanderButton from "../expanderButton/expanderButton";
 import { useSelector } from "react-redux";
-import { selectorIsGreater } from "../../../features/FilterOption/FilterOptionSlice";
-import { useAppDispatch } from "../../../app/Hooks";
+import { selectorIsGreater } from "../../../features/filterOption/filterOptionSlice";
+import { useAppDispatch } from "../../../app/hooks";
 import {
   filterByAverage,
   filterFirstN,
   reset,
-} from "../../../features/Data/DataSlice";
-import { setHit } from "../../../features/Raycast/RaycastHitSlice";
+} from "../../../features/data/dataSlice";
+import { setHit } from "../../../features/raycast/raycastHitSlice";
 
 function Options() {
   const isGreater = useSelector(selectorIsGreater);

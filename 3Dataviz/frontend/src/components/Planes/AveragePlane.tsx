@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import { AveragePlaneProps } from "./props/AveragePlaneProps";
+import { averagePlaneProps } from "./props/averagePlaneProps";
 import * as THREE from "three";
-import { selectorViewOptionState } from "../../features/ViewOption/ViewOptionSlice";
+import { selectorViewOptionState } from "../../features/viewOption/viewOptionSlice";
 
-function AveragePlane({ position, size }: AveragePlaneProps) {
+function AveragePlane({ position, size }: averagePlaneProps) {
   const viewPlane = useSelector(selectorViewOptionState);
   return (
     <mesh

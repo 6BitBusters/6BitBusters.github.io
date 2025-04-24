@@ -1,5 +1,5 @@
-import { Data } from "../../../../features/Data/interfaces/Data";
-import { Legend } from "../../../../features/Data/types/Legend";
+import { Data } from "../../../../features/data/interfaces/data";
+import { Legend } from "../../../../features/data/types/legend";
 
 export type ToolTipProps = {
   data: Data;

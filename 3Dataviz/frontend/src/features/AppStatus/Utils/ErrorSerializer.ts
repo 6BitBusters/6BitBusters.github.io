@@ -1,5 +1,5 @@
 import { SerializedError } from "@reduxjs/toolkit";
-import { CustomError } from "../Errors/CustomError";
+import { CustomError } from "../errors/customError";
 
 export function serializeError(error: CustomError): SerializedError {
   return {

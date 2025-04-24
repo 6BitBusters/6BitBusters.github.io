@@ -2,7 +2,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import "./index.css";
 import { Provider } from "react-redux";
-import { store } from "./app/Store";
+import { store } from "./app/store";
 import HomePage from "./pages/homePage/homePage";
 import EnvironmentPage from "./pages/environmentPage/environmentPage";
 import ErrorPage from "./pages/errorPage/errorPage";

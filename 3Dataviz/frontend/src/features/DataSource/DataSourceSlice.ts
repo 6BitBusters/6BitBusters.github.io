@@ -1,11 +1,18 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { DataSourceState } from "./types/DataSourceState";
-import { fetchDatasets } from "./RequestHandler";
-import { DatasetInfo } from "./types/DatasetInfo";
-import { RootState } from "../../app/Store";
+import { DataSourceState } from "./types/dataSourceState";
+import { fetchDatasets } from "./requestHandler";
+import { DatasetInfo } from "./types/datasetInfo";
+import { RootState } from "../../app/store";
 
 const initialState: DataSourceState = {
-  datasets: [],
+  datasets: [
+    {
+      id: 1,
+      name: "API A",
+      size: [1000, 2000],
+       description: "Dati del meteo della città di Roma a Marzo 2025",
+    },
+  ],
   currentDataset: null,
 };
 

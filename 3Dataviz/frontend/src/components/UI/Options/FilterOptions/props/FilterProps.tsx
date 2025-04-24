@@ -1,4 +1,4 @@
-export type FilterProps = {
+export type filterProps = {
   title: string;
   description: string;
   children?: React.ReactNode;

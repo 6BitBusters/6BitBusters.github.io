@@ -1,8 +1,8 @@
 import { useCallback } from "react";
-import Axis from "./Axis";
-import { AxesProp } from "./props/AxesProp";
+import Axis from "./axis";
+import { axesProp } from "./props/axesProp";
 import * as THREE from "three";
-function Axes({ x, y, z, unitFactor }: AxesProp) {
+function Axes({ x, y, z, unitFactor }: axesProp) {
   // logica per creare l`asse Y
   const yMaxvalue: number = Math.max(...y);
   const multiplesOfFive: string[] = [];

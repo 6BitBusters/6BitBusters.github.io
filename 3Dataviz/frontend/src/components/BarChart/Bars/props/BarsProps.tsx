@@ -1,4 +1,4 @@
-import { Data } from "../../../../features/Data/interfaces/Data";
+import { Data } from "../../../../features/data/interfaces/data";
 
 export type BarsProps = {
   data: Data[];

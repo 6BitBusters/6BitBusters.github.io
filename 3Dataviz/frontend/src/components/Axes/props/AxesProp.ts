@@ -1,4 +1,4 @@
-export type AxesProp = {
+export type axesProp = {
   x: string[];
   y: number[];
   z: string[];

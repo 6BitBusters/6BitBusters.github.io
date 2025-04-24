@@ -1,20 +1,20 @@
 import { useSelector } from "react-redux";
-import Axes from "../Axes/Axes";
-import Bars from "./Bars/Bars";
-import { filterByValue, selectorData } from "../../features/Data/DataSlice";
-import { selectorIsGreater } from "../../features/FilterOption/FilterOptionSlice";
-import { useAppDispatch } from "../../app/Hooks";
-import AveragePlane from "../Planes/AveragePlane";
+import Axes from "../axes/Axes";
+import Bars from "./bars/bars";
+import { filterByValue, selectorData } from "../../features/data/dataSlice";
+import { selectorIsGreater } from "../../features/filterOption/filterOptionSlice";
+import { useAppDispatch } from "../../app/hooks";
+import AveragePlane from "../planes/averagePlane";
 import * as THREE from "three";
-import Tooltip from "./Bars/Tooltip";
+import Tooltip from "./bars/tooltip";
 import { useEffect, useState } from "react";
 import { useThree } from "@react-three/fiber";
 import {
   selectorRaycastHit,
   setHit,
   setTooltipPosition,
-} from "../../features/Raycast/RaycastHitSlice";
-import { BarChartProps } from "./Bars/props/BarChartProps";
+} from "../../features/raycast/raycastHitSlice";
+import { BarChartProps } from "./bars/props/barChartProps";
 
 function BarChart({ onSelectedBar }: BarChartProps) {
   const data = useSelector(selectorData);

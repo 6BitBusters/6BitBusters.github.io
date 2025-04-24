@@ -1,5 +1,5 @@
 // import axios from "axios";
-import { Dataset } from "./types/Dataset";
+import { Dataset } from "./types/dataset";
 
 export const fetchDataset = async (datasetId: number) => {
   if (datasetId < 0) {

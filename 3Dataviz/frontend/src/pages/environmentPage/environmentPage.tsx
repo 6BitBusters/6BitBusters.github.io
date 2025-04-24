@@ -1,10 +1,10 @@
 import { useRef } from "react";
-import "./App.css";
-import CustomCanvas from "../../components/CustomCanvas/CustomCanvas";
-import UI from "../../components/UI/UI";
+import "./environmentPage.css";
+import CustomCanvas from "../../components/customCanvas/customCanvas";
+import UI from "../../components/UI/ui";
 import { useSelector } from "react-redux";
-import { selectorCurrentDataset } from "../../features/DataSource/DataSourceSlice";
-import { selectorAppState } from "../../features/AppStatus/AppSlice";
+import { selectorCurrentDataset } from "../../features/dataSource/dataSourceSlice";
+import { selectorAppState } from "../../features/appStatus/appSlice";
 function App() {
   const datasetName = useSelector(selectorCurrentDataset)?.name || "";
   const isLoading = useSelector(selectorAppState).isLoading;

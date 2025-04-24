@@ -1,6 +1,6 @@
 import { SerializedError } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
-import { selectorAppState } from "../../features/AppStatus/AppSlice";
+import { selectorAppState } from "../../features/appStatus/appSlice";
 import "./errorPage.css";
 
 function ErrorPage() {

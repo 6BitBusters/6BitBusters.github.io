@@ -1,8 +1,8 @@
 import { ChangeEvent, useState } from "react";
-import Filter from "./Filter";
-import { NFilterProps } from "./props/NFilterProps";
+import Filter from "./filter";
+import { nFilterProps } from "./props/nFilterProps";
 
-function NFilter({ onClick }: NFilterProps) {
+function NFilter({ onClick }: nFilterProps) {
   const [inputValue, setInputValue] = useState(0);
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {

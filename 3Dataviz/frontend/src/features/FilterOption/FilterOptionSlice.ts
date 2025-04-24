@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FilterOptionState } from "./types/FilterOption";
-import { RootState } from "../../app/Store";
+import { FilterOptionState } from "./types/filterOption";
+import { RootState } from "../../app/store";
 
 const initialState: FilterOptionState = {
   isGreater: false,

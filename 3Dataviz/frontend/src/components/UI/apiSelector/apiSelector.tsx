@@ -3,14 +3,14 @@ import Select, { SingleValue } from "react-select";
 import { useEffect, useState } from "react";
 import DatasetItem from "../datasetItem/datasetItem";
 import { useNavigate } from "react-router";
-import { DatasetInfo } from "../../features/DataSource/types/DatasetInfo";
+import { DatasetInfo } from "../../../features/dataSource/types/datasetInfo";
 import { useSelector } from "react-redux";
 import {
   requestDatasets,
   selectorDatasets,
   trySetCurrentDataset,
-} from "../../features/DataSource/DataSourceSlice";
-import { useAppDispatch } from "../../app/Hooks";
+} from "../../../features/dataSource/dataSourceSlice";
+import { useAppDispatch } from "../../../app/hooks";
 
 type OptionType = {
   value: number;
@@ -18,47 +18,16 @@ type OptionType = {
   data: DatasetInfo;
 };
 
-// CODICE DI TEST
-// const FakeItems: DatasetInfo[] = [
-//   {
-//     id: 1,
-//     name: "API A",
-//     size: [1000, 2000],
-//     description: "Dati del meteo della città di Roma a Marzo 2025",
-//   },
-//   {
-//     id: 2,
-//     name: "API B",
-//     size: [1000, 2000],
-//     description: "Dati sui voli aerei degli ultimi 5 anni",
-//   },
-//   {
-//     id: 3,
-//     name: "API C",
-//     size: [1000, 2000],
-//     description: "Dati sui voli aerei degli ultimi 10 anni",
-//   },
-// ];
-
 function ApiSelector() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  // Redux get datasets
-  //const items: DatasetInfo[] = useSelector(selectorDatasets);
   useEffect(() => {
-    void dispatch(requestDatasets());
+    // void dispatch(requestDatasets());
   }, [dispatch]);
   const items: DatasetInfo[] = useSelector(selectorDatasets);
 
-  // CODICE DI TEST
-  // const options: OptionType[] = FakeItems.map((item) => ({
-  //   value: item.id,
-  //   label: item.name,
-  //   data: item,
-  // }));
 
-  // CODICE VERO
   const options: OptionType[] = items.map((item) => ({
     value: item.id,
     label: item.name,

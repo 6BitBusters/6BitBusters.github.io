@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 import "./DataTable.css";
-import { useAppDispatch } from "../../../app/Hooks";
+import { useAppDispatch } from "../../../app/hooks";
 import { useMemo } from "react";
-import { filterByValue, selectorData } from "../../../features/Data/DataSlice";
-import { selectorIsGreater } from "../../../features/FilterOption/FilterOptionSlice";
-import ExpanderButton from "../ExpanderButton/ExpanderButton";
-import { setHit } from "../../../features/Raycast/RaycastHitSlice";
+import { filterByValue, selectorData } from "../../../features/data/dataSlice";
+import { selectorIsGreater } from "../../../features/filterOption/filterOptionSlice";
+import ExpanderButton from "../expanderButton/expanderButton";
+import { setHit } from "../../../features/raycast/raycastHitSlice";
 
 function DataTable() {
   const data = useSelector(selectorData);

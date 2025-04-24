@@ -1,5 +1,5 @@
-import { Entry } from "../interfaces/Entry";
-import { Legend } from "./Legend";
+import { Entry } from "../interfaces/entry";
+import { Legend } from "./legend";
 
 export type Dataset = {
   data: Entry[];

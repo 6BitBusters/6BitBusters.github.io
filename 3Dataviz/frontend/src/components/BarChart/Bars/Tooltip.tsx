@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import { Html } from "@react-three/drei";
 import * as THREE from "three";
-import { selectorRaycastHit } from "../../../features/Raycast/RaycastHitSlice";
-import { ToolTipProps } from "./props/ToolTipProps";
+import { selectorRaycastHit } from "../../../features/raycast/raycastHitSlice";
+import { ToolTipProps } from "./props/toolTipProps";
 
 function Tooltip({ data, legend, Xlabel, Zlabel }: ToolTipProps) {
   const raycastState = useSelector(selectorRaycastHit);

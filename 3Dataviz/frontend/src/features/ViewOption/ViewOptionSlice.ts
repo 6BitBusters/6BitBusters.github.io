@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ViewOptionState } from "./types/ViewOptionState";
-import { RootState } from "../../app/Store";
+import { ViewOptionState } from "./types/viewOptionState";
+import { RootState } from "../../app/store";
 
 const initialState: ViewOptionState = {
   isPlaneActive: false,

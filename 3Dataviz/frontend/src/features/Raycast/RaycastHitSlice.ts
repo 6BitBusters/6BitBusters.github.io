@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RaycastHitState } from "./types/RaycastHitState";
-import { RootState } from "../../app/Store";
+import { RaycastHitState } from "./types/raycastHitState";
+import { RootState } from "../../app/store";
 
 const initialState: RaycastHitState = {
   previousSelectedBarId: null,

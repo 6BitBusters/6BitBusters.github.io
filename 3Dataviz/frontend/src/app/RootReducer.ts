@@ -1,10 +1,10 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import DataSlice from "../features/Data/DataSlice";
-import AppSlice from "../features/AppStatus/AppSlice";
-import DataSourceSlice from "../features/DataSource/DataSourceSlice";
-import ViewOptionSlice from "../features/ViewOption/ViewOptionSlice";
-import RaycastHitSlice from "../features/Raycast/RaycastHitSlice";
-import FilterOptionSlice from "../features/FilterOption/FilterOptionSlice";
+import DataSlice from "../features/data/dataSlice";
+import AppSlice from "../features/appStatus/appSlice";
+import DataSourceSlice from "../features/dataSource/dataSourceSlice";
+import ViewOptionSlice from "../features/viewOption/viewOptionSlice";
+import RaycastHitSlice from "../features/raycast/raycastHitSlice";
+import FilterOptionSlice from "../features/filterOption/filterOptionSlice";
 
 const rootReducer = combineReducers({
   data: DataSlice,

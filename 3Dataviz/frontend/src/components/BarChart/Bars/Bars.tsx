@@ -3,11 +3,11 @@ import * as THREE from "three";
 import { ThreeEvent, useThree } from "@react-three/fiber";
 import { GetIntersection, GetIntersectionId } from "./Utils/RaycastUtils";
 import { useSelector } from "react-redux";
-import { selectorRaycastHit } from "../../../features/Raycast/RaycastHitSlice";
+import { selectorRaycastHit } from "../../../features/raycast/raycastHitSlice";
 import { LoadShader } from "./Utils/ShaderUtils";
 import { UpdateMousePosition } from "./Utils/PointerInterectionUtils";
 import { Selection } from "./Utils/ColorsUtils";
-import { BarsProps } from "./props/BarsProps";
+import { BarsProps } from "./props/barsProps";
 
 function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   const { scene, camera } = useThree();

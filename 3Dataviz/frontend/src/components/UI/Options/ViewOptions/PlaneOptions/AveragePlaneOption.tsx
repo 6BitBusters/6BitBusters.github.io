@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
-import { useAppDispatch } from "../../../../../app/Hooks";
-import { toggleAveragePlane } from "../../../../../features/ViewOption/ViewOptionSlice";
+import { useAppDispatch } from "../../../../../app/hooks";
+import { toggleAveragePlane } from "../../../../../features/viewOption/viewOptionSlice";
 
 function AveragePlaneOption() {
   const dispatch = useAppDispatch();

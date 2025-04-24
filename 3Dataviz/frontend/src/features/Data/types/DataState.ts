@@ -1,5 +1,5 @@
-import { Data } from "../interfaces/Data";
-import { Legend } from "./Legend";
+import { Data } from "../interfaces/data";
+import { Legend } from "./legend";
 
 export type DataState = {
   data: Data[];

@@ -1,17 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppState } from "./types/AppState";
-import { TooManyRequestsError } from "./Errors/TooManyRequestsError";
-import { ServerError } from "./Errors/ServerError";
-import { NotFoundError } from "./Errors/NotFoundError";
-import { requestData } from "../Data/DataSlice";
+import { TooManyRequestsError } from "./errors/tooManyRequestsError";
+import { ServerError } from "./errors/serverError";
+import { NotFoundError } from "./errors/notFoundError";
+import { requestData } from "../data/dataSlice";
 import {
   requestDatasets,
   setCurrentDataset,
-} from "../DataSource/DataSourceSlice";
-import { DatasetInfo } from "../DataSource/types/DatasetInfo";
-import { CustomError } from "./Errors/CustomError";
-import { RootState } from "../../app/Store";
-import { serializeError } from "./Utils/ErrorSerializer";
+} from "../dataSource/dataSourceSlice";
+import { DatasetInfo } from "../dataSource/types/datasetInfo";
+import { CustomError } from "./errors/customError";
+import { RootState } from "../../app/store";
+import { serializeError } from "./utils/errorSerializer";
 
 const initialState: AppState = {
   isLoading: false,

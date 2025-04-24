@@ -1,4 +1,4 @@
-import { DatasetInfo } from "./types/DatasetInfo";
+import { DatasetInfo } from "./types/datasetInfo";
 
 export const fetchDatasets = async () => {
   try {
