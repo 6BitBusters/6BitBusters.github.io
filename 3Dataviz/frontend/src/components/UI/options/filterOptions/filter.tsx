@@ -1,4 +1,4 @@
-import "./Filter.css";
+import "./filter.css";
 import { FilterProps } from "./props/filterProps";
 
 function Filter({ title, description, onClick, children }: FilterProps) {

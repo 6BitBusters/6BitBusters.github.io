@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
 import { gsap } from "gsap";
-import "./ExpanderButton.css";
+import "./expanderButton.css";
 import { ExpanderButtonProps } from "./props/expanderButtonProps";
 
 function ExpanderButton({
