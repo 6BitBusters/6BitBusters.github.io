@@ -74,11 +74,13 @@ export class WeatherApiFetcher
   protected transformData(data: WeatherData[]): RawDataset {
     const entries: Entry[] = [];
 
-    const xLabels = data[0].hourly.time;
+    const xLabels = this.generateXLabels(data[0].hourly.time);
+
     const zLabels = WEATHER_API_CONFIG.CITIES.map((city) => city.name);
 
     for (let i = 0; i < data.length; i++) {
-      const hours = data[i].hourly.time;
+      const hours = this.generateXLabels(data[i].hourly.time);
+
       const values = data[i].hourly.temperature_2m;
       if (!hours || !values) {
         throw new Error("Formato dei dati non valido\n");
@@ -99,5 +101,13 @@ export class WeatherApiFetcher
       zLabels: zLabels,
     };
     return dataset;
+  }
+
+  // funzione per accorciare le date (es. 01/01 12:00)
+  private generateXLabels(times: string[]): string[] {
+    return times.map((time) => {
+      const date = new Date(time);
+      return `${date.getDate()}/${date.getMonth() + 1} ${date.getHours()}:00`;
+    });
   }
 }

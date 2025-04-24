@@ -119,7 +119,7 @@ describe("WeatherApiService", () => {
           z: 1,
         },
       ],
-      xLabels: ["2025-01-01T12:00:00", "2025-01-01T13:00:00"],
+      xLabels: ["1/1 12:00", "1/1 13:00"],
       zLabels: ["Francoforte", "Parigi"],
     };
     expect(result).toEqual(expectedResult);
