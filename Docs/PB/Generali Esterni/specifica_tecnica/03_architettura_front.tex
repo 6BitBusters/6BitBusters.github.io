@@ -474,6 +474,8 @@ Questo diagramma mostra i componenti per la gestione dello stato dell'applicazio
                                     dell'applicazione;
                               \item DataSlice.requestData (dipendenza semplice <<use>>): cattura un'istanza di
                                     DataSlice.requestData e il reducer aggiorna lo stato dell'applicazione.
+                              \item AppSlice.resetError (dipendenza semplice <<use>>): cattura un'istanza di AppSlice.resetError
+                                    e il reducer resetta l'errore dell'applicazione;
                         \end{itemize}
                   \item \textbf{Interazioni:}
                         \begin{itemize}
@@ -484,7 +486,8 @@ Questo diagramma mostra i componenti per la gestione dello stato dell'applicazio
                         \begin{itemize}
                               \item DataSourceSlice.requestDatasets;
                               \item DataSourceSlice.setCurrentDataset;
-                              \item DataSlice.requestData.
+                              \item DataSlice.requestData;
+                              \item AppSlice.resetError.
                         \end{itemize}
             \end{itemize}
 
@@ -527,11 +530,17 @@ Questo diagramma mostra i componenti per la gestione dello stato dell'applicazio
                   \item \textbf{Dipendenze:}
                         \begin{itemize}
                               \item AppSlice (associazione): contiene implicitamente un'istanza di AppSlice.
+                              \item AppSlice.resetError (dipendenza semplice <<send>>): crea ed emette un'istanza
+                                    dell'action AppSlice.resetError;
                         \end{itemize}
                   \item \textbf{Interazioni:}
                         \begin{itemize}
                               \item AppSlice: viene utilizzato il metodo selectorApp per reperire lo stato
                                     dell'applicazione.
+                        \end{itemize}
+                  \item \textbf{Action emesse:}
+                        \begin{itemize}
+                              \item AppSlice.resetError.
                         \end{itemize}
             \end{itemize}
 \end{itemize}
@@ -802,6 +811,20 @@ Questo diagramma mostra i componenti per aggiornare e condividere le informazion
                               \item RaycastHitSlice.setHit.
                         \end{itemize}
             \end{itemize}
+
+      \item \textbf{HomePage:}
+      \begin{itemize}
+            \item \textbf{Dipendenze:}
+                  \begin{itemize}
+                        \item RaycastHitSlice (associazione): contiene implicitamente un'istanza di
+                              RaycastHitSlice;
+                  \end{itemize}
+            \item \textbf{Interazioni:}
+                  \begin{itemize}
+                        \item RaycastHitSlice: viene utilizzato il metodo selectorRaycastHit per reperire le
+                              informazioni relative al raycasting.
+                  \end{itemize}
+      \end{itemize}
 
       \item \textbf{Tooltip:}
             \begin{itemize}
