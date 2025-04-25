@@ -14,7 +14,7 @@ Il processo di fornitura si occupa di gestire le
 relazioni con il cliente o committente, assicurando che i requisiti del
 progetto siano compresi, rispettati e soddisfatti.
 
-\subsubsection{Struttura}
+\subsubsection{Attività}
 \subsubsubsection{Rapporto con il proponente}
 Per garantire un allineamento costante con le aspettative del proponente ed
 evitare eventuali incomprensioni, il gruppo \textit{Six Bit Busters} si impegna
@@ -179,7 +179,7 @@ La codifica dovrà rispettare delle norme ben definite per garantire la leggibil
 e la manutenibilità del codice.\\
 
 \noindent \textbf{Stile di codifica}\label{ref:stile}\\
-In questo paragrafo si va a definire le norme di scrittura di tutto ciò che riguarda il codice.
+In questo paragrafo si vanno a definire le norme di scrittura del codice del prodotto software.
 \begin{itemize}
     \item \textbf{Indentazione:} i blocchi di codice innestati dovranno avere un’indentazione di due spazi;
     \item \textbf{Formattazione:} il codice scritto non deve superare il limite di 80 caratteri per riga;
@@ -234,7 +234,7 @@ linguaggio utilizzato nel progetto.
 \vspace{1em}
 
 \noindent \textbf{Norme React.js}\\
-Per quanto riguarda i costrutti che la libreria React.js ci consente di creare il team ha concordato le seguenti normative:
+Per quanto riguarda i costrutti che la libreria React.js ci consente di creare, il team ha concordato le seguenti normative:
 \begin{itemize}
     \item Il nome del componente deve essere uguale al nome del modulo con la prima lettera maiuscola;
     \item Scrittura di informazioni dentro ad un tag;
@@ -301,23 +301,24 @@ sviluppo.
 \noindent \textbf{Configurazione ambiente di lavoro} \\
 La configurazione dell’ambiente di lavoro viene fatta da un componente del gruppo, che carica la cartella
 di lavoro configurata nel repo. Successivamente gli altri componenti devono eseguire le seguenti istruzioni
-per mettersi in condizioni di lavorare. Per prima cosa ogni componente del gruppo deve installare Node.js, NPM e Docker
-attraverso package manager oppure i seguenti link:
+per configurare gli ambienti di lavoro locali in modo da poter proseguire con lo sviluppo del software. 
+Per prima cosa ogni componente del gruppo deve installare Node.js, NPM e Docker
+attraverso package manager oppure tramite i seguenti link:
 \begin{itemize}
     \item \textbf{Node.js:} \url{https://nodejs.org/en/download}
     \item \textbf{Docker:} \url{https://www.docker.com/get-started/}
 \end{itemize}
-Successivamente si deve entrare nella cartella di lavoro ottenuta dalla repo, aprire il terminale e seguire 2 semplici step:
+Successivamente si deve entrare nella cartella di lavoro ottenuta dal repo, aprire il terminale ed eseguire i due comandi sotto riportati:
 \begin{enumerate}
-    \item Eseguire il comando \texttt{npm install} che installa tutte le dipendenze di progetto;
-    \item Eseguire il comando \texttt{docker-compose -f dc-dev.yaml up} per costruire le immagini e avviare i container docker.
+    \item \texttt{npm install} che installa tutte le dipendenze di progetto;
+    \item \texttt{docker-compose -f dc-dev.yaml up} per costruire le immagini e avviare i container docker.
 \end{enumerate}
 A progetto ultimato, si dovranno generare le immagini di deploy contenenti il codice, eseguendo il seguente comando:\\
-\texttt{docker-compose -f dc-dep.yaml up}\\\\
-Se si desidera ricostruire le immagini è necessario eseguire il seguente comando:\\
+\indent \texttt{docker-compose -f dc-dep.yaml up}\\\\
+Se si desidera ricostruire le immagini è necessario eseguire uno dei seguenti comandi:
 \begin{itemize}
     \item \texttt{docker-compose -f dc-dev.yaml up --build} se si vuole ricostruire l'ambiente di sviluppo;
-    \item \texttt{docker-compose -f dc-dep.yaml up --build} se si vuole ricostruire l' ambiente di deploy.
+    \item \texttt{docker-compose -f dc-dep.yaml up --build} se si vuole ricostruire l'ambiente di deploy.
 \end{itemize}
 In questo modo docker ricostruirà le immagini e avvierà direttamente i container.
 
