@@ -10,6 +10,9 @@ function Tooltip({ data, legend, Xlabel, Zlabel }: TooltipProps) {
   return (
     raycastState?.barTooltipPosition !== null && (
       <Html
+        style={{
+          width: "500px",
+        }}
         position={new THREE.Vector3(
           raycastState?.barTooltipPosition[0],
           raycastState?.barTooltipPosition[1],
@@ -19,7 +22,7 @@ function Tooltip({ data, legend, Xlabel, Zlabel }: TooltipProps) {
         <div
           style={{
             background: "white",
-            width: "150px",
+            width: "fit-content",
             padding: "3px",
             borderRadius: "5px",
             boxShadow: "0 0 5px rgba(0,0,0,0.3)",

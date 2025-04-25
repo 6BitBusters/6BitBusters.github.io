@@ -5,14 +5,7 @@ import { DatasetInfo } from "./types/datasetInfo";
 import { RootState } from "../../app/store";
 
 const initialState: DataSourceState = {
-  datasets: [
-    {
-      id: 1,
-      name: "API A",
-      size: [1000, 2000],
-      description: "Dati del meteo della città di Roma a Marzo 2025",
-    },
-  ],
+  datasets: [],
   currentDataset: null,
 };
 

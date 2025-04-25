@@ -21,7 +21,11 @@ const initialState: AppState = {
 const appSlice = createSlice({
   name: "appStatus",
   initialState,
-  reducers: {},
+  reducers: {
+    resetError: (state) => {
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     // mentre reperisco i dati del dataset
     builder
@@ -46,9 +50,13 @@ const appSlice = createSlice({
       )
       // se mentre sto reperendo i dataset resetto lo stato degli errori
       .addCase(requestDatasets.pending, (state) => {
+        state.isLoading = true;
         if (state.error != null) {
           state.error = null;
         }
+      })
+      .addCase(requestDatasets.fulfilled, (state) => {
+        state.isLoading = false;
       })
       // se il reperimento dei dataset non va a buon fine
       .addCase(
@@ -75,7 +83,7 @@ function generateError(errNo: number): CustomError {
   switch (errNo) {
     case 429:
       return new TooManyRequestsError();
-    case 500:
+    case 503:
       return new ServerError();
     case 404:
     default:
@@ -84,5 +92,5 @@ function generateError(errNo: number): CustomError {
 }
 
 export const selectorAppState = (state: RootState) => state.appState;
-
+export const { resetError } = appSlice.actions;
 export default appSlice.reducer;

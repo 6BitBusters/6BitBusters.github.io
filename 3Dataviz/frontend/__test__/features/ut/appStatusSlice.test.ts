@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { AppState } from "../../../src/features/appStatus/types/appState";
 import reducer, {
+  resetError,
   selectorAppState,
 } from "../../../src/features/appStatus/appSlice";
 import { TooManyRequestsError } from "../../../src/features/appStatus/errors/tooManyRequestsError";
@@ -28,6 +29,22 @@ describe("AppStateSlice", () => {
       reducer(initialState, { type: requestData.pending.type, payload: null }),
     ).toEqual(expectedState);
   });
+  it("Reperimento dei dataset in corso", () => {
+    const initialState: AppState = {
+      isLoading: false,
+      error: null,
+    };
+    const expectedState: AppState = {
+      isLoading: true,
+      error: null,
+    };
+    expect(
+      reducer(initialState, {
+        type: requestDatasets.pending.type,
+        payload: null,
+      }),
+    ).toEqual(expectedState);
+  });
   it("Reperimento dei dati del dataset completato con successo", () => {
     const initialState: AppState = {
       isLoading: true,
@@ -40,6 +57,22 @@ describe("AppStateSlice", () => {
     expect(
       reducer(initialState, {
         type: requestData.fulfilled.type,
+        payload: null,
+      }),
+    ).toEqual(expectedState);
+  });
+  it("Reperimento del dataset completato con successo", () => {
+    const initialState: AppState = {
+      isLoading: true,
+      error: null,
+    };
+    const expectedState: AppState = {
+      isLoading: false,
+      error: null,
+    };
+    expect(
+      reducer(initialState, {
+        type: requestDatasets.fulfilled.type,
         payload: null,
       }),
     ).toEqual(expectedState);
@@ -65,6 +98,18 @@ describe("AppStateSlice", () => {
       }),
     ).toEqual(expectedState);
   });
+  it("Reset dello stato manuale", () => {
+    const initialState: AppState = {
+      isLoading: true,
+      error: new ServerError(),
+    };
+    const expectedState: AppState = {
+      isLoading: true,
+      error: null,
+    };
+    // request dei dati del dataset
+    expect(reducer(initialState, resetError())).toEqual(expectedState);
+  });
   it("Reperimento dei dati del dataset fallito per 'maxrequest'", () => {
     // 429 => TooManyRequestsError()
     const errNo: number = 429;
@@ -89,7 +134,7 @@ describe("AppStateSlice", () => {
   });
   it("Reperimento dei dati del dataset fallito per 'server'", () => {
     // 500 => ServerError()
-    const errNo: number = 500;
+    const errNo: number = 503;
     const initialState: AppState = {
       isLoading: true,
       error: null,
@@ -130,7 +175,7 @@ describe("AppStateSlice", () => {
     expect(expectedState.error?.message).toEqual("Non trovato");
   });
   it("Reperimento dei dataset fallito per 'server'", () => {
-    const errNo: number = 500;
+    const errNo: number = 503;
     const initialState: AppState = {
       isLoading: false,
       error: null,

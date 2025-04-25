@@ -11,16 +11,36 @@ import gsap from "gsap";
 import * as THREE from "three";
 import CustomCanvas from "../../../src/components/customCanvas/customCanvas";
 import UI from "../../../src/components/UI/ui";
+import { createBrowserRouter, RouterProvider } from "react-router";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
+const ROUTER_test = createBrowserRouter([
+  {
+    path: "/",
+    Component: EnvironmentPage,
+  },
+]);
 
 describe("UI", () => {
   describe("CameraResetButton", () => {
     it("Il bottone di reset camera deve essere visibile al caricamento del dataset", async () => {
       render(
-        <Provider store={mockStore(createMockRootState())}>
-          <EnvironmentPage />
+        <Provider
+          store={mockStore(
+            createMockRootState({
+              dataSource: {
+                datasets: [],
+                currentDataset: {
+                  id: 1,
+                  description: "",
+                  name: "",
+                  size: [1, 1],
+                },
+              },
+            }),
+          )}>
+          <RouterProvider router={ROUTER_test} />
         </Provider>,
       );
       await waitFor(() => screen.getByTestId("resetCamera"));
@@ -127,7 +147,7 @@ describe("UI", () => {
               },
             }),
           )}>
-          <EnvironmentPage />
+          <RouterProvider router={ROUTER_test} />
         </Provider>,
       );
       await waitFor(() => screen.getByTestId("current-dataset"));

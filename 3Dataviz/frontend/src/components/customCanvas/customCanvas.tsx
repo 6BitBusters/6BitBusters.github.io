@@ -16,9 +16,9 @@ const customCanvas = React.forwardRef<
 >(
   (
     {
-      initialCameraPosition = [25, 25, 25],
-      initialTarget: initialTarget = [10, 0, 10],
-      initialZoom = 1,
+      initialCameraPosition = [30, 30, -40],
+      initialTarget: initialTarget = [35, 25, 0],
+      initialZoom = 0.8,
     },
     ref,
   ) => {
@@ -104,9 +104,8 @@ const customCanvas = React.forwardRef<
             near: 0.01,
             far: 1000,
           }}>
-          <fog attach="fog" args={[0x121212, 0.1, 150]} />
-          <Lights intensity={1} distance={500} lightPosition={[10, 30, 10]} />
-          <gridHelper args={[500, 500, "#303030", "#303030"]} />
+          <fog attach="fog" args={[0x121212, 0.1, 300]} />
+          <Lights intensity={1} distance={1000} lightPosition={[100, 0, -30]} />
           <BarChart onSelectedBar={cameraFocus} />
           <OrbitControls
             makeDefault

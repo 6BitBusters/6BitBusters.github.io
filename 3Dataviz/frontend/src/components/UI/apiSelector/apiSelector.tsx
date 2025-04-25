@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import { DatasetInfo } from "../../../features/dataSource/types/datasetInfo";
 import { useSelector } from "react-redux";
 import {
+  requestDatasets,
   selectorDatasets,
   trySetCurrentDataset,
 } from "../../../features/dataSource/dataSourceSlice";
@@ -22,7 +23,7 @@ function ApiSelector() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    // void dispatch(requestDatasets());
+    void dispatch(requestDatasets());
   }, [dispatch]);
   const items: DatasetInfo[] = useSelector(selectorDatasets);
 

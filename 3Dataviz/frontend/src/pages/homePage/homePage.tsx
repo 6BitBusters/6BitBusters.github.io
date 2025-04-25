@@ -6,13 +6,21 @@ import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import { AppState } from "../../features/appStatus/types/appState";
 import { selectorAppState } from "../../features/appStatus/appSlice";
+import { useAppDispatch } from "../../app/hooks";
+import { setHit } from "../../features/raycast/raycastHitSlice";
 
 function HomePage() {
   const navigate = useNavigate();
   // Redux get error
   const appState: AppState = useSelector(selectorAppState);
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
-    if (appState.error != null) {
+    dispatch(setHit(null));
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (appState.error != null && !appState.isLoading) {
       // REDIRECT A PAGINA ERRORE
       /*
         Senza prop reindirizzo alla pagina di errore che appena viene caricata si prende dall'App Status 
@@ -21,7 +29,7 @@ function HomePage() {
       */
       void navigate("/error");
     }
-  }, [appState.error, navigate]);
+  }, [appState.error, appState.isLoading, navigate]);
 
   return (
     <>

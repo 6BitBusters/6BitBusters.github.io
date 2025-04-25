@@ -15,7 +15,7 @@ function AveragePlane({ position, size }: AveragePlaneProps) {
       <meshStandardMaterial
         color="lightgray"
         transparent={true}
-        opacity={viewPlane ? 0.6 : 0}
+        opacity={viewPlane ? 0.7 : 0}
         depthWrite={false}
         side={THREE.DoubleSide}
       />

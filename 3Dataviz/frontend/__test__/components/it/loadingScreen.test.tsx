@@ -7,9 +7,17 @@ import configureMockStore from "redux-mock-store";
 import { thunk } from "redux-thunk";
 import { AppDispatch, RootState } from "../../../src/app/store";
 import { createMockRootState } from "../../utils/stateMockCreator";
+import { createBrowserRouter, RouterProvider } from "react-router";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
+const ROUTER_test = createBrowserRouter([
+  {
+    path: "/",
+    Component: EnvironmentPage,
+  },
+]);
+
 describe("CurrentDatasetLabel", () => {
   it("quando il dataset sta caricando il testo di caricamento deve essere presente", async () => {
     render(
@@ -20,9 +28,18 @@ describe("CurrentDatasetLabel", () => {
               isLoading: true,
               error: null,
             },
+            dataSource: {
+              datasets: [],
+              currentDataset: {
+                id: 1,
+                description: "",
+                name: "",
+                size: [1, 1],
+              },
+            },
           }),
         )}>
-        <EnvironmentPage />
+        <RouterProvider router={ROUTER_test} />
       </Provider>,
     );
     await waitFor(() => {
@@ -38,9 +55,18 @@ describe("CurrentDatasetLabel", () => {
               isLoading: false,
               error: null,
             },
+            dataSource: {
+              datasets: [],
+              currentDataset: {
+                id: 1,
+                description: "",
+                name: "",
+                size: [1, 1],
+              },
+            },
           }),
         )}>
-        <EnvironmentPage />
+        <RouterProvider router={ROUTER_test} />
       </Provider>,
     );
     await waitFor(() => {

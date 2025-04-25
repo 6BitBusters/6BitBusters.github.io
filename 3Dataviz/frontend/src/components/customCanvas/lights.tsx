@@ -1,13 +1,12 @@
 import { LightsProp } from "./props/lightsProp";
 
-function Lights({ intensity, lightPosition, distance }: LightsProp) {
+function Lights({ intensity, lightPosition }: LightsProp) {
   return (
     <>
       <ambientLight intensity={intensity} />
-      <pointLight
+      <directionalLight
         position={lightPosition}
         intensity={intensity}
-        distance={distance}
         castShadow
       />
     </>

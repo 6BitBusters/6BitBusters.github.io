@@ -2,7 +2,7 @@ import { DatasetInfo } from "./types/datasetInfo";
 
 export const fetchDatasets = async () => {
   try {
-    const response = await fetch("http://127.0.0.1:5000/data-source");
+    const response = await fetch("http://localhost:3000/data-source");
     if (!response.ok) {
       throw response.status;
     }

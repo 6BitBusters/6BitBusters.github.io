@@ -11,7 +11,7 @@ function Axes({ x, y, z, unitFactor }: AxesProp) {
   }
 
   const xPlacementFunction = useCallback(
-    (i: number) => new THREE.Vector3(unitFactor * i + 5, -1, 0),
+    (i: number) => new THREE.Vector3(unitFactor * i + 5, -2, -1.5),
     [unitFactor],
   );
   const yPlacementFunction = useCallback(
@@ -19,7 +19,7 @@ function Axes({ x, y, z, unitFactor }: AxesProp) {
     [],
   );
   const zPlacementFunction = useCallback(
-    (i: number) => new THREE.Vector3(0, -1, unitFactor * i + 5),
+    (i: number) => new THREE.Vector3(-1.5, -2, unitFactor * i + 5),
     [unitFactor],
   );
 
@@ -45,7 +45,7 @@ function Axes({ x, y, z, unitFactor }: AxesProp) {
         key={"ZAxis"}
         labels={z}
         color={new THREE.Color("blue")}
-        endPoint={new THREE.Vector3(0, 0, z.length * unitFactor)}
+        endPoint={new THREE.Vector3(0, 0, z.length * unitFactor + 2)}
         placementFunction={zPlacementFunction}
         labelScale={1.5}
       />

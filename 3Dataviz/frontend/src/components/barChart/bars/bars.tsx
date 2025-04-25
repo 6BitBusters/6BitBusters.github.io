@@ -53,7 +53,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
     for (let i = 0; i < count; i++) {
       const height = data[i].y;
       dummy.position.set(data[i].x * 6 + 4, height / 2, data[i].z * 6 + 6);
-      dummy.scale.set(2, height, 2);
+      dummy.scale.set(2, height + 0.01, 2);
       dummy.rotation.set(0, 0, 0);
 
       // colori riferiti all`altezza di ogni barra
@@ -104,7 +104,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   useEffect(() => {
     const newOpacity = new Float32Array(count);
     data.forEach((d, i) => {
-      newOpacity[i] = d.show ? 1.0 : 0.2;
+      newOpacity[i] = d.show ? 1.0 : 0.15;
     });
     setInstanceOpacity(newOpacity);
   }, [data, count]);
@@ -137,14 +137,14 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
   useEffect(() => {
     if (shaderError) return;
     let ambient: THREE.AmbientLight | null = null;
-    let point: THREE.PointLight | null = null;
+    let point: THREE.DirectionalLight | null = null;
     scene.traverse((object) => {
       if (object instanceof THREE.AmbientLight) {
         if (!ambient) {
           ambient = object;
         }
       }
-      if (object instanceof THREE.PointLight) {
+      if (object instanceof THREE.DirectionalLight) {
         if (!point) {
           point = object;
         }
@@ -161,7 +161,6 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
         pointLightPosition: { value: point!.position },
         pointLightColor: { value: point!.color },
         pointLightIntensity: { value: point!.intensity },
-        pointLightDistance: { value: point!.distance },
         pointLightShadowMap: {
           value: point!.shadow.map ? point!.shadow.map.texture : null,
         },
@@ -243,10 +242,7 @@ function Bars({ data, clickHandler, hoverHandler }: BarsProps) {
         onClick={onClick}
         onPointerEnter={onPointerOver}
         onPointerLeave={onPointerLeave}>
-        <instancedMesh
-          ref={mesh}
-          args={[geometry, material, count]}
-          renderOrder={1}>
+        <instancedMesh ref={mesh} args={[geometry, material, count]}>
           <primitive object={geometry} />
           <primitive object={material} />
         </instancedMesh>

@@ -1,7 +1,7 @@
 #option-container {
     position: fixed;
     right: -470px;
-    top: 40%;
+    top: 400px;
     transform: translateY(-50%);
 }
 #option-wrap {

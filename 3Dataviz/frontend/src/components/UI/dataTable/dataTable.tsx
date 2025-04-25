@@ -57,11 +57,11 @@ function DataTable() {
                     const isVisible = data.data.some(
                       (d) => d.x === i && d.z === j && d.y === value && d.show,
                     );
-                    const dataId = data.data.find(
+                    const dataMatch = data.data.find(
                       (d) => d.x === i && d.z === j && d.y === value,
                     );
                     const id = i * row.length + j;
-                    return value == undefined || dataId == undefined ? (
+                    return value == undefined || dataMatch == undefined ? (
                       <td key={id} data-testid={id.toString()}></td>
                     ) : (
                       <td
@@ -73,7 +73,9 @@ function DataTable() {
                           )?.id
                         }
                         id={id.toString()}
-                        onClick={() => handleCellClick(value, dataId.id)}
+                        onClick={() =>
+                          handleCellClick(value, data.data.indexOf(dataMatch))
+                        }
                         className={isVisible ? "hcell" : "nhcell"}>
                         {value}
                       </td>

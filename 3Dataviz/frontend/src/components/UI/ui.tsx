@@ -2,6 +2,7 @@ import Options from "./options/options";
 import DataTable from "./dataTable/dataTable";
 import "./ui.css";
 import { UIProps } from "./uiProps";
+import Legend from "./legend/legend";
 
 function UI({ datasetName, resetCamera }: UIProps) {
   return (
@@ -11,6 +12,7 @@ function UI({ datasetName, resetCamera }: UIProps) {
       </p>
       <DataTable />
       <Options />
+      <Legend />
       <button
         id="resetCamera"
         data-testid="resetCamera"

@@ -48,8 +48,8 @@ function BarChart({ onSelectedBar }: BarChartProps) {
     if (raycastHit !== null) {
       const barPosition = new THREE.Vector3(
         data.data[raycastHit].x * 6 + 10,
-        data.data[raycastHit].y + 15,
-        data.data[raycastHit].z * 6 + 20,
+        data.data[raycastHit].y + 5,
+        data.data[raycastHit].z * 6 - 5,
       );
       const lookAt = new THREE.Vector3(
         data.data[raycastHit].x * 6 + 4,
@@ -78,10 +78,10 @@ function BarChart({ onSelectedBar }: BarChartProps) {
           new THREE.Vector3(
             (data.x.length * unitFactor) / 2,
             data.average,
-            (data.z.length * unitFactor) / 2,
+            (data.z.length * unitFactor + 2) / 2,
           )
         }
-        size={[data.x.length * unitFactor, data.z.length * unitFactor]}
+        size={[data.x.length * unitFactor, data.z.length * unitFactor + 2]}
       />
       <Tooltip
         data={data.data[hoverBar]}

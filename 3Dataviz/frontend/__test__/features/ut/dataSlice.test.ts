@@ -52,7 +52,7 @@ describe("DataSlice", () => {
     };
     fetchMock
       .mockGlobal()
-      .route("http://127.0.0.1:5000/data-visualization/1", mockDataset);
+      .route("http://localhost:3000/data-visualization/1", mockDataset);
 
     const expectedState: DataState = {
       data: [{ id: 0, show: true, x: 0, y: 1, z: 0 }],
@@ -88,7 +88,7 @@ describe("DataSlice", () => {
     };
     fetchMock
       .mockGlobal()
-      .route("http://127.0.0.1:5000/data-visualization/1", errorStatus);
+      .route("http://localhost:3000/data-visualization/1", errorStatus);
 
     const store = mockStore(initialState);
     return store.dispatch(requestData(1)).then(() => {
@@ -113,7 +113,7 @@ describe("DataSlice", () => {
     };
     fetchMock
       .mockGlobal()
-      .route("http://127.0.0.1:5000/data-visualization/-1", errorStatus);
+      .route("http://localhost:3000/data-visualization/-1", errorStatus);
 
     const store = mockStore(initialState);
     return store.dispatch(requestData(-1)).then(() => {

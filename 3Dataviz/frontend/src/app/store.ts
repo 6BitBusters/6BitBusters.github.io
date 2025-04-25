@@ -7,6 +7,7 @@ import storage from "redux-persist/lib/storage/session";
 const persistConfig = {
   key: "root",
   storage,
+  whitelist: ["appState", "dataSource"],
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
