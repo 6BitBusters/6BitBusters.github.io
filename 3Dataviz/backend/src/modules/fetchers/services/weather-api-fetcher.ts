@@ -89,7 +89,7 @@ export class WeatherApiFetcher
         const entry: Entry = {
           id: j * data.length + i,
           x: xLabels.indexOf(hours[j]),
-          y: values[j],
+          y: Math.round(values[j] * 100) / 100,
           z: i,
         };
         entries.push(entry);

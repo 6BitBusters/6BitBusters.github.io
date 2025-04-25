@@ -72,7 +72,7 @@ describe("WeatherApiService", () => {
       {
         hourly: {
           time: ["2025-01-01T12:00:00", "2025-01-01T13:00:00"],
-          temperature_2m: [20, 21],
+          temperature_2m: [20.3435, 21.4587228383],
         },
       },
       {
@@ -97,13 +97,13 @@ describe("WeatherApiService", () => {
         {
           id: 0,
           x: 0,
-          y: 20,
+          y: 20.34,
           z: 0,
         },
         {
           id: 2,
           x: 1,
-          y: 21,
+          y: 21.46,
           z: 0,
         },
         {

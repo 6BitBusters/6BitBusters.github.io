@@ -103,7 +103,7 @@ export class CurrencyApiFetcher
           const entry: Entry = {
             id: xIndex * zLabels.length + zIndex,
             x: xIndex,
-            y: value,
+            y: Math.round(value * 100) / 100,
             z: zIndex,
           };
           entries.push(entry);
