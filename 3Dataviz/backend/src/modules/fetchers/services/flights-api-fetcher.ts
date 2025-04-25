@@ -90,12 +90,8 @@ export class FlightsApiFetcher
           FLIGHTS_API_CONFIG.START_DATETIME * 1000 +
             index * FLIGHTS_API_CONFIG.INTERVAL_DURATION * 1000,
         );
-        const endDate = new Date(
-          startDate.getTime() +
-            (FLIGHTS_API_CONFIG.INTERVAL_DURATION - 1) * 1000,
-        );
         const day = this.formatShortDate(startDate);
-        
+
         const intervalSeconds = FLIGHTS_API_CONFIG.INTERVAL_DURATION;
         const intervalDurationInHours = intervalSeconds / 3600;
 
