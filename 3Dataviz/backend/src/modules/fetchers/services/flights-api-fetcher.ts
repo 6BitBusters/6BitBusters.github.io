@@ -95,8 +95,12 @@ export class FlightsApiFetcher
             (FLIGHTS_API_CONFIG.INTERVAL_DURATION - 1) * 1000,
         );
         const day = this.formatShortDate(startDate);
-        const startHour = startDate.getHours() - 1;
-        const endHour = endDate.getHours();
+        
+        const intervalSeconds = FLIGHTS_API_CONFIG.INTERVAL_DURATION;
+        const intervalDurationInHours = intervalSeconds / 3600;
+
+        const startHour = startDate.getUTCHours();
+        const endHour = (startHour + intervalDurationInHours) % 24;
 
         return `${day} ${startHour}-${endHour}`;
       },
@@ -139,8 +143,8 @@ export class FlightsApiFetcher
   }
 
   private formatShortDate(date: Date): string {
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
+    const day = date.getUTCDate();
+    const month = date.getUTCMonth() + 1;
     return `${day}/${month}`;
   }
 }
