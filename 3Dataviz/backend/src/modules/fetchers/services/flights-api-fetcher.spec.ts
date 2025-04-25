@@ -33,7 +33,7 @@ describe("FlightsApiFetcher", () => {
   let flightsApiFetcher: FlightsApiFetcher;
   const expectedResult: RawDataset = {
     data: [],
-    xLabels: ["01/01/1970 00:00 - 00:59", "01/01/1970 01:00 - 01:59"],
+    xLabels: ["1/1 0-1", "1/1 1-2"],
     zLabels: ["Parigi", "Milano"],
   };
 

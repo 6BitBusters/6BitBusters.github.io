@@ -14,7 +14,6 @@ import {
   FlightsData,
   FlightsRecord,
 } from "../interfaces/flights-data.interface";
-import { formatDate, formatTime } from "../../../common/utils/date-utils";
 
 @Injectable()
 export class FlightsApiFetcher
@@ -95,10 +94,11 @@ export class FlightsApiFetcher
           startDate.getTime() +
             (FLIGHTS_API_CONFIG.INTERVAL_DURATION - 1) * 1000,
         );
-        const day = formatDate(startDate);
-        const startTime = formatTime(startDate);
-        const endTime = formatTime(endDate);
-        return `${day} ${startTime} - ${endTime}`;
+        const day = this.formatShortDate(startDate);
+        const startHour = startDate.getHours() - 1;
+        const endHour = endDate.getHours();
+
+        return `${day} ${startHour}-${endHour}`;
       },
     );
     const zLabels = FLIGHTS_API_CONFIG.AIRPORTS.map((airport) => airport.name);
@@ -136,5 +136,11 @@ export class FlightsApiFetcher
     } catch (error) {
       throw new Error(`Formato dei dati non valido\n${error}`);
     }
+  }
+
+  private formatShortDate(date: Date): string {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    return `${day}/${month}`;
   }
 }
