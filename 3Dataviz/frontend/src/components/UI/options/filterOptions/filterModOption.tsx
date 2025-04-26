@@ -27,7 +27,7 @@ function FilterModOptions() {
               name="choise"
               onChange={onChange}
             />
-            <label htmlFor="sup">Superiori</label>
+            <label htmlFor="sup">Superiori (o uguali)</label>
           </div>
           <div className="option-choise">
             <input
@@ -38,7 +38,7 @@ function FilterModOptions() {
               onChange={onChange}
               defaultChecked
             />
-            <label htmlFor="inf">Inferiori</label>
+            <label htmlFor="inf">Inferiori (o uguali)</label>
           </div>
         </form>
       </div>

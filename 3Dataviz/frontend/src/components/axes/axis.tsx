@@ -20,7 +20,7 @@ function Axis({
       canvas.width = 296 * 4;
       canvas.height = 64 * 4;
       context.clearRect(0, 0, canvas.width, canvas.height);
-      context.font = "bold 10rem Arial";
+      context.font = "bold 80px Arial";
       context.fillStyle = "white";
       context.fillText(text, canvas.width / 2, canvas.height / 2);
       const texture = new THREE.CanvasTexture(canvas);

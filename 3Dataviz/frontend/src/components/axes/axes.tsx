@@ -31,7 +31,7 @@ function Axes({ x, y, z, unitFactor }: AxesProp) {
         color={new THREE.Color("red")}
         endPoint={new THREE.Vector3(x.length * unitFactor, 0, 0)}
         placementFunction={xPlacementFunction}
-        labelScale={1.5}
+        labelScale={2}
       />
       <Axis
         key={"YAxis"}
@@ -39,7 +39,7 @@ function Axes({ x, y, z, unitFactor }: AxesProp) {
         color={new THREE.Color("green")}
         endPoint={new THREE.Vector3(0, yMaxvalue + 2, 0)}
         placementFunction={yPlacementFunction}
-        labelScale={2}
+        labelScale={3}
       />
       <Axis
         key={"ZAxis"}
@@ -47,7 +47,7 @@ function Axes({ x, y, z, unitFactor }: AxesProp) {
         color={new THREE.Color("blue")}
         endPoint={new THREE.Vector3(0, 0, z.length * unitFactor + 2)}
         placementFunction={zPlacementFunction}
-        labelScale={1.5}
+        labelScale={2}
       />
     </>
   );

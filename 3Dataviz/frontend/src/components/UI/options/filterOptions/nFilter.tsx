@@ -18,7 +18,7 @@ function NFilter({ onClick }: NFilterProps) {
     <>
       <div data-testid="N-filter">
         <Filter
-          title="Filtra i valori Top e Bottom"
+          title="Filtra i primi n valori"
           description="Esegui un filtraggio dei top e bottom N"
           onClick={() => onClick(inputValue)}>
           <input
