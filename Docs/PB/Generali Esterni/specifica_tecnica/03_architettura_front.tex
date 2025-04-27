@@ -4,7 +4,7 @@
 
 \paragraph{Redux-Toolkit}
 I componenti che costituiscono l'architettura frontend utilizzata seguono il
-pattern offerto dalla libreria Redux- Toolkit. Redux-Toolkit è pensato per
+pattern offerto dalla libreria Redux-Toolkit. Redux-Toolkit è pensato per
 integrarsi con React e il principale vantaggio che offre è quello di poter
 gestire i dati condivisi tra i componenti React in modo centralizzato
 semplificando la gestione dello stato globale dell'applicazione. Inoltre
@@ -39,6 +39,33 @@ I componenti che formano l'architettura di Redux-Toolkit sono:
             specifico del suo stato. In altre parole, un selector consente di selezionare una parte specifica
             dello stato in modo da poterla utilizzare in modo isolato all'interno di un componente React.
 \end{itemize}
+
+%% TODO FLUX
+\paragraph{Flux Pattern}
+Redux Toolkit, in quanto astrazione della libreria Redux, implementa il pattern architetturale Flux,
+il quale assicura un flusso di dati unidirezionale e prevedibile dal modello alla view.
+Il pattern Flux è principalmente composto da 3 parti:
+\begin{itemize}
+      \item \textbf{Dispatcher}: Un hub centrale che riceve le Actions e le distribuisce agli Store.
+      \item \textbf{Stores}:  Contengono lo stato dell'applicazione e la logica per aggiornarlo in risposta alle Actions.
+      \item \textbf{Views}: Visualizzano i dati provenienti dagli Stores e inviano le Actions in risposta alle interazioni dell'utente.
+\end{itemize}
+Nel suo funzionamento, Flux condivide alcune similitudini con il pattern MVC puro:
+quando l'utente interagisce con la View, questa invia un'action (un segnale descrittivo) tramite un Dispatcher centrale ai vari Stores.
+Gli Stores contengono la business logic e, in seguito a una modifica del loro stato, notificano le Views che li utilizzano, innescando un aggiornamento.
+
+Questo pattern quindi offre diversi vantaggi come:
+\begin{itemize}
+      \item \textbf{Separazione delle responsabilità}: Grazie alla suddivisione in Dispatcher, Stores, Views,
+      ogni componente ha un compito specifico. Ciò semplifica la manutenzione e l’estensione del sistema.
+      \item \textbf{Testabilità}: La struttura a stores e dispatchers facilita l’esecuzione di test unitari e di integrazione, poichè
+      ciascuno store, o nel caso di Redux-Toolkit ciascuno slice può essere testato in isolamento.
+      \item \textbf{Flusso di dati unidirezionale}: Essendo unidirezionale facilita la comprensione della propagazione delle modifiche,
+       ma semplifica notevolmente anche il debugging, evitando la ricerca di aggiornamenti distribuiti e difficili da localizzare.
+      \item \textbf{Gestione dello stato centralizzata}: Gli Stores fungono da contenitori centralizzati per lo stato dell'applicazione. 
+      Questo rende più facile condividere lo stato tra diversi componenti senza ricorrere a complesse catene di props o a state globale difficile da gestire.
+\end{itemize}
+
 
 \subsubsection{Elenco dei componenti}
 Poiché il team di sviluppo frontend utilizzerà Redux per la gestione dello
@@ -79,6 +106,7 @@ nome delle action segue il formato: \\
       \item \textbf{DataSlice.filterFirstN:} action emessa per filtrare i dati, visualizzando solo i primi N valori più alti o più bassi. \\ Payload: FilterPayload;
       \item \textbf{DataSlice.filterByValue:} action emessa per filtrare i dati, visualizzando solo quelli con un valore maggiore o minore rispetto al valore della barra del grafico selezionata.\\ Payload: FilterPayload;
       \item \textbf{DataSlice.filterByAverage:} action emessa per filtrare i dati, visualizzando solo quelli con un valore maggiore o minore rispetto alla media globale. \\ Payload: boolean $\rightarrow$ maggiore o minore;
+      \item \textbf{DataSlice.reset:} action emessa per resettare il filtro applicato. \\ Payload: nessuno;
       \item \textbf{DataSourceSlice.requestDatasets:} action asincrona emessa per recuperare l'elenco delle informazioni relative a tutti i dataset disponibili. \\ Payload: nessuno;
       \item \textbf{DataSourceSlice.trySetCurrentDataset:} action emessa per determinare se il dataset selezionato dall'utente esiste. \\ Payload: number $\rightarrow$ ID del dataset;
       \item \textbf{DataSourceSlice.setCurrentDataset:} action emessa per aggiornare il dataset selezionato dall'utente. \\ Payload: DatasetInfo$\|$undefined $\rightarrow$ informazioni sul dataset, se esistente;
@@ -86,6 +114,7 @@ nome delle action segue il formato: \\
       \item \textbf{FilterOptionSlice.toggleIsGreater:} action emessa per aggiornare il flag che determina se il filtraggio deve essere eseguito per valori maggiori o minori. \\ Payload: boolean;
       \item \textbf{RaycastHitSlice.setHit:} action emessa per aggiornare la barra selezionata nel grafico 3D. \\ Payload: number $\rightarrow$ ID della barra;
       \item \textbf{RaycastHitSlice.setTooltipPosition:} action emessa per aggiornare la posizione del tooltip in base alla posizione del puntatore.\\ Payload: Vector3 $\rightarrow$ posizione del puntatore.
+      \item \textbf{AppSlice.resetError:} action emessa per resettare l'errore dell'applicazione. \\ Payload: nessuno;
 \end{itemize}
 \paragraph{Classi}
 Classi offerte dalle librerie utilizzate:
@@ -93,6 +122,7 @@ Classi offerte dalle librerie utilizzate:
       \item \textbf{Provider:} componente Redux che rende lo store accessibile a tutti i componenti dell'applicazione, "avvolgendo" il componente principale App e accettando lo store come prop;
       \item \textbf{Store:} componente Redux che traccia lo stato dell'applicazione, contiene il reducer principale per la gestione delle action e fornisce metodi per accedere allo stato,
             registra i listener per le modifiche di stato;
+      \item \textbf{PersistGate:} componente Redux che gestisce la persistenza dello stato dell'applicazione, consentendo di ripristinare lo stato salvato in precedenza;
       \item \textbf{RootReducer:} componente Redux che combina tutti i reducer dell'applicazione in uno stato
             globale. Questa funzione viene passata allo store per gestire lo stato complessivo dell'applicazione;
       \item \textbf{FontLoader:} classe utility di Three.js che permette di caricare dati di font in formato JSON per poi generare mesh di testo in ambienti tridimensionali;
@@ -101,7 +131,7 @@ Classi offerte dalle librerie utilizzate:
             Fornisce una telecamera e una scena con una serie di prop opzionali utili alla configurazione dell'ambiente 3D;
       \item \textbf{OrbitControls:} componente React Three Drei che abilita la navigazione e la manipolazione della telecamera utilizzando gli input del mouse;
       \item \textbf{AmbientLight:} componente React Three Fiber che fornisce un'illuminazione uniforme senza ombre alla scena 3D;
-      \item \textbf{PointLight:} componente React Three Fiber che fornisce un'illuminazione emessa da un punto verso tutte le direzioni nella scena 3D;
+      \item \textbf{DirectionalLight:} componente React Three Fiber che fornisce un'illuminazione emessa da un punto verso una direzione nella scena 3D;
 \end{itemize}
 Classi definite dal team:
 \begin{itemize}
@@ -123,14 +153,17 @@ compongono la UI:
 \begin{itemize}
       \item \textbf{ErrorPage:} componente che visualizza la pagina di errore dell'applicazione;
       \item \textbf{HomePage:} componente che visualizza la homepage dell'applicazione;
+      \item \textbf{LoadingView:} componente che visualizza la vista di caricamento dell'applicazione;
+      \item \textbf{Footer:} componente che visualizza il footer dell'applicazione;
       \item \textbf{DatasetItem:} componente che visualizza le informazioni relative a un dataset.
+      \item \textbf{ApiSelector:} componente che visualizza l'elenco dei dataset disponibili e consente all'utente di selezionarne uno;
       \item \textbf{UI:} componente che aggrega i componenti grafici che compongono la UI;
             \begin{itemize}
+                  \item \textbf{DataTable:} componente che visualizza una tabella contenente tutti i valori del dataset selezionato;
                   \item \textbf{Options:} componente che aggrega le opzioni generali;
-                  \item \textbf{FilterOptions:} componente che aggrega le opzioni di filtraggio;
-                  \item \textbf{Tooltip:} componente che visualizza un tooltip con i dettagli di una barra;
+                  \item \textbf{Legend:} componente che visualizza la legenda del dataset selezionato;
+                  \item \textbf{ExpandedButton:} componente che visualizza il pulsante per espandere o comprimere la UI nell'ambiente 3D;
             \end{itemize}
-      \item \textbf{DataTable:} componente che visualizza una tabella contenente tutti i valori del dataset selezionato;
       \item \textbf{FilterModOption:} componente per la configurazione del tipo di filtraggio dati;
       \item \textbf{AveragePlaneOption:} componente per la selezione della visibilità del piano medio;
       \item \textbf{NFilter:} componente che consente l'inserimento di un valore N e applica il filtraggio ai primi N valori più alti o più bassi;
@@ -146,9 +179,9 @@ I seguenti componenti visualizzano i dati del dataset all'interno dell'ambiente
       \item \textbf{AveragePlane:} componente che permette di visualizzare il piano medio globale;
       \item \textbf{Bars:} componente che permette di visualizzare le barre di un grafico 3D;
       \item \textbf{Raycaster:} componente che gestisce la logica di intersezione tra il puntatore e le barre del grafico;
-      \item \textbf{ZAxis:} componente che rappresenta l'asse Z del grafico 3D;
-      \item \textbf{XAxis:} componente che rappresenta l'asse X del grafico 3D;
-      \item \textbf{YAxis:} componente che rappresenta l'asse Y del grafico 3D;
+      \item \textbf{Tooltip:} componente che visualizza un tooltip con i dettagli di una barra;
+      \item \textbf{Axes:} componente che permette di visualizzare gli assi del grafico 3D;
+      \item \textbf{Axis:} componente che permette di visualizzare un asse del grafico 3D;
       \item \textbf{Lights:} componente che gestisce l'illuminazione all'interno della scena tridimensionale.
 \end{itemize}
 
@@ -163,12 +196,13 @@ componenti.
 \begin{itemize}
       \item \textbf{Bianco:} normali classi;
       \item \textbf{Giallo:} action Redux;
-      \item \textbf{Blu:} componenti React.
+      \item \textbf{Blu:} componenti React;
+      \item \textbf{Verde:} componenti React della libreria React Three Fiber.
 \end{itemize}
 
 \paragraph{DataSlice}
 \begin{figure}[h!] \centering
-      \includegraphics[scale=0.15]{template/images/uml_front/logic/DataSlice.png}
+      \includegraphics[scale=0.4]{template/images/uml_front/logic/DataSlice.png}
       \caption{DataSlice}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
@@ -196,6 +230,8 @@ Questo diagramma include tutti i componenti utili per recuperare e filtrare i da
                                     DataSlice.filterByValue e il reducer applica un filtro sui valori maggiori o
                                     minori rispetto al valore della barra del grafico 3D selezionata, basandosi sui
                                     parametri di FilterPayload.
+                              \item DataSlice.reset (dipendenza semplice <<use>>): cattura un'istanza di
+                                    DataSlice.reset e il reducer esegue il reset del corrente filtro applicato.
                         \end{itemize}
                   \item \textbf{Interazioni:}
                         \begin{itemize}
@@ -208,6 +244,7 @@ Questo diagramma include tutti i componenti utili per recuperare e filtrare i da
                               \item DataSlice.filterFirstN;
                               \item DataSlice.filterByAverage;
                               \item DataSlice.filterByValue.
+                              \item DataSlice.reset.
                         \end{itemize}
             \end{itemize}
 
@@ -250,16 +287,10 @@ Questo diagramma include tutti i componenti utili per recuperare e filtrare i da
                         \begin{itemize}
                               \item DataSlice.filterByAverage (dipendenza semplice <<send>>): crea ed emette
                                     un'istanza dell'action DataSlice.filterByAverage;
-                              \item DataSlice.filterByValue (dipendenza semplice <<send>>): crea ed emette
-                                    un'istanza dell'action DataSlice.filterByValue;
-                              \item FilterPayload (dipendenza semplice <<create>>): responsabile della creazione
-                                    dei payload di tipo FilterPayload che verranno poi utilizzati per applicare un
-                                    filtro nel modo corretto.
                         \end{itemize}
                   \item \textbf{Action emesse:}
                         \begin{itemize}
                               \item DataSlice.filterByAverage;
-                              \item DataSlice.filterByValue.
                         \end{itemize}
             \end{itemize}
 
@@ -284,8 +315,8 @@ Questo diagramma include tutti i componenti utili per recuperare e filtrare i da
                               \item DataSlice.filterByValue.
                         \end{itemize}
             \end{itemize}
-
-      \item \textbf{BarChart:}
+      
+      \item \textbf{Legend:}
             \begin{itemize}
                   \item \textbf{Dipendenze:}
                         \begin{itemize}
@@ -293,8 +324,30 @@ Questo diagramma include tutti i componenti utili per recuperare e filtrare i da
                         \end{itemize}
                   \item \textbf{Interazioni:}
                         \begin{itemize}
+                              \item DataSlice: viene utilizzato il metodo selectorData per reperire la lista delle etichette.
+                        \end{itemize}
+            \end{itemize}
+                  
+
+      \item \textbf{BarChart:}
+            \begin{itemize}
+                  \item \textbf{Dipendenze:}
+                        \begin{itemize}
+                              \item DataSlice (associazione): contiene implicitamente un'istanza di DataSlice.
+                              \item DataSlice.filterByValue (dipendenza semplice <<send>>): crea ed emette
+                                    un'istanza dell'action DataSlice.filterByValue;
+                              \item FilterPayload (dipendenza semplice <<create>>): responsabile della creazione
+                                    dei payload di tipo FilterPayload che verranno poi utilizzati per applicare un
+                                    filtro nel modo corretto.
+                        \end{itemize}
+                  \item \textbf{Interazioni:}
+                        \begin{itemize}
                               \item DataSlice: viene utilizzato il metodo selectorData per reperire la lista dei
                                     dati e delle etichette.
+                        \end{itemize}
+                  \item \textbf{Action emesse:}
+                        \begin{itemize}
+                              \item DataSlice.filterByValue.
                         \end{itemize}
             \end{itemize}
 
@@ -310,13 +363,26 @@ Questo diagramma include tutti i componenti utili per recuperare e filtrare i da
                               \item DataSlice.requestData.
                         \end{itemize}
             \end{itemize}
+
+      \item \textbf{Options:}
+            \begin{itemize}
+                  \item \textbf{Dipendenze:}
+                        \begin{itemize}
+                              \item DataSlice.reset (dipendenza semplice <<send>>): crea ed emette un'istanza
+                                    dell'action DataSlice.reset.
+                        \end{itemize}
+                  \item \textbf{Action emesse:}
+                        \begin{itemize}
+                              \item DataSlice.reset.
+                        \end{itemize}
+            \end{itemize}
 \end{itemize}
 
 \pagebreak
 
 \paragraph{DataSourceSlice}
 \begin{figure}[h!] \centering
-      \includegraphics[scale=0.18]{template/images/uml_front/logic/DataSourceSlice.png}
+      \includegraphics[scale=0.4]{template/images/uml_front/logic/DataSourceSlice.png}
       \caption{DataSourceSlice}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
@@ -365,14 +431,12 @@ Questo diagramma illustra i componenti per recuperare le informazioni relative a
                         \end{itemize}
             \end{itemize}
 
-      \item \textbf{HomePage:}
+      \item \textbf{ApiSelector:}
             \begin{itemize}
                   \item \textbf{Dipendenze:}
                         \begin{itemize}
                               \item DataSourceSlice (associazione): contiene implicitamente un'istanza di
                                     DataSourceSlice;
-                              \item DataSourceSlice.requestDatasets (dipendenza semplice <<send>>): crea ed emette
-                                    un'istanza dell'action DataSourceSlice.requestDatasets;
                               \item DataSourceSlice.trySetCurrentDataset (dipendenza semplice <<send>>): crea ed
                                     emette un'istanza dell'action DataSourceSlice.trySetCurrentDataset.
                         \end{itemize}
@@ -383,7 +447,6 @@ Questo diagramma illustra i componenti per recuperare le informazioni relative a
                         \end{itemize}
                   \item \textbf{Action emesse:}
                         \begin{itemize}
-                              \item DataSourceSlice.requestDatasets;
                               \item DataSourceSlice.trySetCurrentDataset.
                         \end{itemize}
             \end{itemize}
@@ -401,11 +464,34 @@ Questo diagramma illustra i componenti per recuperare le informazioni relative a
                                     il dataset selezionato dall'utente e le sue informazioni.
                         \end{itemize}
             \end{itemize}
+
+      \item \textbf{HomePage:}
+            \begin{itemize}
+                  \item \textbf{Dipendenze:}
+                        \begin{itemize}
+                              \item DataSourceSlice (associazione): contiene implicitamente un'istanza di
+                                    DataSourceSlice.
+                              \item DataSourceSlice.requestDatasets (dipendenza semplice <<send>>): crea ed emette
+                                    un'istanza dell'action DataSourceSlice.requestDatasets;
+                        \end{itemize}
+                  \item \textbf{Interazioni:}
+                        \begin{itemize}
+                              \item DataSourceSlice: viene utilizzato il metodo requestDatasets per reperire
+                                    i dataset disponibili.
+                        \end{itemize}
+                  
+                  \item \textbf{Action emesse:}
+                        \begin{itemize}
+                              \item DataSourceSlice.requestDatasets.
+                        \end{itemize}
+            \end{itemize}
 \end{itemize}
+
+\pagebreak
 
 \paragraph{AppSlice}
 \begin{figure}[h!] \centering
-      \includegraphics[scale=0.2]{template/images/uml_front/logic/AppSlice.png}
+AppSlice      \includegraphics[scale=0.4]{template/images/uml_front/logic/AppSlice.png}
       \caption{AppSlice}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
@@ -427,6 +513,8 @@ Questo diagramma mostra i componenti per la gestione dello stato dell'applicazio
                                     dell'applicazione;
                               \item DataSlice.requestData (dipendenza semplice <<use>>): cattura un'istanza di
                                     DataSlice.requestData e il reducer aggiorna lo stato dell'applicazione.
+                              \item AppSlice.resetError (dipendenza semplice <<use>>): cattura un'istanza di AppSlice.resetError
+                                    e il reducer resetta l'errore dell'applicazione;
                         \end{itemize}
                   \item \textbf{Interazioni:}
                         \begin{itemize}
@@ -437,7 +525,8 @@ Questo diagramma mostra i componenti per la gestione dello stato dell'applicazio
                         \begin{itemize}
                               \item DataSourceSlice.requestDatasets;
                               \item DataSourceSlice.setCurrentDataset;
-                              \item DataSlice.requestData.
+                              \item DataSlice.requestData;
+                              \item AppSlice.resetError.
                         \end{itemize}
             \end{itemize}
 
@@ -461,11 +550,43 @@ Questo diagramma mostra i componenti per la gestione dello stato dell'applicazio
                                     dell'applicazione.
                         \end{itemize}
             \end{itemize}
+
+      \item \textbf{HomePage:}
+      \begin{itemize}
+            \item \textbf{Dipendenze:}
+                  \begin{itemize}
+                        \item AppSlice (associazione): contiene implicitamente un'istanza di AppSlice.
+                  \end{itemize}
+            \item \textbf{Interazioni:}
+                  \begin{itemize}
+                        \item AppSlice: viene utilizzato il metodo selectorApp per reperire lo stato
+                              dell'applicazione.
+                  \end{itemize}
+      \end{itemize}
+
+      \item \textbf{ErrorPage:}
+            \begin{itemize}
+                  \item \textbf{Dipendenze:}
+                        \begin{itemize}
+                              \item AppSlice (associazione): contiene implicitamente un'istanza di AppSlice.
+                              \item AppSlice.resetError (dipendenza semplice <<send>>): crea ed emette un'istanza
+                                    dell'action AppSlice.resetError;
+                        \end{itemize}
+                  \item \textbf{Interazioni:}
+                        \begin{itemize}
+                              \item AppSlice: viene utilizzato il metodo selectorApp per reperire lo stato
+                                    dell'applicazione.
+                        \end{itemize}
+                  \item \textbf{Action emesse:}
+                        \begin{itemize}
+                              \item AppSlice.resetError.
+                        \end{itemize}
+            \end{itemize}
 \end{itemize}
 
 \subparagraph{CustomError}
 \begin{center}
-      \includegraphics[scale=0.25]{template/images/uml_front/logic/CustomError.png}
+      \includegraphics[scale=0.6]{template/images/uml_front/logic/CustomError.png}
       \captionof{figure}{CustomError}
 \end{center}
 \textbf{Descrizione del diagramma:}\\
@@ -507,7 +628,7 @@ Questo diagramma mostra tutte le classi di errore.
 
 \paragraph{FilterOptionSlice}
 \begin{figure}[h!] \centering
-      \includegraphics[scale=0.18]{template/images/uml_front/logic/FilterOptionSlice.png}
+      \includegraphics[scale=0.45]{template/images/uml_front/logic/FilterOptionSlice.png}
       \caption{FilterOptionSlice}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
@@ -534,7 +655,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
                         \end{itemize}
             \end{itemize}
 
-      \item \textbf{NFilter:}
+      \item \textbf{Options:}
             \begin{itemize}
                   \item \textbf{Dipendenze:}
                         \begin{itemize}
@@ -548,7 +669,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
                         \end{itemize}
             \end{itemize}
 
-      \item \textbf{Filter:}
+      \item \textbf{BarChart:}
             \begin{itemize}
                   \item \textbf{Dipendenze:}
                         \begin{itemize}
@@ -592,7 +713,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
 
 \paragraph{ViewOptionSlice}
 \begin{figure}[h!] \centering
-      \includegraphics[scale=0.18]{template/images/uml_front/logic/ViewOptionSlice.png}
+      \includegraphics[scale=0.45]{template/images/uml_front/logic/ViewOptionSlice.png}
       \caption{ViewOptionSlice}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
@@ -632,7 +753,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
                         \end{itemize}
             \end{itemize}
 
-      \item \textbf{BarChart:}
+      \item \textbf{AveragePlane:}
             \begin{itemize}
                   \item \textbf{Dipendenze:}
                         \begin{itemize}
@@ -650,7 +771,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le opzioni di 
 
 \paragraph{RaycastHitSlice}
 \begin{figure}[h!] \centering
-      \includegraphics[scale=0.20]{template/images/uml_front/logic/RaycastHitSlice.png}
+      \includegraphics[scale=0.4]{template/images/uml_front/logic/raycastslice.png}
       \caption{RaycastHitSlice}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
@@ -681,7 +802,7 @@ Questo diagramma mostra i componenti per aggiornare e condividere le informazion
                         \end{itemize}
             \end{itemize}
 
-      \item \textbf{Bars:}
+      \item \textbf{BarChart:}
             \begin{itemize}
                   \item \textbf{Dipendenze:}
                         \begin{itemize}
@@ -704,7 +825,61 @@ Questo diagramma mostra i componenti per aggiornare e condividere le informazion
                         \end{itemize}
             \end{itemize}
 
+      \item \textbf{Options:}
+            \begin{itemize}
+                  \item \textbf{Dipendenze:}
+                        \begin{itemize}
+                              \item RaycastHitSlice.setHit (associazione semplice <<send>>): crea ed
+                                    emette un'istanza dell'action RaycastHitSlice.setHit.
+                        \end{itemize}
+                  \item \textbf{Action emesse:}
+                        \begin{itemize}
+                              \item RaycastHitSlice.setHit.
+                        \end{itemize}
+            \end{itemize}
+
+      \item \textbf{DataTable:}
+            \begin{itemize}
+                  \item \textbf{Dipendenze:}
+                        \begin{itemize}
+                              \item RaycastHitSlice.setHit (associazione semplice <<send>>): crea ed
+                                    emette un'istanza dell'action RaycastHitSlice.setHit.
+                        \end{itemize}
+                  \item \textbf{Action emesse:}
+                        \begin{itemize}
+                              \item RaycastHitSlice.setHit.
+                        \end{itemize}
+            \end{itemize}
+
+      \item \textbf{HomePage:}
+      \begin{itemize}
+            \item \textbf{Dipendenze:}
+                  \begin{itemize}
+                        \item RaycastHitSlice (associazione): contiene implicitamente un'istanza di
+                              RaycastHitSlice;
+                  \end{itemize}
+            \item \textbf{Interazioni:}
+                  \begin{itemize}
+                        \item RaycastHitSlice: viene utilizzato il metodo selectorRaycastHit per reperire le
+                              informazioni relative al raycasting.
+                  \end{itemize}
+      \end{itemize}
+
       \item \textbf{Tooltip:}
+            \begin{itemize}
+                  \item \textbf{Dipendenze:}
+                        \begin{itemize}
+                              \item RaycastHitSlice (associazione): contiene implicitamente un'istanza di
+                                    RaycastHitSlice;
+                        \end{itemize}
+                  \item \textbf{Interazioni:}
+                        \begin{itemize}
+                              \item RaycastHitSlice: viene utilizzato il metodo selectorRaycastHit per reperire le
+                                    informazioni relative al raycasting.
+                        \end{itemize}
+            \end{itemize}
+
+      \item \textbf{Bars:}
             \begin{itemize}
                   \item \textbf{Dipendenze:}
                         \begin{itemize}
@@ -719,9 +894,11 @@ Questo diagramma mostra i componenti per aggiornare e condividere le informazion
             \end{itemize}
 \end{itemize}
 
+\pagebreak
+
 \paragraph{Redux store}
 \begin{figure}[h!] \centering
-      \includegraphics[scale=0.17]{template/images/uml_front/logic/Store.png}
+      \includegraphics[scale=0.45]{template/images/uml_front/logic/Store.png}
       \caption{Redux store}
 \end{figure}
 \textbf{Descrizione del diagramma:}\\
@@ -757,9 +934,11 @@ Questo diagramma mostra lo store e le slice che compongono lo stato globale dell
             \end{itemize}
 \end{itemize}
 
+\pagebreak
+
 \paragraph{Pages}
 \begin{figure}[h!] \centering
-      \includegraphics[scale=0.3]{template/images/uml_front/ui/pages.png}
+      \includegraphics[scale=0.6]{template/images/uml_front/ui/pages.png}
       \caption{Pages}
 \end{figure}
 \textbf{Descrizione del diagramma:}
@@ -771,10 +950,23 @@ Questo diagramma mostra come sono organizzate le varie pagine dell'applicazione.
                         \begin{itemize}
                               \item Store (associazione): utile al Provider di Redux per consentire l'accesso allo
                                     store (e quindi allo stato globale) a tutti i componenti nella gerarchia;
-                              \item RouterProvider (associazione): componente React che gestisce le pagine
-                                    dell'applicazione e le loro relative rotte.
+                              \item PersistGate (associazione): componente React che gestisce il caricamento
+                                    dell'applicazione e il ripristino dello stato persistente;
                         \end{itemize}
             \end{itemize}
+
+      \item \textbf{PersistGate:}
+      \begin{itemize}
+            \item \textbf{Dipendenze:}
+                  \begin{itemize}
+                        \item Store (associazione): utile per consentire l'accesso allo
+                              store (e quindi allo stato globale);
+                        \item LoadingView (composizione): componente React dedicato alla visualizzazione di un indi-
+                              catore di caricamento;
+                        \item RouterProvider (associazione): componente React che gestisce le pagine
+                        dell'applicazione e le loro relative rotte.
+                  \end{itemize}
+      \end{itemize}
 
       \item \textbf{RouterProvider:}
             \begin{itemize}
@@ -823,7 +1015,7 @@ Questo diagramma presenta l'organizzazione degli elementi all'interno della pagi
 
 \paragraph{EnvironmentPage}
 \begin{figure}[h!] \centering
-      \includegraphics[scale=0.3]{template/images/uml_front/ui/EnvironmentPage.png}
+      \includegraphics[scale=0.6]{template/images/uml_front/ui/EnvironmentPage.png}
       \caption{EnvironmentPage}
 \end{figure}
 \textbf{Descrizione del diagramma:}
@@ -837,15 +1029,15 @@ Questo diagramma presenta l'organizzazione degli elementi all'interno della pagi
                                     dell'applicazione;
                               \item CustomCanvas (composizione): componente React responsabile della
                                     visualizzazione e del rendering dell'ambiente 3D;
-                              \item Footer (composizione): componente React dedicato alla visualizzazione del
-                                    footer dell'applicazione.
+                              \item LoadingView (composizione): componente React dedicato alla visualizzazione di un indicatore di
+                                    caricamento;
                         \end{itemize}
             \end{itemize}
 \end{itemize}
 
 \paragraph{UI}
 \begin{figure}[h!] \centering
-      \includegraphics[scale=0.3]{template/images/uml_front/ui/UI.png}
+      \includegraphics[scale=0.4]{template/images/uml_front/ui/UI.png}
       \caption{UI}
 \end{figure}
 \textbf{Descrizione del diagramma:}
@@ -859,6 +1051,8 @@ Questo diagramma presenta la struttura e gli elementi che costituiscono la UI de
                                     dataset in formato tabellare;
                               \item Options (composizione): componente React dedicato alla visualizzazione di un
                                     form contenente le opzioni di filtraggio e visibilità del piano medio.
+                              \item Legend (composizione): componente React dedicato alla visualizzazione della legenda del
+                                    grafico 3D.
                         \end{itemize}
             \end{itemize}
 
@@ -912,7 +1106,6 @@ Questo diagramma evidenzia la struttura dei gruppi in cui sono suddivise le opzi
             \end{itemize}
 \end{itemize}
 
-\pagebreak
 
 \paragraph{CustomCanvas}
 \begin{figure}[h!] \centering
@@ -935,9 +1128,11 @@ Questo diagramma presenta la struttura e gli elementi che costituiscono l'ambien
             \end{itemize}
 \end{itemize}
 
+\pagebreak
+
 \paragraph{BarChart}
 \begin{figure}[h!] \centering
-      \includegraphics[scale=0.3]{template/images/uml_front/ui/BarChart.png}
+      \includegraphics[scale=0.4]{template/images/uml_front/ui/BarChart.png}
       \caption{BarChart}
 \end{figure}
 \textbf{Descrizione del diagramma:}
@@ -965,7 +1160,7 @@ Questo diagramma presenta gli elementi che costituiscono il grafico 3D.
                         \begin{itemize}
                               \item AmbientLight (composizione): componente React Three Fiber che fornisce
                                     un'illuminazione uniforme senza ombre alla scena 3D;
-                              \item PointLight (composizione): componente React Three Fiber che fornisce
+                              \item DirectionalLight (composizione): componente React Three Fiber che fornisce
                                     un'illuminazione emessa da un punto verso tutte le direzioni nella scena 3D.
                         \end{itemize}
             \end{itemize}
