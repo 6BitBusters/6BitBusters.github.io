@@ -105,7 +105,7 @@ const customCanvas = React.forwardRef<
             far: 1000,
           }}>
           <fog attach="fog" args={[0x121212, 0.1, 300]} />
-          <Lights intensity={1} distance={1000} lightPosition={[100, 0, -30]} />
+          <Lights intensity={1} lightPosition={[100, 0, -30]} />
           <BarChart onSelectedBar={cameraFocus} />
           <OrbitControls
             makeDefault
