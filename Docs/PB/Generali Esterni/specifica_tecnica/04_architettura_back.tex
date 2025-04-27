@@ -1,7 +1,7 @@
 \subsection{Architettura backend}
 
 \subsubsection{Descrizione generale} 
-L’architettura del backend adotta lo stile modulare fornito da NestJS, basandosi su una suddivisione in moduli indipendenti, ciascuno responsabile di una specifica funzionalità dell’applicazione. Ogni modulo è organizzato secondo un approccio a layer, comprendente controller, servizi e provider.\\
+L’architettura del backend adotta lo stile modulare fornito da NestJS, con moduli principali che gestiscono le funzionalità chiave dell'applicazione e moduli di supporto che forniscono risorse necessari a quelli precedenti. I moduli funzionali sono organizzati secondo un approccio a layer, comprendente controller, servizi e repository.\\
 Il ruolo principale del backend è quello di fungere da mediatore tra diverse fonti di dati esterne (principalmente API REST), aggregando e trasformando le informazioni ricevute in un formato uniforme e coerente. I dati vengono quindi resi disponibili tramite endpoint REST standardizzati. Le sorgenti dati sono gestite da componenti chiamati \textit{fetcher}, ciascuno progettato per interagire con un'API specifica. Tutti i \textit{fetcher} seguono la stessa interfaccia, il che rende facile aggiungere nuove fonti di dati in futuro.
 
 \subsubsection{Diagramma delle classi}
@@ -103,9 +103,9 @@ Il \texttt{DataVisualizationModule} gestisce la logica di recupero e formattazio
 
 \begin{itemize}
     \item \texttt{FetcherModule}: Fornisce accesso all'array di \texttt{BaseFetcher} attraverso il token di iniezione \texttt{FETCHERS}. Questo permette al \texttt{DataVisualizationService} di recuperare i dati da diverse fonti in modo modulare, senza dipendere dalle implementazioni specifiche dei fetchers;
-    \item \texttt{RepositoryModule}: Esporta il \texttt{CacheRepository} come implementazione concreta dell'interfaccia \texttt{IRepository}. Questo consente al \texttt{DataVisualizationService} di interagire con la cache tramite un'interfaccia astratta.
+    \item \texttt{RepositoryModule}: Esporta il \texttt{CacheRepository} come implementazione concreta dell'interfaccia \texttt{IRepository}. Questo consente al \texttt{DataVisualizationService} di interagire con la cache tramite un'interfaccia.
     \item \texttt{BaseFetcher}: Interfaccia che ogni fetcher implementa per fornire accesso standardizzato ai dati;
-    \item \texttt{IRepository}: Interfaccia astratta per la gestione della cache. Definisce le operazioni fondamentali:
+    \item \texttt{IRepository}: Interfaccia per la gestione della cache. Definisce le operazioni fondamentali:
     \begin{itemize}
         \item \texttt{get(key: string)}: recupera un valore dalla cache;
         \item \texttt{set(key: string, value: T)}: salva un valore nella cache.
@@ -140,6 +140,9 @@ Il \texttt{FetcherModule} incapsula tutti i componenti responsabili del recupero
 \begin{itemize}
     \item \texttt{BaseFetcher}: interfaccia che definisce il contratto da rispettare per ogni \texttt{fetcher};
     \item \texttt{BaseApiFetcher}: classe astratta che offre una base comune per tutti i \texttt{fetcher} basati su API REST.
+    
+    La separazione tra \texttt{BaseFetcher} e \texttt{BaseApiFetcher} consente di favorire la riusabilità e la manutenzione del codice. Mentre \texttt{BaseFetcher} stabilisce un'interfaccia generica per qualsiasi sorgente dati, \texttt{BaseApiFetcher} si occupa della gestione specifica delle API REST, implementando i metodi \texttt{fetchData} e \texttt{transformData}, che sono propri dei fetcher per API. Questo approccio centralizza la logica comune legata alle API, evitando la duplicazione del codice.
+    
 \end{itemize}
 
 \textbf{Fetcher concreti:}
@@ -161,7 +164,7 @@ Il \texttt{FetcherModule} esporta il provider \texttt{FETCHERS}, che aggrega le 
     \caption{RepositoryModule}
 \end{figure}
 
-Il \texttt{RepositoryModule} si occupa della persistenza temporanea dei dati applicativi, fornendo un’interfaccia coerente per la memorizzazione e il recupero di dati in cache. Questo modulo utilizza \texttt{Memcached} come sistema di caching distribuito, tramite il client \texttt{memjs}, fornendo così un meccanismo efficiente di persistenza temporanea per ottimizzare le performance dell'applicazione.\\
+Il \texttt{RepositoryModule} raggruppa i provider e i componenti che gestiscono la logica di persistenza dei dati, come il \texttt{CacheRepository}. Questo modulo fornisce un'interfaccia coerente per la gestione della cache. Il \texttt{CacheRepository} è responsabile della persistenza temporanea dei dati, utilizzando \texttt{Memcached} tramite il client \texttt{memjs}, per ottimizzare le performance dell'applicazione.
 
 \textbf{Responsabilità:}
 \begin{itemize}
@@ -195,12 +198,14 @@ Il modulo esporta la classe concreta \texttt{CacheRepository} come provider asso
 L’architettura del backend è progettata seguendo un approccio modulare, in cui ogni modulo rappresenta un'unità funzionale autonoma. Ciò consente di isolare le responsabilità, facilitando la manutenibilità e l'estensibilità del sistema. Ogni modulo è progettato per essere riutilizzabile e facilmente testabile, seguendo i principi della separazione delle preoccupazioni.
 
 \subsubsection{Architettura a Strati (Layered Architecture)}
-All'interno di ogni modulo, l'architettura a strati separa le diverse responsabilità: controller per la gestione delle richieste, servizi per la logica applicativa, e possibilmente DTO per la definizione dei dati scambiati. Questa separazione migliora la manutenibilità e la testabilità dell'applicazione.
+All'interno dei moduli principali, l'architettura a strati separa le diverse responsabilità: controller per la gestione delle richieste, servizi per la logica applicativa, un eventuale repository per la persistenza dei dati e possibilmente DTO per la definizione dei dati scambiati. Questa separazione migliora la manutenibilità e la testabilità dell'applicazione.
 
 \begin{itemize}  
   \item \textbf{Controller (Presentation Layer):} gestiscono le richieste in ingresso (es. HTTP) e costituiscono l'interfaccia tra il client e l'applicazione. Utilizzano decoratori come \texttt{@Controller} e \texttt{@Get} per definire le rotte e delegare la logica ai servizi sottostanti. Non contengono logica di business, ma si occupano di validare i dati tramite i DTO e restituire le risposte;
   
   \item \textbf{Service (Application Layer):} implementano la logica applicativa e gestiscono le operazioni necessarie per soddisfare le richieste. I servizi sono iniettati nei controller tramite il pattern di Dependency Injection e gestiscono la business logic dell'applicazione, interagendo con repository opppure fetcher;
+  
+  \item \textbf{Repository (Persistence Layer):} il repository gestisce l'accesso ai dati, separando la logica di business dalla gestione della persistenza. Si occupa di salvare e recuperare i dati in cache, garantendo che il resto dell'applicazione non dipenda dai dettagli di implementazione della persistenza. Il repository fa parte di un modulo separato (\texttt{RepositoryModule}), che viene esportato nel modulo che necessita di salvare i dati. Questo approccio facilita la gestione, l'eventuale integrazione in altri moduli e la sostituzione del sistema di persistenza.
   
   \item \textbf{DTO (Data Transfer Object):} definiscono i dati scambiati tra client e server, specificando le proprietà che devono essere validate e mappate. I DTO aiutano a garantire la coerenza dei dati e a documentare le API.
 \end{itemize}
@@ -210,12 +215,12 @@ All'interno di ogni modulo, l'architettura a strati separa le diverse responsabi
 In NestJS, abbiamo sfruttato diversi design pattern per semplificare la struttura e migliorare la manutenibilità del codice:
 
 \begin{itemize}
-  \item \textbf{Dependency Injection (DI):} Il pattern DI è utilizzato da NestJS per gestire le dipendenze tra i componenti. Grazie al decoratore \texttt{@Injectable()}, i servizi possono essere iniettati in altri servizi o controller. Questo approccio riduce il coupling e migliora la testabilità del sistema, evitando la creazione manuale delle istanze.
+  \item \textbf{Dependency Injection (DI):} il pattern DI è utilizzato da NestJS per gestire le dipendenze tra i componenti. Grazie al decoratore \texttt{@Injectable()}, i servizi possono essere iniettati in altri servizi o controller. Questo approccio riduce il coupling e migliora la testabilità del sistema, evitando la creazione manuale delle istanze;
 
-  \item \textbf{Decorator Pattern (con \texttt{@Controller} e \texttt{@Get}):} NestJS fa ampio uso del pattern decoratore, che permette di aggiungere comportamenti specifici ai componenti senza modificarne il codice. Il decoratore \texttt{@Controller} viene utilizzato per definire un controller, mentre \texttt{@Get} è impiegato per associare una rotta HTTP GET a un metodo del controller. Questi decoratori semplificano la gestione delle rotte e delle richieste HTTP.
+  \item \textbf{Decorator (con \texttt{@Controller} e \texttt{@Get}):}  agiscono come un "decorator" per assegnare funzionalità specifiche a classi e metodi, ma non implementano il pattern decoratore nel senso tradizionale. \texttt{@Controller} definisce una classe come controller, mentre \texttt{@Get} mappa un metodo a una rotta HTTP GET. Questo approccio consente di semplificare la gestione delle richieste senza aggiungere logica complessa;
   
-  \item \textbf{Singleton:} Il pattern Singleton è applicato a livello di servizio, in quanto NestJS gestisce i provider come istanze uniche durante il ciclo di vita dell'applicazione. I servizi sono quindi condivisi tra i vari componenti, ottimizzando le risorse e riducendo il carico di creazione di nuove istanze.
+  \item \textbf{Singleton:} il pattern Singleton è applicato a livello di servizio, in quanto NestJS gestisce i provider come istanze uniche durante il ciclo di vita dell'applicazione. I servizi sono quindi condivisi tra i vari componenti, ottimizzando le risorse e riducendo il carico di creazione di nuove istanze;
 
-  \item \textbf{Repository Pattern:} Utilizzato per astrarre la logica di accesso ai dati dalla logica di business, il Repository Pattern consente di gestire l'interazione con le fonti dati (come database o cache) in modo centralizzato. I repository vengono iniettati nei servizi, permettendo una gestione più flessibile dei dati.
+  \item \textbf{Repository Pattern:} utilizzato per astrarre la logica di accesso ai dati dalla logica di business, il Repository Pattern consente di gestire l'interazione con le fonti dati (come database o cache) in modo centralizzato. I repository vengono iniettati nei servizi, permettendo una gestione più flessibile dei dati.
 \end{itemize}
 
