@@ -8,6 +8,8 @@ import { AppState } from "../../features/appStatus/types/appState";
 import { selectorAppState } from "../../features/appStatus/appSlice";
 import { useAppDispatch } from "../../app/hooks";
 import { setHit } from "../../features/raycast/raycastHitSlice";
+import LoaderView from "../../components/UI/loaderView/loaderView";
+import { requestDatasets } from "../../features/dataSource/dataSourceSlice";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -16,6 +18,7 @@ function HomePage() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    void dispatch(requestDatasets());
     dispatch(setHit(null));
   }, [dispatch]);
 
@@ -31,7 +34,9 @@ function HomePage() {
     }
   }, [appState.error, appState.isLoading, navigate]);
 
-  return (
+  return appState.isLoading ? (
+    <LoaderView />
+  ) : (
     <>
       <div className="containerHome">
         <h1 id="homepageTitle">3DataViz</h1>

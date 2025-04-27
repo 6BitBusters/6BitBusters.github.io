@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import ErrorPage from "../../../src/pages/errorPage/errorPage";
 import { thunk } from "redux-thunk";
 import configureMockStore from "redux-mock-store";
-import { AppDispatch, RootState } from "../../../src/app/Store";
+import { AppDispatch, RootState } from "../../../src/app/store";
 import fetchMock from "fetch-mock";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router";
@@ -28,7 +28,7 @@ describe("ErrorPage", () => {
     fetchMock.removeRoutes();
   });
 
-  it("dovrebbe caricare correttamente i dati dell'errore", () => {
+  it("Verifica che i dati dell'errore vengano caricati correttamente.", () => {
     const errorMock: SerializedError = {
       name: "Error",
       message: "Test error",

@@ -16,7 +16,7 @@ import { createMockRootState } from "../../utils/stateMockCreator";
 import { serializeError } from "../../../src/features/appStatus/utils/errorSerializer";
 
 describe("AppStateSlice", () => {
-  it("Reperimento dei dati del dataset in corso", () => {
+  it("Verifica che, durante il reperimento dei dati del dataset, lo slice rilevante aggiorni il suo stato impostando un flag di caricamento.", () => {
     const initialState: AppState = {
       isLoading: false,
       error: null,
@@ -29,7 +29,7 @@ describe("AppStateSlice", () => {
       reducer(initialState, { type: requestData.pending.type, payload: null }),
     ).toEqual(expectedState);
   });
-  it("Reperimento dei dataset in corso", () => {
+  it("Verifica che, durante il reperimento del dataset, lo slice rilevante aggiorni il suo stato impostando un flag di caricamento.", () => {
     const initialState: AppState = {
       isLoading: false,
       error: null,
@@ -45,7 +45,7 @@ describe("AppStateSlice", () => {
       }),
     ).toEqual(expectedState);
   });
-  it("Reperimento dei dati del dataset completato con successo", () => {
+  it("Verifica che, al completamento con successo del reperimento dei dati del dataset, lo slice rilevante aggiorni il suo stato con i dati ricevuti e resetti il flag di caricamento", () => {
     const initialState: AppState = {
       isLoading: true,
       error: null,
@@ -61,7 +61,7 @@ describe("AppStateSlice", () => {
       }),
     ).toEqual(expectedState);
   });
-  it("Reperimento del dataset completato con successo", () => {
+  it("Verifica che, al completamento con successo del reperimento del dataset, lo slice rilevante aggiorni il suo stato con i dati ricevuti e resetti il flag di caricamento", () => {
     const initialState: AppState = {
       isLoading: true,
       error: null,
@@ -77,7 +77,7 @@ describe("AppStateSlice", () => {
       }),
     ).toEqual(expectedState);
   });
-  it("Reset dello stato mentre faccio una nuova request", () => {
+  it("Verifica che, quando viene avviata una nuova richiesta di dati, lo slice rilevante resetti il suo stato", () => {
     const initialState: AppState = {
       isLoading: true,
       error: new ServerError(),
@@ -98,7 +98,7 @@ describe("AppStateSlice", () => {
       }),
     ).toEqual(expectedState);
   });
-  it("Reset dello stato manuale", () => {
+  it("Verifica che, quando viene attivata l'azione di reset manuale degli errori, lo slice rilevante riporti il suo stato dei dati al valore iniziale", () => {
     const initialState: AppState = {
       isLoading: true,
       error: new ServerError(),
@@ -110,7 +110,7 @@ describe("AppStateSlice", () => {
     // request dei dati del dataset
     expect(reducer(initialState, resetError())).toEqual(expectedState);
   });
-  it("Reperimento dei dati del dataset fallito per 'maxrequest'", () => {
+  it("Verifica che, in caso di fallimento del reperimento dei dati del dataset per 'maxrequest', lo slice rilevante imposti il suo stato di errore con un messaggio appropriato", () => {
     // 429 => TooManyRequestsError()
     const errNo: number = 429;
     const initialState: AppState = {
@@ -132,9 +132,9 @@ describe("AppStateSlice", () => {
       "Numero massimo di richieste API effettuate",
     );
   });
-  it("Reperimento dei dati del dataset fallito per 'server'", () => {
+  it("Verifica che, in caso di fallimento del reperimento dei dati del dataset per 'server', lo slice rilevante imposti il suo stato di errore con un messaggio appropriato", () => {
     // 500 => ServerError()
-    const errNo: number = 503;
+    const errNo: number = 500;
     const initialState: AppState = {
       isLoading: true,
       error: null,
@@ -154,7 +154,7 @@ describe("AppStateSlice", () => {
       "Errore di connessione al server",
     );
   });
-  it("Reperimento dei dati del dataset fallito per 'network'", () => {
+  it("Verifica che, in caso di fallimento del reperimento dei dati del dataset per 'network', lo slice rilevante imposti il suo stato di errore con un messaggio appropriato", () => {
     // 404 => NotFoundError()
     const errNo: number = 404;
     const initialState: AppState = {
@@ -174,7 +174,7 @@ describe("AppStateSlice", () => {
     expect(expectedState.error?.code).toEqual(errNo.toString());
     expect(expectedState.error?.message).toEqual("Non trovato");
   });
-  it("Reperimento dei dataset fallito per 'server'", () => {
+  it("Verifica che, in caso di fallimento del reperimento dei dataset per 'server', lo slice rilevante imposti il suo stato di errore con un messaggio appropriato", () => {
     const errNo: number = 503;
     const initialState: AppState = {
       isLoading: false,
@@ -191,7 +191,7 @@ describe("AppStateSlice", () => {
       }),
     ).toEqual(expectedState);
   });
-  it("Selezionato dataset non esistente", () => {
+  it("Verifica che, quando viene selezionato un dataset non esistente, lo slice rilevante imposti il suo stato di errore con un messaggio appropriato", () => {
     const initialState: AppState = {
       isLoading: false,
       error: null,
@@ -204,7 +204,7 @@ describe("AppStateSlice", () => {
       expectedState,
     );
   });
-  it("Prendere lo stato", () => {
+  it("Verifica che sia possibile accedere allo stato gestito dallo slice rilevante tramite il selettore appropriato.", () => {
     const overrides = {
       appState: {
         isLoading: true,

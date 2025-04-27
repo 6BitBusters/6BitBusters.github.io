@@ -15,7 +15,7 @@ describe("ToolTip", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
-  it("Renderizza un tooltip senza crashare", async () => {
+  it("Verifica che la renderizzazione di un tooltip avvenga senza generare errori o causare un crash dell'applicazione.", async () => {
     const mockState = createMockRootState({
       data: {
         data: [

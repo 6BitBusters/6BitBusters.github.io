@@ -19,7 +19,7 @@ const ROUTER_test = createBrowserRouter([
 ]);
 
 describe("CurrentDatasetLabel", () => {
-  it("quando il dataset sta caricando il testo di caricamento deve essere presente", async () => {
+  it("Verifica che durante il caricamento del dataset, sia visibile il testo di caricamento.", async () => {
     render(
       <Provider
         store={mockStore(
@@ -46,7 +46,7 @@ describe("CurrentDatasetLabel", () => {
       expect(screen.getByTestId("loader")).toBeInTheDocument();
     });
   });
-  it("quando il dataset e` stato caricato il testo di caricamento il testo non deve essere presente", async () => {
+  it("Verifica che al termine del caricamento del dataset, il testo di caricamento non sia più visibile.", async () => {
     render(
       <Provider
         store={mockStore(

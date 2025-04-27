@@ -4,15 +4,9 @@ import { UpdateMousePosition } from "../../../src/components/barChart/bars/utils
 
 describe("PointerInterractionUtils", () => {
   describe("UpdateMousePosition", () => {
-    test("should update mouse.x and mouse.y correctly with valid canvas and event", () => {
+    test("Verifica che, fornendo un canvas valido e un evento mouse, le proprietà mouse.x e mouse.y vengano aggiornate correttamente con le coordinate del puntatore all'interno del canvas.", () => {
       const mockMouse = new THREE.Vector2(3, 3);
       const mockCanvas = document.createElement("canvas");
-      // mockCanvas.getBoundingClientRect = vi.fn(() => ({
-      //   left: 10,
-      //   top: 20,
-      //   width: 200,
-      //   height: 100,
-      // }));
       const mockEvent = {
         clientX: 50,
         clientY: 40,
@@ -60,7 +54,7 @@ describe("PointerInterractionUtils", () => {
       expect(mockMouse.y).toBeCloseTo(expectedMouseY);
     });
 
-    test("should not update mouse position if event target is not an HTMLCanvasElement", () => {
+    test("Verifica che la posizione del mouse (mouse.x e mouse.y) non venga aggiornata se l'elemento target dell'evento non è un HTMLCanvasElement.", () => {
       const mockMouse = new THREE.Vector2(0.5, 0.8);
       const mockNonCanvas = {} as EventTarget;
       const mockEvent = {

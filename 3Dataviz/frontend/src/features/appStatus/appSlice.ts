@@ -45,7 +45,6 @@ const appSlice = createSlice({
           state.isLoading = false;
           // sara` sicuramente un numero in quanto ritorno sempre un response.status
           state.error = serializeError(generateError(action.payload as number));
-          state.error = serializeError(generateError(action.payload as number));
         },
       )
       // se mentre sto reperendo i dataset resetto lo stato degli errori
@@ -62,7 +61,7 @@ const appSlice = createSlice({
       .addCase(
         requestDatasets.rejected,
         (state, action: PayloadAction<unknown>) => {
-          state.error = serializeError(generateError(action.payload as number));
+          state.isLoading = false;
           state.error = serializeError(generateError(action.payload as number));
         },
       )
@@ -71,7 +70,6 @@ const appSlice = createSlice({
         setCurrentDataset,
         (state, action: PayloadAction<DatasetInfo | undefined>) => {
           if (action.payload === undefined) {
-            state.error = serializeError(generateError(404));
             state.error = serializeError(generateError(404));
           }
         },
@@ -84,6 +82,7 @@ function generateError(errNo: number): CustomError {
     case 429:
       return new TooManyRequestsError();
     case 503:
+    case 500:
       return new ServerError();
     case 404:
     default:

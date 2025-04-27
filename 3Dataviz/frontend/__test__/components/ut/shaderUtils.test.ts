@@ -16,7 +16,7 @@ describe("ShaderUtils", () => {
       mockLoad.mockReset(); // Resetta la funzione mock prima di ogni test
     });
 
-    test("should resolve with shader content when loading is successful", async () => {
+    test("Verifica che, quando il caricamento dello shader ha successo, la Promise venga risolta con il contenuto dello shader.", async () => {
       const mockShaderContent =
         "uniform float time; void main() { gl_FragColor = vec4(1.0); }";
       mockLoad.mockImplementation((path, onLoad) => {
@@ -33,7 +33,7 @@ describe("ShaderUtils", () => {
       );
     });
 
-    test("should reject with an error when loading fails", async () => {
+    test("Verifica che, quando il caricamento dello shader fallisce, la Promise venga rifiutata (reject) con un errore.", async () => {
       const mockError = new Error("Failed to load shader");
       mockLoad.mockImplementation((path, onLoad, onProgress, onError) => {
         onError(mockError);
@@ -48,7 +48,7 @@ describe("ShaderUtils", () => {
       );
     });
 
-    test('should reject with "File is not a shader" for HTML content', async () => {
+    test("Verifica che, quando il contenuto del file caricato è HTML, la Promise venga rifiutata (reject) con errore 'File is not a shader'.", async () => {
       const mockHtmlContent =
         "<!doctype html><html><body>Not a shader</body></html>";
       mockLoad.mockImplementation((path, onLoad) => {

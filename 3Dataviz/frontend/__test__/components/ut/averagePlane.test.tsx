@@ -15,7 +15,7 @@ describe("AveragePlane", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
-  it("Renderizza average plane senza crashare", async () => {
+  it("Verifica che la renderizzazione dell'average plane avvenga senza generare errori o causare un crash dell'applicazione.", async () => {
     const mockProp: AveragePlaneProps = {
       position: new THREE.Vector3(0, 0, 0),
       size: [1, 1],

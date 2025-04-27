@@ -33,7 +33,7 @@ describe("ApiSelector", () => {
     fetchMock.removeRoutes();
   });
 
-  it("carica correttamente i dataset disponibili", async () => {
+  it("Verifica che i dataset disponibili vengano caricati correttamente.", async () => {
     const mockDatasets: DatasetInfo[] = [
       {
         id: 1,

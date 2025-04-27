@@ -1,14 +1,18 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("HomePage", () => {
-  test("homePage selection visible", async ({ page }) => {
+  test("Verifica che la selezione della HomePage sia visibile.", async ({
+    page,
+  }) => {
     await page.goto("/");
 
-    const canvas = await page.locator("div.containerHome");
-    await expect(canvas).toBeVisible();
+    const selection = await page.locator("div.containerHome");
+    await expect(selection).toBeVisible();
   });
 
-  test("Apri il menu a tendina", async ({ page }) => {
+  test("Verifica che il menu a tendina si apra e diventi visibile.", async ({
+    page,
+  }) => {
     await page.goto("/");
 
     await page.locator("div.containerHome");
@@ -17,7 +21,9 @@ test.describe("HomePage", () => {
     await expect(options).toBeVisible();
   });
 
-  test("Apri il menu a tendina e scegli la prima opzione", async ({ page }) => {
+  test("Verifica che, dopo aver aperto il menu a tendina, la selezione della prima opzione sia possibile e, una volta selezionata, l'azione associata venga eseguita.", async ({
+    page,
+  }) => {
     await page.goto("/");
 
     await page.locator("div.containerHome");
@@ -30,8 +36,29 @@ test.describe("HomePage", () => {
   });
 });
 
-test.describe("EnvironmentPage", () => {
-  test.beforeEach(async ({ page }) => {
+test.describe("ErrorPage", () => {
+  test.beforeEach(async ({ page }) => {});
+
+  test("Verifica che se il riperimento dei dataset restituisce un errore l`utente venga reindirizzato alla pagina di errore", async ({
+    page,
+  }) => {
+    await page.route("http://localhost:3000/data-source", async (route) => {
+      await route.abort("failed"); // 'failed' simula un errore generico di richiesta
+    });
+    await page.goto("/");
+    await expect(page.locator("div.containerError")).toBeVisible();
+    await expect(page.locator("h2", { hasText: "Server Error" })).toBeVisible();
+  });
+
+  test("Verifica che se il riperimento dei dati del dataset restituisce un errore l`utente venga reindirizzato alla pagina di errore", async ({
+    page,
+  }) => {
+    await page.route(
+      "http://localhost:3000/data-visualization/0",
+      async (route) => {
+        await route.abort("failed"); // 'failed' simula un errore generico di richiesta
+      },
+    );
     await page.goto("/");
     await page.locator("div.containerHome");
     await page.locator("div.css-13cymwt-control").click();
@@ -39,15 +66,32 @@ test.describe("EnvironmentPage", () => {
       .getByRole("option", { name: "0 - Tassi di cambio 21x200" })
       .click();
     await page.locator("input", { hasText: "Avanti" }).click();
+    await page.waitForURL("http://localhost:5173/error");
+    await expect(page.locator("div.containerError")).toBeVisible();
+    await expect(page.locator("h2", { hasText: "Server Error" })).toBeVisible();
+  });
+});
+
+test.describe("EnvironmentPage", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/");
+    await page.locator("div.containerHome");
+    await page.locator("div.css-13cymwt-control").click();
+    await page
+      .getByRole("option", { name: "2 - Popolazione per anno 50x26" })
+      .click();
+    await page.locator("input", { hasText: "Avanti" }).click();
     await page.waitForURL("http://localhost:5173/environment");
   });
-  test("canvas visible", async ({ page }) => {
+  test("Verifica che il canvas sia visibile.", async ({ page }) => {
     const canvas = await page.locator("canvas");
     await page.waitForTimeout(2000);
     await expect(canvas).toBeVisible({ timeout: 10000 });
   });
 
-  test("camera can pan on Y axis", async ({ page }) => {
+  test("Verifica che la camera possa effettuare una panoramica (pan) lungo l'asse Y.", async ({
+    page,
+  }) => {
     const canvas = await page.locator("canvas");
     await canvas.waitFor({ state: "visible", timeout: 10000 });
 
@@ -67,7 +111,9 @@ test.describe("EnvironmentPage", () => {
     expect(before).not.toBe(after);
   });
 
-  test("camera can pan on X axis", async ({ page }) => {
+  test("Verifica che la camera possa effettuare una panoramica (pan) lungo l'asse X.", async ({
+    page,
+  }) => {
     const canvas = await page.locator("canvas");
     await canvas.waitFor({ state: "visible", timeout: 10000 });
 
@@ -87,7 +133,9 @@ test.describe("EnvironmentPage", () => {
     expect(before).not.toBe(after);
   });
 
-  test("camera can rotation on Y axis", async ({ page }) => {
+  test("Verifica che la camera possa ruotare attorno all'asse Y.", async ({
+    page,
+  }) => {
     const canvas = await page.locator("canvas");
     await canvas.waitFor({ state: "visible", timeout: 15000 });
 
@@ -107,7 +155,9 @@ test.describe("EnvironmentPage", () => {
     expect(before).not.toBe(after);
   });
 
-  test("camera can rotation on X axis", async ({ page }) => {
+  test("Verifica che la camera possa ruotare attorno all'asse X.", async ({
+    page,
+  }) => {
     const canvas = await page.locator("canvas");
     await canvas.waitFor({ state: "visible", timeout: 10000 });
 
@@ -127,7 +177,9 @@ test.describe("EnvironmentPage", () => {
     expect(before).not.toBe(after);
   });
 
-  test("camera zoom in", async ({ page }) => {
+  test("Verifica che la camera possa effettuare lo zoom in (avvicinamento).", async ({
+    page,
+  }) => {
     const canvas = await page.locator("canvas");
     await canvas.waitFor({ state: "visible", timeout: 10000 });
 
@@ -146,7 +198,9 @@ test.describe("EnvironmentPage", () => {
     expect(before).not.toBe(after);
   });
 
-  test("camera zoom out", async ({ page }) => {
+  test("Verifica che la camera possa effettuare lo zoom out (allontanamento).", async ({
+    page,
+  }) => {
     const canvas = await page.locator("canvas");
     await canvas.waitFor({ state: "visible", timeout: 10000 });
 

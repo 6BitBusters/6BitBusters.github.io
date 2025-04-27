@@ -20,7 +20,7 @@ const ROUTER_test = createBrowserRouter([
 ]);
 
 describe("Legend", () => {
-  it("al caricamento dell`ambient 3D la legend deve essere corretta", async () => {
+  it("Verifica che la legenda dell'ambiente 3D sia caricata correttamente.", async () => {
     render(
       <Provider
         store={mockStore(

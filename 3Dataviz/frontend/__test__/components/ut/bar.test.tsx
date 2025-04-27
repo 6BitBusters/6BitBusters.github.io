@@ -20,7 +20,7 @@ describe("Bars", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
-  it("Renderizza le barre senza crashare", async () => {
+  it("Verifica che la renderizzazione delle barre avvenga senza generare errori o causare un crash dell'applicazione.", async () => {
     const mockProp: BarsProps = {
       clickHandler: vi.fn(),
       hoverHandler: vi.fn(),
@@ -41,7 +41,7 @@ describe("Bars", () => {
     );
     expect(renderer).toBeTruthy();
   });
-  it("quando si clicca sulla barra deve essere calcolata l`intersezione con il puntatore, cambiare il colore colore e chiamare il clickhandler", async () => {
+  it("Verifica che, al click su una barra, venga calcolata correttamente l'intersezione con la posizione del puntatore, che il colore della barra cambi visivamente e che venga invocata la funzione click handler associata.", async () => {
     const mockProp: BarsProps = {
       clickHandler: vi.fn(),
       hoverHandler: vi.fn(),
@@ -71,7 +71,7 @@ describe("Bars", () => {
     expect(mockProp.clickHandler).toHaveBeenCalled();
     expect(selection).toHaveBeenCalled();
   });
-  it("quando il mouse si sposta e non interseca una delle barre il tooltop non deve apparire", async () => {
+  it("Verifica che quando il puntatore del mouse si sposta al di fuori di una qualsiasi barra, il tooltip non sia visibile.", async () => {
     const mockProp: BarsProps = {
       clickHandler: vi.fn(),
       hoverHandler: vi.fn(),
@@ -104,7 +104,7 @@ describe("Bars", () => {
     expect(mockProp.hoverHandler).not.toHaveBeenCalled();
   });
 
-  it("quando il mouse da una barra il tootltop deve scomparire", async () => {
+  it("Verifica che quando il puntatore del mouse esce dall'area di una barra, il tooltip scompaia.", async () => {
     const mockProp: BarsProps = {
       clickHandler: vi.fn(),
       hoverHandler: vi.fn(),

@@ -13,5 +13,6 @@ export const createMockRootState = (
   },
   viewOption: { isPlaneActive: false, ...overrides.viewOption },
   filterOption: { isGreater: false, ...overrides.filterOption },
+  _persist: { rehydrated: false, version: 0 },
   ...overrides,
 });

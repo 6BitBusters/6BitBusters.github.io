@@ -7,7 +7,7 @@ import { FilterOptionState } from "../../../src/features/filterOption/types/filt
 import { createMockRootState } from "../../utils/stateMockCreator";
 
 describe("filterOptionSlice", () => {
-  it("should return the initial state when passed an empty action", () => {
+  it("Verifica che, quando il reducer dello slice viene chiamato con un'azione vuota ritorni un oggetto strettamente uguale allo stato iniziale.", () => {
     const initialState: FilterOptionState = {
       isGreater: false,
     };
@@ -15,7 +15,7 @@ describe("filterOptionSlice", () => {
     expect(result).toEqual(initialState);
   });
 
-  it("should toggle isGreater from false to true", () => {
+  it("Verifica che, dopo l'invio dell'azione designata, la proprietà isGreater nello stato dello slice rilevante sia passata dal valore false al valore true", () => {
     const initialState: FilterOptionState = {
       isGreater: false,
     };
@@ -23,14 +23,14 @@ describe("filterOptionSlice", () => {
     expect(result.isGreater).toBe(true);
   });
 
-  it("should toggle isGreater back to false if called twice", () => {
+  it("Verifica che, dopo l'invio dell'azione designata, la proprietà isGreater nello stato dello slice rilevante sia passata dal valore true al valore false", () => {
     const initialState: FilterOptionState = {
       isGreater: true,
     };
     const result = reducer(initialState, toggleIsGreater(false));
     expect(result.isGreater).toBe(false);
   });
-  it("Get state", () => {
+  it("Verifica che sia possibile accedere allo stato delle opzioni di filtraggio tramite il selettore appropriato.", () => {
     const overrides = {
       filterOption: {
         isGreater: false,

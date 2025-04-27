@@ -24,7 +24,7 @@ describe("DataSlice", () => {
     fetchMock.removeRoutes();
   });
 
-  it("Dataset non selezionato", () => {
+  it("Verifica che, quando nessun dataset è selezionato, lo slice rilevante abbia il suo stato dei dati impostato al valore iniziale o a un valore che indica l'assenza di dati", () => {
     const initialState: DataState = {
       data: [],
       legend: null,
@@ -36,7 +36,7 @@ describe("DataSlice", () => {
     expect(store.getState()).toEqual(initialState);
   });
 
-  it("Dataset selezionato e caricato con successo", () => {
+  it("Verifica che, dopo la selezione e il caricamento con successo del dataset, lo slice rilevante aggiorni il suo stato con i dati del dataset", () => {
     const mockDataset: Dataset = {
       data: [{ id: 0, x: 0, y: 1, z: 0 }],
       legend: { x: "X", y: "Y", z: "Z" },
@@ -77,7 +77,7 @@ describe("DataSlice", () => {
     });
   });
 
-  it("Dataset selezionato e caricato con insuccesso", () => {
+  it("Verifica che, dopo il tentativo di caricamento fallito del dataset selezionato, lo slice non cambi il suo stato iniziale", () => {
     const errorStatus: number = 400;
     const initialState: DataState = {
       data: [],
@@ -102,7 +102,7 @@ describe("DataSlice", () => {
     });
   });
 
-  it("Dataset selezionato non esiste", () => {
+  it("Verifica che, se il dataset non esiste, lo slice non cambi il suo stato iniziale", () => {
     const errorStatus: number = 404;
     const initialState: DataState = {
       data: [],
@@ -127,7 +127,7 @@ describe("DataSlice", () => {
     });
   });
 
-  it("Filtraggio dei top 2 valori", () => {
+  it("Verifica che, dopo l'applicazione del filtro 'top 2 valori', lo slice rilevante aggiorni la sua proprietà contenente i dati filtrati in modo da includere solo i 2 elementi con i valori più alti.", () => {
     const initialState: DataState = {
       data: [
         { id: 0, show: true, x: 0, y: 1, z: 0 },
@@ -157,7 +157,7 @@ describe("DataSlice", () => {
     ).toEqual(expectedState);
   });
 
-  it("Filtraggio dei bottom 2 valori", () => {
+  it("Verifica che, dopo l'applicazione del filtro 'bottom 2 valori', lo slice rilevante aggiorni la sua proprietà contenente i dati filtrati in modo da includere solo i 2 elementi con i valori più alti.", () => {
     const initialState: DataState = {
       data: [
         { id: 0, show: true, x: 0, y: 1, z: 0 },
@@ -187,7 +187,7 @@ describe("DataSlice", () => {
     ).toEqual(expectedState);
   });
 
-  it("Filtraggio dei top 2 valori seguito da un filtraggio dei bottom 2 valori", () => {
+  it("Verifica che, dopo aver applicato il filtro 'top 2 valori' e successivamente il filtro 'bottom 2 valori', lo slice rilevante aggiorni la sua proprietà dei dati filtrati in modo da includere solo i 2 elementi con i valori più bassi del dataset originale", () => {
     const initialState: DataState = {
       data: [
         { id: 0, show: true, x: 0, y: 1, z: 0 },
@@ -232,7 +232,7 @@ describe("DataSlice", () => {
     ).toEqual(expectedState);
   });
 
-  it("Filtraggio dei valori superiori o uguali a 3", () => {
+  it("Verifica che, dopo l'applicazione del filtro 'valori superiori o uguali a 3', lo slice rilevante aggiorni la sua proprietà contenente i dati filtrati in modo da includere solo gli elementi con un valore maggiore o uguale a 3.", () => {
     const initialState: DataState = {
       data: [
         { id: 0, show: true, x: 0, y: 1, z: 0 },
@@ -262,7 +262,7 @@ describe("DataSlice", () => {
     ).toEqual(expectedState);
   });
 
-  it("Filtraggio dei valori inferiori o uguali a 3", () => {
+  it("Verifica che, dopo l'applicazione del filtro 'valori inferiori o uguali a 3', lo slice rilevante aggiorni la sua proprietà contenente i dati filtrati in modo da includere solo gli elementi con un valore minore o uguale a 3.", () => {
     const initialState: DataState = {
       data: [
         { id: 0, show: true, x: 0, y: 1, z: 0 },
@@ -292,7 +292,7 @@ describe("DataSlice", () => {
     ).toEqual(expectedState);
   });
 
-  it("Filtraggio dei valori superiori o uguali a 3 seguito da filtraggio dei valori superiori o uguali a 2", () => {
+  it("Verifica che, dopo aver applicato il filtro 'valori superiori o uguali a 3' e successivamente il filtro 'valori superiori o uguali a 2', lo slice rilevante aggiorni la sua proprietà dei dati filtrati in modo da includere solo gli elementi con un valore maggiore o uguale a 2", () => {
     const initialState: DataState = {
       data: [
         { id: 0, show: true, x: 0, y: 1, z: 0 },
@@ -337,7 +337,7 @@ describe("DataSlice", () => {
     ).toEqual(expectedState);
   });
 
-  it("Filtraggio dei valori superiori o uguali a 3 seguito da filtraggio dei valori inferiori o uguali a 2", () => {
+  it("Verifica che, dopo aver applicato il filtro 'valori superiori o uguali a 3' e successivamente il filtro 'valori inferiori o uguali a 2', lo slice rilevante aggiorni la sua proprietà dei dati filtrati in modo da includere solo gli elementi con un valore minore o uguale a 2", () => {
     const initialState: DataState = {
       data: [
         { id: 0, show: true, x: 0, y: 1, z: 0 },
@@ -382,7 +382,7 @@ describe("DataSlice", () => {
     ).toEqual(expectedState);
   });
 
-  it("Filtraggio dei valori superiori al valor medio", () => {
+  it("Verifica che, dopo l'applicazione del filtro 'valori superiori al valor medio', lo slice rilevante aggiorni la sua proprietà contenente i dati filtrati in modo da includere solo gli elementi con un valore maggiore della media calcolata per il dataset.", () => {
     const initialState: DataState = {
       data: [
         { id: 0, show: true, x: 0, y: 1, z: 0 },
@@ -410,7 +410,7 @@ describe("DataSlice", () => {
     expect(reducer(initialState, filterByAverage(true))).toEqual(expectedState);
   });
 
-  it("Filtraggio dei valori inferiori al valor medio", () => {
+  it("Verifica che, dopo l'applicazione del filtro 'valori inferiori al valor medio', lo slice rilevante aggiorni la sua proprietà contenente i dati filtrati in modo da includere solo gli elementi con un valore minore della media calcolata per il dataset.", () => {
     const initialState: DataState = {
       data: [
         { id: 0, show: true, x: 0, y: 1, z: 0 },
@@ -440,7 +440,7 @@ describe("DataSlice", () => {
     );
   });
 
-  it("Filtraggio dei valori superiori al valor medio seguito da un filtraggio dei valori inferiori al valor medio", () => {
+  it("Verifica che, dopo aver applicato il filtro 'valori superiori al valor medio' e successivamente il filtro 'valori inferiori al valor medio', lo slice rilevante aggiorni la sua proprietà dei dati filtrati in modo da includere solo gli elementi con un valore minore della media calcolata per il dataset", () => {
     const initialState: DataState = {
       data: [
         { id: 0, show: true, x: 0, y: 1, z: 0 },
@@ -485,7 +485,7 @@ describe("DataSlice", () => {
     );
   });
 
-  it("Reset filtri", () => {
+  it("Verifica che lo slice rilevante riporti la sua proprietà contenente i dati filtrati allo stesso stato dei dati originali del dataset.", () => {
     const initialState: DataState = {
       data: [
         { id: 0, show: true, x: 0, y: 1, z: 0 },
@@ -516,7 +516,7 @@ describe("DataSlice", () => {
     expect(reducer(initialState, reset())).toEqual(initialState);
   });
 
-  it("Prendere i dati del dataset", () => {
+  it("Verifica che sia possibile accedere ai dati del dataset gestiti dallo slice rilevante tramite il selettore appropriato.", () => {
     const overrides = {
       data: {
         data: [

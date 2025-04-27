@@ -17,7 +17,7 @@ const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
 
 describe("DataTable", () => {
   describe("Filter", () => {
-    it("quando eseguo un filtraggio per i valori inferiori al valor medio le celle della tabella devono avere la classe css corretta", async () => {
+    it("Verifica che, eseguendo un filtraggio per i valori inferiori al valore medio, tutte le celle della tabella che soddisfano la condizione abbiano la classe CSS appropriata.", async () => {
       const states = createMockRootState({
         data: {
           data: [
@@ -52,7 +52,7 @@ describe("DataTable", () => {
       expect(screen.getByTestId("1").className).toBe("nhcell");
     });
 
-    it("quando eseguo un filtraggio per i valori superiori al valor medio le celle della tabella devono avere la classe css corretta", async () => {
+    it("Verifica che, eseguendo un filtraggio per i valori superiori al valore medio, tutte le celle della tabella che soddisfano la condizione abbiano la classe CSS appropriata.", async () => {
       const states = createMockRootState({
         data: {
           data: [
@@ -95,7 +95,7 @@ describe("DataTable", () => {
   });
 
   describe("NFilter", () => {
-    it("quando eseguo un filtraggio per i bottom 2 valori le celle della tabella devono avere la classe css corretta", async () => {
+    it("Verifica che, eseguendo un filtraggio per i bottom 2 valori, le due celle della tabella con i valori più bassi abbiano la classe CSS appropriata.", async () => {
       const states = createMockRootState({
         data: {
           data: [
@@ -134,7 +134,7 @@ describe("DataTable", () => {
       expect(screen.getByTestId("2").className).toBe("hcell");
     });
 
-    it("quando eseguo un filtraggio per i top 2 valori le celle della tabella devono avere la classe css corretta", async () => {
+    it("Verifica che, eseguendo un filtraggio per i top 2 valori, le due celle della tabella con i valori più alti abbiano la classe CSS appropriata.", async () => {
       const states = createMockRootState({
         data: {
           data: [
@@ -181,7 +181,7 @@ describe("DataTable", () => {
   });
 
   describe("ResetFilter", () => {
-    it("quando eseguo il reset dei filtri le celle della tabella devono avere la classe css corretta", async () => {
+    it("Verifica che, eseguendo il reset dei filtri, tutte le celle della tabella ritornino ad avere la classe CSS predefinita o quella che avevano prima dell'applicazione dei filtri.", async () => {
       const states = createMockRootState({
         data: {
           data: [

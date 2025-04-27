@@ -24,7 +24,7 @@ const ROUTER_test = createBrowserRouter([
 
 describe("UI", () => {
   describe("CameraResetButton", () => {
-    it("Il bottone di reset camera deve essere visibile al caricamento del dataset", async () => {
+    it("Verifica che il bottone di reset della camera sia visibile al caricamento del dataset.", async () => {
       render(
         <Provider
           store={mockStore(
@@ -47,7 +47,7 @@ describe("UI", () => {
       expect(screen.getByTestId("resetCamera")).toBeInTheDocument();
     });
 
-    it("Il bottone di reset camera deve eseguire un`azione di tween sulla telecamra e riportarla alla posizione iniziale", async () => {
+    it("Verifica che, al click sul bottone di reset camera, venga eseguita un'animazione di tweening sulla telecamera che la riporta alla sua posizione iniziale.", async () => {
       const mockCustomCanvasRef = React.createRef<{
         resetCamera: () => void;
       }>();
@@ -131,7 +131,7 @@ describe("UI", () => {
   });
 
   describe("CurrentDatasetLabel", () => {
-    it("quando il dataset e` caricato visualizza nella pagina d`abimente il nome del dataset corrente", async () => {
+    it("Verifica che, al caricamento del dataset, il nome del dataset corrente sia visualizzato nella pagina dell'ambiente.", async () => {
       render(
         <Provider
           store={mockStore(

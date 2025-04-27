@@ -1,12 +1,11 @@
 import "./apiSelector.css";
 import Select, { SingleValue } from "react-select";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DatasetItem from "../datasetItem/datasetItem";
 import { useNavigate } from "react-router";
 import { DatasetInfo } from "../../../features/dataSource/types/datasetInfo";
 import { useSelector } from "react-redux";
 import {
-  requestDatasets,
   selectorDatasets,
   trySetCurrentDataset,
 } from "../../../features/dataSource/dataSourceSlice";
@@ -22,9 +21,6 @@ function ApiSelector() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    void dispatch(requestDatasets());
-  }, [dispatch]);
   const items: DatasetInfo[] = useSelector(selectorDatasets);
 
   const options: OptionType[] = items.map((item) => ({

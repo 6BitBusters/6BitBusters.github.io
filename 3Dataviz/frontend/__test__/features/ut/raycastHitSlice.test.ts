@@ -8,7 +8,7 @@ import reducer, {
 import { createMockRootState } from "../../utils/stateMockCreator";
 
 describe("RaycastHitSlice", () => {
-  it("Registra una intersezione (hover) su una barra", () => {
+  it("Verifica che l'invio dell'azione setTooltipPosition aggiorni la proprietà barTooltipPosition dello stato con le coordinate fornite.", () => {
     const initialState: RaycastHitState = {
       previousSelectedBarId: null,
       barTooltipPosition: null,
@@ -23,7 +23,7 @@ describe("RaycastHitSlice", () => {
       expectedState,
     );
   });
-  it("Registra una intersezione (click) su una barra", () => {
+  it("Verifica che l'invio dell'azione setHit aggiorni la proprietà previousSelectedBarId dello stato con ID della barra selezionata", () => {
     const initialState: RaycastHitState = {
       previousSelectedBarId: null,
       barTooltipPosition: null,
@@ -39,7 +39,7 @@ describe("RaycastHitSlice", () => {
     };
     expect(reducer(midState, setHit(clickedBarId))).toEqual(expectedState);
   });
-  it("Registra una intersezione (hover) su uno spazio vuoto", () => {
+  it("Verifica che l'invio dell'azione setTooltipPosition aggiorni la proprietà barTooltipPosition dello stato a null se le coordinate fornite non intersecano nessuna barra e ID della barra selezionata rimanga invariato.", () => {
     const initialState: RaycastHitState = {
       previousSelectedBarId: 4,
       barTooltipPosition: [2, 1, 3],
@@ -52,20 +52,7 @@ describe("RaycastHitSlice", () => {
       expectedState,
     );
   });
-  it("Registra una intersezione (click) su uno spazio vuoto", () => {
-    const initialState: RaycastHitState = {
-      previousSelectedBarId: 4,
-      barTooltipPosition: [2, 1, 3],
-    };
-    const expectedState: RaycastHitState = {
-      previousSelectedBarId: 4,
-      barTooltipPosition: null,
-    };
-    expect(reducer(initialState, setTooltipPosition(null))).toEqual(
-      expectedState,
-    );
-  });
-  it("Registra una intersezione (hover) su piu` barre consecutivamente barra", () => {
+  it("Verifica che l'invio dell'azione setTooltipPosition aggiorni la proprietà barTooltipPosition dello stato con le coordinate fornite (aggiornamento consecutivo).", () => {
     const initialState: RaycastHitState = {
       previousSelectedBarId: null,
       barTooltipPosition: null,
@@ -88,7 +75,7 @@ describe("RaycastHitSlice", () => {
       expectedState,
     );
   });
-  it("Registra una intersezione (click) su piu` barre consecutivamente barra", () => {
+  it("Verifica che l'invio dell'azione setHit aggiorni la proprietà previousSelectedBarId dello stato con ID della barra selezionata (aggiornamento consecutivo)", () => {
     const initialState: RaycastHitState = {
       previousSelectedBarId: null,
       barTooltipPosition: null,
@@ -119,7 +106,7 @@ describe("RaycastHitSlice", () => {
       ),
     ).toEqual(expectedState);
   });
-  it("Prendi lo stato", () => {
+  it("Verifica che sia possibile accedere allo stato del raycast tramite il selettore appropriato.", () => {
     const overrides = {
       raycast: {
         previousSelectedBarId: 3,

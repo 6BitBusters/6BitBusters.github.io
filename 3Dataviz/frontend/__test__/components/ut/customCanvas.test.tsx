@@ -12,9 +12,8 @@ describe("CustomCanvas", () => {
   });
 
   describe("Lights", () => {
-    it("Renderizza le luci senza crashare", async () => {
+    it("Verifica che la renderizzazione delle luci avvenga senza generare errori o causare un crash dell'applicazione.", async () => {
       const mockProp: LightsProp = {
-        distance: 1,
         intensity: 1,
         lightPosition: [0, 0, 0],
       };
@@ -25,7 +24,7 @@ describe("CustomCanvas", () => {
     });
   });
 
-  it("Renderizza il custom canvas senza crashare", () => {
+  it("Verifica che la renderizzazione del custom canvas avvenga senza generare errori o causare un crash dell'applicazione.", () => {
     const { container } = render(<CustomCanvas />);
     expect(container).toBeTruthy();
   });

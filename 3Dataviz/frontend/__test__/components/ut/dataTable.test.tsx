@@ -13,7 +13,7 @@ const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
 
 describe("DataTable", () => {
-  it("La tebella deve essere visibile al caricamento del dataset", async () => {
+  it("Verifica che la tabella sia visibile al caricamento del dataset", async () => {
     render(
       <Provider store={mockStore(createMockRootState())}>
         <DataTable />
@@ -23,7 +23,7 @@ describe("DataTable", () => {
     expect(screen.getByTestId("data-table")).toBeInTheDocument();
   });
 
-  it("La tabella deve aprirsi quando si clicca sul bottone apposito", async () => {
+  it("Verifica che, al click sul bottone apposito, la tabella si apra e diventi visibile.", async () => {
     render(
       <Provider store={mockStore(createMockRootState())}>
         <DataTable />
@@ -44,7 +44,7 @@ describe("DataTable", () => {
     });
   });
 
-  it("La tabella deve chiudersi quando si clicca sul bottone apposito", async () => {
+  it("Verifica che, al click sul bottone apposito, la tabella si chiuda e diventi invisibile.", async () => {
     render(
       <Provider store={mockStore(createMockRootState())}>
         <DataTable />
@@ -66,7 +66,7 @@ describe("DataTable", () => {
     });
   });
 
-  it("La la cella cliccata deve generare un dispatch di tipo filterByValue per i valori inferiori", async () => {
+  it("Verifica che, al click su una cella, venga generato un dispatch di un'azione con tipo 'filterByValue' per i valori inferiori.", async () => {
     const dispatch = vi.fn();
     const store = mockStore(
       createMockRootState({
@@ -93,7 +93,7 @@ describe("DataTable", () => {
     });
   });
 
-  it("La la cella cliccata deve generare un dispatch di tipo filterByValue per i valori superiori", async () => {
+  it("Verifica che, al click su una cella, venga generato un dispatch di un'azione con tipo 'filterByValue' per i valori superiori.", async () => {
     const dispatch = vi.fn();
     const store = mockStore(
       createMockRootState({

@@ -21,7 +21,7 @@ describe("DataSourceSlice", () => {
     fetchMock.unmockGlobal();
     fetchMock.removeRoutes();
   });
-  it("Dataset non selezionato", () => {
+  it("Verifica che, quando nessun dataset è selezionato, lo slice rilevante abbia il suo stato dei dati impostato al valore iniziale o a un valore che indica l'assenza di dati", () => {
     const initialState: DataSourceState = {
       datasets: [],
       currentDataset: null,
@@ -30,7 +30,7 @@ describe("DataSourceSlice", () => {
     expect(store.getState()).toEqual(initialState);
   });
 
-  it("Reperimento datasets", () => {
+  it("Verifica che, il reperimento dei datasets, lo slice rilevante aggiorni il suo stato con i dati del dataset", () => {
     const mockDatasets: DatasetInfo[] = [
       { id: 0, name: "D1", size: [1, 1], description: "desc" },
       { id: 1, name: "D2", size: [1, 1], description: "desc" },
@@ -64,7 +64,7 @@ describe("DataSourceSlice", () => {
     });
   });
 
-  it("Reperimento dataset non andato a buon fine per nessuna risposta dal server", () => {
+  it("Verifica che, dopo il tentativo di caricamento fallito del dataset, lo slice non cambi il suo stato iniziale", () => {
     const errorStatus: number = 500;
     const initialState: DataSourceState = {
       datasets: [],
@@ -87,7 +87,7 @@ describe("DataSourceSlice", () => {
     });
   });
 
-  it("Selezione di un dataset", () => {
+  it("Verifica che, quando un dataset viene selezionato, lo slice rilevante aggiorni le informazioni del dataset selezionato", () => {
     const mockDatasets: DatasetInfo[] = [
       { id: 0, name: "D1", size: [1, 1], description: "desc" },
       { id: 1, name: "D2", size: [1, 1], description: "desc" },
@@ -107,7 +107,7 @@ describe("DataSourceSlice", () => {
     );
   });
 
-  it("Selezione di un dataset non esistente", () => {
+  it("Verifica che, quando un dataset non esiste, lo slice rilevante aggiorni le informazioni del dataset selezionato a null", () => {
     const mockDatasets: DatasetInfo[] = [
       { id: 0, name: "D1", size: [1, 1], description: "desc" },
       { id: 1, name: "D2", size: [1, 1], description: "desc" },
@@ -128,7 +128,7 @@ describe("DataSourceSlice", () => {
     // TODO: TESTARE SE APPSTATUS HA L`ERRORE
   });
 
-  it("Prendere la lista di dataset", () => {
+  it("Verifica che sia possibile accedere alla lista dei dataset gestita dallo slice rilevante tramite il selettore appropriato.", () => {
     const mockDatasets: DatasetInfo[] = [
       { id: 0, name: "D1", size: [1, 1], description: "desc" },
       { id: 1, name: "D2", size: [1, 1], description: "desc" },
@@ -147,7 +147,7 @@ describe("DataSourceSlice", () => {
     expect(selectorDatasets(mockState)).toEqual(overrides.dataSource.datasets);
   });
 
-  it("Prendere il dataset selezionato", () => {
+  it("Verifica che sia possibile accedere ai dati del dataset attualmente selezionato gestiti dallo slice rilevante tramite il selettore appropriato.", () => {
     const mockDatasets: DatasetInfo[] = [
       { id: 0, name: "D1", size: [1, 1], description: "desc" },
       { id: 1, name: "D2", size: [1, 1], description: "desc" },

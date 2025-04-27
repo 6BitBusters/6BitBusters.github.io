@@ -26,7 +26,7 @@ describe("EnvironmentPage", () => {
     fetchMock.removeRoutes();
   });
 
-  it("Non dovrebbero esserci errori nell'AppStatus", () => {
+  it("Verifica che l'AppStatus non contenga errori.", () => {
     const store = mockStore(createMockRootState());
     render(
       <Provider store={store}>

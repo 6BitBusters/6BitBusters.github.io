@@ -15,7 +15,7 @@ const middlewares = [thunk];
 const mockStore = configureMockStore<RootState, AppDispatch>(middlewares);
 
 describe("DataTable", () => {
-  it("la cella con un valore non filtrato deve essere visibile e avere la corretta classe i highlight", async () => {
+  it("Verifica che una cella contenente un valore non filtrato sia visibile e che le venga applicata la classe CSS 'highlight'", async () => {
     render(
       <Provider
         store={mockStore(
@@ -38,7 +38,7 @@ describe("DataTable", () => {
     expect(screen.getByTestId("0")).toBeInTheDocument();
   });
 
-  it("la cella con un valore filtrato deve essere visibile e senza highlight", async () => {
+  it("Verifica che una cella contenente un valore filtrato non sia visibile e non abbia la classe CSS 'highlight'", async () => {
     render(
       <Provider
         store={mockStore(
@@ -61,7 +61,7 @@ describe("DataTable", () => {
     expect(screen.getByTestId("0")).toBeInTheDocument();
   });
 
-  it("una cella con il valore piu` alto rispetto a quella cliccata deve cambiare stile in quanto filtrata", async () => {
+  it("Verifica che, dopo aver cliccato una cella, ogni altra cella con un valore numericamente maggiore cambi stile in quanto considerata filtrata.", async () => {
     const states = createMockRootState({
       data: {
         data: [
@@ -93,7 +93,7 @@ describe("DataTable", () => {
     expect(screen.getByTestId("0").className).toBe("hcell");
   });
 
-  it("una cella con il valore piu` basso rispetto a quella cliccata deve cambiare stile in quanto filtrata", async () => {
+  it("Verifica che, dopo aver cliccato una cella, ogni altra cella con un valore numericamente inferiore cambi stile in quanto considerata filtrata.", async () => {
     const states = createMockRootState({
       data: {
         data: [

@@ -26,7 +26,7 @@ describe("HomePage", () => {
     fetchMock.removeRoutes();
   });
 
-  it("Non dovrebbero esserci errori nell'AppStatus", () => {
+  it("Verifica che l'AppStatus non contenga errori.", () => {
     const store = mockStore(createMockRootState());
     render(
       <Provider store={store}>
@@ -37,7 +37,7 @@ describe("HomePage", () => {
     expect(state.appState.error).toEqual(null);
   });
 
-  it("dovrebbe caricare correttamente la HomePage", () => {
+  it("Verifica che la HomePage venga caricata correttamente.", () => {
     render(
       <Provider store={mockStore(createMockRootState())}>
         <RouterProvider router={ROUTER_test} />
@@ -47,7 +47,7 @@ describe("HomePage", () => {
     expect(screen.getByText("3DataViz")).toBeInTheDocument();
   });
 
-  it("dovrebbe caricare correttamente ApiSelector", () => {
+  it("Verifica che il componente ApiSelector venga caricato correttamente.", () => {
     render(
       <Provider store={mockStore(createMockRootState())}>
         <RouterProvider router={ROUTER_test} />
@@ -56,7 +56,7 @@ describe("HomePage", () => {
     expect(screen.getByText("Scegli una API...")).toBeInTheDocument();
   });
 
-  it("dovrebbe caricare correttamente Footer", () => {
+  it("Verifica che il componente Footer venga caricato correttamente.", () => {
     render(
       <Provider store={mockStore(createMockRootState())}>
         <RouterProvider router={ROUTER_test} />

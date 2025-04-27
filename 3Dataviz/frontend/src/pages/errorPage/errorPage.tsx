@@ -24,7 +24,6 @@ function ErrorPage() {
             ? appStateError?.message
             : "Il contenuto che stai cercando non è stato trovato."}
         </p>
-        {/* <a href="/">Torna alla HomePage</a> */}
         <Link to={"/"} onClick={() => dispatch(resetError())}>
           Torna alla HomePage
         </Link>

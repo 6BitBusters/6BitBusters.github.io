@@ -7,7 +7,7 @@ import { ViewOptionState } from "../../../src/features/viewOption/types/viewOpti
 import { createMockRootState } from "../../utils/stateMockCreator";
 
 describe("ViewOptionSlice", () => {
-  it("Rendi il piano visibile", () => {
+  it("Verifica che, dopo l'invio dell'azione designata, la proprietà isPlaneActive nello stato dello slice rilevante sia passata dal valore false al valore true", () => {
     const initialState: ViewOptionState = {
       isPlaneActive: false,
     };
@@ -18,7 +18,7 @@ describe("ViewOptionSlice", () => {
       expectedState,
     );
   });
-  it("Rendi il piano invisibile", () => {
+  it("Verifica che, dopo l'invio dell'azione designata, la proprietà isPlaneActive nello stato dello slice rilevante sia passata dal valore true al valore false", () => {
     const initialState: ViewOptionState = {
       isPlaneActive: true,
     };
@@ -29,7 +29,7 @@ describe("ViewOptionSlice", () => {
       expectedState,
     );
   });
-  it("Prendere lo stato", () => {
+  it("Verifica che sia possibile accedere allo stato delle opzioni di vista tramite il selettore appropriato.", () => {
     const state: ViewOptionState = {
       isPlaneActive: true,
     };
