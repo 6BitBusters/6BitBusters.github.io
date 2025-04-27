@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="105" failures="0" errors="0" time="6.298588">
+    <testsuite name="__test__/components/it/apiSelector.test.tsx" timestamp="2025-04-27T13:54:17.309Z" hostname="Jay-PC" tests="1" failures="0" errors="0" skipped="0" time="0.1719177">
+        <testcase classname="__test__/components/it/apiSelector.test.tsx" name="ApiSelector &gt; Verifica che i dataset disponibili vengano caricati correttamente." time="0.1692359">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/components/it/dataTable.test.tsx" timestamp="2025-04-27T13:54:17.315Z" hostname="Jay-PC" tests="4" failures="0" errors="0" skipped="0" time="0.2503205">
+        <testcase classname="__test__/components/it/dataTable.test.tsx" name="DataTable &gt; Verifica che una cella contenente un valore non filtrato sia visibile e che le venga applicata la classe CSS &apos;highlight&apos;" time="0.0994357">
+        </testcase>
+        <testcase classname="__test__/components/it/dataTable.test.tsx" name="DataTable &gt; Verifica che una cella contenente un valore filtrato non sia visibile e non abbia la classe CSS &apos;highlight&apos;" time="0.0274142">
+        </testcase>
+        <testcase classname="__test__/components/it/dataTable.test.tsx" name="DataTable &gt; Verifica che, dopo aver cliccato una cella, ogni altra cella con un valore numericamente maggiore cambi stile in quanto considerata filtrata." time="0.0618636">
+        </testcase>
+        <testcase classname="__test__/components/it/dataTable.test.tsx" name="DataTable &gt; Verifica che, dopo aver cliccato una cella, ogni altra cella con un valore numericamente inferiore cambi stile in quanto considerata filtrata." time="0.0581736">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/components/it/legend.test.tsx" timestamp="2025-04-27T13:54:17.316Z" hostname="Jay-PC" tests="1" failures="0" errors="0" skipped="0" time="0.1788745">
+        <testcase classname="__test__/components/it/legend.test.tsx" name="Legend &gt; Verifica che la legenda dell&apos;ambiente 3D sia caricata correttamente." time="0.1759219">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/components/it/loadingScreen.test.tsx" timestamp="2025-04-27T13:54:17.317Z" hostname="Jay-PC" tests="2" failures="0" errors="0" skipped="0" time="0.2329714">
+        <testcase classname="__test__/components/it/loadingScreen.test.tsx" name="CurrentDatasetLabel &gt; Verifica che durante il caricamento del dataset, sia visibile il testo di caricamento." time="0.100333">
+        </testcase>
+        <testcase classname="__test__/components/it/loadingScreen.test.tsx" name="CurrentDatasetLabel &gt; Verifica che al termine del caricamento del dataset, il testo di caricamento non sia più visibile." time="0.1290214">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/components/it/options.test.tsx" timestamp="2025-04-27T13:54:17.318Z" hostname="Jay-PC" tests="5" failures="0" errors="0" skipped="0" time="0.5878276">
+        <testcase classname="__test__/components/it/options.test.tsx" name="DataTable &gt; Filter &gt; Verifica che, eseguendo un filtraggio per i valori inferiori al valore medio, tutte le celle della tabella che soddisfano la condizione abbiano la classe CSS appropriata." time="0.2609125">
+        </testcase>
+        <testcase classname="__test__/components/it/options.test.tsx" name="DataTable &gt; Filter &gt; Verifica che, eseguendo un filtraggio per i valori superiori al valore medio, tutte le celle della tabella che soddisfano la condizione abbiano la classe CSS appropriata." time="0.1112475">
+        </testcase>
+        <testcase classname="__test__/components/it/options.test.tsx" name="DataTable &gt; NFilter &gt; Verifica che, eseguendo un filtraggio per i bottom 2 valori, le due celle della tabella con i valori più bassi abbiano la classe CSS appropriata." time="0.0621421">
+        </testcase>
+        <testcase classname="__test__/components/it/options.test.tsx" name="DataTable &gt; NFilter &gt; Verifica che, eseguendo un filtraggio per i top 2 valori, le due celle della tabella con i valori più alti abbiano la classe CSS appropriata." time="0.0832667">
+        </testcase>
+        <testcase classname="__test__/components/it/options.test.tsx" name="DataTable &gt; ResetFilter &gt; Verifica che, eseguendo il reset dei filtri, tutte le celle della tabella ritornino ad avere la classe CSS predefinita o quella che avevano prima dell&apos;applicazione dei filtri." time="0.0655182">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/components/it/ui.test.tsx" timestamp="2025-04-27T13:54:17.320Z" hostname="Jay-PC" tests="3" failures="0" errors="0" skipped="0" time="0.4429437">
+        <testcase classname="__test__/components/it/ui.test.tsx" name="UI &gt; CameraResetButton &gt; Verifica che il bottone di reset della camera sia visibile al caricamento del dataset." time="0.2654249">
+        </testcase>
+        <testcase classname="__test__/components/it/ui.test.tsx" name="UI &gt; CameraResetButton &gt; Verifica che, al click sul bottone di reset camera, venga eseguita un&apos;animazione di tweening sulla telecamera che la riporta alla sua posizione iniziale." time="0.0946909">
+        </testcase>
+        <testcase classname="__test__/components/it/ui.test.tsx" name="UI &gt; CurrentDatasetLabel &gt; Verifica che, al caricamento del dataset, il nome del dataset corrente sia visualizzato nella pagina dell&apos;ambiente." time="0.0793534">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/components/ut/averagePlane.test.tsx" timestamp="2025-04-27T13:54:17.321Z" hostname="Jay-PC" tests="1" failures="0" errors="0" skipped="0" time="0.0385204">
+        <testcase classname="__test__/components/ut/averagePlane.test.tsx" name="AveragePlane &gt; Verifica che la renderizzazione dell&apos;average plane avvenga senza generare errori o causare un crash dell&apos;applicazione." time="0.0369176">
+            <system-err>
+The current testing environment is not configured to support act(...)
+
+            </system-err>
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/components/ut/bar.test.tsx" timestamp="2025-04-27T13:54:17.322Z" hostname="Jay-PC" tests="4" failures="0" errors="0" skipped="0" time="2.1597803">
+        <testcase classname="__test__/components/ut/bar.test.tsx" name="Bars &gt; Verifica che la renderizzazione delle barre avvenga senza generare errori o causare un crash dell&apos;applicazione." time="0.113187">
+            <system-err>
+The current testing environment is not configured to support act(...)
+
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+
+Shader error: TypeError: Failed to parse URL from /shaders/barVertexShader.GLSL
+[90m    at new Request (node:internal/deps/undici/undici:9476:19)[39m
+    at FileLoader.load [90m(file:///C:/Users/andre/Desktop/New%20folder/6BitBusters.github.io/3Dataviz/frontend/[39mnode_modules/[4mthree[24m/build/three.core.js:43124:15[90m)[39m
+[90m    ... 4 lines matching cause stack trace ...[39m
+    at Object.react-stack-bottom-frame [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mreact-reconciler[24m\cjs\react-reconciler.development.js:14573:20[90m)[39m
+    at runWithFiberInDEV [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mreact-reconciler[24m\cjs\react-reconciler.development.js:522:16[90m)[39m
+    at commitHookEffectListMount [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mreact-reconciler[24m\cjs\react-reconciler.development.js:9395:29[90m)[39m
+    at commitHookPassiveMountEffects [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mreact-reconciler[24m\cjs\react-reconciler.development.js:9517:11[90m)[39m {
+  [cause]: TypeError: Invalid URL: /shaders/barVertexShader.GLSL
+      at new URLImpl [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mwhatwg-url[24m\lib\URL-impl.js:20:13[90m)[39m
+      at Object.exports.setup [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mwhatwg-url[24m\lib\URL.js:54:12[90m)[39m
+      at new URL [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mwhatwg-url[24m\lib\URL.js:115:22[90m)[39m
+  [90m    at new Request (node:internal/deps/undici/undici:9474:25)[39m
+      at FileLoader.load [90m(file:///C:/Users/andre/Desktop/New%20folder/6BitBusters.github.io/3Dataviz/frontend/[39mnode_modules/[4mthree[24m/build/three.core.js:43124:15[90m)[39m
+      at [90mC:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39msrc\components\barChart\bars\utils\shaderUtils.ts:7:16
+      at new Promise (&lt;anonymous&gt;)
+      at LoadShader [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39msrc\components\barChart\bars\utils\shaderUtils.ts:4:10[90m)[39m
+      at [90mC:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39msrc\components\barChart\bars\bars.tsx:123:7
+      at Object.react-stack-bottom-frame [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mreact-reconciler[24m\cjs\react-reconciler.development.js:14573:20[90m)[39m
+}
+The current testing environment is not configured to support act(...)
+
+            </system-err>
+        </testcase>
+        <testcase classname="__test__/components/ut/bar.test.tsx" name="Bars &gt; Verifica che, al click su una barra, venga calcolata correttamente l&apos;intersezione con la posizione del puntatore, che il colore della barra cambi visivamente e che venga invocata la funzione click handler associata." time="0.0092082">
+            <system-err>
+The current testing environment is not configured to support act(...)
+
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+
+            </system-err>
+        </testcase>
+        <testcase classname="__test__/components/ut/bar.test.tsx" name="Bars &gt; Verifica che quando il puntatore del mouse si sposta al di fuori di una qualsiasi barra, il tooltip non sia visibile." time="1.010138">
+            <system-err>
+The current testing environment is not configured to support act(...)
+
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+
+            </system-err>
+        </testcase>
+        <testcase classname="__test__/components/ut/bar.test.tsx" name="Bars &gt; Verifica che quando il puntatore del mouse esce dall&apos;area di una barra, il tooltip scompaia." time="1.0240545">
+            <system-err>
+The current testing environment is not configured to support act(...)
+
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+
+            </system-err>
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/components/ut/customCanvas.test.tsx" timestamp="2025-04-27T13:54:17.324Z" hostname="Jay-PC" tests="2" failures="0" errors="0" skipped="0" time="0.1124184">
+        <testcase classname="__test__/components/ut/customCanvas.test.tsx" name="CustomCanvas &gt; Lights &gt; Verifica che la renderizzazione delle luci avvenga senza generare errori o causare un crash dell&apos;applicazione." time="0.0289896">
+        </testcase>
+        <testcase classname="__test__/components/ut/customCanvas.test.tsx" name="CustomCanvas &gt; Verifica che la renderizzazione del custom canvas avvenga senza generare errori o causare un crash dell&apos;applicazione." time="0.0812099">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/components/ut/dataTable.test.tsx" timestamp="2025-04-27T13:54:17.325Z" hostname="Jay-PC" tests="5" failures="0" errors="0" skipped="0" time="0.3726263">
+        <testcase classname="__test__/components/ut/dataTable.test.tsx" name="DataTable &gt; Verifica che la tabella sia visibile al caricamento del dataset" time="0.0902754">
+        </testcase>
+        <testcase classname="__test__/components/ut/dataTable.test.tsx" name="DataTable &gt; Verifica che, al click sul bottone apposito, la tabella si apra e diventi visibile." time="0.0724238">
+        </testcase>
+        <testcase classname="__test__/components/ut/dataTable.test.tsx" name="DataTable &gt; Verifica che, al click sul bottone apposito, la tabella si chiuda e diventi invisibile." time="0.1622752">
+        </testcase>
+        <testcase classname="__test__/components/ut/dataTable.test.tsx" name="DataTable &gt; Verifica che, al click su una cella, venga generato un dispatch di un&apos;azione con tipo &apos;filterByValue&apos; per i valori inferiori." time="0.0200818">
+        </testcase>
+        <testcase classname="__test__/components/ut/dataTable.test.tsx" name="DataTable &gt; Verifica che, al click su una cella, venga generato un dispatch di un&apos;azione con tipo &apos;filterByValue&apos; per i valori superiori." time="0.0233703">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/components/ut/options.test.tsx" timestamp="2025-04-27T13:54:17.326Z" hostname="Jay-PC" tests="17" failures="0" errors="0" skipped="0" time="0.8405401">
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; Verifica che, al click sul bottone apposito, le opzioni si aprano e diventino visibili." time="0.1558564">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; Verifica che, al click sul bottone apposito, la tabella si chiuda e diventi invisibile." time="0.1338712">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; Filter &gt; Verifica che l&apos;interfaccia utente per il filtraggio rispetto al valore medio globale sia visibile al caricamento del dataset." time="0.0635932">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; Filter &gt; Verifica che, al click sul bottone apposito, venga eseguito il filtraggio dei dati visualizzati per mostrare solo i valori inferiori al valore medio globale del dataset." time="0.0269704">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; Filter &gt; Verifica che, al click sul bottone apposito, venga eseguito il filtraggio dei dati visualizzati per mostrare solo i valori superiori al valore medio globale del dataset." time="0.0456958">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; NFilter &gt; Verifica che l&apos;interfaccia utente per il filtraggio dei top e bottom N valori sia visibile al caricamento del dataset." time="0.0503382">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; NFilter &gt; Verifica che, al click sul bottone apposito, venga eseguito il filtraggio dei dati visualizzati per mostrare solo gli N valori più bassi del dataset." time="0.0386285">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; NFilter &gt; Verifica che, al click sul bottone apposito, venga eseguito il filtraggio dei dati visualizzati per mostrare solo i primi N valori più alti del dataset." time="0.0281968">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; NFilter &gt; Verifica che, se il valore inserito per N non è un numero o è inferiore a zero, il click sul bottone di filtraggio top/bottom esegua un filtraggio per N=0" time="0.0482134">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; FilterModOptions &gt; Verifica che l&apos;interfaccia utente per modificare le opzioni di filtraggio sia visibile al caricamento del dataset." time="0.0162858">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; FilterModOptions &gt; Verifica che, quando l&apos;algoritmo di filtraggio viene cambiato in &apos;superiore&apos;, il componente aggiorni il suo stato con la relativa action." time="0.0241936">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; FilterModOptions &gt; Verifica che, quando l&apos;algoritmo di filtraggio viene cambiato in &apos;inferiori&apos;, il componente aggiorni il suo stato con la relativa action." time="0.0379821">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; AveragePlaneOption &gt; Verifica che l&apos;interfaccia utente per modificare le opzioni di visualizzazione del piano medio sia visibile al caricamento del dataset." time="0.0245195">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; AveragePlaneOption &gt; Verifica che, quando la visibilità del piano medio globale viene impostata su &apos;abilitato&apos;, il componente richiami l&apos;action corretta per aggiornare lo stato." time="0.0221926">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; AveragePlaneOption &gt; Verifica che, quando la visibilità del piano medio globale viene impostata su &apos;disabilitato&apos;, il componente richiami l&apos;action corretta per aggiornare lo stato." time="0.0197509">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; Verifica che l&apos;interfaccia utente per resettare il filtraggio sia visibile al caricamento del dataset." time="0.0593016">
+        </testcase>
+        <testcase classname="__test__/components/ut/options.test.tsx" name="Options &gt; Verifica che, al click sul bottone di reset, venga eseguita l&apos;azione di reset del filtraggio." time="0.0402785">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/components/ut/pointer.test.ts" timestamp="2025-04-27T13:54:17.330Z" hostname="Jay-PC" tests="2" failures="0" errors="0" skipped="0" time="0.0080423">
+        <testcase classname="__test__/components/ut/pointer.test.ts" name="PointerInterractionUtils &gt; UpdateMousePosition &gt; Verifica che, fornendo un canvas valido e un evento mouse, le proprietà mouse.x e mouse.y vengano aggiornate correttamente con le coordinate del puntatore all&apos;interno del canvas." time="0.0047526">
+        </testcase>
+        <testcase classname="__test__/components/ut/pointer.test.ts" name="PointerInterractionUtils &gt; UpdateMousePosition &gt; Verifica che la posizione del mouse (mouse.x e mouse.y) non venga aggiornata se l&apos;elemento target dell&apos;evento non è un HTMLCanvasElement." time="0.0005296">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/components/ut/shaderUtils.test.ts" timestamp="2025-04-27T13:54:17.331Z" hostname="Jay-PC" tests="3" failures="0" errors="0" skipped="0" time="0.0149811">
+        <testcase classname="__test__/components/ut/shaderUtils.test.ts" name="ShaderUtils &gt; LoadShader &gt; Verifica che, quando il caricamento dello shader ha successo, la Promise venga risolta con il contenuto dello shader." time="0.0095458">
+        </testcase>
+        <testcase classname="__test__/components/ut/shaderUtils.test.ts" name="ShaderUtils &gt; LoadShader &gt; Verifica che, quando il caricamento dello shader fallisce, la Promise venga rifiutata (reject) con un errore." time="0.0019371">
+        </testcase>
+        <testcase classname="__test__/components/ut/shaderUtils.test.ts" name="ShaderUtils &gt; LoadShader &gt; Verifica che, quando il contenuto del file caricato è HTML, la Promise venga rifiutata (reject) con errore &apos;File is not a shader&apos;." time="0.000861">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/components/ut/tooltip.test.tsx" timestamp="2025-04-27T13:54:17.332Z" hostname="Jay-PC" tests="1" failures="0" errors="0" skipped="0" time="0.1476565">
+        <testcase classname="__test__/components/ut/tooltip.test.tsx" name="ToolTip &gt; Verifica che la renderizzazione di un tooltip avvenga senza generare errori o causare un crash dell&apos;applicazione." time="0.1449142">
+            <system-err>
+The current testing environment is not configured to support act(...)
+
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+
+            </system-err>
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/features/ut/appStatusSlice.test.ts" timestamp="2025-04-27T13:54:17.333Z" hostname="Jay-PC" tests="12" failures="0" errors="0" skipped="0" time="0.0187625">
+        <testcase classname="__test__/features/ut/appStatusSlice.test.ts" name="AppStateSlice &gt; Verifica che, durante il reperimento dei dati del dataset, lo slice rilevante aggiorni il suo stato impostando un flag di caricamento." time="0.0067882">
+        </testcase>
+        <testcase classname="__test__/features/ut/appStatusSlice.test.ts" name="AppStateSlice &gt; Verifica che, durante il reperimento del dataset, lo slice rilevante aggiorni il suo stato impostando un flag di caricamento." time="0.0007758">
+        </testcase>
+        <testcase classname="__test__/features/ut/appStatusSlice.test.ts" name="AppStateSlice &gt; Verifica che, al completamento con successo del reperimento dei dati del dataset, lo slice rilevante aggiorni il suo stato con i dati ricevuti e resetti il flag di caricamento" time="0.0004226">
+        </testcase>
+        <testcase classname="__test__/features/ut/appStatusSlice.test.ts" name="AppStateSlice &gt; Verifica che, al completamento con successo del reperimento del dataset, lo slice rilevante aggiorni il suo stato con i dati ricevuti e resetti il flag di caricamento" time="0.0003846">
+        </testcase>
+        <testcase classname="__test__/features/ut/appStatusSlice.test.ts" name="AppStateSlice &gt; Verifica che, quando viene avviata una nuova richiesta di dati, lo slice rilevante resetti il suo stato" time="0.0007416">
+        </testcase>
+        <testcase classname="__test__/features/ut/appStatusSlice.test.ts" name="AppStateSlice &gt; Verifica che, quando viene attivata l&apos;azione di reset manuale degli errori, lo slice rilevante riporti il suo stato dei dati al valore iniziale" time="0.0005021">
+        </testcase>
+        <testcase classname="__test__/features/ut/appStatusSlice.test.ts" name="AppStateSlice &gt; Verifica che, in caso di fallimento del reperimento dei dati del dataset per &apos;maxrequest&apos;, lo slice rilevante imposti il suo stato di errore con un messaggio appropriato" time="0.0009727">
+        </testcase>
+        <testcase classname="__test__/features/ut/appStatusSlice.test.ts" name="AppStateSlice &gt; Verifica che, in caso di fallimento del reperimento dei dati del dataset per &apos;server&apos;, lo slice rilevante imposti il suo stato di errore con un messaggio appropriato" time="0.0017336">
+        </testcase>
+        <testcase classname="__test__/features/ut/appStatusSlice.test.ts" name="AppStateSlice &gt; Verifica che, in caso di fallimento del reperimento dei dati del dataset per &apos;network&apos;, lo slice rilevante imposti il suo stato di errore con un messaggio appropriato" time="0.0009243">
+        </testcase>
+        <testcase classname="__test__/features/ut/appStatusSlice.test.ts" name="AppStateSlice &gt; Verifica che, in caso di fallimento del reperimento dei dataset per &apos;server&apos;, lo slice rilevante imposti il suo stato di errore con un messaggio appropriato" time="0.0007698">
+        </testcase>
+        <testcase classname="__test__/features/ut/appStatusSlice.test.ts" name="AppStateSlice &gt; Verifica che, quando viene selezionato un dataset non esistente, lo slice rilevante imposti il suo stato di errore con un messaggio appropriato" time="0.0012916">
+        </testcase>
+        <testcase classname="__test__/features/ut/appStatusSlice.test.ts" name="AppStateSlice &gt; Verifica che sia possibile accedere allo stato gestito dallo slice rilevante tramite il selettore appropriato." time="0.0005202">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/features/ut/dataSlice.test.ts" timestamp="2025-04-27T13:54:17.336Z" hostname="Jay-PC" tests="16" failures="0" errors="0" skipped="0" time="0.0554879">
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che, quando nessun dataset è selezionato, lo slice rilevante abbia il suo stato dei dati impostato al valore iniziale o a un valore che indica l&apos;assenza di dati" time="0.0046787">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che, dopo la selezione e il caricamento con successo del dataset, lo slice rilevante aggiorni il suo stato con i dati del dataset" time="0.0246927">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che, dopo il tentativo di caricamento fallito del dataset selezionato, lo slice non cambi il suo stato iniziale" time="0.0043379">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che, se il dataset non esiste, lo slice non cambi il suo stato iniziale" time="0.0014524">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che, dopo l&apos;applicazione del filtro &apos;top 2 valori&apos;, lo slice rilevante aggiorni la sua proprietà contenente i dati filtrati in modo da includere solo i 2 elementi con i valori più alti." time="0.001699">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che, dopo l&apos;applicazione del filtro &apos;bottom 2 valori&apos;, lo slice rilevante aggiorni la sua proprietà contenente i dati filtrati in modo da includere solo i 2 elementi con i valori più alti." time="0.0009968">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che, dopo aver applicato il filtro &apos;top 2 valori&apos; e successivamente il filtro &apos;bottom 2 valori&apos;, lo slice rilevante aggiorni la sua proprietà dei dati filtrati in modo da includere solo i 2 elementi con i valori più bassi del dataset originale" time="0.0016571">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che, dopo l&apos;applicazione del filtro &apos;valori superiori o uguali a 3&apos;, lo slice rilevante aggiorni la sua proprietà contenente i dati filtrati in modo da includere solo gli elementi con un valore maggiore o uguale a 3." time="0.0012397">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che, dopo l&apos;applicazione del filtro &apos;valori inferiori o uguali a 3&apos;, lo slice rilevante aggiorni la sua proprietà contenente i dati filtrati in modo da includere solo gli elementi con un valore minore o uguale a 3." time="0.0012492">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che, dopo aver applicato il filtro &apos;valori superiori o uguali a 3&apos; e successivamente il filtro &apos;valori superiori o uguali a 2&apos;, lo slice rilevante aggiorni la sua proprietà dei dati filtrati in modo da includere solo gli elementi con un valore maggiore o uguale a 2" time="0.0018731">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che, dopo aver applicato il filtro &apos;valori superiori o uguali a 3&apos; e successivamente il filtro &apos;valori inferiori o uguali a 2&apos;, lo slice rilevante aggiorni la sua proprietà dei dati filtrati in modo da includere solo gli elementi con un valore minore o uguale a 2" time="0.0018082">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che, dopo l&apos;applicazione del filtro &apos;valori superiori al valor medio&apos;, lo slice rilevante aggiorni la sua proprietà contenente i dati filtrati in modo da includere solo gli elementi con un valore maggiore della media calcolata per il dataset." time="0.0011004">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che, dopo l&apos;applicazione del filtro &apos;valori inferiori al valor medio&apos;, lo slice rilevante aggiorni la sua proprietà contenente i dati filtrati in modo da includere solo gli elementi con un valore minore della media calcolata per il dataset." time="0.0015829">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che, dopo aver applicato il filtro &apos;valori superiori al valor medio&apos; e successivamente il filtro &apos;valori inferiori al valor medio&apos;, lo slice rilevante aggiorni la sua proprietà dei dati filtrati in modo da includere solo gli elementi con un valore minore della media calcolata per il dataset" time="0.0018206">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che lo slice rilevante riporti la sua proprietà contenente i dati filtrati allo stesso stato dei dati originali del dataset." time="0.0012899">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSlice.test.ts" name="DataSlice &gt; Verifica che sia possibile accedere ai dati del dataset gestiti dallo slice rilevante tramite il selettore appropriato." time="0.0006847">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/features/ut/dataSourceSlice.test.ts" timestamp="2025-04-27T13:54:17.340Z" hostname="Jay-PC" tests="7" failures="0" errors="0" skipped="0" time="0.0380794">
+        <testcase classname="__test__/features/ut/dataSourceSlice.test.ts" name="DataSourceSlice &gt; Verifica che, quando nessun dataset è selezionato, lo slice rilevante abbia il suo stato dei dati impostato al valore iniziale o a un valore che indica l&apos;assenza di dati" time="0.0048087">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSourceSlice.test.ts" name="DataSourceSlice &gt; Verifica che, il reperimento dei datasets, lo slice rilevante aggiorni il suo stato con i dati del dataset" time="0.0246206">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSourceSlice.test.ts" name="DataSourceSlice &gt; Verifica che, dopo il tentativo di caricamento fallito del dataset, lo slice non cambi il suo stato iniziale" time="0.0034856">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSourceSlice.test.ts" name="DataSourceSlice &gt; Verifica che, quando un dataset viene selezionato, lo slice rilevante aggiorni le informazioni del dataset selezionato" time="0.0010256">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSourceSlice.test.ts" name="DataSourceSlice &gt; Verifica che, quando un dataset non esiste, lo slice rilevante aggiorni le informazioni del dataset selezionato a null" time="0.0005231">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSourceSlice.test.ts" name="DataSourceSlice &gt; Verifica che sia possibile accedere alla lista dei dataset gestita dallo slice rilevante tramite il selettore appropriato." time="0.0006128">
+        </testcase>
+        <testcase classname="__test__/features/ut/dataSourceSlice.test.ts" name="DataSourceSlice &gt; Verifica che sia possibile accedere ai dati del dataset attualmente selezionato gestiti dallo slice rilevante tramite il selettore appropriato." time="0.0003656">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/features/ut/filterOptionSlice.test.ts" timestamp="2025-04-27T13:54:17.341Z" hostname="Jay-PC" tests="4" failures="0" errors="0" skipped="0" time="0.0106655">
+        <testcase classname="__test__/features/ut/filterOptionSlice.test.ts" name="filterOptionSlice &gt; Verifica che, quando il reducer dello slice viene chiamato con un&apos;azione vuota ritorni un oggetto strettamente uguale allo stato iniziale." time="0.0059132">
+        </testcase>
+        <testcase classname="__test__/features/ut/filterOptionSlice.test.ts" name="filterOptionSlice &gt; Verifica che, dopo l&apos;invio dell&apos;azione designata, la proprietà isGreater nello stato dello slice rilevante sia passata dal valore false al valore true" time="0.0015675">
+        </testcase>
+        <testcase classname="__test__/features/ut/filterOptionSlice.test.ts" name="filterOptionSlice &gt; Verifica che, dopo l&apos;invio dell&apos;azione designata, la proprietà isGreater nello stato dello slice rilevante sia passata dal valore true al valore false" time="0.0003076">
+        </testcase>
+        <testcase classname="__test__/features/ut/filterOptionSlice.test.ts" name="filterOptionSlice &gt; Verifica che sia possibile accedere allo stato delle opzioni di filtraggio tramite il selettore appropriato." time="0.0004916">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/features/ut/raycastHitSlice.test.ts" timestamp="2025-04-27T13:54:17.342Z" hostname="Jay-PC" tests="6" failures="0" errors="0" skipped="0" time="0.0126741">
+        <testcase classname="__test__/features/ut/raycastHitSlice.test.ts" name="RaycastHitSlice &gt; Verifica che l&apos;invio dell&apos;azione setTooltipPosition aggiorni la proprietà barTooltipPosition dello stato con le coordinate fornite." time="0.0068849">
+        </testcase>
+        <testcase classname="__test__/features/ut/raycastHitSlice.test.ts" name="RaycastHitSlice &gt; Verifica che l&apos;invio dell&apos;azione setHit aggiorni la proprietà previousSelectedBarId dello stato con ID della barra selezionata" time="0.0007735">
+        </testcase>
+        <testcase classname="__test__/features/ut/raycastHitSlice.test.ts" name="RaycastHitSlice &gt; Verifica che l&apos;invio dell&apos;azione setTooltipPosition aggiorni la proprietà barTooltipPosition dello stato a null se le coordinate fornite non intersecano nessuna barra e ID della barra selezionata rimanga invariato." time="0.0005803">
+        </testcase>
+        <testcase classname="__test__/features/ut/raycastHitSlice.test.ts" name="RaycastHitSlice &gt; Verifica che l&apos;invio dell&apos;azione setTooltipPosition aggiorni la proprietà barTooltipPosition dello stato con le coordinate fornite (aggiornamento consecutivo)." time="0.0006735">
+        </testcase>
+        <testcase classname="__test__/features/ut/raycastHitSlice.test.ts" name="RaycastHitSlice &gt; Verifica che l&apos;invio dell&apos;azione setHit aggiorni la proprietà previousSelectedBarId dello stato con ID della barra selezionata (aggiornamento consecutivo)" time="0.0006987">
+        </testcase>
+        <testcase classname="__test__/features/ut/raycastHitSlice.test.ts" name="RaycastHitSlice &gt; Verifica che sia possibile accedere allo stato del raycast tramite il selettore appropriato." time="0.0005411">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/features/ut/viewOptionSlice.test.ts" timestamp="2025-04-27T13:54:17.344Z" hostname="Jay-PC" tests="3" failures="0" errors="0" skipped="0" time="0.0104409">
+        <testcase classname="__test__/features/ut/viewOptionSlice.test.ts" name="ViewOptionSlice &gt; Verifica che, dopo l&apos;invio dell&apos;azione designata, la proprietà isPlaneActive nello stato dello slice rilevante sia passata dal valore false al valore true" time="0.0068908">
+        </testcase>
+        <testcase classname="__test__/features/ut/viewOptionSlice.test.ts" name="ViewOptionSlice &gt; Verifica che, dopo l&apos;invio dell&apos;azione designata, la proprietà isPlaneActive nello stato dello slice rilevante sia passata dal valore true al valore false" time="0.0004778">
+        </testcase>
+        <testcase classname="__test__/features/ut/viewOptionSlice.test.ts" name="ViewOptionSlice &gt; Verifica che sia possibile accedere allo stato delle opzioni di vista tramite il selettore appropriato." time="0.0006892">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/pages/it/environmentPage.test.tsx" timestamp="2025-04-27T13:54:17.345Z" hostname="Jay-PC" tests="1" failures="0" errors="0" skipped="0" time="0.1485088">
+        <testcase classname="__test__/pages/it/environmentPage.test.tsx" name="EnvironmentPage &gt; Verifica che l&apos;AppStatus non contenga errori." time="0.1465557">
+            <system-err>
+Error handled by React Router default ErrorBoundary: ErrorResponseImpl {
+  status: [33m404[39m,
+  statusText: [32m&apos;Not Found&apos;[39m,
+  internal: [33mtrue[39m,
+  data: [32m&apos;Error: No route matches URL &quot;/error&quot;&apos;[39m,
+  error: Error: No route matches URL &quot;/error&quot;
+      at getInternalRouterError [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mreact-router[24m\dist\development\index.js:4438:5[90m)[39m
+      at handleNavigational404 [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mreact-router[24m\dist\development\index.js:2599:17[90m)[39m
+      at startNavigation [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mreact-router[24m\dist\development\index.js:1532:47[90m)[39m
+      at Object.navigate [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mreact-router[24m\dist\development\index.js:1470:11[90m)[39m
+      at navigate [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mreact-router[24m\dist\development\index.js:5294:22[90m)[39m
+      at [90mC:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39msrc\pages\environmentPage\environmentPage.tsx:22:12
+      at Object.react-stack-bottom-frame [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mreact-dom[24m\cjs\react-dom-client.development.js:23949:20[90m)[39m
+      at runWithFiberInDEV [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mreact-dom[24m\cjs\react-dom-client.development.js:1522:13[90m)[39m
+      at commitHookEffectListMount [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mreact-dom[24m\cjs\react-dom-client.development.js:11905:29[90m)[39m
+      at commitHookPassiveMountEffects [90m(C:\Users\andre\Desktop\New folder\6BitBusters.github.io\3Dataviz\frontend\[39mnode_modules\[4mreact-dom[24m\cjs\react-dom-client.development.js:12028:11[90m)[39m
+}
+
+            </system-err>
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/pages/it/errorPage.test.tsx" timestamp="2025-04-27T13:54:17.345Z" hostname="Jay-PC" tests="1" failures="0" errors="0" skipped="0" time="0.0922165">
+        <testcase classname="__test__/pages/it/errorPage.test.tsx" name="ErrorPage &gt; Verifica che i dati dell&apos;errore vengano caricati correttamente." time="0.0886348">
+        </testcase>
+    </testsuite>
+    <testsuite name="__test__/pages/it/homePage.test.tsx" timestamp="2025-04-27T13:54:17.346Z" hostname="Jay-PC" tests="4" failures="0" errors="0" skipped="0" time="0.3523316">
+        <testcase classname="__test__/pages/it/homePage.test.tsx" name="HomePage &gt; Verifica che l&apos;AppStatus non contenga errori." time="0.2366434">
+        </testcase>
+        <testcase classname="__test__/pages/it/homePage.test.tsx" name="HomePage &gt; Verifica che la HomePage venga caricata correttamente." time="0.0410566">
+        </testcase>
+        <testcase classname="__test__/pages/it/homePage.test.tsx" name="HomePage &gt; Verifica che il componente ApiSelector venga caricato correttamente." time="0.0386359">
+        </testcase>
+        <testcase classname="__test__/pages/it/homePage.test.tsx" name="HomePage &gt; Verifica che il componente Footer venga caricato correttamente." time="0.0326291">
+        </testcase>
+    </testsuite>
+</testsuites>

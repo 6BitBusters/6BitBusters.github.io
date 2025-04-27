@@ -46,6 +46,16 @@ jobs:
         run: npx vitest run --coverage
         working-directory: 3Dataviz/frontend
 
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: |
+            test-report.junit.xml
+          flags: backend
+          name: frontend-coverage
+          working-directory: 3Dataviz/frontend
+
       - name: Build
         run: npm run build
         working-directory: 3Dataviz/frontend

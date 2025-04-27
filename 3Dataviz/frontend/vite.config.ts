@@ -9,6 +9,8 @@ export default defineConfig({
     globals: true,
     setupFiles: ["__test__/setupTests.ts"],
     include: ["__test__/**/*.test.{ts,tsx}"],
+    reporters: ['default', 'junit'],
+    outputFile: './test-report.junit.xml',
     coverage: {
       provider: "v8",
       reporter: ["text", "html", "lcov", "json"], // 'text' per la console, 'html' per un report interattivo, 'lcov' estensione vscode
