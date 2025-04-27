@@ -437,8 +437,6 @@ Questo diagramma illustra i componenti per recuperare le informazioni relative a
                         \begin{itemize}
                               \item DataSourceSlice (associazione): contiene implicitamente un'istanza di
                                     DataSourceSlice;
-                              \item DataSourceSlice.requestDatasets (dipendenza semplice <<send>>): crea ed emette
-                                    un'istanza dell'action DataSourceSlice.requestDatasets;
                               \item DataSourceSlice.trySetCurrentDataset (dipendenza semplice <<send>>): crea ed
                                     emette un'istanza dell'action DataSourceSlice.trySetCurrentDataset.
                         \end{itemize}
@@ -449,7 +447,6 @@ Questo diagramma illustra i componenti per recuperare le informazioni relative a
                         \end{itemize}
                   \item \textbf{Action emesse:}
                         \begin{itemize}
-                              \item DataSourceSlice.requestDatasets;
                               \item DataSourceSlice.trySetCurrentDataset.
                         \end{itemize}
             \end{itemize}
@@ -474,14 +471,23 @@ Questo diagramma illustra i componenti per recuperare le informazioni relative a
                         \begin{itemize}
                               \item DataSourceSlice (associazione): contiene implicitamente un'istanza di
                                     DataSourceSlice.
+                              \item DataSourceSlice.requestDatasets (dipendenza semplice <<send>>): crea ed emette
+                                    un'istanza dell'action DataSourceSlice.requestDatasets;
                         \end{itemize}
                   \item \textbf{Interazioni:}
                         \begin{itemize}
                               \item DataSourceSlice: viene utilizzato il metodo requestDatasets per reperire
-                                    i dataset disponibili e il metodo trySetCurrentDataset per impostare il dataset selezionato.
+                                    i dataset disponibili.
+                        \end{itemize}
+                  
+                  \item \textbf{Action emesse:}
+                        \begin{itemize}
+                              \item DataSourceSlice.requestDatasets.
                         \end{itemize}
             \end{itemize}
 \end{itemize}
+
+\pagebreak
 
 \paragraph{AppSlice}
 \begin{figure}[h!] \centering
@@ -888,6 +894,8 @@ Questo diagramma mostra i componenti per aggiornare e condividere le informazion
             \end{itemize}
 \end{itemize}
 
+\pagebreak
+
 \paragraph{Redux store}
 \begin{figure}[h!] \centering
       \includegraphics[scale=0.45]{template/images/uml_front/logic/Store.png}
@@ -1119,6 +1127,8 @@ Questo diagramma presenta la struttura e gli elementi che costituiscono l'ambien
                         \end{itemize}
             \end{itemize}
 \end{itemize}
+
+\pagebreak
 
 \paragraph{BarChart}
 \begin{figure}[h!] \centering
