@@ -1,0 +1,32 @@
+#legend {
+    position: absolute;
+    top: 130px;
+    left: 0px;
+    width: fit-content;
+    color: white;
+    background-color: var(--ui-bg-color);
+    padding: .7rem .7rem .7rem 1.5rem;
+}
+
+#legend p {
+    display: inline;
+}
+
+.legendColor {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+#Xcolor {
+    background-color: red;
+}
+#Ycolor {
+    background-color: green;
+}
+#Zcolor {
+    background-color: blue;
+}

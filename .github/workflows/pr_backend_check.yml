@@ -9,7 +9,12 @@ on:
 jobs:
   test-backend:
     runs-on: ubuntu-latest
-    if: ${{ startsWith(github.head_ref, 'code/') }} 
+    if : ${{ startsWith(github.head_ref, 'code/') }}
+    services:
+      memcached:
+        image: memcached:latest
+        ports:
+          - 11211:11211
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -33,9 +38,19 @@ jobs:
         run: npm run lint:check
         working-directory: 3Dataviz/backend
 
-      - name: Run tests
-        run: npm run test
+      - name: Run tests and check coverage
+        run: npm run test:cov
         working-directory: 3Dataviz/backend
+      
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: |
+            coverage/lcov.info
+          flags: backend
+          name: backend-coverage
+          working-directory: 3Dataviz/backend
 
       - name: Build
         run: npm run build

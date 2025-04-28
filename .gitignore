@@ -17,9 +17,6 @@
 *.toc
 
 # compiled output
-/3Dataviz/backend/dist
-/3Dataviz/backend/node_modules
-/3Dataviz/backend/build
 *.local
 
 # Logs
@@ -35,7 +32,6 @@ lerna-debug.log*
 .DS_Store
 
 # Tests
-/3Dataviz/backend/coverage
 /3Dataviz/backend/.nyc_output
 
 # IDEs and editors

@@ -9,7 +9,7 @@ on:
 jobs:
   test-frontend:
     runs-on: ubuntu-latest
-    if: ${{ startsWith(github.head_ref, 'code/') }} 
+    if: ${{ startsWith(github.head_ref, 'code/') }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -26,7 +26,7 @@ jobs:
         working-directory: 3Dataviz/frontend
 
       - name: Check format
-        run: npm run format:check
+        run: npx prettier --check "./**/*.{ts,tsx,js}"
         working-directory: 3Dataviz/frontend
 
       - name: Run lint
@@ -34,8 +34,27 @@ jobs:
         working-directory: 3Dataviz/frontend
 
       - name: Run tests
-        run: npm run test
+        run: |
+          if [ -n "$(find . -name '*.test.*' -print -quit)" ]; then
+            npm test
+          else
+            echo "::error::Non sono stati trovati i test"
+          fi
         working-directory: 3Dataviz/frontend
+
+      - name: Check coverage
+        run: npx vitest run --coverage
+        working-directory: 3Dataviz/frontend
+
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: |
+            coverage/lcov.info
+          flags: frontend
+          name: frontend-coverage
+          working-directory: 3Dataviz/frontend
 
       - name: Build
         run: npm run build
