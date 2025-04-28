@@ -1,0 +1,37 @@
+#resetCamera {
+    position: absolute;
+    top: 250px;
+    left: 35px;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    cursor: pointer;
+    border-style: none;
+    background-color: var(--ui-bg-color);
+    background-image: url("/svg/camera-reset.svg");
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center center;
+}
+
+#current-dataset {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    background-color: black;
+    padding: .8rem;
+}
+
+button {
+    cursor: pointer;
+    border-style: none;
+    display: block;
+}
+
+input[type="radio"] {
+    accent-color: var(--accent)
+}

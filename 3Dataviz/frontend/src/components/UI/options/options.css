@@ -1,0 +1,58 @@
+#option-container {
+    position: fixed;
+    right: -470px;
+    top: 400px;
+    transform: translateY(-50%);
+}
+#option-wrap {
+    float: right;
+}
+#filter-container {
+    border-bottom: 5px solid black;
+}
+
+#filter-container,
+#viewoption-container {
+    padding: .8rem;
+    text-align: center;
+    background-color: var(--ui-bg-color);
+    color: white;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+#filter-container p,
+#viewoption-container p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+#view-options-expander {
+    margin-left: 0;
+    display: inline-block;
+    transform: rotateZ(90deg);
+}
+
+.filter,
+.plane-view:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+.choice-form {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.option-choise {
+    margin-top: .5rem;
+    margin-bottom: 0rem;
+    font-size: 1.1rem;
+}
+
+.option-choise input{
+    margin-right: .5rem;
+}
