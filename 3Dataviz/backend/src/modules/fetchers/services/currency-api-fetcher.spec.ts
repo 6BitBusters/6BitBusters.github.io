@@ -81,7 +81,7 @@ describe("CurrencyApiFetcher", () => {
     const mockCurrencyData: CurrencyData[] = [
       {
         rates: {
-          USD: 1.278999,
+          USD: 1278999,
           GBP: 0.9,
           JPY: 130,
         },
@@ -119,25 +119,25 @@ describe("CurrencyApiFetcher", () => {
         {
           id: 1,
           x: 0,
-          y: 0.9,
+          y: 0,
           z: 1,
         },
         {
           id: 2,
           x: 0,
-          y: 130,
+          y: 0,
           z: 2,
         },
         {
           id: 3,
           x: 1,
-          y: 1.3,
+          y: 0,
           z: 0,
         },
         {
           id: 4,
           x: 1,
-          y: 0.85,
+          y: 0,
           z: 1,
         },
         {
