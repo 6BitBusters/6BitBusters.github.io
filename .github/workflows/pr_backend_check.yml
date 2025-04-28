@@ -3,13 +3,18 @@ name: Check backend code
 on:
   pull_request:
     branches:
-      - 'code/backend-**'
+      - 'code/backend'
       - main
 
 jobs:
   test-backend:
     runs-on: ubuntu-latest
-
+    if : ${{ startsWith(github.head_ref, 'code/') }}
+    services:
+      memcached:
+        image: memcached:latest
+        ports:
+          - 11211:11211
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -26,15 +31,15 @@ jobs:
         working-directory: 3Dataviz/backend
 
       - name: Check format
-        run: npx prettier --check .
+        run: npm run format:check
         working-directory: 3Dataviz/backend
 
       - name: Run lint
-        run: npm run lint
+        run: npm run lint:check
         working-directory: 3Dataviz/backend
 
-      - name: Run tests
-        run: npm test
+      - name: Run tests and check coverage
+        run: npm run test:cov
         working-directory: 3Dataviz/backend
 
       - name: Build

@@ -1,26 +1,7 @@
-.vscode
-*.aux
-*.fdb_latexmk
-*.fls
-*.idx
-*.ilg
-*.ind
-*.log
-*.out
-*.pdf
-!*firmato.pdf
-*.gz
-*.toc
-*.lof
-*.lot
-*.lof
-*.toc
-
 # compiled output
-/3Dataviz/backend/dist
-/3Dataviz/backend/node_modules
-/3Dataviz/backend/build
-*.local
+/dist
+/node_modules
+/build
 
 # Logs
 logs
@@ -35,8 +16,8 @@ lerna-debug.log*
 .DS_Store
 
 # Tests
-/3Dataviz/backend/coverage
-/3Dataviz/backend/.nyc_output
+/coverage
+/.nyc_output
 
 # IDEs and editors
 /.idea
@@ -73,28 +54,3 @@ pids
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
-
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-/3Dataviz/frontend/node_modules
-/3Dataviz/frontend/dist
-/3Dataviz/frontend/dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
