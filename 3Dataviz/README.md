@@ -1,7 +1,7 @@
 # MVP
-[![Check frontend code](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/pr_frontend_check.yml/badge.svg?branch=main)](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/pr_frontend_check.yml)
-[![Check frontend code](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/pr_frontend_check.yml/badge.svg?branch=main)](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/pr_frontend_check.yml)
-[![Playwright Tests](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/playwright.yml/badge.svg?branch=main)](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/playwright.yml)
+[![Check frontend code](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/pr_frontend_check.yml/badge.svg)](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/pr_frontend_check.yml)
+[![Check backend code](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/pr_backend_check.yml/badge.svg)](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/pr_backend_check.yml)
+[![Playwright Tests](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/playwright.yml/badge.svg)](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/playwright.yml)
 [![codecov](https://codecov.io/gh/6BitBusters/6BitBusters.github.io/graph/badge.svg?token=DLNTJL4E40)](https://codecov.io/gh/6BitBusters/6BitBusters.github.io)
 
 ## Struttura del Progetto
@@ -10,6 +10,13 @@
 - **frontend/**: Contiene il codice del frontend scritto in Typescript utilizzando React e Redux-Toolkit.
 - **dc-dev.yml**: Configurazione di Docker per eseguire l'intero progetto in contenitori in modalita di sviluppo.
 - **dc-dep.yml**: Configurazione di Docker per eseguire l'intero progetto in contenitori per il deploy.
+
+**Attenzione**:
+I contenitori in modalitá di sviluppo contengono solamente il backend e memcached, il frontend dovrá essere avviato tramite il comando 
+```bash
+npm run dev
+```
+
 
 ## Requisiti
 
@@ -38,12 +45,12 @@ Il progetto è configurato per essere eseguito tramite Docker Compose, che crea 
 
 ## File .env
 
-Creare un file .env partendo dall'esempio facendo:
+Creare un file .env partendo dall'esempio all`interno della cartella backend:
 ```bash
 cd backend
-cp .env.example .env
+cp .your.env .env
 ```
-Andare a sostituire i valori opportuni alle variabili.
+Andare ad assegnare le relative key alle variabili.
 
 ## Costruisci e Avvia i Contenitori
 
@@ -54,7 +61,7 @@ docker-compose -f "[file.yaml]" down -v
 docker-compose -f "[file.yaml]" up --build
 ```
 
-Se le immagini sono state gia` create e si vuole solamente farle partire basta eseguire il seguente comando
+Se le immagini sono state giá create e si vuole solamente farle partire basta eseguire il seguente comando
 
 ```bash
 docker-compose -f "[file.yaml]" up
