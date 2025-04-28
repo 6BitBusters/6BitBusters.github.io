@@ -53,7 +53,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: |
             test-report.junit.xml
-          flags: backend
+          flags: frontend
           name: frontend-coverage
           working-directory: 3Dataviz/frontend
 

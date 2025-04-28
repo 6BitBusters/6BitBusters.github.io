@@ -41,6 +41,16 @@ jobs:
       - name: Run tests and check coverage
         run: npm run test:cov
         working-directory: 3Dataviz/backend
+      
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: |
+            coverage/lcov.info
+          flags: backend
+          name: backend-coverage
+          working-directory: 3Dataviz/backend
 
       - name: Build
         run: npm run build
