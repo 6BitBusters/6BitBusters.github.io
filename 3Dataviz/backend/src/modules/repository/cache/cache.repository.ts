@@ -15,7 +15,7 @@ export class CacheRepository
   private readonly logger = new Logger(CacheRepository.name);
 
   onModuleInit() {
-    this.cache = Client.create("localhost:11211");
+    this.cache = Client.create("memcached:11211");
   }
 
   onModuleDestroy() {

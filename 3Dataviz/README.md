@@ -54,6 +54,12 @@ docker-compose -f "[file.yaml]" down -v
 docker-compose -f "[file.yaml]" up --build
 ```
 
+Se le immagini sono state gia` create e si vuole solamente farle partire basta eseguire il seguente comando
+
+```bash
+docker-compose -f "[file.yaml]" up
+```
+
 ## Accesso all'Applicazione
-- Frontend: Dopo aver eseguito il comando precedente, puoi accedere al frontend all'indirizzo: http://localhost:5173.
+- Frontend: Dopo aver eseguito il comando precedente, puoi accedere al frontend all'indirizzo: http://localhost:4173.
 - Backend: Il backend sarà accessibile su http://localhost:3000.

@@ -13,7 +13,7 @@ services:
     ports:
       - "3000:3000"
     env_file:
-      - ./backend/.your-env
+      - ./backend/.env
     depends_on:
       - memcached
   client:
@@ -21,6 +21,6 @@ services:
       dockerfile: ./frontend/Dockerfile.dep
     container_name: client
     ports:
-      - "5173:5173"
+      - "4173:4173"
     depends_on:
       - server
