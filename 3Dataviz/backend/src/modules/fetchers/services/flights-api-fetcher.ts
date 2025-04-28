@@ -7,14 +7,13 @@ import { BaseFetcher } from "../interfaces/base-fetcher.interface";
 import { BaseApiFetcher } from "./base-api-fetcher";
 import axios from "axios";
 import { FLIGHTS_API_CONFIG } from "../config";
-import { Dataset } from "../../../interfaces/dataset.interface";
+import { RawDataset } from "../../../interfaces/raw-dataset.interface";
 import { Entry } from "../../../interfaces/entry.interface";
 import { Legend } from "../../../interfaces/legend.interface";
 import {
   FlightsData,
   FlightsRecord,
 } from "../interfaces/flights-data.interface";
-import { formatDate, formatTime } from "../../../common/utils/date-utils";
 
 @Injectable()
 export class FlightsApiFetcher
@@ -49,15 +48,8 @@ export class FlightsApiFetcher
     return FLIGHTS_API_CONFIG.DESCRIPTION;
   }
 
-  async getDataset(): Promise<Dataset> {
-    try {
-      const data = await this.fetchData();
-      return this.transformData(data);
-    } catch (error) {
-      throw new ServiceUnavailableException(
-        `Errore nel recupero dei dati\n${error}`,
-      );
-    }
+  getLegend(): Legend {
+    return FLIGHTS_API_CONFIG.LEGEND;
   }
 
   protected async fetchData(): Promise<FlightsData> {
@@ -89,9 +81,8 @@ export class FlightsApiFetcher
     }
   }
 
-  protected transformData(data: FlightsData): Dataset {
+  protected transformData(data: FlightsData): RawDataset {
     const entries: Entry[] = [];
-    const legend: Legend = FLIGHTS_API_CONFIG.LEGEND;
     const xLabels = Array.from(
       { length: FLIGHTS_API_CONFIG.NUM_INTERVALS },
       (_, index) => {
@@ -99,14 +90,15 @@ export class FlightsApiFetcher
           FLIGHTS_API_CONFIG.START_DATETIME * 1000 +
             index * FLIGHTS_API_CONFIG.INTERVAL_DURATION * 1000,
         );
-        const endDate = new Date(
-          startDate.getTime() +
-            (FLIGHTS_API_CONFIG.INTERVAL_DURATION - 1) * 1000,
-        );
-        const day = formatDate(startDate);
-        const startTime = formatTime(startDate);
-        const endTime = formatTime(endDate);
-        return `${day} ${startTime} - ${endTime}`;
+        const day = this.formatShortDate(startDate);
+
+        const intervalSeconds = FLIGHTS_API_CONFIG.INTERVAL_DURATION;
+        const intervalDurationInHours = intervalSeconds / 3600;
+
+        const startHour = startDate.getUTCHours();
+        const endHour = (startHour + intervalDurationInHours) % 24;
+
+        return `${day} ${startHour}-${endHour}`;
       },
     );
     const zLabels = FLIGHTS_API_CONFIG.AIRPORTS.map((airport) => airport.name);
@@ -135,9 +127,8 @@ export class FlightsApiFetcher
           entries.push(entry);
         }
       });
-      const dataset: Dataset = {
+      const dataset: RawDataset = {
         data: entries,
-        legend: legend,
         xLabels: xLabels,
         zLabels: zLabels,
       };
@@ -145,5 +136,11 @@ export class FlightsApiFetcher
     } catch (error) {
       throw new Error(`Formato dei dati non valido\n${error}`);
     }
+  }
+
+  private formatShortDate(date: Date): string {
+    const day = date.getUTCDate();
+    const month = date.getUTCMonth() + 1;
+    return `${day}/${month}`;
   }
 }

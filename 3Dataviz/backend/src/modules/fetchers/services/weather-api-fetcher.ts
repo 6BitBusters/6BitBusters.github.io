@@ -3,7 +3,7 @@ import { BaseFetcher } from "../interfaces/base-fetcher.interface";
 import { BaseApiFetcher } from "./base-api-fetcher";
 import axios from "axios";
 import { WEATHER_API_CONFIG } from "../config";
-import { Dataset } from "../../../interfaces/dataset.interface";
+import { RawDataset } from "../../../interfaces/raw-dataset.interface";
 import { Entry } from "../../../interfaces/entry.interface";
 import { Legend } from "../../../interfaces/legend.interface";
 import { WeatherData } from "../interfaces/weather-data.interface";
@@ -54,15 +54,8 @@ export class WeatherApiFetcher
     return WEATHER_API_CONFIG.DESCRIPTION;
   }
 
-  async getDataset(): Promise<Dataset> {
-    try {
-      const data = await this.fetchData();
-      return this.transformData(data);
-    } catch (error) {
-      throw new ServiceUnavailableException(
-        `Errore nel recupero dei dati\n${error}`,
-      );
-    }
+  getLegend(): Legend {
+    return WEATHER_API_CONFIG.LEGEND;
   }
 
   protected async fetchData(): Promise<WeatherData[]> {
@@ -78,15 +71,16 @@ export class WeatherApiFetcher
     }
   }
 
-  protected transformData(data: WeatherData[]): Dataset {
+  protected transformData(data: WeatherData[]): RawDataset {
     const entries: Entry[] = [];
-    const legend: Legend = WEATHER_API_CONFIG.LEGEND;
 
-    const xLabels = data[0].hourly.time;
+    const xLabels = this.generateXLabels(data[0].hourly.time);
+
     const zLabels = WEATHER_API_CONFIG.CITIES.map((city) => city.name);
 
     for (let i = 0; i < data.length; i++) {
-      const hours = data[i].hourly.time;
+      const hours = this.generateXLabels(data[i].hourly.time);
+
       const values = data[i].hourly.temperature_2m;
       if (!hours || !values) {
         throw new Error("Formato dei dati non valido\n");
@@ -95,18 +89,25 @@ export class WeatherApiFetcher
         const entry: Entry = {
           id: j * data.length + i,
           x: xLabels.indexOf(hours[j]),
-          y: values[j],
+          y: Math.round(values[j] * 100) / 100,
           z: i,
         };
         entries.push(entry);
       }
     }
-    const dataset: Dataset = {
+    const dataset: RawDataset = {
       data: entries,
-      legend: legend,
       xLabels: xLabels,
       zLabels: zLabels,
     };
     return dataset;
+  }
+
+  // funzione per accorciare le date (es. 01/01 12:00)
+  private generateXLabels(times: string[]): string[] {
+    return times.map((time) => {
+      const date = new Date(time);
+      return `${date.getDate()}/${date.getMonth() + 1} ${date.getHours()}:00`;
+    });
   }
 }

@@ -1,9 +1,18 @@
-import { Injectable, OnModuleDestroy, OnModuleInit } from "@nestjs/common";
+import {
+  Injectable,
+  Logger,
+  OnModuleDestroy,
+  OnModuleInit,
+} from "@nestjs/common";
 import { Client } from "memjs";
+import { IRepository } from "src/interfaces/repository.interface";
 
 @Injectable()
-export class CacheService implements OnModuleInit, OnModuleDestroy {
+export class CacheRepository
+  implements IRepository, OnModuleInit, OnModuleDestroy
+{
   private cache: Client;
+  private readonly logger = new Logger(CacheRepository.name);
 
   onModuleInit() {
     this.cache = Client.create("localhost:11211");
@@ -29,7 +38,8 @@ export class CacheService implements OnModuleInit, OnModuleDestroy {
     const stringValue = JSON.stringify(value);
     try {
       await this.cache.set(key, stringValue, { expires: ttlSeconds });
-    } catch {
+    } catch (error) {
+      this.logger.error("Errrore durante il salvataggio in cache", error);
       // Il fallimento del salvataggio in cache non deve interrompere il flusso
     }
   }

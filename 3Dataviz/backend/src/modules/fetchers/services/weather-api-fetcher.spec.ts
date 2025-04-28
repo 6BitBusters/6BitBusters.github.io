@@ -22,7 +22,8 @@ import { WeatherApiFetcher } from "./weather-api-fetcher";
 import { WEATHER_API_CONFIG } from "../config";
 import { WeatherData } from "../interfaces/weather-data.interface";
 import axios from "axios";
-import { Dataset } from "src/interfaces/dataset.interface";
+import { RawDataset } from "src/interfaces/raw-dataset.interface";
+import { Legend } from "src/interfaces/legend.interface";
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
@@ -60,13 +61,18 @@ describe("WeatherApiService", () => {
     expect(description).toBe(WEATHER_API_CONFIG.DESCRIPTION);
   });
 
+  it("should return the correct legend", () => {
+    const legend: Legend = weatherApiFetcher.getLegend();
+    expect(legend).toEqual(WEATHER_API_CONFIG.LEGEND);
+  });
+
   it("should fetch data and return transformed dataset", async () => {
     // Simuliamo la risposta API con dati fittizi
     const mockWeatherData: WeatherData[] = [
       {
         hourly: {
           time: ["2025-01-01T12:00:00", "2025-01-01T13:00:00"],
-          temperature_2m: [20, 21],
+          temperature_2m: [20.3435, 21.4587228383],
         },
       },
       {
@@ -86,18 +92,18 @@ describe("WeatherApiService", () => {
     // Verifica che il risultato sia stato trasformato (controllo generico)
     expect(result).toBeDefined();
 
-    const expectedResult: Dataset = {
+    const expectedResult: RawDataset = {
       data: [
         {
           id: 0,
           x: 0,
-          y: 20,
+          y: 20.34,
           z: 0,
         },
         {
           id: 2,
           x: 1,
-          y: 21,
+          y: 21.46,
           z: 0,
         },
         {
@@ -113,8 +119,7 @@ describe("WeatherApiService", () => {
           z: 1,
         },
       ],
-      legend: WEATHER_API_CONFIG.LEGEND,
-      xLabels: ["2025-01-01T12:00:00", "2025-01-01T13:00:00"],
+      xLabels: ["1/1 12:00", "1/1 13:00"],
       zLabels: ["Francoforte", "Parigi"],
     };
     expect(result).toEqual(expectedResult);

@@ -23,17 +23,17 @@ import { FlightsApiFetcher } from "./flights-api-fetcher";
 import { FLIGHTS_API_CONFIG } from "../config";
 import { FlightsData } from "../interfaces/flights-data.interface";
 import axios from "axios";
-import { Dataset } from "src/interfaces/dataset.interface";
+import { RawDataset } from "src/interfaces/raw-dataset.interface";
+import { Legend } from "src/interfaces/legend.interface";
 import { HttpStatus } from "@nestjs/common";
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe("FlightsApiFetcher", () => {
   let flightsApiFetcher: FlightsApiFetcher;
-  const expectedResult: Dataset = {
+  const expectedResult: RawDataset = {
     data: [],
-    legend: FLIGHTS_API_CONFIG.LEGEND,
-    xLabels: ["01/01/1970 00:00 - 00:59", "01/01/1970 01:00 - 01:59"],
+    xLabels: ["1/1 0-1", "1/1 1-2"],
     zLabels: ["Parigi", "Milano"],
   };
 
@@ -67,6 +67,11 @@ describe("FlightsApiFetcher", () => {
   it("should return the correct description", () => {
     const description = flightsApiFetcher.getDescription();
     expect(description).toBe(FLIGHTS_API_CONFIG.DESCRIPTION);
+  });
+
+  it("should return the correct legend", () => {
+    const legend: Legend = flightsApiFetcher.getLegend();
+    expect(legend).toEqual(FLIGHTS_API_CONFIG.LEGEND);
   });
 
   it("should fetch data and return transformed dataset", async () => {

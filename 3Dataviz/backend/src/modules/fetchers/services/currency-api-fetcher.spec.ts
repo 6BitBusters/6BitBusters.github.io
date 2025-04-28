@@ -21,7 +21,8 @@ import { CurrencyApiFetcher } from "./currency-api-fetcher";
 import { CURRENCY_API_CONFIG } from "../config";
 import { CurrencyData } from "../interfaces/currency-data.interface";
 import axios from "axios";
-import { Dataset } from "src/interfaces/dataset.interface";
+import { RawDataset } from "src/interfaces/raw-dataset.interface";
+import { Legend } from "src/interfaces/legend.interface";
 import { HttpStatus } from "@nestjs/common";
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -70,12 +71,17 @@ describe("CurrencyApiFetcher", () => {
     expect(description).toBe(CURRENCY_API_CONFIG.DESCRIPTION);
   });
 
+  it("should return the correct legend", () => {
+    const legend: Legend = currencyApiFetcher.getLegend();
+    expect(legend).toEqual(CURRENCY_API_CONFIG.LEGEND);
+  });
+
   it("should fetch data and return transformed dataset", async () => {
     // Simuliamo la risposta API con dati fittizi
     const mockCurrencyData: CurrencyData[] = [
       {
         rates: {
-          USD: 1.2,
+          USD: 1278999,
           GBP: 0.9,
           JPY: 130,
         },
@@ -83,7 +89,7 @@ describe("CurrencyApiFetcher", () => {
       {
         rates: {
           USD: 1.3,
-          GBP: 0.85,
+          GBP: 0.851,
         },
       },
     ];
@@ -102,36 +108,36 @@ describe("CurrencyApiFetcher", () => {
     // Verifica che il risultato sia stato trasformato (controllo generico)
     expect(result).toBeDefined();
 
-    const expectedResult: Dataset = {
+    const expectedResult: RawDataset = {
       data: [
         {
           id: 0,
           x: 0,
-          y: 1.2,
+          y: 1.28,
           z: 0,
         },
         {
           id: 1,
           x: 0,
-          y: 0.9,
+          y: 0,
           z: 1,
         },
         {
           id: 2,
           x: 0,
-          y: 130,
+          y: 0,
           z: 2,
         },
         {
           id: 3,
           x: 1,
-          y: 1.3,
+          y: 0,
           z: 0,
         },
         {
           id: 4,
           x: 1,
-          y: 0.85,
+          y: 0,
           z: 1,
         },
         {
@@ -141,7 +147,6 @@ describe("CurrencyApiFetcher", () => {
           z: 2,
         },
       ],
-      legend: CURRENCY_API_CONFIG.LEGEND,
       xLabels: ["2000", "2001"],
       zLabels: ["USD", "GBP", "JPY"],
     };

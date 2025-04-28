@@ -1,5 +1,6 @@
+import { Logger } from "@nestjs/common";
 import { Test, TestingModule } from "@nestjs/testing";
-import { CacheService } from "./cache.service";
+import { CacheRepository } from "./cache.repository";
 import { Client } from "memjs";
 
 jest.mock("memjs", () => {
@@ -25,16 +26,18 @@ jest.mock("memjs", () => {
   };
 });
 
-describe("CacheService", () => {
-  let service: CacheService;
+describe("CacheRepository", () => {
+  let service: CacheRepository;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [CacheService],
+      providers: [CacheRepository],
     }).compile();
 
-    service = module.get<CacheService>(CacheService);
+    service = module.get<CacheRepository>(CacheRepository);
     service.onModuleInit();
+
+    jest.spyOn(Logger.prototype, "error").mockImplementation(() => {});
   });
 
   it("should be defined", () => {
@@ -78,5 +81,19 @@ describe("CacheService", () => {
     const spy = jest.spyOn(Client.create(), "quit");
     service.onModuleDestroy();
     expect(spy).toHaveBeenCalled();
+  });
+
+  it("should log an error if saving to cache fails", async () => {
+    const mockCache = {
+      set: jest.fn().mockRejectedValue(new Error("Mock error")),
+    };
+    service["cache"] = mockCache as Partial<Client> as Client;
+
+    await service.set("key", "value");
+
+    expect(Logger.prototype.error).toHaveBeenCalledWith(
+      "Errrore durante il salvataggio in cache",
+      expect.any(Error),
+    );
   });
 });

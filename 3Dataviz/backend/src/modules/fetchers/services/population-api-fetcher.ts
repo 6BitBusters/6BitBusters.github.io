@@ -3,7 +3,7 @@ import { BaseFetcher } from "../interfaces/base-fetcher.interface";
 import { BaseApiFetcher } from "./base-api-fetcher";
 import axios from "axios";
 import { POPULATION_API_CONFIG } from "../config";
-import { Dataset } from "../../../interfaces/dataset.interface";
+import { RawDataset } from "../../../interfaces/raw-dataset.interface";
 import { Entry } from "../../../interfaces/entry.interface";
 import { Legend } from "../../../interfaces/legend.interface";
 import { PopulationData } from "../interfaces/population-data.interface";
@@ -42,15 +42,8 @@ export class PopulationApiFetcher
     return POPULATION_API_CONFIG.DESCRIPTION;
   }
 
-  async getDataset(): Promise<Dataset> {
-    try {
-      const data = await this.fetchData();
-      return this.transformData(data);
-    } catch (error) {
-      throw new ServiceUnavailableException(
-        `Errore nel recupero dei dati\n${error}`,
-      );
-    }
+  getLegend(): Legend {
+    return POPULATION_API_CONFIG.LEGEND;
   }
 
   protected async fetchData(): Promise<PopulationData[]> {
@@ -66,9 +59,8 @@ export class PopulationApiFetcher
     }
   }
 
-  protected transformData(data: PopulationData[]): Dataset {
+  protected transformData(data: PopulationData[]): RawDataset {
     const entries: Entry[] = [];
-    const legend: Legend = POPULATION_API_CONFIG.LEGEND;
     try {
       const records = data[data.length - 1];
       // Array di tutti gli anni in ordine crescente, escludendo i duplicati
@@ -92,9 +84,8 @@ export class PopulationApiFetcher
         };
         entries.push(entry);
       });
-      const dataset: Dataset = {
+      const dataset: RawDataset = {
         data: entries,
-        legend: legend,
         xLabels: xLabels,
         zLabels: zLabels,
       };
