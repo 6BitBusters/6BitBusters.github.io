@@ -51,7 +51,7 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: |
-            test-report.junit.xml
+            coverage/lcov.info
           flags: frontend
           name: frontend-coverage
           working-directory: 3Dataviz/frontend

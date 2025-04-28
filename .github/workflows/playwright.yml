@@ -20,13 +20,17 @@ jobs:
           cache: "npm"
           cache-dependency-path: "3Dataviz/frontend/package-lock.json"
 
-      - name: Install dependencies
+      - name: Install frontend dependencies
         run: npm ci
         working-directory: 3Dataviz/frontend
-
+        
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
         working-directory: 3Dataviz/frontend
+        
+      - name: Install backend dependencies
+        run: npm ci
+        working-directory: 3Dataviz/backend
 
       - name: Start backend server
         run: npm run start & # Esegui in background
