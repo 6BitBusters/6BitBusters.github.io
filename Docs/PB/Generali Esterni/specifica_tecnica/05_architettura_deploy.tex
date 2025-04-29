@@ -1,23 +1,23 @@
 \subsection{Architettura di Deployment}
 
 Per facilitare la gestione e la configurazione dei servizi necessari all'applicazione, in particolare l'integrazione di \textbf{Memcached} come sistema di caching, è stato configurato un ambiente basato su Docker.\\
-La containerizzazione dell'applicazione permette di avviare contemporaneamente tutti componenti necessari al suo funzionamento, semplificando la gestione delle dipendenze e delle configurazioni.\\
-Il file \texttt{dc-dep.yaml} definiscee tutte le informazioni sulle immagini utilizzate e sulle configurazioni dell'ambiente.\\
+La containerizzazione dell'applicazione permette di avviare contemporaneamente tutti componenti richiesti, semplificando la gestione delle dipendenze e delle configurazioni.\\
+Il file Docker Compose \texttt{dc-dep.yaml} definisce tutte le informazioni sulle immagini utilizzate e sulle configurazioni dell'ambiente.\\
 
 Nel nostro ambiente di deploy sono presenti i seguenti container:
 
 \begin{itemize}
     \item \textbf{Container Memcached}:
     \begin{itemize}
-        \item Esegue il servizio di caching in memoria distribuito \textbf{Memcached};
-        \item Consente la memorizzazione temporanea dei dati per ridurre il carico sulle API esterne e migliorare le performance complessive;
+        \item Esegue il servizio di caching tramite il sistema distribuito \textbf{Memcached};
+        \item Consente la memorizzazione temporanea dei dati per ridurre il carico sulle API esterne e migliorare le performance;
         \item È accessibile al container Server tramite la porta \texttt{11211}.
     \end{itemize}
     
     \item \textbf{Container Server}:
     \begin{itemize}
         \item Esegue il backend;
-        \item Si occupa della logica applicativa, dell'elaborazione dei dati e della gestione della cache tramite Memcached;
+        \item Si occupa de recupero, dell'elaborazione, dell'invio dei dati e della gestione della cache;
         \item Espone la porta \texttt{3000} per permettere la comunicazione con il frontend.
     \end{itemize}
     
@@ -29,5 +29,5 @@ Nel nostro ambiente di deploy sono presenti i seguenti container:
     \end{itemize}
 \end{itemize}
 
-Questa organizzazione garantisce una gestione efficiente e scalabile dei componenti, semplificando la distribuzione e l'allocazione delle risorse per ciascun servizio. 
+Questa organizzazione garantisce una gestione efficace e scalabile dei componenti, semplificando la distribuzione e l'allocazione delle risorse per ciascun servizio. 
 L'adozione di Docker consente inoltre di assicurare coerenza tra gli ambienti di sviluppo, testing e produzione, migliorando l'affidabilità e facilitando l'evoluzione futura del sistema.
