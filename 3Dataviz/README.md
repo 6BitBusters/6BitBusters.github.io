@@ -2,7 +2,7 @@
 [![Check frontend code](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/pr_frontend_check.yml/badge.svg)](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/pr_frontend_check.yml)
 [![Check backend code](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/pr_backend_check.yml/badge.svg)](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/pr_backend_check.yml)
 [![Playwright Tests](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/playwright.yml/badge.svg)](https://github.com/6BitBusters/6BitBusters.github.io/actions/workflows/playwright.yml)
-[![codecov](https://codecov.io/gh/6BitBusters/6BitBusters.github.io/graph/badge.svg?token=DLNTJL4E40)](https://codecov.io/gh/6BitBusters/6BitBusters.github.io)
+[![codecov](https://codecov.io/gh/6BitBusters/6BitBusters.github.io/branch/code%2F3Dataviz/graph/badge.svg?token=DLNTJL4E40)](https://codecov.io/gh/6BitBusters/6BitBusters.github.io)
 
 ## Struttura del Progetto
 
