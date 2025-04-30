@@ -188,7 +188,7 @@ In questo paragrafo si vanno a definire le norme di scrittura del codice del pro
     indentazione alla riga immediatamente successiva all’ultima riga di codice del costrutto;
     \item \textbf{Metodi:} il nome dei metodi dovrà essere formattato in \textbf{Camel Case} e in inglese, dove ogni parola inizia con la lettera maiuscola tranne la prima.
     È preferibile mantenere metodi brevi, con poche righe di codice;
-    \item \textbf{Classi:} il nome delle classi dovrà essere formattato in \textbf{Pascal Case} e in inglese, dove ogni parola inizia con la lettera maiuscola;
+    \item \textbf{Classi e tipi:} il nome delle classi e dei tipi dovrà essere formattato in \textbf{Pascal Case} e in inglese, dove ogni parola inizia con la lettera maiuscola;
     \item \textbf{Variabili:} il nome delle variabili dovrà essere formattato in \textbf{Camel Case} e in inglese, dove ogni parola inizia con la lettera maiuscola tranne la prima.
     La loro dichiarazione dovrà avvenire all’inizio della funzione o script;
     \item \textbf{Costanti:} il nome dovrà essere formattato in \textbf{Macro Case} e in inglese, dove ogni parola è scritta in maiuscolo e separata da un underscore;
@@ -197,7 +197,7 @@ In questo paragrafo si vanno a definire le norme di scrittura del codice del pro
     \item \textbf{Commenti:} i commenti dovranno essere inseriti prima dell’inizio del costrutto, presentati in lingua
     italiana e indentati di uno spazio. Inoltre sono obbligatori in parti di codice che non sono immediatamente comprensibili.
     Ogni volta che viene aggiornato un metodo va verificata la validità del commento;
-    \item \textbf{File:} il nome dei file creati dovrà essere formattato in \textbf{Camel Case}
+    \item \textbf{File:} il nome dei file creati dovrà essere formattato in \textbf{Camel Case}.
 \end{itemize} 
 \vspace{1em}
 
@@ -210,7 +210,7 @@ linguaggio utilizzato nel progetto.
         \item Utilizzo tag lowercase;
         \item Chiusura di tutti i tag;
         \item Valori degli attributi in minuscolo.
-        \item Seguire le buone pratiche di struttura proposte del WCAG2.1 \url{https://www.w3.org/TR/WCAG21} (18-03-2025)
+        \item Seguire le buone pratiche di struttura proposte del WCAG2.1 \url{https://www.w3.org/TR/WCAG21} (18-03-2025).
     \end{itemize}
     \item \textbf{CSS:} utilizzato per fornire uno stile gli elementi HTML. Il team ha concordato le seguenti normative:
     \begin{itemize}
@@ -243,7 +243,6 @@ Per quanto riguarda i costrutti che la libreria React.js ci consente di creare, 
         linea;
         \item Se l’informazione è più lunga di una linea di codice allora bisogna indentare le informazioni.
     \end{itemize}
-    \item Utilizzare sempre \textbf{Camel Case} per i nomi delle prop;
     \item Utilizzare sempre i doppi apici invece che i singoli;
     \item Utilizzare una self-close se i tag non hanno figli;
     \item Utilizzare className per assegnare classi CSS agli elementi.
@@ -253,17 +252,27 @@ Per quanto riguarda i costrutti che la libreria React.js ci consente di creare, 
 \noindent \textbf{Organizzazione codice}\\  % SOGGETTO A VARIAZIONE %
 In seguito riportiamo la struttura che il gruppo ha deciso di utilizzare per il progetto:
 \begin{itemize}
-    \item \textbf{client} Parte frontend;
+    \item \textbf{/frontend}
     \begin{itemize}
-        \item Il team ha deciso di utilizzare un'organizzazione di cartelle seguendo le linee guida proposte dalla documentazione ufficiale di Redux-Toolkit:\\
-        \url{https://redux.js.org/tutorials/essentials/part-2-app-structure#application-contents} (18-03-2025)\\ \\
-        \textbf{Nota:} I fogli di stile per ogni componente UI verrà collocato nella stessa cartella del componente stesso.
+        \item /\_\_test\_\_: contiene i test di unità e di integrazione dell'applicazione;
+        \item /playwright\_test: contiene i test end-to-end dell'applicazione;
+        \item /public: contiene i file statici dell'applicazione; 
+        \item /src: contiene il codice sorgente dell'applicazione. Si organizza in cartelle, adattando le linee guida proposte dalla documentazione ufficiale di Redux-Toolkit:
+        \url{https://redux.js.org/tutorials/essentials/part-2-app-structure#application-contents} (28-04-2025):
+        \begin{itemize}
+            \item /app: contiene lo store Redux dell'applicazione;
+            \item /features: contiene le slice Redux dell'applicazione;
+            \item /components: contiene i componenti UI e three.js dell'applicazione;
+            \item /pages: contiene le pagine dell'applicazione;
+            \item main.tsx: file principale dell'applicazione, dove viene montato il componente principale.
+        \end{itemize}
+        \textbf{Nota:} il foglio di stile per un componente UI verrà collocato nella medesima cartella del componente stesso.
     \end{itemize}
 
-    \item \textbf{server} Parte backend.
+    \item \textbf{/backend}
     \begin{itemize}
         \item Il team ha deciso di utilizzare un'organizzazione di cartelle seguendo quello dichiarato del seguente link:\\
-        \url{https://narhakobyan.github.io/awesome-nest-boilerplate/docs/architecture.html}\\ (18-03-2025) \\ \\
+        \url{https://narhakobyan.github.io/awesome-nest-boilerplate/docs/architecture.html}\\ (28-04-2025) \\ \\
         \textbf{Nota:} La cartella "modules" contiene i moduli suddivisi in cartelle e al loro interno dovranno esserci i corrispettivi controller, provider e service.
     \end{itemize}
 \end{itemize}
