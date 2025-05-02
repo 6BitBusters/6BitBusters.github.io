@@ -200,7 +200,7 @@ Il modulo esporta la classe concreta \texttt{CacheRepository} come provider asso
 \subsection{Pattern architetturale e Design pattern}
 
 \subsubsection{Architettura Modulare (Modular Architecture)}
-L’architettura del backend è progettata seguendo un approccio modulare, in cui ogni modulo rappresenta un'unità funzionale autonoma. Ciò consente di isolare le responsabilità, facilitando la manutenibilità e l'estensibilità del sistema. Ogni modulo è progettato per essere riutilizzabile e facilmente testabile, seguendo i principi della separazione delle preoccupazioni.
+L’architettura del backend è progettata seguendo un approccio modulare, in cui ogni modulo rappresenta un'unità funzionale autonoma. Ciò consente di isolare le responsabilità, facilitando la manutenibilità e l'estensibilità del sistema. Ogni modulo è progettato per essere riutilizzabile e facilmente testabile, seguendo i principi della separazione delle responsabilità.
 
 \subsubsection{Architettura a Strati (Layered Architecture)}
 All'interno dei moduli principali, l'architettura a strati separa le diverse responsabilità: controller per la gestione delle richieste, servizi per la businnes logic, un eventuale repository per la persistenza dei dati e possibilmente DTO per la definizione dei dati scambiati. Questa separazione migliora la manutenibilità e la testabilità dell'applicazione.
