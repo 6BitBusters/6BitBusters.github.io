@@ -114,7 +114,26 @@ abbreviazioni per identificare lo stato dei test:
 }
 \subsection{Test di integrazione}
 \testTable{
-    TI1 & - & NI\tabularnewline
+    TI1 & Verifica che la HomePage venga caricata correttamente & S\tabularnewline
+    TI2 & Verifica che i dataset disponibili vengano caricati correttamente & S\tabularnewline
+    TI3 & Verifica che, al caricamento del dataset, il nome del dataset corrente sia visualizzato nella pagina dell'ambiente & S\tabularnewline
+    TI4 & Verifica che durante il caricamento del dataset, sia visibile il testo di caricamento & S\tabularnewline
+    TI5 & Verifica che al termine del caricamento del dataset, il testo di caricamento non sia più visibile & S\tabularnewline
+    TI6 & Verifica che la legenda dell'ambiente 3D sia caricata correttamente & S\tabularnewline
+    TI7 & Verifica che una cella contenente un valore non filtrato sia visibile e che le venga applicata la classe CSS \texttt{highlight} & S\tabularnewline
+    TI8 & Verifica che una cella contenente un valore filtrato non sia visibile e non abbia la classe CSS \texttt{highlight} & S\tabularnewline
+    TI9 & Verifica che, dopo aver cliccato una cella, ogni altra cella con un valore numericamente maggiore cambi stile in quanto considerata filtrata & S\tabularnewline
+    TI10 & Verifica che, dopo aver cliccato una cella, ogni altra cella con un valore numericamente inferiore cambi stile in quanto considerata filtrata & S\tabularnewline
+    TI11 & Verifica che, eseguendo un filtraggio per i valori inferiori al valore medio, tutte le celle della tabella che soddisfano la condizione abbiano la classe CSS appropriata & S\tabularnewline
+    TI12 & Verifica che, eseguendo un filtraggio per i valori superiori al valore medio, tutte le celle della tabella che soddisfano la condizione abbiano la classe CSS appropriata & S\tabularnewline
+    TI13 & Verifica che, eseguendo un filtraggio per i bottom 2 valori, le due celle della tabella con i valori più bassi abbiano la classe CSS appropriata & S\tabularnewline
+    TI14 & Verifica che, eseguendo un filtraggio per i top 2 valori, le due celle della tabella con i valori più alti abbiano la classe CSS appropriata & S\tabularnewline
+    TI15 & Verifica che, eseguendo il reset dei filtri, tutte le celle della tabella ritornino ad avere la classe CSS predefinita o quella che avevano prima dell'applicazione dei filtri & S\tabularnewline
+    TI16 & Verifica che il bottone di reset della camera sia visibile al caricamento del dataset & S\tabularnewline
+    TI17 & Verifica che, al click sul bottone di reset camera, venga eseguita un'animazione di tweening sulla telecamera che la riporta alla sua posizione iniziale & S\tabularnewline
+    TI18 & Verifica che l'\texttt{AppStatus} non contenga errori & S\tabularnewline
+    TI19 & Verifica che i dati dell'errore vengano caricati correttamente & S\tabularnewline
+    TI20 & Verifica che il componente \texttt{ApiSelector} venga caricato correttamente & S\tabularnewline
 }
 \subsection{Test di sistema}
 \testTable{
