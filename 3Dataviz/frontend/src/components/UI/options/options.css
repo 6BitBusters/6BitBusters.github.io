@@ -1,7 +1,7 @@
 #option-container {
     position: fixed;
     right: -470px;
-    top: 400px;
+    top: 350px;
     transform: translateY(-50%);
 }
 #option-wrap {
@@ -40,6 +40,11 @@
     margin-bottom: 2rem;
 }
 
+.filter,
+.plane-view {
+    position: relative;
+}
+
 .choice-form {
     width: fit-content;
     margin-left: auto;
@@ -51,6 +56,26 @@
     margin-top: .5rem;
     margin-bottom: 0rem;
     font-size: 1.1rem;
+    border-radius: 5px;
+    padding: .2rem 1rem;
+    text-align: center;
+}
+
+.option-choise:has(input:checked) {
+    background-color: rgb(148, 255, 136);
+    color: var(--ui-bg-color);
+}
+
+.option-choise:has(input:checked)::before {
+    content: "►";
+    color: white;
+    position: absolute;
+    left: 0;
+    font-size: 2rem;
+}
+
+.option-choise:has(input:not(:checked)) {
+    opacity: .5;
 }
 
 .option-choise input{
