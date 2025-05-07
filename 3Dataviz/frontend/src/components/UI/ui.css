@@ -33,5 +33,10 @@ button {
 }
 
 input[type="radio"] {
-    accent-color: var(--accent)
+    accent-color: var(--accent);
+    appearance: none;
+    -webkit-appearance: none;
+    pointer-events: none;
+    display: block;
+    outline: none;
 }
