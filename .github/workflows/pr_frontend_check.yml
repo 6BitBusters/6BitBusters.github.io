@@ -1,0 +1,61 @@
+name: Check frontend code
+
+on:
+  pull_request:
+    branches:
+      - 'code/frontend'
+      - main
+      
+jobs:
+  test-frontend:
+    runs-on: ubuntu-latest
+    if: ${{ startsWith(github.head_ref, 'code/') }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+          cache-dependency-path: "3Dataviz/frontend/package-lock.json"
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: 3Dataviz/frontend
+
+      - name: Check format
+        run: npx prettier --check "./**/*.{ts,tsx,js}"
+        working-directory: 3Dataviz/frontend
+
+      - name: Run lint
+        run: npm run lint:check
+        working-directory: 3Dataviz/frontend
+
+      - name: Run tests
+        run: |
+          if [ -n "$(find . -name '*.test.*' -print -quit)" ]; then
+            npm test
+          else
+            echo "::error::Non sono stati trovati i test"
+          fi
+        working-directory: 3Dataviz/frontend
+
+      - name: Check coverage
+        run: npx vitest run --coverage
+        working-directory: 3Dataviz/frontend
+
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: |
+            coverage/lcov.info
+          flags: frontend
+          name: frontend-coverage
+          working-directory: 3Dataviz/frontend
+
+      - name: Build
+        run: npm run build
+        working-directory: 3Dataviz/frontend
