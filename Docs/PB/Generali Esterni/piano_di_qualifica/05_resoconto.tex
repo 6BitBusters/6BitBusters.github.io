@@ -11,6 +11,17 @@
     \newpage
 }
 
+\newcommand{\MetNoPB}[3]{
+    \subsubsection{#1}
+    \begin{figure}[h!] \centering
+        \includegraphics[scale=0.75]{#2}
+        \caption{Proiezione della#1negli ultimi periodi di progetto}
+    \end{figure}
+    \subsubsection*{PB}
+    #3
+    \newpage
+}
+
 \section{Resoconto delle attività di verifica}
 
 \subsection{Verifica della qualità dei processi}
@@ -252,5 +263,156 @@ Per calcolare le seguenti misure abbiamo utilizzato le formule e le nozioni desc
 Nella PB, gli errori grammaticali sono stati praticamente assenti, grazie a un processo di revisione ben strutturato.
 }
 
+\MetNoPB
+{ % METRICA
+    MPD3 - Requisiti obbligatori soddisfatti     
+}
+{ % GRAFICO
+    template/images/REQ-O.png
+}
+{   % DESCRIZIONE PB
+    Il grafico evidenzia il pieno soddisfacimento di tutti i requisiti obbligatori, garantendo la conformità del prodotto agli obiettivi minimi concordati con il proponente.
+}
 
+\MetNoPB
+{ % METRICA
+    MPD4 - Requisiti desiderabili soddisfatti    
+}
+{ % GRAFICO
+    template/images/REQ-D.png
+}
+{   % DESCRIZIONE PB
+    Il team non ha individuato requisiti desiderabili durante la fase di analisi, pertanto questa metrica non è applicabile.
+}
 
+\MetNoPB
+{ % METRICA
+    MPD5 - Requisiti opzionali soddisfatti    
+}
+{ % GRAFICO
+    template/images/REQ-OP.png
+}
+{   % DESCRIZIONE PB
+I requisiti opzionali sono stati soddisfatti sin dalla prima sprint di sviluppo, confermando l’efficacia del lavoro svolto dal team. Il loro completamento ha contribuito ad arricchire ulteriormente le funzionalità del prodotto, andando oltre gli obiettivi minimi previsti.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD6 - Casi di test superati     
+}
+{ % GRAFICO
+    template/images/TEST.png
+}
+{   % DESCRIZIONE PB
+    Il numero elevato di casi di test superati indica una buona copertura del codice e l’affidabilità del sistema rispetto ai comportamenti attesi.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD7 - Densità errori
+}
+{ % GRAFICO
+    template/images/DE.png
+}
+{   % DESCRIZIONE PB
+La densità di errori ha raggiunto valori sotto la soglia di ottimalità definita dal team negli ultimi due sprint, indicando un significativo miglioramento nella qualità del codice e nella fase di verifica e validazione.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD8 - Tempo di apprendimento    
+}
+{ % GRAFICO
+    template/images/TEMP-A.png
+}
+{   % DESCRIZIONE PB
+    Il tempo di apprendimento per un nuovo utente è risultato contenuto, confermando la facilità d’uso e l’intuitività dell’interfaccia.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD9 - Tempo di caricamento    
+}
+{ % GRAFICO
+    template/images/TEMP-C.png
+}
+{   % DESCRIZIONE PB
+    I tempi di caricamento delle pagine sono stati ottimizzati e si mantengono al di sotto della soglia ottimale, migliorando l’esperienza utente.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD10 - Tempo medio di risposta    
+}
+{ % GRAFICO
+    template/images/TEMP-R.png
+}
+{   % DESCRIZIONE PB
+    Il tempo medio di risposta alle richieste dell’utente è risultato conforme agli standard previsti.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD11 - Complessità ciclomatica 
+}
+{ % GRAFICO
+    template/images/CC.png
+}
+{   % DESCRIZIONE PB
+    La complessità ciclomatica, che misura la complessità del flusso di controllo del codice, è stata mantenuta entro livelli accettabili. Questo approccio favorisce la manutenibilità del codice e facilita la fase di testing.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD12 - Parametri per metodo
+}
+{ % GRAFICO
+    template/images/PM.png
+}
+{   % DESCRIZIONE PB
+    Il numero di parametri per metodo è stato contenuto per migliorare la leggibilità del codice e ridurre l'accoppiamento tra componenti.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD13 -  Linee di codice per metodo
+}
+{ % GRAFICO
+    template/images/LINEE-M.png
+}
+{   % DESCRIZIONE PB
+Inizialmente, alcuni file presentavano un numero elevato di linee di codice per metodo, rendendo il codice meno leggibile. Tuttavia, nel successivo sprint, sono stati rivisitati e ottimizzati, garantendo una distribuzione più equilibrata e migliorando la comprensibilità.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD14 -  Linee di codice per file
+}
+{ % GRAFICO
+    template/images/LINEE-F.png
+}
+{   % DESCRIZIONE PB
+    I file mantengono una dimensione gestibile, favorendo la modularità e la manutenzione del progetto.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD15 -  Densità dei commenti
+}
+{ % GRAFICO
+    template/images/DC.png
+}
+{   % DESCRIZIONE PB
+    La densità dei commenti è risultata adeguata, garantendo una buona documentazione interna al codice senza appesantirlo inutilmente. Grazie alle norme definite, il team ha rispettato le linee guida, inserendo solo i commenti necessari per mantenere il codice chiaro e comprensibile.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD16 -  Supported Browser
+}
+{ % GRAFICO
+    template/images/SB.png
+}
+{   % DESCRIZIONE PB
+    Il prodotto è stato testato con successo su una buona varietà di browser, per assicurare compatibilità e accessibilità per un’ampia base di utenti.
+}
