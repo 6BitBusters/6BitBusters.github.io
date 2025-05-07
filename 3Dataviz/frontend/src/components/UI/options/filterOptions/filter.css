@@ -1,0 +1,24 @@
+#filter-container button {
+    margin: 0rem  auto 0rem auto;
+    width: 13rem;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    font-weight: 700;
+    height: 2rem;
+    background-color: var(--accent);
+    color: white;
+}
+
+#filter-container input[type="number"] {
+    margin-bottom: .5rem;
+    width: 50%;
+    height: 2rem;
+    padding-right: .5em;
+    padding-left: .5em;
+    text-align: center;
+    font-size: .9em;
+    background-color:white;
+    border-radius: 10px;
+    border: 3px solid var(--accent);
+    font-size: 1.1rem;
+}

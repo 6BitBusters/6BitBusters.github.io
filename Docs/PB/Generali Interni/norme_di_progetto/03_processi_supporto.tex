@@ -11,7 +11,9 @@ durante tutte le fasi del ciclo di vita di un documento: creazione, stesura,
 verifica\textsubscript{g} ed eventuali modifiche, fino ad arrivare
 all'approvazione\textsubscript{g} e quindi alla pubblicazione del documento.
 
-\subsubsection{Ciclo di vita di un documento}
+\subsubsection{Scopo}
+Lo scopo è creare uno standard per la gestione del ciclo di vita di ogni documento.
+Il ciclo di vita di ogni documento è così composto:
 \begin{itemize}
       \item \textbf{Creazione}: viene creato un nuovo branch\textsubscript{g}, che prende il nome del documento stesso
             (vedi \nameref{inf:branch}), in cui viene caricato il template. Dal momento della creazione, in questo
@@ -48,7 +50,9 @@ all'approvazione\textsubscript{g} e quindi alla pubblicazione del documento.
 \end{itemize}
 
 \newpage
-\subsubsection{Struttura}
+\subsubsection{Attività}
+
+\subsubsubsection{Template standard} \\
 Ogni documento è caratterizzato da un template, che presenta queste
 caratteristiche:
 \begin{itemize}
@@ -84,51 +88,65 @@ caratteristiche:
       \item \textbf{Contenuto}: varia a seconda del documento.
 \end{itemize}
 
-\subsubsection{Convenzioni}
+\subsubsubsection{Convenzioni}
 Al fine di ottenere una stesura della documentazione omogenea, e quindi più
 professionale, vengono adottate le seguenti convenzioni.
-\paragraph{Date}
-~\\\\Per garantire un ordinamento in ordine cronologico in fase di pubblicazione,
+\vspace{1em}
+
+\noindent \textbf{Date} \\
+Per garantire un ordinamento in ordine cronologico in fase di pubblicazione,
 dal più recente al meno recente, viene utilizzato il formato
 \textbf{yyyy-mm-dd} se la data deve essere indicata nel nome del documento
 (vale per verbali interni/esterni); per indicare una data all'interno del
 documento, invece, viene utilizzato il formato \textbf{dd-mm-yyyy}.
-\paragraph{Nomi di persona}
-~\\\\All'interno dei documenti i nomi di persona saranno rappresentati da cognome e
+\vspace{1em}
+
+\noindent \textbf{Nomi di persona} \\
+All'interno dei documenti i nomi di persona saranno rappresentati da cognome e
 nome.
-\paragraph{Elenchi puntati}
-~\\\\Gli elenchi puntati saranno gestiti in questo modo:
+\vspace{1em}
+
+\noindent \textbf{Elenchi puntati} \\
+Gli elenchi puntati saranno gestiti in questo modo:
 \begin{itemize}
       \item Ogni elemento dell'elenco deve iniziare con la lettera maiuscola;
       \item Ogni elemento dell'elenco deve terminare con ";", ad eccezione dell'ultimo che
             terminerà con ".";
 \end{itemize}
-\paragraph{Stile del testo}
+\vspace{1em}
+
+\noindent \textbf{Stile di testo} \\
 \begin{itemize}
       \item \textbf{Grassetto}: utilizzato per i titoli delle sezioni, delle sottosezioni e dei paragrafi,
             e per termini specifici che necessitano di evidenza nel contesto;
       \item \textbf{Corsivo}: utilizzato per nomi di documenti, nome del proponente,
             nome del gruppo o indirizzo email del gruppo.
 \end{itemize}
-\paragraph{Link}
-~\\\\All'interno dei documenti i link saranno strutturati in questo modo:
+\vspace{1em}
+
+\noindent \textbf{Link} \\
+All'interno dei documenti i link saranno strutturati in questo modo:
 \begin{itemize}
       \item Breve descrizione della destinazione del link: \textbackslash
             url\{indirizzo\_del\_link\}.
 \end{itemize}
-\paragraph{Terminologia inglese}
-~\\\\Tutti i termini in lingua inglese saranno riportati al singolare, in quanto
+\vspace{1em}
+
+\noindent \textbf{Terminologia inglese} \\
+Tutti i termini in lingua inglese saranno riportati al singolare, in quanto
 questa scelta risulta più coerente con l'uso comune e l'assonanza nella lingua
 italiana. Ad esempio, termini come "file" o "commit" verranno sempre utilizzati
 nella loro forma singolare, anche quando si riferiscono a concetti plurali, per
 evitare ambiguità o traduzioni non naturali.\\ Per quanto riguarda il genere
-(maschile o femminile), verrà specificato all'interno del \textit{Glossario},
+(maschile o femminile), verrà specificato all'interno del \textit{Glossario v2.0.0},
 così da uniformare l'interpretazione e garantire chiarezza, specialmente nei
 casi in cui il termine inglese non abbia un corrispettivo diretto o il genere
 non sia immediatamente evidente. Questa scelta mira a favorire una lettura
 fluida e una comprensione condivisa del testo.
-\paragraph{Acronimi}
-~\\\\Tutti gli acronimi seguiranno queste regole:
+\vspace{1em}
+
+\noindent \textbf{Acronimi} \\
+Tutti gli acronimi seguiranno queste regole:
 \begin{itemize}
       \item L'acronimo deve essere scritto in maiuscolo;
       \item L'articolo davanti a un acronimo deve concordare in genere e numero con il
@@ -136,11 +154,11 @@ fluida e una comprensione condivisa del testo.
             termini stranieri, la concordanza va basata sul significato tradotto o
             percepito in italiano. Questo garantisce una corretta integrazione
             dell'acronimo nella struttura grammaticale della lingua;
-      \item Ogni acronimo deve essere inserito nel \textit{Glossario}, accompagnato da una
+      \item Ogni acronimo deve essere inserito nel \textit{Glossario v2.0.0}, accompagnato da una
             spiegazione dettagliata del suo significato, per garantire chiarezza e
             comprensione.
 \end{itemize}
-\subsubsection{Strumenti per la stesura}
+\subsubsubsection{Strumenti per la stesura}
 Per la stesura dei documenti viene usato il linguaggio LaTeX, un linguaggio di
 marcatura per la preparazione di testi. È fortemente consigliato usare Visual
 Studio Code, un IDE che supporta numerose estensioni, tra cui LaTeX Workshop,
@@ -163,7 +181,8 @@ per la compilazione di sorgenti ".tex" e l'anteprima del documento in formato
 \end{itemize}
 Oltre a questi file, viene creato un file per ogni sezione, per garantire maggiore ordine all'organizzazione
 del documento e facilitare la suddivisione dei compiti.
-\subsubsection{Documentazione interna}
+
+\subsubsubsection{Documentazione interna}
 La documentazione interna è costituita da tutti i documenti che contengono
 informazioni utili per il gruppo. Tali documenti saranno comunque resi pubblici
 all'interno del repository, e nella pagina web creata tramite GitHub
@@ -181,7 +200,7 @@ Pages\textsubscript{g}.\\ La documentazione interna è composta da:
                               \item Ora di fine;
                               \item Partecipanti.
                         \end{itemize}
-                  \item \textbf{Motivo della riunione}: breve descrizione narrativa di cosa è stato trattato in quell'incontro, che descrive i motivi per cui è stata indetta la riunione;
+                  \item \textbf{Ordine del giorno}: breve descrizione narrativa di cosa è stato trattato in quell'incontro, che descrive gli argomenti trattati nella riunione;
                   \item \textbf{Resoconto}: descrive i temi trattati nel dettaglio, partendo dal motivo per il quale sono stati sollevati e arrivando alla decisione presa dal gruppo a seguito di una discussione;
                   \item \textbf{Prossimi obiettivi}: elenco puntato che descrive gli obiettivi che il gruppo si impegna a portare a termine nel breve periodo, indicativamente prima della riunione successiva;
                   \item \textbf{Tracciamento delle decisioni}: tabella che riassume le decisioni prese in quella riunione indicandone:
@@ -249,7 +268,8 @@ Pages\textsubscript{g}.\\ La documentazione interna è composta da:
 
             \end{itemize}
 \end{itemize}
-\subsubsection{Documentazione esterna}
+
+\subsubsubsection{Documentazione esterna}
 La documentazione esterna è composta da tutti i documenti che interessano anche
 il proponente e/o il committente.
 \begin{itemize}
@@ -257,7 +277,7 @@ il proponente e/o il committente.
             Seguono la struttura dei verbali interni, il nome del file deve avere la forma "VE\_yyyy-mm-dd". Cambia il processo di approvazione\textsubscript{g} del documento:
             il verbale viene approvato non solo dal responsabile, ma anche dal soggetto esterno con il quale si è svolto l'incontro,
             per rendere il documento più professionale e garantire coerenza tra il gruppo e il soggetto esterno.
-      \item \textit{\textbf{Lettera di candidatura}}: serve per esprimere la volontà di candidarsi allo svolgimento del capitolato scelto, dopo aver discusso e redatto lo \textit{Studio di fattibilità},
+      \item \textit{\textbf{Lettera di presentazione}}: serve per esprimere la volontà di candidarsi allo svolgimento del capitolato scelto, dopo aver discusso e redatto lo \textit{Studio di fattibilità},
             è composta da:
             \begin{itemize}
                   \item Pagina iniziale: viene dichiarato il capitolato per il quale il gruppo ha
@@ -299,7 +319,7 @@ il proponente e/o il committente.
                         riunioni interne, come specificato nella sottosezione \nameref{inf:reqs}.
             \end{itemize}
       \item \textit{\textbf{Piano di progetto}}: ha lo scopo di supportare la gestione delle risorse per quanto riguarda l'avanzamento del progetto, per riuscire a portarlo a termine entro la data decisa.\\
-            Il \textit{Piano di progetto} ha inoltre la funzione di descrivere il modello di sviluppo adottato, e di monitorarlo tramite la suddivisione in periodi, per analizzare il lavoro svolto e poter apportare miglioramenti con il passare del tempo.
+            Il \textit{Piano di progetto v1.0.0} ha inoltre la funzione di descrivere il modello di sviluppo adottato, e di monitorarlo tramite la suddivisione in periodi, per analizzare il lavoro svolto e poter apportare miglioramenti con il passare del tempo.
             \\Il corpo del documento è composto da queste sezioni:
             \begin{itemize}
                   \item \textbf{Introduzione}: riporta lo scopo del documento, lo scopo del prodotto, i riferimenti normativi e informativi;
@@ -373,7 +393,26 @@ il proponente e/o il committente.
                         durante il corso del progetto.
             \end{itemize}
       \item \textit{\textbf{Glossario}}: documento che contiene il significato dei termini chiave utilizzati nel progetto (indicati con il pedice "g"), utile per garantire una comprensione comune fornendo spiegazioni concise e precise.
-            \\La struttura del \textit{Glossario} è composta da sezioni caratterizzate dalle lettere dell'alfabeto in ordine alfabetico, contenenti le parole che hanno come iniziale quella lettera.
+            \\La struttura del \textit{Glossario v2.0.0} è composta da sezioni caratterizzate dalle lettere dell'alfabeto in ordine alfabetico, contenenti le parole che hanno come iniziale quella lettera.
+      
+      \item \textit{\textbf{Specifica tecnica}}: documento che descrive in dettaglio l'architettura del sistema, le tecnologie utilizzate e le scelte progettuali adottate.\\
+            La struttura del documento è composta da:
+            \begin{itemize}
+                  \item \textbf{Introduzione}: riporta lo scopo del documento, lo scopo del prodotto, i riferimenti normativi e informativi;
+                  \item \textbf{Tecnologie}: descrive i linguaggi di programmazione, i framework e gli strumenti di supporto utilizzati per lo sviluppo del prodotto. Viene fornita una breve descrizione di ciascuna tecnologia, evidenziando le motivazioni che hanno portato alla sua scelta;
+                  \item \textbf{Descrizione dell'architettura}: illustra l’architettura del sistema, sia dal lato frontend che backend, evidenziando i design pattern adottati, i componenti principali e le loro interazioni. Include diagrammi e descrizioni dettagliate per facilitare la comprensione della struttura del sistema.
+            \end{itemize}
+
+      \item \textit{\textbf{Manuale utente}}: documento che fornisce istruzioni dettagliate sull'utilizzo del prodotto software. Include istruzioni su come accedere al sistema, configurarlo e utilizzarlo. Rappresenta una guida testuale pensata per permettere all’utente di usufruire, in maniera efficace e completa, di tutte le funzionalità offerte dal prodotto software.\\
+      Il corpo del documento è composto dalle seguenti sezioni:
+            \begin{itemize}
+                  \item \textbf{Introduzione}: riporta lo scopo del documento, lo scopo del prodotto, i browser supportati dal software e i requisiti hardware minimi raccomandati per l’utilizzo;
+                  \item \textbf{Panoramica}: descrive le schermate iniziali del sito, dove l’utente può selezionare un dataset e visualizzarne i dettagli prima di accedere all’ambiente 3D interattivo;
+                  \item \textbf{Funzionalità}: elenca le operazioni che l’utente può eseguire nell’ambiente 3D;
+                  \item \textbf{Interfaccia utente}: presenta le schermate principali dell’applicazione, corredate da immagini e descrizioni sintetiche per facilitare la comprensione dell’interfaccia;
+                  \item \textbf{Navigazione}: spiega nel dettaglio i comandi disponibili per interagire con l’ambiente 3D, tramite mouse e tastiera.
+                 
+            \end{itemize}
 \end{itemize}
 
 \subsubsection{Metriche}
@@ -386,13 +425,16 @@ adottare le seguenti metriche:
 \end{itemize}
 
 \subsection{Gestione della configurazione}
-\subsubsection{Scopo}
+\subsubsection{Descrizione}
 La gestione della configurazione è un processo che mira a gestire e controllare
 i cambiamenti apportati a un prodotto software o a un sistema durante il suo
-ciclo di vita. La gestione della configurazione per la documentazione descrive
-come vengono identificate, controllate, tracciate e gestite le versioni di un
-documento.
-\subsubsection{Versionamento}
+ciclo di vita. Questo processo si applica sia alla documentazione che al codice 
+sorgente.
+\subsubsection{Scopo}
+Lo scopo di questo processo è garantire che ogni modifica sia tracciabile, controllata e approvata 
+prima di essere integrata nel prodotto finale.
+\subsubsection{Attività}
+\subsubsubsection{Versionamento}
 Ogni versione del documento è identificata da un codice di versione nel formato
 \textbf{Z.Y.X} dove:
 \begin{itemize}
@@ -400,7 +442,7 @@ Ogni versione del documento è identificata da un codice di versione nel formato
       \item \textbf{Y}: la sezione aggiunta o modificata di un documento è stata verificata;
       \item \textbf{X}: è stata corretta velocemente qualche incoerenza o errore minore.
 \end{itemize}
-\subsubsection{Repository}
+\subsubsubsection{Repository}
 Il repository si può trovare all'indirizzo
 \textbf{\url{https://6bitbusters.github.io}} ed è pubblico. I collaboratori
 sono i componenti del gruppo \textit{6BitBusters} che utilizzano il proprio
@@ -411,26 +453,32 @@ repository è formata in questo modo:
       \item \textbf{3Dataviz}: cartella che contiene i file sorgente del prodotto software;
       \item \textbf{Docs}: cartella che contiene la documentazione. Si divide ulteriormente in:
             \begin{itemize}
-                  \item \textbf{Candidatura}: cartella che contiene i documenti da presentare per la candidatura;
-                  \item \textbf{Generali}: cartella che contiene tutta la documentazione esterna e interna tranne i verbali;
-                  \item \textbf{Verbali esterni}: cartella contenente i verbali esterni, che riportano gli incontri con soggetti esterni;
-                  \item \textbf{Verbali interni}: cartella contenente i verbali interni, relativi agli incontri tra membri del gruppo.
+                  \item \textbf{CC}: cartella che contiene i documenti utili per la candidatura per il capitolato;
+                  \item \textbf{PB}: cartella che contiene i documenti utili per la revisione \textit{Product Baseline} 
+                  \item \textbf{RTB}: cartella che contiene i documenti utili per la revisione \textit{Requirements and Technology Baseline} 
             \end{itemize}
       \item \textbf{website}: cartella che contiene i file sorgente del sito web che successivamente verrà pubblicato utilizzando GitHub Pages.
 \end{itemize}
+\newpage
+All'interno delle cartelle \textbf{CC},\textbf{PB},\textbf{RTB} sono presenti ulteriori cartelle che dividono il tipo di documentazione:
+\begin{itemize}
+      \item \textbf{Candidatura}: cartella che contiene i documenti da presentare per la candidatura;
+      \item \textbf{Generali Esterni}: cartella che contiene tutta la restante documentazione esterna tranne i verbali;
+      \item \textbf{Generali Interni}: cartella che contiene tutta la restante documentazione interna tranne i verbali;
+      \item \textbf{Verbali Esterni}: cartella contenente i verbali esterni, relativi agli incontri incontri con soggetti esterni;
+      \item \textbf{Verbali Interni}: cartella contenente i verbali interni, relativi agli incontri tra membri del gruppo.
+\end{itemize}
+
 Il repository è dotato di sistema di auto-build per la documentazione grazie a GitHub Actions (vedi \nameref{inf:automaz}).
 Per maggiori informazioni riguardanti i branch seguire le regole descritte nella sezione \nameref{inf:branch}.
 
-\subsubsection{Branching}\label{inf:branch}
+\subsubsubsection{Branching}\label{inf:branch}
 I branch si dividono in:
 \begin{itemize}
       \item \textbf{Branch protetti}: sono modificabili solo tramite pull request
             \begin{itemize}
                   \item \textbf{main}: branch principale che contiene la documentazione e il codice approvato del responsabile,
                         nonché la parte che viene mostrata sulla pagina web;
-                  \item \textbf{docs/[NOME-DOCUMENTO]}: un branch per ogni documento, che contiene solamente le versioni verificate del documento.
-                        Se il nome del documento include dei trattini ("-"), nel nome del branch devono essere sostituiti con underscore ("\_"),
-                        ad esempio docs/VI\_2024\_11\_20.
             \end{itemize}
       \item \textbf{Branch derivati}: sono branch utilizzati per aggiungere modifiche e aggiornare un documento o una parte di codice che poi dovrà essere verificata
             attraverso una pull request verso il branch da cui esso è stato derivato;\\
@@ -445,23 +493,46 @@ I branch si dividono in:
                               \textbf{docs/[NOME-DOCUMENTO]-[ID-ISSUE]}
                         \end{center}
             \end{itemize}
+            Per quanto riguarda il codice sorgente, i nomi dei branch derivati dipendono dalla parte del progetto su cui si sta lavorando e seguono la seguente convenzione:                  
+            \begin{itemize}
+                  \item \textbf{Per il codice frontend}:
+                        \begin{center}
+                              \textbf{code/frontend-[ID-ISSUE]}
+                        \end{center}
+                  \item \textbf{Per il codice backend}:
+                        \begin{center}
+                              \textbf{code/backend-[ID-ISSUE]}
+                        \end{center}
+            \end{itemize}
             dove:
-
             \begin{itemize}
                   \item \textbf{NOME-DOCUMENTO}: indica il nome del documento sul quale si sta lavorando;
                   \item \textbf{ID-ISSUE}: indica il numero identificativo associato alla issue relativa alla modifica del documento;
                   \item \textbf{COGNOME-ASSEGNATARIO}: indica il cognome del membro che modifica il documento.
             \end{itemize}
+
             Se un componente richiede una pull request, ma il branch di destinazione è più aggiornato di quello di partenza,
             deve fare un merge dal branch di destinazione a quello di partenza. In questo modo vengono applicate le modifiche delle versioni
             già approvate/verificate nel branch di partenza. Inoltre, è necessario che il registro delle modifiche e la pagina iniziale
             vengano adeguatamente modificati per segnalare l'incremento della versione.
+
       \item \textbf{Branch di hotfix}: sono branch dedicati all'hotfix e quindi a correzioni minime, sia per la documentazione che per il codice. Valgono le stesse regole dei
             branch protetti, quindi le modifiche devono essere sempre verificate e in caso approvate.
             Il nome per questi branch deve essere:
-            \begin{center}
-                  \textbf{hotfix/[NOME-DOCUMENTO]}
-            \end{center}
+            \begin{itemize}
+                  \item \textbf{Per la documentazione}:
+                        \begin{center}
+                              \textbf{hotfix/[NOME-DOCUMENTO]}
+                        \end{center}
+                  \item \textbf{Per il codice frontend}:
+                        \begin{center}
+                              \textbf{hotfix/frontend}
+                        \end{center}
+                  \item \textbf{Per il codice backend}:
+                        \begin{center}
+                              \textbf{hotfix/backend}
+                        \end{center}
+            \end{itemize}        
 \end{itemize}
 
 In ogni branch derivato il lavoro può essere svolto da un solo componente del
@@ -474,6 +545,7 @@ destinazione è:
 \begin{itemize}
       \item \textbf{main} $\rightarrow$ il documento deve essere approvato;
       \item \textbf{docs/[NOME-DOCUMENTO]} $\rightarrow$ il documento deve essere verificato e successivamente viene eliminato il branch derivato.
+      \item \textbf{code/frontend} oppure \textbf{code/backend} $\rightarrow$ il codice deve essere verificato e successivamente viene eliminato il branch derivato.
 \end{itemize}
 
 Di seguito si riporta un semplice ma esaustivo esempio di workflow tramite
@@ -482,7 +554,7 @@ immagine:
       \includegraphics[scale = 0.33]{template/images/workflow.png}
 \end{center}
 
-\subsubsection{Commit}\label{inf:comm}
+\subsubsubsection{Commit}\label{inf:comm}
 È preferibile che ogni commit abbia una singola responsabilità per cambiamento.
 I commit non possono essere effettuati direttamente sui branch protetti ma per contribuire con delle aggiunte o
 modifiche sarà necessario aprire una pull request, motivo per il quale abbiamo introdotto dei branch derivati.
@@ -500,37 +572,48 @@ dove:
       \item \textbf{COSA}: breve descrizione di cosa di è aggiunto e/o fatto.
 \end{itemize}
 
-Notare però che dopo l'approvazione di una pull request tutti i commit relativi
+Dopo l'approvazione di una pull request tutti i commit relativi al documento oppure al codice
 verranno raggruppati in un unico commit, il cui titolo deve rispettare la
-struttura sintattica descritta in seguito.
+struttura sintattica descritta in seguito.\\
+
+Per la documentazione:
 \begin{center}
       \textbf{Update: [NOME-DOCUMENTO]-[VERSIONE]}
 \end{center}
-dove:
 
+Per il codice frontend:
+\begin{center}
+      \textbf{Update: frontend-[ID-ISSUE]}
+\end{center}
+
+Per il codice backend:
+\begin{center}
+      \textbf{Update: backend-[ID-ISSUE]}
+\end{center}
+
+dove:
 \begin{itemize}
       \item \textbf{NOME-DOCUMENTO}: indica il nome del documento nel quale sono state verificate le modifiche;
       \item \textbf{VERSIONE}: indica il numero di versione aggiornata.
+      \item \textbf{ID-ISSUE}: indica il numero identificativo associato alla issue relativa alla modifica del documento o del codice.;
+
 \end{itemize}
+
 Per quanto riguarda il commento facoltativo, si lascia quello di default proposto da GitHub,
 ovvero un elenco puntato di tutti i commit che verranno raggruppati.\\
 
-Per aggiornare direttamente il main si è deciso di disabilitare temporaneamente
-il protection, eseguire un commit con delle modifiche, con la struttura
-sintattica elencata sopra, e infine attivare nuovamente il protection. Questa
-soluzione è stata adottata perché il team ritiene sia più veloce e semplice
-apportare modifiche a template e action in questo modo rispetto alla creazione
-di un branch e a una successiva pull request, inoltre il main, una volta
-ultimate le automazioni, non verrà più modificato se non dai merge scatenati
-dalle pull request.
-
-\subsubsection{Pull request}\label{inf:pr}
+\subsubsubsection{Pull request}\label{inf:pr}
 Per effettuare un merge su un branch protetto si deve aprire, da GitHub, una
 pull request. Questa permette di verificare il lavoro svolto prima di
 integrarlo con un branch protetto ed eseguire un veloce test di compilazione
 della sezione aggiunta. Alla creazione di una pull request bisogna associare:
 \begin{itemize}
-      \item \textbf{Title}: [NOME-DOCUMENTO]-[ID-ISSUE];
+      \item \textbf{Title}:
+            \begin{itemize} 
+                  \item Per la documentazione: \textbf{[NOME-DOCUMENTO]-[ID-ISSUE]}; 
+                  \item Per il codice frontend: \textbf{Frontend-[ID-ISSUE]};
+                  \item Per il codice backend: \textbf{Backend-[ID-ISSUE]}; 
+            \end{itemize}
       \item \textbf{Verificatori in carica}: coloro che hanno il compito di trovare eventuali errori o mancanze e fornire un feedback
             riguardante il contenuto direttamente su GitHub attraverso un commento, sulla stessa pull request.
             Non sarà possibile effettuare il merge finché tutti i commenti di revisione non saranno stati risolti
@@ -541,14 +624,14 @@ della sezione aggiunta. Alla creazione di una pull request bisogna associare:
                   \textbf{close \#[ID-ISSUE]}
             \end{center}
             in modo tale che vengano tutte chiuse in automatico quando la pull request verrà accettata;
-      \item \textbf{Gli assegnatari}: coloro che hanno anche il compito di apportare le modifiche necessarie al documento;
+      \item \textbf{Gli assegnatari}: coloro che hanno anche il compito di apportare le modifiche necessarie al documento o al codice;
       \item \textbf{Label}: riassume di che natura è la pull request.
 \end{itemize}
 dove:
 
 \begin{itemize}
       \item \textbf{NOME-DOCUMENTO}: indica il nome del documento sul quale si sta lavorando e richiedendo la verifica/approvazione;
-      \item \textbf{ID-ISSUE}: indica il numero identificativo associato alla issue relativa alla modifica del documento.
+      \item \textbf{ID-ISSUE}: indica il numero identificativo associato alla issue relativa alla modifica del documento o del codice.
 \end{itemize}
 
 Per una descrizione più dettagliata delle issue si faccia riferimento a
@@ -557,13 +640,14 @@ Per una descrizione più dettagliata delle issue si faccia riferimento a
 Per i commit relativi alle pull request seguire le regole descritte nella
 sezione \nameref{inf:pr}.
 
-\subsubsection{Automazione}\label{inf:automaz}
-\subsubsubsection{Scopo}
+\subsubsubsection{Automazioni}\label{inf:automaz}
 Lo scopo dell'automazione è garantire una maggiore efficienza e ridurre il
 rischio di errori umani. Tuttavia, il costo necessario per rendere automatiche
 alcune attività potrebbe essere superiore al beneficio ottenuto. È quindi
 fondamentale scegliere attentamente quali processi automatizzare.
-\subsubsubsection{Automazioni realizzate}
+\vspace{1em}
+
+\noindent \textbf{Automazioni realizzate per la documentazione} \\
 L'automazione dei processi di verifica e di compilazione della documentazione
 avviene tramite GitHub Actions, che permette di eseguire script personalizzati
 in risposta a eventi specifici che si verificano nel repository. In
@@ -573,7 +657,7 @@ particolare, sono state scritte tre diverse action:
             tutta la documentazione creata fino a quel momento e di creare la relativa pagina web tramite Pages;
       \item \texttt{pr\_build\_check.yml}: si scatena quando viene effettuata una pull request verso il main o verso
             un branch di documentazione, ovvero del tipo docs/[NOME-DOCUMENTO]. Serve per verificare che
-            i sorgenti LaTeX compilino correttamente e che sia stato modificato uno e un solo documento;
+            i sorgenti LaTeX compilino correttamente;
       \item \texttt{pr\_gulpease\_check.yml}: si scatena quando viene effettuata una pull request verso il main o verso
             un branch di documentazione, ovvero del tipo docs/[NOME-DOCUMENTO]. Essa verifica che
             l'indice Gulpease del documento, espresso come media degli indici delle sezioni, sia maggiore o uguale a 50.
@@ -583,7 +667,32 @@ e \\\texttt{pr\_gulpease\_check.yml} diano esito positivo. A tale scopo, è stat
 che non sia possibile effettuare il merge di una pull request se non sono soddisfatti entrambi i controlli.
 Inoltre, per accelerare il processo di verifica, è fortemente raccomandato eseguire localmente gli script di test,
 in modo da individuare e correggere eventuali errori prima di effettuare la pull request.
-\subsubsubsection{Aggiungere un'action}
+\vspace{1em}
+
+\noindent \textbf{Automazioni realizzate per la codifica} \\
+L'automazione per la parte di codifica ha lo scopo di garantire che ogni modifica al codice sorgente rispetti determinati 
+standard qualitativi e non introduca errori. Le automazioni sono state realizzate tramite GitHub Actions e si attivano in 
+occasione di pull request verso i branch dedicati al frontend o al backend. In particolare, sono stati creati i seguenti 
+workflow:
+\begin{itemize}
+      \item \texttt{pr\_frontend\_check.yml}: esegue una serie di verifiche sul codice frontend contenuto nella cartella \texttt{3Dataviz/frontend}; 
+      \item \texttt{pr\_backend\_check.yml}: analogamente, esegue i controlli sulla parte backend situata nella cartella \texttt{3Dataviz/backend}. \\
+
+      Per entrambi vengono eseguite le seguenti operazioni:      \begin{itemize} 
+            \item installazione delle dipendenze; 
+            \item verifica della formattazione del codice; 
+            \item esecuzione dell'analisi statica del codice; 
+            \item avvio dei test automatici; 
+            \item build del progetto. 
+      \end{itemize}
+\end{itemize}      
+
+I workflow implementati sono fondamentali per mantenere l’integrità del codice. Per questo motivo, il repository è stato configurato affinché non sia 
+possibile effettuare il merge di una pull request se i relativi controlli automatici non hanno esito positivo. Inoltre, è raccomandata l’esecuzione locale 
+degli stessi comandi di verifica prima dell’apertura di una pull request, per ridurre il tempo di revisione e prevenire errori banali.
+\vspace{1em}
+
+\noindent \textbf{Come aggiungere un'action} \\
 Per aggiungere un'action, è necessario seguire i seguenti passaggi:
 \begin{itemize}
       \item Creare un file in linguaggio YAML nella cartella \texttt{.github/workflows} del
@@ -604,21 +713,46 @@ Per aggiungere un'action, è necessario seguire i seguenti passaggi:
       \item Riabilitare il protection del main.
 \end{itemize}
 
+\subsubsubsection{Page Github}
+Attraverso la pagina GitHub, il team vuole fornire un punto di accesso centralizzato e di facile consultazione per tutta la documentazione.
+\vspace{1em}
+
+\noindent \textbf{Come aggiornare il sito} \\
+Il procedimento è molto simile a quello per aggiungere un'action:
+\begin{itemize}
+      \item Modificare o creare un nuovo file in linguaggio HTML, CSS o Javascript nella cartella \texttt{website} del repository;
+      \item Disabilitare temporaneamente il protection del main;
+      \item Effettuare un commit con le modifiche apportate (vedi \nameref{inf:comm});
+      \item Riabilitare il protection del main.
+\end{itemize}
+
+\subsubsubsection{Docker}
+Docker viene utilizzato per la creazione di immagini e container isolati per facilitare e velocizzare lo sviluppo dell'applicazione. 
+Esso garantisce inoltre portabilità e coerenza tra ambienti.
+\vspace{1em}
+
+\noindent \textbf{Docker compose} \\
+Sono stati creati 2 file per la creazione e l'avvio automatico dei container:
+\begin{itemize}
+      \item \textit{dc-dev.yaml:} permette la creazione di container che condividono volumi con l'host, consentendo l'hot-reloading immediato delle modifiche all'applicazione.
+      \item \textit{dc-dep.yaml:} permette la creazione di container che hanno una copia dell'applicazione, utilizzati per il deploy finale.
+\end{itemize}
+
 \subsection{Accertamento della qualità}
+\subsubsection{Descrizione}
+Il processo di accertamento della qualità controlla il raggiungimento degli obiettivi di qualità che il team si
+è prefissato di raggiungere e le metriche utilizzate per misurare tale raggiungimento.\\ Il controllo della qualità consite nella misurazione e
+nell'analisi degli indicatori di interesse, valutando il grado di raggiungimento
+degli obiettivi di qualità. \\ Il documento \textit{Piano di qualifica v1.1.0} tratta
+nel dettaglio le attività di pianificazione e controllo della qualità.
 \subsubsection{Scopo}
 Lo scopo del processo di accertamento della qualità è garantire la qualità dei
-processi adottati e del software prodotto, al fine di soddisfare le aspettative
+processi adottati e del prodotto software realizzato, al fine di soddisfare le aspettative
 degli stakeholder e i requisiti del progetto. Ciò avviene tramite le attività
-di pianificazione della qualità, il controllo della qualita e il miglioramento
-continuo.
-\subsubsection{Descrizione}
-Il piano della qualità comprende gli obiettivi di qualità che il team si
-impegna a raggiungere e le metriche utilizzate per misurare il raggiungimento
-di tali obiettivi. \\ Il controllo della qualità consite nella misurazione e
-analisi degli indicatori di interesse, valutando il grado di raggiungimento
-degli obiettivi di qualità. \\ Il documento \textit{Piano di qualifica} tratta
-nel dettaglio le attività di pianificazione e controllo della qualità. \\
-\subsubsection{Ciclo di Deming}
+di pianificazione della qualità, il controllo della qualità e il miglioramento
+continuo. 
+\subsubsection{Attività}
+\subsubsubsection{Ciclo di Deming}
 Per quanto riguarda l'attività di miglioramento continuo dei processi, il
 gruppo adotta il ciclo di Deming. Si tratta di un metodo di gestione iterativo
 che prevede quattro fasi:
@@ -641,13 +775,11 @@ di adottare le seguenti metriche:
 \begin{itemize}
       \item \nameref{M:MM}.
 \end{itemize}
+
 \subsection{Verifica}
-\subsubsection{Scopo}
-Lo scopo del processo di verifica\textsubscript{g} è quello di accertare che
-non siano stati commessi errori nello svolgimento delle attività prefissate.
-Questo processo viene applicato costantemente sia durante la stesura della
-documentazione, che durante lo sviluppo del software.
 \subsubsection{Descrizione}
+Il processo di verifica viene applicato costantemente sia durante la stesura della
+documentazione, che durante lo sviluppo del software.
 La verifica verrà fatta in maniera efficace adottando questi metodi:
 \begin{itemize}
       \item \textbf{Analisi statica}: non richiede esecuzione dell'oggetto di verifica, quindi applicabile a documentazione e codice, usata per accertare conformità e regole nonché assenza di difetti, adotteremo i due seguenti metodi di lettura:
@@ -661,7 +793,13 @@ La verifica verrà fatta in maniera efficace adottando questi metodi:
             \end{itemize}
       \item \textbf{Analisi dinamica}: richiede l'esecuzione dell'oggetto di verifica, quindi è applicabile solo al codice, usata per accertare che il codice sia corretto, non introduca errori nel sistema e soddisfi i requisiti preposti.
 \end{itemize}
-\subsubsection{Verifica della documentazione} Al momento della necessità di modificare o aggiungere qualcosa a una sezione di
+\subsubsection{Scopo}
+Lo scopo del processo di verifica\textsubscript{g} è quello di accertare che
+non siano stati commessi errori nello svolgimento delle attività prefissate.
+
+\subsubsection{Attività}
+\subsubsubsection{Verifica della documentazione} 
+Quando vi sarà la necessità di modificare o aggiungere nuove informazioni ad una sezione di
 un documento, si procederà in questo modo:
 \begin{enumerate}
       \item Verrà creata una issue che specifica l'attività di modifica o aggiunta da
@@ -685,11 +823,11 @@ un documento, si procederà in questo modo:
             documento verificato.
 \end{enumerate}
 
-\subsubsection{Verifica del codice}
+\subsubsubsection{Verifica del codice}
 Il processo di verifica del codice si attua principalmente attraverso lo
 sviluppo e l'esecuzione di test, che permettono di eseguire un'analisi dinamica
 del software, ossia un'analisi che si concentra sul comportamento del programma
-durante l'esecuzione. I test vengono progettati per garantire che il codice
+in esecuzione. I test vengono progettati per garantire che il codice
 funzioni correttamente in vari scenari e che rispetti i requisiti prefissati. I
 principali tipi di test utilizzati in questo processo sono:
 \begin{itemize}
@@ -724,7 +862,8 @@ Ogni test, inoltre, possiede uno stato, che può essere:
       \item \textbf{S}: superato;
       \item \textbf{NS}: non superato.
 \end{itemize}
-\paragraph{Metriche}
+
+\subsubsection{Metriche}
 Per perseguire la qualità nel processo di verifica, si è deciso di adottare le
 seguenti metriche:
 \begin{itemize}
@@ -740,9 +879,19 @@ seguenti metriche:
       \item \nameref{M:LPF};
       \item \nameref{M:CD}.
 \end{itemize}
+
 \subsection{Validazione}
-Nel processo di validazione il fornitore dimostra che tutti i requisiti utente
-sono stati soddisfatti. A tal fine assumono fondamentale importanza
-i test di accettazione. Essi verificano che il prodotto finale sia conforme ai requisiti e
-alle aspettative dell'utente finale, e quindi sia pronto per essere rilasciato.
-I test di accettazione vengono definiti con il proponente nella fase di analisi dei requisiti.
+
+\subsubsection{Descrizione}
+La validazione è il processo attraverso cui il fornitore dimostra che il prodotto sviluppato soddisfa tutti i requisiti utente. 
+Si svolge al termine dello sviluppo e rappresenta una fase fondamentale per confermare che il sistema risponda alle esigenze del cliente.
+
+\subsubsection{Scopo}
+Lo scopo di tale processo è verificare che il prodotto corrisponda alle specifiche concordate, 
+sia pronto per l'utilizzo previsto e risponda efficacemente alle aspettative del committente.
+
+\subsubsection{Attività}
+\subsubsubsection{Test di accettazione}
+I test di accettazione hanno l'obiettivo di verificare che il prodotto finale sia conforme ai requisiti e possa essere rilasciato.  
+Vengono definiti insieme al proponente durante l'analisi dei requisiti e rappresentano il criterio principale per approvare il sistema.  
+Sono eseguiti in un ambiente che riproduce le condizioni operative reali.

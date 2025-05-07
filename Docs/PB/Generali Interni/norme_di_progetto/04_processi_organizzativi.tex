@@ -2,20 +2,34 @@
 Questa sezione mira a gestire i processi e il loro miglioramento,
 l'organizzazione degli strumenti di supporto e la gestione del personale.
 
-\subsection{Pianificazione}
-\subsubsection{Metodo di Lavoro}
+\subsection{Gestione dei processi}
+\subsubsection{Descrizione}
+Il processo di gestione dei processi contiene le attività e i compiti generici che possono 
+essere adottati nella gestione di qualunque processo descritto nei capitoli precedenti. 
+Il responsabile è incaricato della gestione di prodotto, progetto e compiti per processi quali acquisizione, 
+fornitura, sviluppo, esercizio, manutenzione o supporto.
+
+\subsubsection{Scopo}
+Lo scopo di questo processo è assicurare che i processi gestiti siano pianificati, eseguiti, monitorati e completati efficacemente, 
+nel rispetto di tempi, costi, qualità e requisiti concordati tra le parti coinvolte.
+
+\subsubsection{Attività}
+\subsubsubsection{Metodo di Lavoro}
 Il team ha adottato il metodo di lavoro Scrum, una delle metodologie Agile più
 diffuse. Di conseguenza i compiti derivanti dai processi di sviluppo vengono
 suddivisi in sprint di due settimane. Questo rende l'avanzamento del prodotto
 più gestibile e più rapido, avendo però un tempo sufficiente per implementare
 diverse feature e redigere i documenti necessari.
-\paragraph*{Sprint}\label{inf:sprint} ~\\\\ Per ogni sprint, il responsabile
+\vspace{1em}
+
+\noindent \textbf{Sprint} \label{inf:sprint} \\ 
+Ad ogni sprint il responsabile
 assegna i ruoli a ciascun membro, creando un diagramma delle attività per
 stimare le ore necessarie e tenendo traccia dei giorni in cui ogni membro può
 contribuire alla realizzazione del progetto. Successivamente, l'amministratore
 si occuperà di creare le issue associate allo sprint in modo da rendere il
 lavoro degli altri membri più semplice e veloce. Inoltre assicura che sia
-avvenuta la verifica, in caso di modifica, del \textit{Piano di progetto} e
+avvenuta la verifica, in caso di modifica, del \textit{Piano di progetto v1.0.0} e
 delle \textit{Norme di progetto} prima dell'inizio dello sprint successivo, in
 modo da avere sempre la documentazione adatta e aggiornata sotto mano.\\\\ Le
 attività dello sprint sono le seguenti:
@@ -26,7 +40,7 @@ attività dello sprint sono le seguenti:
               \item Ogni componente del gruppo, durante la riunione, segnala le ore che può mettere
                     a disposizione;
               \item Il responsabile assegna i ruoli e definisce gli obiettivi dello sprint nel
-                    documento \textit{Piano di progetto}.
+                    documento \textit{Piano di progetto v1.0.0}.
           \end{itemize}
     \item \textbf{Daily scrum}: ogni giorno, i membri del team sono tenuti a condividere, attraverso il gruppo Telegram dedicato,
           un report dettagliato delle attività svolte il giorno precedente,
@@ -42,7 +56,7 @@ attività dello sprint sono le seguenti:
           quello che è da migliorare, per capire come comportarsi per lo sprint successivo.
 \end{itemize}
 
-\subsubsection{Ruoli e responsabilità}
+\subsubsubsection{Ruoli e responsabilità}
 I membri del team \textit{Six Bit Busters} ricopriranno i ruoli principali di un
 ciclo di vita del prodotto software, ovvero analista, progettista,
 programmatore, verificatore, amministratore di sistema e responsabile. \\ Al
@@ -88,7 +102,7 @@ in ogni area.
           Le sue competenze sono:
           \begin{itemize}
               \item Studiare le richieste del proponente per identificare i requisiti e redigere
-                    l'\textit{Analisi dei requisiti}.
+                    l'\textit{Analisi dei requisiti v1.2.0}.
           \end{itemize}
           Ad ogni sprint si ha almeno un analista;
     \item \textbf{Progettista}\\
@@ -124,53 +138,63 @@ Per l'analisi dei ruoli e la rendicontazione delle ore preventivate si faccia
 riferimento ai documenti \textit{Dichiarazione degli impegni} e \textit{Piano
     di progetto}.
 
-\subsubsection{Metriche}
-Per perseguire la qualità nel processo riguardo la pianificazione, si è deciso
-di adottare le seguenti metriche:
-\begin{itemize}
-    \item \nameref{M:BV};
-    \item \nameref{M:SV};
-    \item \nameref{M:UR}.
-\end{itemize}
+\subsubsubsection{Modalità di comunicazione}
+\noindent \textbf{Interne}\\
+    Si svolgono tra i soli componenti del gruppo. Si utilizza:
+    \begin{itemize}
+        \item \textbf{Telegram}: canale di comunicazione asincrono per comunicazioni brevi;
+        \item \textbf{Discord}: canale di comunicazione sincrono per le riunioni interne.
+    \end{itemize}
+\vspace{1em}
 
-\subsection{Modalità di comunicazione}
-\subsubsection{Interne}
-Si svolgono tra i soli componenti del gruppo. Si utilizza:
-\begin{itemize}
-    \item \textbf{Telegram}: canale di comunicazione asincrono per comunicazioni brevi;
-    \item \textbf{Discord}: canale di comunicazione sincrono per le riunioni interne.
-\end{itemize}
-\subsubsection{Esterne}
-Si svolgono tra il gruppo e una persona esterna, generalmente il proponente
-o il committente. Si utilizza:
-\begin{itemize}
-    \item \textbf{Google Chat}: canale di comunicazione asincrono con il proponente;
-    \item \textbf{Google Meet}: canale di comunicazione sincrono con il proponente;
-    \item \textbf{Gmail}: canale di comunicazione asincrono con il committente;
-    \item \textbf{Zoom}: canale di comunicazione sincrono con il committente.
-\end{itemize}
+\noindent \textbf{Esterne} \\
+    Si svolgono tra il gruppo e una persona esterna, generalmente il proponente
+    o il committente. Si utilizza:
+    \begin{itemize}
+        \item \textbf{Google Chat}: canale di comunicazione asincrono con il proponente;
+        \item \textbf{Google Meet}: canale di comunicazione sincrono con il proponente;
+        \item \textbf{Gmail}: canale di comunicazione asincrono con il committente;
+        \item \textbf{Zoom}: canale di comunicazione sincrono con il committente.
+    \end{itemize}
+    
+\subsubsubsection{Modalità di riunione}
+\noindent \textbf{Interne} \\
+    Le riunioni interne si svolgono esclusivamente tra i membri del gruppo
+    utilizzando il canale apposito del server Discord. Per ogni riunione il
+    responsabile sarà incaricato di preparare una scaletta degli argomenti da
+    trattare, che potranno essere poi integrati da eventuali punti di discussione
+    portati dagli altri membri del gruppo.\\ Le riunioni si svolgono al termine di ogni sprint, cercando di trovare giorni e orari agevoli per tutti i membri del
+    gruppo. \\Al termine della riunione verrà redatto un verbale interno.
+    \vspace{1em}
 
-\subsection{Modalità di riunione}
-\subsubsection{Interne}
-Le riunioni interne si svolgono esclusivamente tra i membri del gruppo
-utilizzando il canale apposito del server Discord. Per ogni riunione il
-responsabile sarà incaricato di preparare una scaletta degli argomenti da
-trattare, che potranno essere poi integrati da eventuali punti di discussione
-portati dagli altri membri del gruppo.\\ Le riunioni si svolgono al termine di ogni sprint, cercando di trovare giorni e orari agevoli per tutti i membri del
-gruppo. \\Al termine della riunione verrà redatto un verbale interno.
+    \noindent \textbf{Esterne} \\
+    Le riunioni esterne si svolgono tra i membri del gruppo e il proponente a
+    cadenza bisettimanale. Al termine della riunione verrà redatto un verbale
+    esterno.
 
-\subsubsection{Esterne}
-Le riunioni esterne si svolgono tra i membri del gruppo e il proponente a
-cadenza bisettimanale. Al termine della riunione verrà redatto un verbale
-esterno.
+    \subsubsection{Metriche}
+    Per perseguire la qualità nella gestione dei processi, si è deciso
+    di adottare le seguenti metriche:
+    \begin{itemize}
+        \item \nameref{M:BV};
+        \item \nameref{M:SV};
+        \item \nameref{M:UR}.
+    \end{itemize}
 
-\subsection{Gestione delle infrastrutture}
-\subsubsection{Descrizione}
-In questa sezione sono riportate le norme relative alla gestione delle
-infrastrutture, vengono stabiliti gli strumenti di cui il gruppo farà uso e le
-relative regole di utilizzo.
+    \subsection{Gestione delle infrastrutture}
+    \subsubsection{Descrizione}
+    La presente sezione definisce le norme relative alla gestione delle infrastrutture utilizzate dal gruppo. 
+    In particolare, vengono identificati gli strumenti software e le piattaforme adottate, unitamente alle regole per il loro corretto impiego.
+    
+    \subsubsection{Scopo}
+     Una corretta gestione degli strumenti e delle piattaforme consente di garantire 
+     continuità operativa, tracciabilità delle attività, collaborazione tra i membri 
+     del team e sicurezza nella gestione delle informazioni. In questo modo, 
+     si favorisce un ambiente di lavoro strutturato e affidabile, in grado di 
+     supportare adeguatamente tutte le fasi del ciclo di vita del progetto.
 
-\subsubsection{GitHub}
+\subsubsection{Attività}
+\subsubsubsection{GitHub}
 Come servizio di hosting per il progetto il team ha optato per GitHub. \\Oltre
 alla copia in remoto del repository del progetto, ogni membro del gruppo ha
 una propria copia in locale nella quale può testare e fare prove senza
@@ -189,12 +213,12 @@ collegata al repository del progetto in remoto.\\ Alternativamente, è possibile
 eseguire le stesse operazioni tramite interfaccia grafica, con l'applicativo
 GitHub Desktop.
 
-\subsubsection{Overleaf}
+\subsubsubsection{Overleaf}
 Inizialmente, il team aveva scelto Overleaf come editor principale per la scrittura collaborativa di documenti online in LaTeX. 
 Tuttavia, è emerso che non era la soluzione ottimale per la creazione dei documenti, soprattutto considerando l'automazione del processo di build implementata direttamente su GitHub. 
 Attualmente Overleaf viene utilizzato esclusivamente come editor di supporto per i membri che non hanno installato LiveTeX in locale.
 
-\subsubsection{Milestone}
+\subsubsubsection{Milestone}
 Esistono 2 tipi di milestone:
 \begin{itemize}
     \item \textbf{Interne}: indicano uno sprint;
@@ -205,7 +229,7 @@ della percentuale di progressione dello sprint.
 Ogni milestone ha una scadenza che viene fissata da tutto il gruppo. Una delle prime milestone esterne create è
 relativa alla Requirements and Technology Baseline e, di conseguenza, alla realizzazione di un PoC.
 
-\subsubsection{Project board}\label{inf:pb}
+\subsubsubsection{Project board}\label{inf:pb}
 È utilizzata un'unica project board per tracciare tutte le issue del repository, che funge da backlog del progetto. 
 La project board è organizzata in quattro pannelli, che mostrano e raggruppano le issue in base alle loro caratteristiche.
 \begin{itemize}
@@ -237,7 +261,7 @@ Un esempio di workflow potrebbe essere il seguente:
           automatico nella sezione ”Done”.
 \end{enumerate}
 
-\subsubsection{Issue Tracking System}\label{inf:its}
+\subsubsubsection{Issue Tracking System}\label{inf:its}
 Il gruppo utilizza l'issue tracking system di Github per tenere traccia delle
 issue create. Le issue verranno create dall'amministratore, ma la loro
 assegnazione verrà effettuata dai membri del gruppo in modo autonomo, in base
@@ -325,7 +349,7 @@ dove:
     \item \textbf{NOME-FEATURE}: indica il nome della feature relativa al caso d'uso.
 \end{itemize}
 
-\subsubsection{Discord}
+\subsubsubsection{Discord}
 Strumento utilizzato per la comunicazione, in modo sincrono, tra i componenti
 del gruppo.\\ Sono stati creati diversi canali:
 \begin{itemize}
@@ -334,7 +358,7 @@ del gruppo.\\ Sono stati creati diversi canali:
     \item \textbf{General}: canale vocale dedicato alle riunioni interne, al termine delle quali verrà redatto un verbale.
 \end{itemize}
 
-\subsubsection{Telegram}
+\subsubsubsection{Telegram}
 Strumento utilizzato per la comunicazione, in modo asincrono, tra i componenti
 del gruppo.\\ Sono stati creati 2 distinti gruppi:
 \begin{itemize}
@@ -342,10 +366,28 @@ del gruppo.\\ Sono stati creati 2 distinti gruppi:
     \item \textbf{Daily scrum} : gruppo dedicato all'attivita di daily scrum, descritta nella sezione \nameref{inf:sprint}.
 \end{itemize}
 
-\subsection{Gestione dei dubbi e conflitti}
-Nel caso sorgano dubbi, questi verranno risolti, in base all'urgenza, tramite
-comunicazione nel canale Telegram o durante la riunione interna settimanale. \\
-I conflitti invece verranno prevalentemente discussi in sede di riunione
-interna, con l'obiettivo di trovare una soluzione condivisa che consenta al
-progetto di progredire secondo una visione comune.
+\subsection{Miglioramento dei processi}
+
+\subsubsection{Descrizione}
+La sezione descrive le attività dedicate all’analisi e all’ottimizzazione 
+dei processi interni, con l’obiettivo di migliorarne efficacia ed efficienza 
+in modo iterativo e strutturato.
+
+\subsubsection{Scopo}
+Favorire il miglioramento continuo delle pratiche di lavoro attraverso 
+momenti di confronto e revisione, così da aumentare la qualità dei risultati 
+e rafforzare la collaborazione all’interno del team.
+
+\subsubsection{Attività}
+\subsubsubsection{Retrospettiva}
+Come previsto dal metodo di lavoro Scrum adottato dal team, al termine di ogni sprint viene svolta una retrospettiva.  
+Durante questo momento di confronto, il gruppo riflette sull’andamento delle attività, individua criticità e definisce  
+azioni concrete per migliorare i processi nei cicli successivi.
+
+\subsubsubsection{Gestione dei dubbi e dei conflitti}
+I dubbi vengono affrontati tramite il canale Telegram o durante le riunioni 
+interne, in base alla priorità. I conflitti sono discussi nel gruppo, con 
+l’intento di trovare soluzioni condivise e mantenere coerenza nel lavoro.
+
+
 
