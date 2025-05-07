@@ -121,6 +121,20 @@ main h2 {
     background-size: 100% 100%;
 }
 
+main #docs  .expandable {
+    background: linear-gradient(100deg,var(--background-alt) 45%,var(--accent) 50%, var(--background-alt) 60%);
+    background-position: 100% 0%;
+    transition: background-position .2s ease;
+    background-size: 250% 250%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.4);
+}
+
+main #docs  .expandable:hover {
+    background-color: var(--background);
+    background-position: 85% 0%;
+}
+
 
 main #docs  .expandable input {
     padding: 0;
@@ -174,23 +188,6 @@ main .section {
 
 main .expandable {
     cursor: pointer;
-}
-
-main .expandable:hover:after{
-    content:'';
-    float: right;
-    width: 45px;
-    height: 45px;
-    background-image: url(images/image.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    transform-origin: center;
-    animation: hand 1s ease-in-out infinite;
-    position: absolute;
-    right: 0;
-    bottom: 20px;
-
 }
 
 main #docs  a {
