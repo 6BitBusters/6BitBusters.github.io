@@ -1,10 +1,23 @@
-\newcommand{\Met}[3]{
+\newcommand{\Met}[4]{
     \subsubsection{#1}
     \begin{figure}[h!] \centering
         \includegraphics[scale=0.75]{#2}
         \caption{Proiezione della#1nei vari periodi di progetto}
     \end{figure}
     \subsubsection*{RTB}
+    #3
+    \subsubsection*{PB}
+    #4
+    \newpage
+}
+
+\newcommand{\MetNoPB}[3]{
+    \subsubsection{#1}
+    \begin{figure}[h!] \centering
+        \includegraphics[scale=0.75]{#2}
+        \caption{Proiezione della#1negli ultimi periodi di progetto}
+    \end{figure}
+    \subsubsection*{PB}
     #3
     \newpage
 }
@@ -27,6 +40,10 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
     Il grafico mostra una crescita dei costi regolare e prevedibile, coerente con una pianificazione accurata che suddivide equamente il budget tra i vari sprint.
     Questo è un valore positivo e significa che il team riesce a pianificare nel modo corretto le ore per ogni ruolo ad ogni sprint.
 }
+{ % Descrizione PB
+    Durante la fase di PB, iniziata a partire dallo sprint 9, il team ha aumentato notevolmente il numero di ore pianificate per ogni sprint al fine di garantire il rispetto delle scadenze finali.
+    Al termine del progetto, la pianificazione si è rivelata abbastanza corretta, in quanto il valore finale del Planned Value è rimasto sotto il budget previsto.
+}
 
 \Met
 { % METRICA
@@ -39,6 +56,9 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
     Come si nota dal grafico, Actual Cost e Planned Value hanno una forte correlazione, suggerendo che le ore e i costi effettivamente impiegati per ogni ruolo sono in linea con le previsioni iniziali.
     Ciò indica una pianificazione accurata e una buona esecuzione del progetto.
 }
+{ % Descrizione PB
+    Durante la PB il team ha deciso di aumentare il numero di ore pianificate. Di conseguenza il costo effettivo è cresciuto notevolmente durante gli ultimi sprint. A progetto concluso si può vedere che il valore si è avvicinato al costo stimato di completamento, senza superarlo, segnalando quindi un buon controllo delle spese.
+}
 
 \Met
 { % METRICA
@@ -49,9 +69,12 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
 }
 { % DESCRIZIONE RTB
     Questo grafico illustra solamente il valore di Earned Value che rappresenta il valore delle attività realizzate nel progetto.
-    Da solo rientra tra i valori limite, e rappresenta un valor positivo, ma spesso viene messo a confronto con le altre metriche.
+    Da solo rientra tra i valori limite, e rappresenta un valore positivo, ma spesso viene messo a confronto con le altre metriche.
     Analizzando quindi i tre grafici di Earned Value, Planned Value e Actual Cost, si può notare come siano tutti allineati. 
     Questo indica una gestione del progetto accurata, con una precisa corrispondenza tra le attività pianificate, quelle effettivamente svolte e i costi sostenuti.
+}
+{ % Descrizione PB
+    L'Earned Value mostra un incremento progressivo, in particolare negli ultimi sprint (dal 10 al 12), dove si evidenzia un'accelerazione nello sviluppo. Questo riflette un incremento della produttività e una maggiore quantità di valore generato nel periodo della PB.
 }
 
 \Met
@@ -65,6 +88,10 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
     Il grafico mostra che l'Estimated at Completion (EAC) è molto vicino al Budget at Completion (BAC).
     Questo indica un'elevata precisione della stima iniziale dei costi e una gestione finanziaria efficace durante i periodi del progetto. 
 }
+{ % Descrizione PB
+    Alla conclusione del progetto, l’EAC si è rivelato sempre vicino al BAC, dimostrando l’accuratezza delle stime iniziali.
+}
+
 
 \Met
 { % METRICA
@@ -78,6 +105,10 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
     La tendenza all'abbassamento dell'ETC e all'aumento dell'AC è coerente con l'andamento previsto. 
     Questa dinamica suggerisce una buona gestione delle risorse e un avanzamento del progetto conforme alla pianificazione.
 }
+{ % Descrizione PB
+    Durante la PB, si osserva una forte decrescita dell'ETC. Questo è dovuto al fatto che il team ha completato gran parte delle attività pianificate, riducendo significativamente le ore rimanenti necessarie per il completamento del progetto.
+}
+
 
 \Met
 { % METRICA
@@ -92,6 +123,9 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
     amministratore, e analista che hanno un costo orario superiore alla media.
     Infatti, nello sprint 4, in cui è stato realizzato il PoC dai programmatore, la Cost Variance è stata positiva.
 }
+{ % Descrizione PB
+    La Cost Variance ha mostrato una riduzione significativa nello sprint 9, dovuta a una produttività ridotta in quel periodo. Negli sprint successivi, in particolare durante gli sprint 11 e 12, il valore è nettamente aumentato, mostrando quindi un recupero in termini di efficienza economica.
+}
 
 \Met
 { % METRICA
@@ -104,6 +138,9 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
     L'analisi del grafico evidenzia che, inizialmente, l'assenza di un WoW solido ha impedito al team di rispettare le tempistiche previste. 
     Con l'introduzione e il consolidamento del WoW, il team ha ottimizzato la pianificazione e l'esecuzione delle attività, migliorando significativamente il rispetto delle scadenze.
 }
+{ % Descrizione PB
+    La Schedule Variance ha mostrato valori positivi nella PB, confermando che il team è riuscito a concludere le attività nei tempi previsti.
+}
 
 \Met
 { % METRICA
@@ -115,6 +152,9 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
 { % DESCRIZIONE RTB
     L'analisi del grafico indica che il team sta impiegando un po' meno risorse rispetto alle previsioni iniziali.
     Questo dimostra una gestione efficiente e un'ottima capacità di adattamento alle esigenze del progetto.
+}
+{ % Descrizione PB
+    Nella fase finale del progetto (Sprint 9-12), la BV si è abbassata notevolmente, raggiungendo il suo valore minimo nelllo sprint 10. Questo è dovuto a un’intensificazione del lavoro in questa fase, che ha portato a un consumo più rapido del budget. Nonostante ciò, il valore è rimasto entro i limiti stabiliti.
 }
 
 \Met
@@ -131,6 +171,9 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
     Inoltre, nello sprint 8, a seguito delle osservazioni del professor Cardin, il team ha dovuto rivedere alcuni requisiti,
     in particolar modo i requisiti di qualità.
 }
+{ % Descrizione PB
+    Poche modifiche sono state apportate ai requisiti, poiché quasi tutti quelli definiti in fase di RTB sono stati ritenuti sufficienti per il completamento del progetto.
+}
 
 \Met
 { % METRICA
@@ -143,6 +186,9 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
     Come mostrato dal grafico il team ha raramente avuto problemi riguardanti la completezza dei documenti.
     Si può notare che solamente durante lo sprint 3 il team ha avuto delle difficoltà nella redazione del documento \textit{Analisi dei requisiti v1.0.0}.
     In ogni caso, tutti i membri si sono impegnati al massimo per garantire il completamento delle attività assegnate.
+}
+{ % Descrizione PB
+    In PB, tutti i documenti risultano sempre completi in ogni sprint.
 }
 
 \Met
@@ -157,6 +203,9 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
     Grazie all'apprendimento continuo e all'introduzione di strumenti automatizzati, il team ha colmato queste lacune apportando delle migliorie ai vari documenti.
     L'unica metrica non soddisfatta attualmente è MPC6 - Cost Variance.
 }
+{ % Descrizione PB
+    Il team ha soddisfatto quasi tutte le metriche previste, dimostrando una piena maturazione delle competenze.
+}
 
 \Met
 { % METRICA
@@ -169,6 +218,9 @@ Di seguito sono presentati i grafici relativi a diverse metriche significative d
     Il grafico evidenzia l'assenza di rischi non previsti durante l'intero progetto.
     Questo è ovviamente un buon segno in quanto indica che il gruppo è stato in grado 
     di gestire i rischi in modo efficace e che non sono emersi nuovi rischi inaspettati.
+}
+{ % Descrizione PB
+    Anche nella fase conclusiva, non sono emersi nuovi rischi imprevisti. Il team ha mantenuto un controllo efficace su tutte le potenziali criticità.
 }
 
 \subsection{Verifica della qualità dei prodotti}
@@ -189,6 +241,9 @@ Per calcolare le seguenti misure abbiamo utilizzato le formule e le nozioni desc
     Solo dopo aver implementato un'automazione per il calcolo dell'indice, è stato possibile 
     migliorarne i risultati nei periodi successivi.
 }
+{ % Descrizione PB
+    Il valore minimo dell'indice Gulpease è stato sempre rispettato e superato durante questa seconda fase del progetto.
+}
 
 \Met
 { % METRICA
@@ -203,6 +258,160 @@ Per calcolare le seguenti misure abbiamo utilizzato le formule e le nozioni desc
     Tuttavia, si osserva una netta diminuzione di tali errori nei periodi e nei 
     documenti successivi, indicando un miglioramento progressivo nella qualità della scrittura.
 }
+{ % Descrizione PB
+    Nella PB, gli errori grammaticali sono stati praticamente assenti, grazie a un processo di revisione ben strutturato.
+}
 
+\MetNoPB
+{ % METRICA
+    MPD3 - Requisiti obbligatori soddisfatti     
+}
+{ % GRAFICO
+    template/images/REQ-O.png
+}
+{   % DESCRIZIONE PB
+    Il grafico evidenzia il pieno soddisfacimento di tutti i requisiti obbligatori, garantendo la conformità del prodotto agli obiettivi minimi concordati con il proponente.
+}
 
+\MetNoPB
+{ % METRICA
+    MPD4 - Requisiti desiderabili soddisfatti    
+}
+{ % GRAFICO
+    template/images/REQ-D.png
+}
+{   % DESCRIZIONE PB
+    Il team non ha individuato requisiti desiderabili durante la fase di analisi, pertanto questa metrica non è applicabile.
+}
 
+\MetNoPB
+{ % METRICA
+    MPD5 - Requisiti opzionali soddisfatti    
+}
+{ % GRAFICO
+    template/images/REQ-OP.png
+}
+{   % DESCRIZIONE PB
+I requisiti opzionali sono stati presi in considerazione sin dall'inizio della fase di sviluppo, il che ha permesso al team di dimostrare efficacia e visione progettuale sin dalle prime fasi del lavoro. Il loro completamento ha contribuito ad arricchire ulteriormente le funzionalità del prodotto, andando oltre gli obiettivi minimi previsti.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD6 - Casi di test superati     
+}
+{ % GRAFICO
+    template/images/TEST.png
+}
+{   % DESCRIZIONE PB
+    Il numero elevato di casi di test superati indica una buona copertura del codice e l’affidabilità del sistema rispetto ai comportamenti attesi.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD7 - Densità errori
+}
+{ % GRAFICO
+    template/images/DE.png
+}
+{   % DESCRIZIONE PB
+La densità di errori ha raggiunto valori sotto la soglia di ottimalità definita dal team negli ultimi due sprint, indicando un significativo miglioramento nella qualità del codice e nella fase di verifica e validazione.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD8 - Tempo di apprendimento    
+}
+{ % GRAFICO
+    template/images/TEMP-A.png
+}
+{   % DESCRIZIONE PB
+    Il tempo di apprendimento per un nuovo utente è risultato contenuto, confermando la facilità d’uso e l’intuitività dell’interfaccia.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD9 - Tempo di caricamento    
+}
+{ % GRAFICO
+    template/images/TEMP-C.png
+}
+{   % DESCRIZIONE PB
+    I tempi di caricamento delle pagine sono stati ottimizzati e si mantengono al di sotto della soglia ottimale, migliorando l’esperienza utente.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD10 - Tempo medio di risposta    
+}
+{ % GRAFICO
+    template/images/TEMP-R.png
+}
+{   % DESCRIZIONE PB
+    Il tempo medio di risposta alle richieste dell’utente è risultato conforme agli standard previsti.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD11 - Complessità ciclomatica 
+}
+{ % GRAFICO
+    template/images/CC.png
+}
+{   % DESCRIZIONE PB
+    La complessità ciclomatica, che misura la complessità del flusso di controllo del codice, è stata mantenuta entro livelli accettabili. Questo approccio favorisce la manutenibilità del codice e facilita la fase di testing.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD12 - Parametri per metodo
+}
+{ % GRAFICO
+    template/images/PM.png
+}
+{   % DESCRIZIONE PB
+    Il numero di parametri per metodo è stato contenuto per migliorare la leggibilità del codice e ridurre l'accoppiamento tra componenti.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD13 -  Linee di codice per metodo
+}
+{ % GRAFICO
+    template/images/LINEE-M.png
+}
+{   % DESCRIZIONE PB
+Inizialmente, alcuni file presentavano un numero elevato di linee di codice per metodo, rendendo il codice meno leggibile. Tuttavia, nel successivo sprint, sono stati rivisitati e ottimizzati, garantendo una distribuzione più equilibrata e migliorando la comprensibilità.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD14 -  Linee di codice per file
+}
+{ % GRAFICO
+    template/images/LINEE-F.png
+}
+{   % DESCRIZIONE PB
+    I file mantengono una dimensione gestibile, favorendo la modularità e la manutenzione del progetto.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD15 -  Densità dei commenti
+}
+{ % GRAFICO
+    template/images/DC.png
+}
+{   % DESCRIZIONE PB
+    La densità dei commenti è risultata adeguata, garantendo una buona documentazione interna al codice senza appesantirlo inutilmente. Grazie alle norme definite, il team ha rispettato le linee guida, inserendo solo i commenti necessari per mantenere il codice chiaro e comprensibile.
+}
+
+\MetNoPB
+{ % METRICA
+    MPD16 -  Supported Browser
+}
+{ % GRAFICO
+    template/images/SB.png
+}
+{   % DESCRIZIONE PB
+    Il prodotto è stato testato con successo su una buona varietà di browser, per assicurare compatibilità e accessibilità per un’ampia base di utenti.
+}
